@@ -1,0 +1,6 @@
+[submodule "lib/libft"]
+	path = lib/libft
+	url = https://github.com/matboivin/libft.git
+[submodule "lib/mlx"]
+	path = lib/mlx
+	url = https://github.com/matboivin/mlx.git
