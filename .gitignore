@@ -55,5 +55,4 @@ dkms.conf
 *.vscode/
 
 miniRT
-doc/process.md
 tests/
