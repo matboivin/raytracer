@@ -6,12 +6,25 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:11 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 14:07:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 21:57:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_IMAGE_H
 # define MINIRT_IMAGE_H
+
+/*
+** MLX image struct
+**
+** size_x: Width of the image
+** size_y: Height of the image
+** img_ptr: Pointer returned by the mlx_new_image() function
+** img_data: Pointer returned by the mlx_get_data_addr() function: image pixels
+** Following values are obtained using mlx_get_data_addr()
+** bpp: bits per pixels
+** size_line: the size (char) of a line
+** endian: endian
+*/
 
 typedef struct	s_img
 {
