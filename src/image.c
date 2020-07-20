@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 14:07:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 14:58:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_img		create_image(int p_x, int p_y)
 		result.size_y
 	);
 	result.img_data = mlx_get_data_addr(
+		result.img_ptr,
 		&(result.bpp),
 		&(result.size_line),
 		&(result.endian)
@@ -37,7 +38,7 @@ t_img		*malloc_image(int p_x, int p_y)
 
 	result = (t_img *)malloc(sizeof(t_img));
 	if (result == NULL)
-		return (NULL);
+		exit_error(catch_err(MALLOC_IMG));
 	*result = create_image(p_x, p_y);
 	return (result);
 }

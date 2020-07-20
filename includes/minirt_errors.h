@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   minirt_errors.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 15:08:03 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/20 15:03:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef MINIRT_ERRORS_H
+# define MINIRT_ERRORS_H
 
-# include <errno.h>
-# include <limits.h>
-# include <math.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
+typedef enum	e_errid
+{
+	FILENAME,
+	MALLOC_APP,
+	MALLOC_IMG,
+	SAVE_OPTION
+}				t_errid;
 
-# include "libft.h"
-# include "mlx.h"
+typedef struct	s_err
+{
+	t_errid		u_id;
+	char		*msg;
+}				t_err;
 
-# include "minirt_image.h"
-# include "minirt_application.h"
-# include "minirt_errors.h"
+extern struct s_err	g_err[];
 
-extern t_app	*g_app;
+void			put_usage(void);
+void			*catch_err(t_errid raised);
+void			exit_error(void *s);
+void			exit_all(bool err);
 
 #endif

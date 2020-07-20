@@ -23,6 +23,7 @@ LIB			=	ft mlx_Linux
 
 SRC			= 	main.c				\
 				application.c		\
+				errors.c			\
 				image.c				\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))

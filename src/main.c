@@ -6,40 +6,30 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 13:56:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 15:08:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t-app		*g_app;
+t_app		*g_app;
 
-void		put_usage(void)
+static void	export_to_bmp(void)
 {
-	ft_dprintf(STDERR_FILENO, "Usage: ./miniRT <scene.rt> [--save]\n\n");
-	ft_dprintf(
-		STDERR_FILENO,
-		"optional arguments:\n  --save  save the rendered image in bmp format\n"
-	);
-	exit(EXIT_FAILURE);
+	ft_dprintf(STDOUT_FILENO, "Rendered image save in bmp format.\n");
+	exit_all(false);
 }
 
-void		put_error(void *s)
-{
-	ft_dprintf(STDERR_FILENO, "Error\n%s\n", s);
-	exit(EXIT_FAILURE);
-}
-
-void		check_filename(const char *filepath)
+static void	check_filename(const char *filepath)
 {
 	int		len;
 
 	len = ft_strlen(filepath);
 	if (len < 4)
-		put_error(strerror(errno));
+		exit_error(catch_err(FILENAME));
 	filepath += len - 3;
 	if (!ft_strnequ(filepath, ".rt", 3))
-		put_error(strerror(errno));
+		exit_error(catch_err(FILENAME));
 }
 
 int			main(int argc, char **argv)
@@ -48,8 +38,9 @@ int			main(int argc, char **argv)
 		put_usage();
 	check_filename(argv[1]);
 	if (argc == 3 && ft_strcmp(argv[2], "--save"))
-		put_error(strerror(errno));
+		exit_error(catch_err(SAVE_OPTION));
 	if (argc == 3)
-		put_error(strerror(errno));
+		export_to_bmp();
+	exit_all(false);
 	return (0);
 }
