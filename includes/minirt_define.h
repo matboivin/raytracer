@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 16:16:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 16:20:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,18 @@
 ** Event masks
 */
 
-# define KEYPRESSMASK (1L<<0)
-# define KEYRELEASEMASK (1L<<1)
-# define DESTROYNOTIFYMASK (1L << 17)
+/*
+** # define KEYPRESSMASK (1L<<0)
+** # define KEYRELEASEMASK (1L<<1)
+** # define DESTROYNOTIFYMASK (1L << 17)
+*/
+
+typedef enum	e_emask
+{
+	KEYPRESSMASK = 1L << 0,
+	KEYRELEASEMASK = 1L << 1,
+	DESTROYNOTIFYMASK = 1L << 17
+}				t_emask;
 
 /*
 ** Event types
