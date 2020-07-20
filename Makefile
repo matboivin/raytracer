@@ -23,6 +23,8 @@ LIB			=	ft mlx_Linux
 
 SRC			= 	main.c				\
 				application.c		\
+				colorc.c			\
+				coord.c				\
 				errors.c			\
 				events.c			\
 				image.c				\
