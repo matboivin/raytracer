@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 15:08:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 15:50:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "libft.h"
 # include "mlx.h"
 
+# include "minirt_define.h"
 # include "minirt_image.h"
 # include "minirt_application.h"
 # include "minirt_errors.h"

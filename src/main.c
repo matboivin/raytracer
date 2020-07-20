@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 15:08:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 15:56:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int			main(int argc, char **argv)
 	check_filename(argv[1]);
 	if (argc == 3 && ft_strcmp(argv[2], "--save"))
 		exit_error(catch_err(SAVE_OPTION));
+	start_application(RENDER_X, RENDER_Y, WIN_TITLE);
 	if (argc == 3)
 		export_to_bmp();
-	exit_all(false);
-	return (0);
+	return (mlx_loop(g_app->mlx_ptr));
 }
