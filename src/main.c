@@ -6,11 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 13:19:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 13:56:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+t-app		*g_app;
 
 void		put_usage(void)
 {

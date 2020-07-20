@@ -22,6 +22,8 @@ vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 LIB			=	ft mlx_Linux
 
 SRC			= 	main.c				\
+				application.c		\
+				image.c				\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 
