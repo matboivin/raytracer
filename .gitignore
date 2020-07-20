@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Visual Studio code
+*.vscode/
+
+miniRT
+doc/process.md
+tests/
