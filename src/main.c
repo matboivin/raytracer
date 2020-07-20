@@ -6,19 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:41:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 23:11:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 t_app		*g_app;
-
-static void	export_to_bmp(t_scene *scene)
-{
-	ft_dprintf(STDOUT_FILENO, "Rendered image save in bmp format.\n");
-	exit_success(scene);
-}
 
 static void	check_filename(const char *filepath)
 {
@@ -44,7 +38,7 @@ int			main(int argc, char **argv)
 	start_application(RENDER_X, RENDER_Y, WIN_TITLE);
 	create_scene(&scene);
 	if (argc == 3)
-		export_to_bmp(&scene);
+		save_bmp(&scene, BMP_FILE);
 	register_events(&scene);
 	return (run_app());
 }

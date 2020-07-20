@@ -23,11 +23,12 @@ LIB			=	ft mlx_Linux
 
 SRC			= 	main.c				\
 				application.c		\
-				colorc.c			\
+				color.c			\
 				coord.c				\
 				errors.c			\
 				events.c			\
 				image.c				\
+				save.c				\
 				scene.c				\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))

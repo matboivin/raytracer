@@ -23,3 +23,9 @@ Ray Tracing
 - [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 - [Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
+
+BMP
+
+- [BMP file format](https://www.wikiwand.com/en/BMP_file_format)
+- [Lire et écrire des fichiers image BMP](http://fvirtman.free.fr/recueil/01_09_02_testbmp.c.php)
+- [Creating Bitmap Images with C on Windows](http://ricardolovelace.com/creating-bitmap-images-with-c-on-windows.html)

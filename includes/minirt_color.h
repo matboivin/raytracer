@@ -6,14 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:32:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 21:34:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 21:53:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_COLOR_H
 # define MINIRT_COLOR_H
-
-typedef unsigned char	t_uchar;
 
 typedef struct	s_color
 {

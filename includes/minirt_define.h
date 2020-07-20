@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 16:20:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 21:54:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # define RENDER_X 840
 # define RENDER_Y 680
 # define WIN_TITLE "miniRT"
+# define BMP_FILE "miniRT.bmp"
+
+typedef unsigned char	t_uchar;
+typedef unsigned int	t_uint;
 
 /*
 ** Event masks
