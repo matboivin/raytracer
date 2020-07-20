@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_application.h                               :+:      :+:    :+:   */
+/*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:35:59 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/20 17:15:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_APPLICATION_H
-# define MINIRT_APPLICATION_H
+#include "minirt.h"
 
-typedef struct	s_app
+void	create_resolution(t_res *res)
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			win_x;
-	int			win_y;
-	char		*title;
-	t_img		*img;
-}				t_app;
+	res->is_declared = false;
+	res->size_x = 0;
+	res->size_y = 0;
+}
 
-void			start_application(int p_x, int p_y, char *title);
-void			quit_application(void);
-int				run_app(void);
+void	create_scene(t_scene *scene)
+{
+	create_resolution(&scene->res);
+}
 
-#endif
+void	destroy_scene(t_scene *to_destroy)
+{
+	(void)to_destroy;
+}

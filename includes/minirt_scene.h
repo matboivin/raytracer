@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_application.h                               :+:      :+:    :+:   */
+/*   minirt_scene.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:35:59 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/20 16:59:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_APPLICATION_H
-# define MINIRT_APPLICATION_H
+#ifndef MINIRT_SCENE_H
+# define MINIRT_SCENE_H
 
-typedef struct	s_app
+typedef struct	s_res
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			win_x;
-	int			win_y;
-	char		*title;
-	t_img		*img;
-}				t_app;
+	bool		is_declared;
+	int			size_x;
+	int			size_y;
+}				t_res;
 
-void			start_application(int p_x, int p_y, char *title);
-void			quit_application(void);
-int				run_app(void);
+typedef struct	s_scene
+{
+	t_res		res;
+}				t_scene;
+
+void			create_resolution(t_res *res);
+void			create_scene(t_scene *scene);
+void			destroy_scene(t_scene *to_destroy);
 
 #endif

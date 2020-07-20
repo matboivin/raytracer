@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_application.h                               :+:      :+:    :+:   */
+/*   minirt_events.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:35:59 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 17:42:25 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/20 17:42:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_APPLICATION_H
-# define MINIRT_APPLICATION_H
+#ifndef MINIRT_EVENTS_H
+# define MINIRT_EVENTS_H
 
-typedef struct	s_app
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			win_x;
-	int			win_y;
-	char		*title;
-	t_img		*img;
-}				t_app;
-
-void			start_application(int p_x, int p_y, char *title);
-void			quit_application(void);
-int				run_app(void);
+int		handle_key(int keycode, t_scene *scene);
+void	register_events(t_scene *scene);
 
 #endif

@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_application.h                               :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:35:59 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/20 17:41:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_APPLICATION_H
-# define MINIRT_APPLICATION_H
+#include "minirt.h"
 
-typedef struct	s_app
+int		handle_key(int keycode, t_scene *scene)
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			win_x;
-	int			win_y;
-	char		*title;
-	t_img		*img;
-}				t_app;
+	if (keycode == ESC_KEY)
+		exit_success(scene);
+	return (0);
+}
 
-void			start_application(int p_x, int p_y, char *title);
-void			quit_application(void);
-int				run_app(void);
-
-#endif
+void	register_events(t_scene *scene)
+{
+	mlx_key_hook(g_app->win_ptr, handle_key, scene);
+	mlx_hook(g_app->win_ptr, DESTROYNOTIFY, DESTROYNOTIFYMASK, exit_success, scene);
+}

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 15:56:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 17:41:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_app		*g_app;
 
-static void	export_to_bmp(void)
+static void	export_to_bmp(t_scene *scene)
 {
 	ft_dprintf(STDOUT_FILENO, "Rendered image save in bmp format.\n");
-	exit_all(false);
+	exit_success(scene);
 }
 
 static void	check_filename(const char *filepath)
@@ -26,21 +26,25 @@ static void	check_filename(const char *filepath)
 
 	len = ft_strlen(filepath);
 	if (len < 4)
-		exit_error(catch_err(FILENAME));
+		put_error(FILENAME);
 	filepath += len - 3;
 	if (!ft_strnequ(filepath, ".rt", 3))
-		exit_error(catch_err(FILENAME));
+		put_error(FILENAME);
 }
 
 int			main(int argc, char **argv)
 {
+	t_scene	scene;
+
 	if (argc < 2 || argc > 3)
 		put_usage();
 	check_filename(argv[1]);
 	if (argc == 3 && ft_strcmp(argv[2], "--save"))
-		exit_error(catch_err(SAVE_OPTION));
+		put_error(SAVE_OPTION);
 	start_application(RENDER_X, RENDER_Y, WIN_TITLE);
+	create_scene(&scene);
 	if (argc == 3)
-		export_to_bmp();
-	return (mlx_loop(g_app->mlx_ptr));
+		export_to_bmp(&scene);
+	register_events(&scene);
+	return (run_app());
 }

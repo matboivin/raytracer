@@ -24,7 +24,9 @@ LIB			=	ft mlx_Linux
 SRC			= 	main.c				\
 				application.c		\
 				errors.c			\
+				events.c			\
 				image.c				\
+				scene.c				\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 
@@ -54,9 +56,11 @@ $(OBJ_PATH)/%.o : %.c
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: debug
-debug: CFLAGS+=-g3
+debug: CFLAGS+=-g3 -fsanitize=address
 debug: re
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./miniRT scenes/scene.rt
+	./miniRT scenes/scene.rt
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./miniRT scenes/scene.rt
 
 .PHONY: bonus
 bonus: $(NAME)

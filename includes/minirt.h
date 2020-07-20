@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 15:50:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 17:42:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@
 # include "mlx.h"
 
 # include "minirt_define.h"
+# include "minirt_scene.h"
 # include "minirt_image.h"
 # include "minirt_application.h"
 # include "minirt_errors.h"
+# include "minirt_events.h"
 
 extern t_app	*g_app;
 

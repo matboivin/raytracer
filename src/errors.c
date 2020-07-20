@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 15:04:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/20 17:40:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ struct s_err	g_err[] =
 	{ FILENAME, "Invalid scene file format: Try 'scene.rt'." },
 	{ MALLOC_APP, "Malloc application failed." },
 	{ MALLOC_IMG, "Malloc image failed." },
-	{ SAVE_OPTION, "Invalid option: Try '--save'." }
+	{ SAVE_OPTION, "Invalid option: Try '--save'." },
+	{ DEFAULT, "" }
 };
 
 void		put_usage(void)
@@ -30,8 +31,9 @@ void		put_usage(void)
 	exit(EXIT_FAILURE);
 }
 
-static void	free_all(void)
+static void	free_all(t_scene *scene)
 {
+	destroy_scene(scene);
 	quit_application();
 }
 
@@ -39,24 +41,35 @@ void		*catch_err(t_errid raised)
 {
 	int		i;
 
-	i = 0;
-	while (g_err[i].u_id != raised)
-		i++;
-	if (g_err[i].u_id == raised)
-		return (g_err[i].msg);
+	if (raised != DEFAULT)
+	{
+		i = 0;
+		while (g_err[i].u_id != raised)
+			i++;
+		if (g_err[i].u_id == raised)
+			return (g_err[i].msg);
+	}
 	return (strerror(errno));
 }
 
-void		exit_error(void *s)
+void		put_error(t_errid raised)
 {
-	ft_dprintf(STDERR_FILENO, "Error\n%s\n", s);
-	exit_all(true);
+	char	*msg;
+
+	msg = catch_err(raised);
+	ft_dprintf(STDERR_FILENO, "Error\n%s\n", msg);
+	exit(EXIT_FAILURE);
 }
 
-void		exit_all(bool err)
+void		exit_error(t_scene *scene, t_errid raised)
 {
-	free_all();
-	if (err == true)
-		exit(EXIT_FAILURE);
+	free_all(scene);
+	put_error(raised);
+}
+
+int			exit_success(t_scene *scene)
+{
+	free_all(scene);
 	exit(EXIT_SUCCESS);
+	return (0);
 }
