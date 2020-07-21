@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 21:38:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 22:08:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 void	open_window(void);
 void	put_image_to_window(void);
-void	display_rt(t_scene *scene);
+void	display_rendering(t_scene *scene);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 21:46:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 22:06:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ void	fill_image(t_color color)
 
 /*
 ** Function: Sets the pixel in the MLX image data
-**
-** Formula: x position * 4 + 4 * size_line * y position
-** img->size_x = 4 * img->line
 */
 
 void	set_pixel(t_img *img, t_color color, int x, int y)
