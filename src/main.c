@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 22:08:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 22:42:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int			main(int argc, char **argv)
 	{
 		g_app->img = malloc_image(g_app->win_x, g_app->win_y); // Tmp test
 		fill_image(create_color(55, 13, 100, 255)); // Tmp test
-		save_bmp(&scene, BMP_FILE);
+		save_bmp(&scene, BMP_FILENAME);
 	}
 	display_rendering(&scene);
 	return (run_app());
