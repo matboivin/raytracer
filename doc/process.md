@@ -25,3 +25,25 @@ Le Ray tracing procède de la caméra vers les sources de lumière.
 
 - Si plus d'une caméra, alterner entre les caméras à l'aide d'un keybind
 - ESC ou croix rouge pour fermer la fenêtre et exit proprement
+
+## MLX images
+
+1 image = char pointer
+1  pixel = 4 char = RED, GREEN, BLUE, ALPHA
+
+`x position * 4 + 4 * size_line * y position`
+
+Create a new image:
+```
+img_ptr = mlx_new_image(mlx_ptr, width, height);
+```
+
+Get the image data (pixels):
+```
+img_data = mlx_get_data_addr(img_ptr, &bpp, &size_line, &endian);
+```
+
+Display the image:
+```
+mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, 0, 0);
+```
