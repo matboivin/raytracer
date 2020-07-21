@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 18:33:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 21:52:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ t_dib_h		create_bmpdibheader(int size)
 	return (result);
 }
 
-void		write_bmpheaders(int fd, int size)
+void		write_bmpheaders(int fd)
 {
+	int		size;
 	t_bmp_h	file_header;
 	t_dib_h	dib_header;
 
+	size = g_app->win_x * g_app->win_y * 3;
 	file_header = create_bmpfileheader(size);
 	dib_header = create_bmpdibheader(size);
 	write(fd, &file_header.bmp_type, 2);
@@ -72,25 +74,38 @@ void		write_bmpheaders(int fd, int size)
 	write(fd, &dib_header.clr_important, 4);
 }
 
-void		write_bmpdata(t_scene *scene, int fd, int size)
+void		write_bmpdata(t_scene *scene, int fd)
 {
-	g_app->img = malloc_image(g_app->win_x, g_app->win_y);
-	fill_image(create_color(0, 255, 0));
-	if (write(fd, g_app->img->img_data, size) < 0)
-		exit_error(scene, DEFAULT);
+	int		x;
+	int		y;
+	int		*pixel;
+	int		i;
+
+	y = 0;
+	while (y < g_app->win_y)
+	{
+		x = 0;
+		while (x < g_app->win_x)
+		{
+			i = (4 * g_app->win_x * (g_app->win_y - 1 - y)) + (4 * x);
+			pixel = (int *)(g_app->img->img_data + i);
+			if (write(fd, pixel, 3) < 0)
+				exit_error(scene, DEFAULT);
+			x++;
+		}
+		y++;
+	}
 }
 
 void		save_bmp(t_scene *scene, const char *filename)
 {
 	int		fd;
-	int		size;
 
-	size = g_app->win_x * g_app->win_y * 3;
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0666);
 	if (fd < 0)
 		exit_error(scene, DEFAULT);
-	write_bmpheaders(fd, size);
-	write_bmpdata(scene, fd, size);
+	write_bmpheaders(fd);
+	write_bmpdata(scene, fd);
 	close(fd);
 	ft_dprintf(STDOUT_FILENO, "Rendered image save in bmp format.\n");
 	exit_success(scene);

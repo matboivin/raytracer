@@ -29,6 +29,7 @@ SRC			= 	main.c				\
 				errors.c			\
 				events.c			\
 				image.c				\
+				render.c			\
 				save.c				\
 				scene.c				\
 

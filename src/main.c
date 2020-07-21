@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 18:35:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 21:49:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ int			main(int argc, char **argv)
 		put_error(SAVE_OPTION);
 	start_application(RENDER_X, RENDER_Y, WIN_TITLE);
 	create_scene(&scene);
-	g_app->img = malloc_image(g_app->win_x, g_app->win_y);
-	fill_image(create_color(50, 234, 97));
-	mlx_put_image_to_window(g_app->mlx_ptr, g_app->win_ptr, g_app->img->img_ptr, 0, 0);
 	if (argc == 3)
+	{
+		g_app->img = malloc_image(g_app->win_x, g_app->win_y); // Tmp test
+		fill_image(create_color(55, 13, 100)); // Tmp test
 		save_bmp(&scene, BMP_FILE);
-	register_events(&scene);
+	}
+	display_rt(&scene);
 	return (run_app());
 }

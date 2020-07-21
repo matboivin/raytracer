@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:40:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 21:54:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void		exit_error(t_scene *scene, t_errid raised)
 int			exit_success(t_scene *scene)
 {
 	free_all(scene);
+	ft_dprintf(STDOUT_FILENO, "EXIT\n");
 	exit(EXIT_SUCCESS);
 	return (0);
 }
