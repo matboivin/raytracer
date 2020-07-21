@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:11 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 21:57:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 17:16:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_img
 	int			size_x;
 	int			size_y;
 	void		*img_ptr;
-	void		*img_data;
+	char		*img_data;
 	int			bpp;
 	int			size_line;
 	int			endian;
