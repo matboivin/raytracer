@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   minirt_drawing.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 21:32:55 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 16:42:34 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/21 16:43:26 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/21 17:09:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef MINIRT_DRAWING_H
+# define MINIRT_DRAWING_H
 
-t_color		create_color(t_uchar p_r, t_uchar p_g, t_uchar p_b)
-{
-	t_color	result;
+void	fill_image(t_color color);
+void	set_pixel(t_img *img, t_color color, int x, int y);
 
-	result.r = p_r;
-	result.g = p_g;
-	result.b = p_b;
-	result.a = 255;
-	return (result);
-}
+#endif

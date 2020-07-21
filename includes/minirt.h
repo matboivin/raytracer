@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 21:45:21 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 16:44:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # include "minirt_scene.h"
 # include "minirt_image.h"
 # include "minirt_application.h"
+# include "minirt_drawing.h"
 # include "minirt_errors.h"
 # include "minirt_events.h"
 # include "minirt_save.h"
