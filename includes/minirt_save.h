@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 23:15:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 14:00:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_bmp_h			create_bmpfileheader(t_scene *scene);
 t_dib_h			create_bmpdibheader(t_scene *scene);
 void			write_bmpfileheader(t_scene *scene, int fd);
 void			write_bmpdibheader(t_scene *scene, int fd);
-void			write_bmpdata(int fd);
+void			write_bmpdata(t_scene *scene, int fd);
 void			save_bmp(t_scene *scene, const char *filename);
 
 #endif

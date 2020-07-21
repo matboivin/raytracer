@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 23:23:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/21 14:04:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,26 @@ void		write_bmpdibheader(t_scene *scene, int fd)
 	write(fd, &header.clr_important, 4);
 }
 
-void		write_bmpdata(int fd)
+void		write_bmpdata(t_scene *scene, int fd)
 {
-	(void)fd;
+	int		y;
+	int		x;
+	int		pixel;
+
+	y = 0;
+	// TODO: Replace by actual value
+	pixel = 600;
+	while (y < g_app->win_y)
+	{
+		x = 0;
+		while (x < g_app->win_x)
+		{
+			if (write(fd, &pixel, 3) < 0)
+				exit_error(scene, DEFAULT);
+			x++;
+		}
+		y++;
+	}
 }
 
 void		save_bmp(t_scene *scene, const char *filename)
@@ -97,7 +114,7 @@ void		save_bmp(t_scene *scene, const char *filename)
 		exit_error(scene, DEFAULT);
 	write_bmpfileheader(scene, fd);
 	write_bmpdibheader(scene, fd);
-	write_bmpdata(fd);
+	write_bmpdata(scene, fd);
 	close(fd);
 	ft_dprintf(STDOUT_FILENO, "Rendered image save in bmp format.\n");
 	exit_success(scene);
