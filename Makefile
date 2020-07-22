@@ -31,7 +31,8 @@ SRC			= 	main.c				\
 				image.c				\
 				objects.c			\
 				parsing.c			\
-				parsing_res.c		\
+				parsing_obj.c		\
+				parsing_view.c		\
 				parsing_utils.c		\
 				render.c			\
 				save.c				\

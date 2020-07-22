@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 22:21:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 01:31:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,22 @@
 typedef enum	e_errid
 {
 	AMB_DUP,
+	AMB_FMT,
+	CAM_FMT,
+	CYL_FMT,
 	FILENAME,
 	ID_ERRR,
+	LIGHT_FMT,
 	MALLOC_APP,
 	MALLOC_IMG,
+	PLANE_FMT,
 	SAVE_OPTION,
 	RES_DUP,
 	RES_NEG,
 	SCENE_FMT,
+	SPHERE_FMT,
+	SQUARE_FMT,
+	TRI_FMT,
 	DEFAULT
 }				t_errid;
 

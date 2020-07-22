@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 22:21:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 01:31:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,22 @@
 struct s_err	g_err[] =
 {
 	{ AMB_DUP, "Invalid scene: Ambient light must be declared once." },
+	{ AMB_FMT, "Invalid scene: Ambient light badly formatted." },
+	{ CAM_FMT, "Invalid scene: Camera badly formatted." },
+	{ CYL_FMT, "Invalid scene: Cylinder badly formatted." },
 	{ FILENAME, "Invalid scene file format: Try 'scene.rt'." },
 	{ ID_ERRR, "Invalid scene: Unknown identifier." },
+	{ LIGHT_FMT, "Invalid scene: Light badly formatted." },
 	{ MALLOC_APP, "Malloc application failed." },
 	{ MALLOC_IMG, "Malloc image failed." },
+	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
 	{ RES_DUP, "Invalid scene: Resolution must be declared once." },
 	{ RES_NEG, "Invalid scene: Resolution width and height must be positive." },
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
+	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
+	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
+	{ TRI_FMT, "Invalid scene: Triangle badly formatted." },
 	{ DEFAULT, "" }
 };
 

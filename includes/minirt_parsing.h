@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:23:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 01:20:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ void		parse_scene(t_scene *scene, const char *filepath);
 void		get_resolution(t_scene *scene, char **input);
 void		get_ambient(t_scene *scene, char **input);
 void		get_cam(t_scene *scene, char **input);
+void		get_light(t_scene *scene, char **input);
+void		get_sphere(t_scene *scene, char **input);
+void		get_plane(t_scene *scene, char **input);
+void		get_square(t_scene *scene, char **input);
+void		get_cylinder(t_scene *scene, char **input);
+void		get_triangle(t_scene *scene, char **input);
 
 void		skip_whitespaces(char **s);
 int			skip_separator(char **s, char sep);

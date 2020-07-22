@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:49:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 01:23:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@ struct s_parse_tab	g_parse_tab[] =
 {
 	{ "R " , &get_resolution },
 	{ "A " , &get_ambient },
-	{ "c " , &get_cam }
+	{ "c " , &get_cam },
+	{ "l " , &get_light },
+	{ "sp" , &get_sphere },
+	{ "pl" , &get_plane },
+	{ "sq" , &get_square },
+	{ "cy" , &get_cylinder },
+	{ "tr" , &get_triangle }
 };
 
 static void	call_parsing_func(t_scene *scene, char **input)
@@ -28,7 +34,7 @@ static void	call_parsing_func(t_scene *scene, char **input)
 	int		i;
 
 	i = 0;
-	while (i < 3)
+	while (i < 9)
 	{
 		if (ft_strnequ(g_parse_tab[i].u_id, *input, 2))
 		{
@@ -56,7 +62,7 @@ Int:	1920
 void		parse_scene(t_scene *scene, const char *filepath)
 {
 	char	*input;
-	const char	*ids = "RAc";
+	const char	*ids = "RAclspt";
 
 	input = read_scene_file(scene, filepath);
 	while (*input)
@@ -65,8 +71,7 @@ void		parse_scene(t_scene *scene, const char *filepath)
 		if (ft_ischarset(*input, ids) == true)
 			call_parsing_func(scene, &input);
 		else
-			input++;
-			//exit_error(scene, SCENE_FMT);
+			exit_error(scene, SCENE_FMT);
 	}
 	resize_window();
 	// TODO: Check R, A and c not missing, and scene is not in the complete dark

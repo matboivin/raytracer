@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_res.c                                      :+:      :+:    :+:   */
+/*   parsing_view.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:43:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 01:31:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_ambient(t_scene *scene, char **input)
 	(*input) += 2;
 	scene->amb.ratio = get_double(scene, input);
 	if (ft_f_range(scene->amb.ratio, 0.0, 1.0) == false)
-		exit_error(scene, SCENE_FMT);
+		exit_error(scene, AMB_FMT);
 	scene->amb.color = get_color(scene, input);
 	skip_whitespaces(input);
 }
@@ -46,8 +46,20 @@ void	get_cam(t_scene *scene, char **input)
 	scene->cam.pos = get_coord3(scene, input);
 	scene->cam.rot = get_coord3(scene, input);
 	if (ft_coord3_range(scene->cam.rot, -1, 1) == false)
-		exit_error(scene, SCENE_FMT);
+		exit_error(scene, CAM_FMT);
 	scene->cam.fov = get_integer(scene, input);
 	if (ft_n_range(scene->cam.fov, 0, 180) == false)
-		exit_error(scene, SCENE_FMT);
+		exit_error(scene, CAM_FMT);
+	skip_whitespaces(input);
+}
+
+void	get_light(t_scene *scene, char **input)
+{
+	(*input) += 2;
+	scene->light.pos = get_coord3(scene, input);
+	scene->light.ratio = get_double(scene, input);
+	if (ft_f_range(scene->light.ratio, 0.0, 1.0) == false)
+		exit_error(scene, LIGHT_FMT);
+	scene->light.color = get_color(scene, input);
+	skip_whitespaces(input);
 }
