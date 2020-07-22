@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:11:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 00:55:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,25 @@ typedef struct	s_cam
 	double		fov;
 }				t_cam;
 
+typedef struct	s_light
+{
+	t_coord3	pos;
+	t_coord3	rot;
+	t_color		color;
+}				t_light;
+
 typedef struct	s_scene
 {
 	t_res		res;
 	t_amb		amb;
 	t_cam		cam;
+	t_light		light;
 }				t_scene;
 
 void			create_resolution(t_res *res);
 void			create_ambient(t_amb *amb);
 void			create_cam(t_cam *cam);
+void			create_light(t_light *light);
 void			create_scene(t_scene *scene);
 void			destroy_scene(t_scene *to_destroy);
 

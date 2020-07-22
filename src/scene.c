@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:21:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 00:56:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,18 @@ void	create_ambient(t_amb *amb)
 	amb->color = create_color(0, 0, 0);
 }
 
-void			create_cam(t_cam *cam)
+void	create_cam(t_cam *cam)
 {
 	cam->pos = create_coord3(0, 0 ,0);
 	cam->rot = create_coord3(0, 0 ,0);
 	cam->fov = 0.0;
+}
+
+void	create_light(t_light *light)
+{
+	light->pos = create_coord3(0, 0 ,0);
+	light->rot = create_coord3(0, 0 ,0);
+	light->color = create_color(0, 0, 0);
 }
 
 void	create_scene(t_scene *scene)
@@ -38,6 +45,7 @@ void	create_scene(t_scene *scene)
 	create_resolution(&scene->res);
 	create_ambient(&scene->amb);
 	create_cam(&scene->cam);
+	create_light(&scene->light);
 }
 
 void	destroy_scene(t_scene *to_destroy)
