@@ -29,3 +29,9 @@ BMP
 - [BMP file format](https://www.wikiwand.com/en/BMP_file_format)
 - [Lire et écrire des fichiers image BMP](http://fvirtman.free.fr/recueil/01_09_02_testbmp.c.php)
 - [Creating Bitmap Images with C on Windows](http://ricardolovelace.com/creating-bitmap-images-with-c-on-windows.html)
+
+Recursive descent parser  
+
+- [Compiler Design - Top-Down Parser](https://www.tutorialspoint.com/compiler_design/compiler_design_top_down_parser.htm)
+- [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
+- [Grammars and Parsing](http://www.cs.cornell.edu/courses/cs2112/2015fa/lectures/lec_parsing/)

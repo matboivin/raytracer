@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 21:54:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/22 22:21:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 struct s_err	g_err[] =
 {
+	{ AMB_DUP, "Invalid scene: Ambient light must be declared once." },
 	{ FILENAME, "Invalid scene file format: Try 'scene.rt'." },
+	{ ID_ERRR, "Invalid scene: Unknown identifier." },
 	{ MALLOC_APP, "Malloc application failed." },
 	{ MALLOC_IMG, "Malloc image failed." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
+	{ RES_DUP, "Invalid scene: Resolution must be declared once." },
+	{ RES_NEG, "Invalid scene: Resolution width and height must be positive." },
+	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ DEFAULT, "" }
 };
 
