@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:08:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 00:23:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ t_color		get_color(t_scene *scene, char **input)
 	return (result);
 }
 
-bool		coord3_in_range(t_coord3 coord, double start, double end)
+bool		ft_coord3_range(t_coord3 coord, double start, double end)
 {
 	if (
 		ft_f_range(coord.x, start, end) == false

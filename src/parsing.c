@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 22:34:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 00:49:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 struct s_parse_tab	g_parse_tab[] =
 {
-	{ 'R' , &get_resolution },
-	{ 'A' , &get_ambient }
+	{ "R " , &get_resolution },
+	{ "A " , &get_ambient },
+	{ "c " , &get_cam }
 };
 
 static void	call_parsing_func(t_scene *scene, char **input)
@@ -27,12 +28,16 @@ static void	call_parsing_func(t_scene *scene, char **input)
 	int		i;
 
 	i = 0;
-	while (g_parse_tab[i].u_id != (**input))
+	while (i < 3)
+	{
+		if (ft_strnequ(g_parse_tab[i].u_id, *input, 2))
+		{
+			(*g_parse_tab[i].func)(scene, input);
+			return ;
+		}
 		i++;
-	if (g_parse_tab[i].u_id == (**input))
-		(*g_parse_tab[i].func)(scene, input);
-	else
-		exit_error(scene, ID_ERRR);
+	}
+	exit_error(scene, ID_ERRR);
 }
 
 /* 
@@ -51,7 +56,7 @@ Int:	1920
 void		parse_scene(t_scene *scene, const char *filepath)
 {
 	char	*input;
-	const char	*ids = "RA";
+	const char	*ids = "RAc";
 
 	input = read_scene_file(scene, filepath);
 	while (*input)
