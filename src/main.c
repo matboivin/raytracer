@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 15:47:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/22 21:23:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ int			main(int argc, char **argv)
 	start_application(RENDER_X, RENDER_Y, WIN_TITLE);
 	create_scene(&scene);
 	parse_scene(&scene, argv[1]);
-	resize_window(); // TODO: move to parsing
 	if (argc == 3)
 	{
 		g_app->img = malloc_image(g_app->win_x, g_app->win_y); // Tmp test
-		fill_image(create_color(55, 13, 100, 255)); // Tmp test
+		fill_image(create_color(255, 255, 255)); // Tmp test
 		save_bmp(&scene, BMP_FILENAME);
 	}
 	display_rendering(&scene);

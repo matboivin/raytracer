@@ -30,6 +30,8 @@ SRC			= 	main.c				\
 				events.c			\
 				image.c				\
 				parsing.c			\
+				parsing_res.c		\
+				parsing_utils.c		\
 				render.c			\
 				save.c				\
 				scene.c				\

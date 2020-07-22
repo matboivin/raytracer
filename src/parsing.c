@@ -6,31 +6,72 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 16:36:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/22 22:34:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
+/*
+** Array of structures: pointers to parsing functions matching identifier
+*/
+
+struct s_parse_tab	g_parse_tab[] =
+{
+	{ 'R' , &get_resolution },
+	{ 'A' , &get_ambient }
+};
+
+static void	call_parsing_func(t_scene *scene, char **input)
+{
+	int		i;
+
+	i = 0;
+	while (g_parse_tab[i].u_id != (**input))
+		i++;
+	if (g_parse_tab[i].u_id == (**input))
+		(*g_parse_tab[i].func)(scene, input);
+	else
+		exit_error(scene, ID_ERRR);
+}
+
 /* 
 Double:	0.2
-Coord3:	-50.0,0,20	/	0,0,1
+Double:	0
+
+Coord3:	5.0,3.0,2.0
+Coord3:	-5.0,3.0,2.0
+Coord3:	0,0,1
+
 Color:	255,255,255
-Num:	1920
+
+Int:	1920
 */
 
 void		parse_scene(t_scene *scene, const char *filepath)
 {
-	char	*to_parse;
+	char	*input;
+	const char	*ids = "RA";
 
-	to_parse = read_scene_file(scene, filepath);
-	free(to_parse);
+	input = read_scene_file(scene, filepath);
+	while (*input)
+	{
+		skip_whitespaces(&input);
+		if (ft_ischarset(*input, ids) == true)
+			call_parsing_func(scene, &input);
+		else
+			input++;
+			//exit_error(scene, SCENE_FMT);
+	}
+	resize_window();
 	// TODO: Check R, A and c not missing, and scene is not in the complete dark
 }
 
 /*
 ** Function: Gets the entire scene
 */
+
+// TODO: Debug leak
 
 char		*read_scene_file(t_scene *scene, const char *filepath)
 {
@@ -48,8 +89,7 @@ char		*read_scene_file(t_scene *scene, const char *filepath)
 	while (ret_value)
 	{
 		ret_value = get_next_line(fd, &line);
-		result = ft_strjoindelone(result, line);
-		if (result == NULL)
+		if (!(result = ft_strjoindelone(result, line)))
 			exit_error(scene, DEFAULT);
 		free(line);
 	}
