@@ -29,6 +29,7 @@ SRC			= 	main.c				\
 				errors.c			\
 				events.c			\
 				image.c				\
+				objects.c			\
 				parsing.c			\
 				parsing_res.c		\
 				parsing_utils.c		\

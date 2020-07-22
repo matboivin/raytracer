@@ -6,12 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:55:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 01:09:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_SCENE_H
 # define MINIRT_SCENE_H
+
+# include "minirt_objects.h"
 
 typedef struct	s_res
 {
@@ -47,6 +49,11 @@ typedef struct	s_scene
 	t_amb		amb;
 	t_cam		cam;
 	t_light		light;
+	t_sphere	sphere;
+	t_square	square;
+	t_plane		plane;
+	t_cyl		cylinder;
+	t_tri		triangle;
 }				t_scene;
 
 void			create_resolution(t_res *res);

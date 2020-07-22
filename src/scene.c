@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:56:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 01:08:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void	create_scene(t_scene *scene)
 	create_ambient(&scene->amb);
 	create_cam(&scene->cam);
 	create_light(&scene->light);
+	create_sphere(&scene->sphere);
+	create_square(&scene->square);
+	create_plane(&scene->plane);
+	create_cylinder(&scene->cylinder);
+	create_triangle(&scene->triangle);
 }
 
 void	destroy_scene(t_scene *to_destroy)
