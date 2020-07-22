@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 21:21:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/22 23:58:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	resize_window(void)
 void	display_rendering(t_scene *scene)
 {
 	g_app->img = malloc_image(g_app->win_x, g_app->win_y);
-	fill_image(create_color(55, 0, 55)); // Tmp test
+	fill_image(create_color(0, 0, 255)); // Tmp test
 	open_window();
 	put_image_to_window();
 	register_events(scene);
