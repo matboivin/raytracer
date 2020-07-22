@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 14:37:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/22 15:47:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int			main(int argc, char **argv)
 		put_error(SAVE_OPTION);
 	start_application(RENDER_X, RENDER_Y, WIN_TITLE);
 	create_scene(&scene);
+	parse_scene(&scene, argv[1]);
 	resize_window(); // TODO: move to parsing
 	if (argc == 3)
 	{

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 14:39:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/22 14:42:15 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 ** Default window render size and title
 */
 
-# define RENDER_X 30000
-# define RENDER_Y 6000
+# define RENDER_X 840
+# define RENDER_Y 680
 # define WIN_TITLE "miniRT"
 
 typedef unsigned char	t_uchar;
