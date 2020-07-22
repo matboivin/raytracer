@@ -1,4 +1,4 @@
-- Parser scène -> remplir structure
+- Parser scène -> remplir structure  
 lire+parse+check en même temps  
 Un read + une fonction qui check+parse dans cette fonction faire tableau pointeurs ou un parser récursif https://en.m.wikipedia.org/wiki/Recursive_descent_parser
 
@@ -28,7 +28,7 @@ Le Ray tracing procède de la caméra vers les sources de lumière.
 
 ## MLX images
 
-1 image = char pointer
+1 image = char pointer  
 1  pixel = 4 char = RED, GREEN, BLUE, ALPHA
 
 `x position * 4 + 4 * size_line * y position`

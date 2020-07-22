@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 22:08:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/22 14:40:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,23 @@ void	put_image_to_window(void)
 	);
 }
 
+void	resize_window(void)
+{
+	int	max_x;
+	int	max_y;
+
+	mlx_get_screen_size(g_app->mlx_ptr, &max_x, &max_y);
+	if (g_app->win_x > max_x)
+		g_app->win_x = max_x;
+	if (g_app->win_y > max_y)
+		g_app->win_y = max_y;
+}
+
 void	display_rendering(t_scene *scene)
 {
-	open_window();
 	g_app->img = malloc_image(g_app->win_x, g_app->win_y);
 	fill_image(create_color(55, 0, 55, 23)); // Tmp test
+	open_window();
 	put_image_to_window();
 	register_events(scene);
 }
