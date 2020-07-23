@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 01:31:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 19:24:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@ typedef enum	e_errid
 	AMB_DUP,
 	AMB_FMT,
 	CAM_FMT,
+	COLOR_FMT,
+	COORD_FMT,
 	CYL_FMT,
+	DOUBLE_FMT,
 	FILENAME,
 	ID_ERRR,
 	LIGHT_FMT,
 	MALLOC_APP,
 	MALLOC_IMG,
+	NUM_FMT,
 	PLANE_FMT,
 	SAVE_OPTION,
 	RES_DUP,
@@ -44,7 +48,7 @@ typedef struct	s_err
 extern struct s_err	g_err[];
 
 void			put_usage(void);
-void			*catch_err(t_errid raised);
+char			*catch_err(t_errid raised);
 void			put_error(t_errid raised);
 void			exit_error(t_scene *scene, t_errid raised);
 int				exit_success(t_scene *scene);
