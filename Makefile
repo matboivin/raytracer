@@ -32,6 +32,7 @@ SRC			= 	main.c				\
 				objects.c			\
 				parsing.c			\
 				parsing_obj.c		\
+				parsing_values.c	\
 				parsing_view.c		\
 				parsing_utils.c		\
 				render.c			\
