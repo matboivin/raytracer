@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 21:56:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:40:15 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_APPLICATION_H
 
 /*
-** Struct: Application
+** Struct: Application that interacts with MLX
 **
 ** mlx_ptr: Pointer returned by the mlx_init() function
 ** win_ptr: Pointer to a MLX window
@@ -34,8 +34,8 @@ typedef struct	s_app
 	t_img		*img;
 }				t_app;
 
-void			start_application(int p_x, int p_y, char *title);
-void			quit_application(void);
+void			open_app(int p_x, int p_y, char *title);
+void			quit_app(void);
 int				run_app(void);
 
 #endif

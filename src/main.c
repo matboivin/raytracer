@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 21:23:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 00:07:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,12 @@ int			main(int argc, char **argv)
 	check_filename(argv[1]);
 	if (argc == 3 && ft_strcmp(argv[2], "--save"))
 		put_error(SAVE_OPTION);
-	start_application(RENDER_X, RENDER_Y, WIN_TITLE);
+	open_app(RENDER_X, RENDER_Y, WIN_TITLE);
 	create_scene(&scene);
 	parse_scene(&scene, argv[1]);
+	// TODO: fill RT image
 	if (argc == 3)
-	{
-		g_app->img = malloc_image(g_app->win_x, g_app->win_y); // Tmp test
-		fill_image(create_color(255, 255, 255)); // Tmp test
 		save_bmp(&scene, BMP_FILENAME);
-	}
 	display_rendering(&scene);
 	return (run_app());
 }

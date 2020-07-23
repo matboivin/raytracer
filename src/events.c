@@ -6,11 +6,18 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:41:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:56:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Handle events
+**
+** handle_key()      :  Handles keyboard events
+** register_events() :  Register event handlers
+*/
 
 int		handle_key(int keycode, t_scene *scene)
 {

@@ -6,14 +6,18 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:52:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Array of structures: Parsing functions matching identifier
+** Parse the scene description
+**
+** call_parsing_func :  Gets the function matching identifier
+** read_scene_file() :  Gets the entire scene description
+** parse_scene()     :  Parses the scene description to fill the scene struct
 */
 
 struct s_pars_tab	g_pars_tab[] =
@@ -46,10 +50,6 @@ static void		call_parsing_func(t_scene *scene, char **input)
 	exit_error(scene, ID_ERRR);
 }
 
-/*
-** Function: Gets the entire scene description
-*/
-
 char			*read_scene_file(t_scene *scene, const char *filepath)
 {
 	int			fd;
@@ -71,10 +71,6 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 	close(fd);
 	return (result);
 }
-
-/*
-** Function: Parse the scene description to fill the scene struct
-*/
 
 void			parse_scene(t_scene *scene, const char *filepath)
 {

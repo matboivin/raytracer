@@ -6,14 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:23:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:58:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Function: Fills the image starting from pos (0,0) using the color parameter
+** Draw in image
+**
+** fill_image() : Fills the image with a given color starting from pos (0,0)
+** set_pixel()  :  Sets the pixel in the MLX image data
 */
 
 void	fill_image(t_color color)
@@ -33,10 +36,6 @@ void	fill_image(t_color color)
 		y++;
 	}
 }
-
-/*
-** Function: Sets the pixel in the MLX image data
-*/
 
 void	set_pixel(t_img *img, t_color color, int x, int y)
 {

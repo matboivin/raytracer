@@ -6,13 +6,21 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:05 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:51:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	start_application(int p_x, int p_y, char *title)
+/*
+** Application that interfaces with MLX
+**
+** open_app() :  Constructor
+** quit_app() :  Destructor
+** run_app()  :  Start loop to catch events
+*/
+
+void	open_app(int p_x, int p_y, char *title)
 {
 	g_app = (t_app *)malloc(sizeof(t_app));
 	if (g_app == NULL)
@@ -25,7 +33,7 @@ void	start_application(int p_x, int p_y, char *title)
 	g_app->img = NULL;
 }
 
-void	quit_application(void)
+void	quit_app(void)
 {
 	if (g_app->img != NULL)
 		free_image(g_app->img);
