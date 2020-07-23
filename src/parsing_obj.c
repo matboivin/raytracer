@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 01:34:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 21:08:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	get_square(t_scene *scene, char **input)
 	(*input) += 2;
 	scene->square.pos = get_coord3(scene, input);
 	scene->square.rot = get_coord3(scene, input);
-	if (ft_coord3_range(scene->square.rot, -1, 1) == false)
+	if (ft_coord3_range(scene->square.rot, -1.0, 1.0) == false)
 		exit_error(scene, SQUARE_FMT);
 	scene->square.side = get_double(scene, input);
 	scene->square.color = get_color(scene, input);
@@ -49,8 +49,8 @@ void	get_cylinder(t_scene *scene, char **input)
 	(*input) += 2;
 	scene->cylinder.pos = get_coord3(scene, input);
 	scene->cylinder.rot = get_coord3(scene, input);
-	if (ft_coord3_range(scene->cylinder.rot, -1, 1) == false)
-		exit_error(scene, TRI_FMT);
+	if (ft_coord3_range(scene->cylinder.rot, -1.0, 1.0) == false)
+		exit_error(scene, CYL_FMT);
 	scene->cylinder.diameter = get_double(scene, input);
 	scene->cylinder.side = get_double(scene, input);
 	scene->cylinder.color = get_color(scene, input);

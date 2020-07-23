@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 01:08:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 18:49:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	create_cam(t_cam *cam)
 void	create_light(t_light *light)
 {
 	light->pos = create_coord3(0, 0 ,0);
-	light->rot = create_coord3(0, 0 ,0);
+	light->ratio = 0.0;
 	light->color = create_color(0, 0, 0);
 }
 

@@ -6,11 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 01:31:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 21:07:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include <stdio.h>
 
 void	get_resolution(t_scene *scene, char **input)
 {
@@ -45,7 +46,7 @@ void	get_cam(t_scene *scene, char **input)
 	(*input) += 2;
 	scene->cam.pos = get_coord3(scene, input);
 	scene->cam.rot = get_coord3(scene, input);
-	if (ft_coord3_range(scene->cam.rot, -1, 1) == false)
+	if (ft_coord3_range(scene->cam.rot, -1.0, 1.0) == false)
 		exit_error(scene, CAM_FMT);
 	scene->cam.fov = get_integer(scene, input);
 	if (ft_n_range(scene->cam.fov, 0, 180) == false)

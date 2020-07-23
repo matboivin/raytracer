@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 00:23:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 20:33:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,6 @@ t_coord3	get_coord3(t_scene *scene, char **input)
 {
 	t_coord3	result;
 
-	skip_whitespaces(input);
 	result.x = get_double(scene, input);
 	if (!(skip_separator(input, ',')))
 		exit_error(scene, SCENE_FMT);
