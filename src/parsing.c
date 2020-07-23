@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:52:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 00:37:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 **
 ** call_parsing_func :  Gets the function matching identifier
 ** read_scene_file() :  Gets the entire scene description
+** check_scene()     :  Check the scene data is valid
 ** parse_scene()     :  Parses the scene description to fill the scene struct
 */
 
@@ -72,6 +73,18 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 	return (result);
 }
 
+// TODO: Check c not missing, and scene is not in the complete dark
+
+static void		check_scene(t_scene *scene)
+{
+	if (
+		scene->res.is_declared == false
+		|| scene->amb.is_declared == false
+	)
+		exit_error(scene, SCENE_ERR);
+	return ;
+}
+
 void			parse_scene(t_scene *scene, const char *filepath)
 {
 	char		*input;
@@ -79,6 +92,8 @@ void			parse_scene(t_scene *scene, const char *filepath)
 	const char	*ids = "RAclspt";
 
 	input = read_scene_file(scene, filepath);
+	if (input == NULL)
+		exit_error(scene, DEFAULT_ERR);
 	head = input;
 	while (*input)
 	{
@@ -88,7 +103,7 @@ void			parse_scene(t_scene *scene, const char *filepath)
 		else
 			exit_error(scene, SCENE_FMT);
 	}
-	resize_window();
 	free(head);
-	// TODO: Check R, A and c not missing, and scene is not in the complete dark
+	resize_window();
+	check_scene(scene);
 }

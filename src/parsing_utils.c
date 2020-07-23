@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 22:34:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 00:31:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ void	skip_integer(char **s)
 void	skip_double(t_scene *scene, char **s)
 {
 	skip_integer(s);
-	if (!(skip_separator(s, '.')))
-		return ;
-	if (ft_isdigit(**s) == false)
-		exit_error(scene, SCENE_FMT);
-	while (ft_isdigit(**s) == true)
-		(*s)++;
+	if (skip_separator(s, '.'))
+	{
+		if (ft_isdigit(**s) == false)
+			exit_error(scene, SCENE_FMT);
+		while (ft_isdigit(**s) == true)
+			(*s)++;
+	}
 }

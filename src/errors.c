@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:51:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 00:14:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ struct s_err	g_err[] =
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
 	{ RES_DUP, "Invalid scene: Resolution must be declared once." },
 	{ RES_NEG, "Invalid scene: Resolution width and height must be positive." },
+	{ SCENE_ERR, "Invalid scene: Missing resolution or ambient light." },
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
 	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
@@ -48,7 +49,7 @@ void		put_usage(void)
 static void	free_all(t_scene *scene)
 {
 	destroy_scene(scene);
-	quit_application();
+	quit_app();
 }
 
 char		*catch_err(t_errid raised)
