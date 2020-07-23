@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 22:45:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void		write_bmpdata(t_scene *scene, int fd)
 			i = (4 * g_app->win_x * (g_app->win_y - 1 - y)) + (4 * x);
 			pixel = (int *)(g_app->img->img_data + i);
 			if (write(fd, pixel, 3) < 0)
-				exit_error(scene, DEFAULT);
+				exit_error(scene, DEFAULT_ERR);
 			x++;
 		}
 		y++;
@@ -125,7 +125,7 @@ void		save_bmp(t_scene *scene, const char *filename)
 	ft_dprintf(STDOUT_FILENO, "Saving rendered image in BMP format...\n");
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd < 0)
-		exit_error(scene, DEFAULT);
+		exit_error(scene, DEFAULT_ERR);
 	write_bmpheaders(fd);
 	write_bmpdata(scene, fd);
 	close(fd);

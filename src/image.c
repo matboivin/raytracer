@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/20 17:11:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_img		*malloc_image(int p_x, int p_y)
 
 	result = (t_img *)malloc(sizeof(t_img));
 	if (result == NULL)
-		put_error(MALLOC_IMG);
+		put_error(DEFAULT_ERR);
 	*result = create_image(p_x, p_y);
 	return (result);
 }

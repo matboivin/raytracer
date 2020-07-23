@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 19:24:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ typedef enum	e_errid
 	FILENAME,
 	ID_ERRR,
 	LIGHT_FMT,
-	MALLOC_APP,
-	MALLOC_IMG,
 	NUM_FMT,
 	PLANE_FMT,
 	SAVE_OPTION,
@@ -35,8 +33,7 @@ typedef enum	e_errid
 	SCENE_FMT,
 	SPHERE_FMT,
 	SQUARE_FMT,
-	TRI_FMT,
-	DEFAULT
+	DEFAULT_ERR
 }				t_errid;
 
 typedef struct	s_err

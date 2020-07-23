@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 19:24:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ struct s_err	g_err[] =
 	{ FILENAME, "Invalid scene file format: Try 'scene.rt'." },
 	{ ID_ERRR, "Invalid scene: Unknown identifier." },
 	{ LIGHT_FMT, "Invalid scene: Light badly formatted." },
-	{ MALLOC_APP, "Malloc application failed." },
-	{ MALLOC_IMG, "Malloc image failed." },
 	{ NUM_FMT, "Invalid scene: Number badly formatted." },
 	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
@@ -34,8 +32,7 @@ struct s_err	g_err[] =
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
 	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
-	{ TRI_FMT, "Invalid scene: Triangle badly formatted." },
-	{ DEFAULT, "" }
+	{ DEFAULT_ERR, "" }
 };
 
 void		put_usage(void)
@@ -59,7 +56,7 @@ char		*catch_err(t_errid raised)
 	int		i;
 
 	i = 0;
-	while (g_err[i].u_id != DEFAULT)
+	while (g_err[i].u_id != DEFAULT_ERR)
 	{
 		if (g_err[i].u_id == raised)
 			return (g_err[i].msg);

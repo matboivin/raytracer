@@ -6,14 +6,16 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:32:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 21:21:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:25:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_COLOR_H
 # define MINIRT_COLOR_H
 
-/* MLX is in BGRA so we change the order of values to RGBA */
+/*
+** MLX is in BGRA so we change the order of values to RGBA
+*/
 
 # define RED_COMP 2
 # define GREEN_COMP 1
@@ -28,6 +30,6 @@ typedef struct	s_color
 	t_uchar		a;
 }				t_color;
 
-t_color		create_color(t_uchar p_r, t_uchar p_g, t_uchar p_b);
+t_color			create_color(t_uchar p_r, t_uchar p_g, t_uchar p_b);
 
 #endif

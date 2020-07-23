@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 19:33:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:26:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@
 # include "minirt_save.h"
 
 extern struct s_app			*g_app;
-extern struct s_parse_tab	g_parse_tab[];
+extern struct s_pars_tab	g_pars_tab[];
 
 #endif

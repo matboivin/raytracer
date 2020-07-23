@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:05 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 21:27:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	start_application(int p_x, int p_y, char *title)
 {
 	g_app = (t_app *)malloc(sizeof(t_app));
 	if (g_app == NULL)
-		put_error(MALLOC_APP);
+		put_error(DEFAULT_ERR);
 	g_app->mlx_ptr = mlx_init();
 	g_app->win_x = p_x;
 	g_app->win_y = p_y;

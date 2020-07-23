@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 22:06:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/23 23:23:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fill_image(t_color color)
 {
 	int	x;
 	int	y;
- 
+
 	y = 0;
 	while (y < g_app->win_y)
 	{
