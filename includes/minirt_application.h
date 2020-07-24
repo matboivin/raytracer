@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:40:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 00:37:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_APPLICATION_H
 
 /*
-** Struct: Application that interacts with MLX
+** Struct: Application to use MLX functions
 **
 ** mlx_ptr: Pointer returned by the mlx_init() function
 ** win_ptr: Pointer to a MLX window

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   minirt_display.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 00:47:29 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/25 00:45:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef MINIRT_DISPLAY_H
+# define MINIRT_DISPLAY_H
 
-/*
-** Render image
-**
-** generate_image() :  Generate the rendered image
-*/
+void	open_window(void);
+void	put_image_to_window(void);
+void	resize_window(t_scene *scene);
+void	display_rendering(t_scene *scene);
 
-void	generate_image(t_scene *scene)
-{
-	g_app->img = malloc_image(g_app->win_x, g_app->win_y);
-	fill_image(create_color(0, 0, 255)); // Tmp test
-	if (scene->res.size_x < 400 || scene->res.size_y < 400)
-		put_warn_res();
-}
+#endif

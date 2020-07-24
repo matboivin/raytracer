@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:05 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:26:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 00:37:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Application that interfaces with MLX
+** Application to use MLX functions
 **
 ** open_app() :  Constructor
 ** quit_app() :  Destructor

@@ -25,6 +25,7 @@ SRC			= 	main.c				\
 				application.c		\
 				color.c				\
 				coord.c				\
+				display.c			\
 				drawing.c			\
 				exit.c				\
 				exit_error.c		\

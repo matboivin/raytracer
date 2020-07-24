@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 20:27:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 00:08:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ extern struct s_err	g_err[];
 void			check_filename(const char *filepath);
 void			free_all(t_scene *scene);
 void			put_usage(void);
+void			put_warn_res(void);
 char			*catch_err(t_errid raised);
 void			put_error(t_errid raised);
 void			exit_error(t_scene *scene, t_errid raised);

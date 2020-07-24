@@ -6,13 +6,28 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:16:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 00:59:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 t_app		*g_app;
+
+/*
+** miniRT
+** Generate images using the Ray tracing protocol
+**
+** Requirements: MinilibX for Linux
+**
+** Open app to connect to the X server with mlx_init()
+** Initialize scene struct
+** Parse a given scene description to store data in the scene struct
+** Use scene data to generate an image
+** If '--save' option is used, save the image in BMP format
+** Else, display the rendered imaged in a window
+** Run a loop to listen to events
+*/
 
 int			main(int argc, char **argv)
 {
@@ -26,7 +41,7 @@ int			main(int argc, char **argv)
 	open_app(RENDER_X, RENDER_Y, WIN_TITLE);
 	create_scene(&scene);
 	parse_scene(&scene, argv[1]);
-	// TODO: fill RT image
+	generate_image(&scene);
 	if (argc == 3)
 		save_bmp(&scene, BMP_FILENAME);
 	display_rendering(&scene);

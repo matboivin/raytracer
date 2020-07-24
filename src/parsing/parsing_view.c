@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:02:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 00:44:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ void	get_resolution(t_scene *scene, char **input)
 	scene->res.size_y = get_integer(scene, input);
 	if (scene->res.size_x < 1 || scene->res.size_y < 1)
 		exit_error(scene, RES_NEG);
-	g_app->win_x = scene->res.size_x;
-	g_app->win_y = scene->res.size_y;
+	resize_window(scene);
 	skip_whitespaces(input);
 }
 
