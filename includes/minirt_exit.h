@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:18:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 20:27:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ typedef enum	e_errid
 	FILENAME,
 	ID_ERRR,
 	LIGHT_FMT,
+	MISS_RA,
 	NUM_FMT,
 	PLANE_FMT,
 	SAVE_OPTION,
 	RES_DUP,
 	RES_NEG,
-	SCENE_ERR,
 	SCENE_FMT,
 	SPHERE_FMT,
 	SQUARE_FMT,

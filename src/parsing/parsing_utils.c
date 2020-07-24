@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:23:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 21:02:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** ft_coord3_range()  :  Checks if coordinate values are in a given range
 ** skip_whitespaces() :  Skips whitespaces
 ** skip_separator()   :  Skips a given separator (expected: , . -)
-** skip_integer()     :  Skips integer number
+** skip_digits()      :  Skips digits
 ** skip_double()      :  Skips double number
 */
 
@@ -39,7 +39,7 @@ void	skip_whitespaces(char **s)
 		(*s)++;
 }
 
-int		skip_separator(char **s, char sep)
+int		skip_separator(char **s, int sep)
 {
 	if ((**s) == sep)
 	{
@@ -49,21 +49,23 @@ int		skip_separator(char **s, char sep)
 	return (0);
 }
 
-void	skip_integer(char **s)
+void	skip_digits(char **s)
 {
-	skip_separator(s, '-');
 	while (ft_isdigit(**s) == true)
 		(*s)++;
 }
 
 void	skip_double(t_scene *scene, char **s)
 {
-	skip_integer(s);
+	skip_separator(s, '-');
+	skip_digits(s);
 	if (skip_separator(s, '.'))
 	{
 		if (ft_isdigit(**s) == false)
-			exit_error(scene, SCENE_FMT);
+			exit_error(scene, DOUBLE_FMT);
 		while (ft_isdigit(**s) == true)
 			(*s)++;
+		if ((**s) == '-')
+			exit_error(scene, DOUBLE_FMT);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:26:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 20:57:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void			get_cylinder(t_scene *scene, char **input);
 void			get_triangle(t_scene *scene, char **input);
 
 void			skip_whitespaces(char **s);
-int				skip_separator(char **s, char sep);
-void			skip_integer(char **s);
+int				skip_separator(char **s, int sep);
+void			skip_digits(char **s);
 void			skip_double(t_scene *scene, char **s);
 int				get_integer(t_scene *scene, char **input);
 double			get_double(t_scene *scene, char **input);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:27:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 20:27:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ struct s_err	g_err[] =
 	{ FILENAME, "Invalid scene file format: Try 'scene.rt'." },
 	{ ID_ERRR, "Invalid scene: Unknown identifier." },
 	{ LIGHT_FMT, "Invalid scene: Light badly formatted." },
+	{ MISS_RA, "Invalid scene: Missing resolution or ambient light." },
 	{ NUM_FMT, "Invalid scene: Number badly formatted." },
 	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
 	{ RES_DUP, "Invalid scene: Resolution must be declared once." },
 	{ RES_NEG, "Invalid scene: Resolution width and height must be positive." },
-	{ SCENE_ERR, "Invalid scene: Missing resolution or ambient light." },
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
 	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },

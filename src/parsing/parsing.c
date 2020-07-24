@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:25:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 20:27:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void		check_scene(t_scene *scene)
 		scene->res.is_declared == false
 		|| scene->amb.is_declared == false
 	)
-		exit_error(scene, SCENE_ERR);
+		exit_error(scene, MISS_RA);
 	return ;
 }
 
