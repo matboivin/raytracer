@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:22:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 18:03:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** open_window()         :  Creates a new window
 ** put_image_to_window() :  Displays image in window
 ** resize_window()       :  Handles window size if bigger than screen size
-** display_rendering()   :  Displays the image and registers events
+** display_rendering()   :  Displays the image and dispatches events
 */
 
 void	open_window(void)
@@ -60,5 +60,5 @@ void	display_rendering(t_scene *scene)
 	fill_image(create_color(0, 0, 255)); // Tmp test
 	open_window();
 	put_image_to_window();
-	register_events(scene);
+	dispatch_event(scene);
 }

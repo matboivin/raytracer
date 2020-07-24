@@ -12,7 +12,12 @@ Xlib
 - [The Xlib Manual (HTML format)](https://tronche.com/gui/x/xlib/)
 - [Xlib : les évènements (PDF)](http://www-igm.univ-mlv.fr/~berstel/Cours/Xlib/13-Evenements.pdf)
 
-Maths  
+Event Handling  
+
+- [Wiki: Event (computing)](https://en.wikipedia.org/wiki/Event_(computing))
+- [Event Dispatch & Handling (PDF)](https://www.student.cs.uwaterloo.ca/~cs349/w16/slides/2.2-event-dispatch.pdf)
+
+Math  
 
 - [Khan Academy](https://khanacademy.org/)
 https://fr.khanacademy.org/math/linear-algebra/vectors-and-spaces
@@ -24,18 +29,8 @@ Ray Tracing
 - [Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
 
-BMP
+BMP  
 
 - [BMP file format](https://www.wikiwand.com/en/BMP_file_format)
 - [Lire et écrire des fichiers image BMP](http://fvirtman.free.fr/recueil/01_09_02_testbmp.c.php)
 - [Creating Bitmap Images with C on Windows](http://ricardolovelace.com/creating-bitmap-images-with-c-on-windows.html)
-
-Recursive descent parser  
-
-- [Compiler Design - Top-Down Parser](https://www.tutorialspoint.com/compiler_design/compiler_design_top_down_parser.htm)
-- [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
-- [Grammars and Parsing](http://www.cs.cornell.edu/courses/cs2112/2015fa/lectures/lec_parsing/)
-
-Events
-
-- [Wiki: Event (computing)](https://en.wikipedia.org/wiki/Event_(computing))
