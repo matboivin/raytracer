@@ -10,17 +10,17 @@ Xlib
 
 - [Xlib - C Language X Interface](https://www.x.org/releases/X11R7.7/doc/libX11/libX11/libX11.html)
 - [The Xlib Manual (HTML format)](https://tronche.com/gui/x/xlib/)
-- [Xlib : les évènements (PDF)](http://www-igm.univ-mlv.fr/~berstel/Cours/Xlib/13-Evenements.pdf)
 
 Event Handling  
 
 - [Wiki: Event (computing)](https://en.wikipedia.org/wiki/Event_(computing))
+- [Xlib - les évènements (PDF)](http://www-igm.univ-mlv.fr/~berstel/Cours/Xlib/13-Evenements.pdf)
 - [Event Dispatch & Handling (PDF)](https://www.student.cs.uwaterloo.ca/~cs349/w16/slides/2.2-event-dispatch.pdf)
 
 Math  
 
 - [Khan Academy](https://khanacademy.org/)
-https://fr.khanacademy.org/math/linear-algebra/vectors-and-spaces
+- [Khan Academy: Vectors and Spaces](https://fr.khanacademy.org/math/linear-algebra/vectors-and-spaces)
 
 Ray Tracing  
 
