@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:58:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:04:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Draw in image
 **
-** fill_image() : Fills the image with a given color starting from pos (0,0)
+** fill_image() :  Fills the image with a given color starting from pos (0,0)
 ** set_pixel()  :  Sets the pixel in the MLX image data
 */
 

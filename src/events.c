@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:56:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:26:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Handle events
 **
 ** handle_key()      :  Handles keyboard events
-** register_events() :  Register event handlers
+** register_events() :  Registers event handlers
 */
 
 int		handle_key(int keycode, t_scene *scene)

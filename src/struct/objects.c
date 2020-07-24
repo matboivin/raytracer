@@ -6,11 +6,21 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:22:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 16:44:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Initialize objects
+**
+** create_sphere()
+** create_plane()
+** create_square()
+** create_cylinder()
+** create_triangle()
+*/
 
 void	create_sphere(t_sphere *sphere)
 {
@@ -19,19 +29,19 @@ void	create_sphere(t_sphere *sphere)
 	sphere->color = create_color(0.0, 0.0, 0.0);
 }
 
+void	create_plane(t_plane *plane)
+{
+	plane->pos = create_coord3(0.0, 0.0, 0.0);
+	plane->rot = create_coord3(0.0, 0.0, 0.0);
+	plane->color = create_color(0.0, 0.0, 0.0);
+}
+
 void	create_square(t_square *square)
 {
 	square->pos = create_coord3(0.0, 0.0, 0.0);
 	square->rot = create_coord3(0.0, 0.0, 0.0);
 	square->side = 0.0;
 	square->color = create_color(0.0, 0.0, 0.0);
-}
-
-void	create_plane(t_plane *plane)
-{
-	plane->pos = create_coord3(0.0, 0.0, 0.0);
-	plane->rot = create_coord3(0.0, 0.0, 0.0);
-	plane->color = create_color(0.0, 0.0, 0.0);
 }
 
 void	create_cylinder(t_cyl *cylinder)

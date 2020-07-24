@@ -6,11 +6,21 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:23:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:09:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Initialize scene elements
+**
+** create_resolution()
+** create_ambient()
+** create_cam()
+** create_light()
+** create_scene()
+*/
 
 void	create_resolution(t_res *res)
 {

@@ -6,11 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:32:55 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/22 21:31:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:04:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Color
+**
+** create_color() :  Constructor
+*/
 
 t_color		create_color(t_uchar p_r, t_uchar p_g, t_uchar p_b)
 {

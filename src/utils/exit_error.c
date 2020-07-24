@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 00:14:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:27:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Print error messages and exit program
+**
+** g_err struct :  Error ids associated to error messages
+** catch_err()  :  Retrieves the appropriate error message given an error id
+** put_error()  :  Prints error message to standard error
+** exit_error() :  Frees allocated memory, prints error message and exits
+*/
 
 struct s_err	g_err[] =
 {
@@ -18,9 +27,9 @@ struct s_err	g_err[] =
 	{ AMB_FMT, "Invalid scene: Ambient light badly formatted." },
 	{ CAM_FMT, "Invalid scene: Camera badly formatted." },
 	{ COLOR_FMT, "Invalid scene: Color badly formatted." },
-	{ COORD_FMT, "Invalid scene: Coord3 badly formatted." },
+	{ COORD_FMT, "Invalid scene: Coordinates badly formatted." },
 	{ CYL_FMT, "Invalid scene: Cylinder badly formatted." },
-	{ DOUBLE_FMT, "Invalid scene: Double badly formatted." },
+	{ DOUBLE_FMT, "Invalid scene: Double value badly formatted." },
 	{ FILENAME, "Invalid scene file format: Try 'scene.rt'." },
 	{ ID_ERRR, "Invalid scene: Unknown identifier." },
 	{ LIGHT_FMT, "Invalid scene: Light badly formatted." },
@@ -35,22 +44,6 @@ struct s_err	g_err[] =
 	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
 	{ DEFAULT_ERR, "" }
 };
-
-void		put_usage(void)
-{
-	ft_dprintf(STDERR_FILENO, "Usage: ./miniRT <scene.rt> [--save]\n\n");
-	ft_dprintf(
-		STDERR_FILENO,
-		"optional arguments:\n  --save  save the rendered image in bmp format\n"
-	);
-	exit(EXIT_FAILURE);
-}
-
-static void	free_all(t_scene *scene)
-{
-	destroy_scene(scene);
-	quit_app();
-}
 
 char		*catch_err(t_errid raised)
 {
@@ -79,12 +72,4 @@ void		exit_error(t_scene *scene, t_errid raised)
 {
 	free_all(scene);
 	put_error(raised);
-}
-
-int			exit_success(t_scene *scene)
-{
-	free_all(scene);
-	ft_dprintf(STDOUT_FILENO, "EXIT\n");
-	exit(EXIT_SUCCESS);
-	return (0);
 }

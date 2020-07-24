@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 01:02:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 16:40:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ typedef struct	s_sphere
 	t_color		color;
 }				t_sphere;
 
+typedef struct	s_plane
+{
+	t_coord3	pos;
+	t_coord3	rot;
+	t_color		color;
+}				t_plane;
+
 typedef struct	s_square
 {
 	t_coord3	pos;
@@ -27,13 +34,6 @@ typedef struct	s_square
 	double		side;
 	t_color		color;
 }				t_square;
-
-typedef struct	s_plane
-{
-	t_coord3	pos;
-	t_coord3	rot;
-	t_color		color;
-}				t_plane;
 
 typedef struct	s_cyl
 {

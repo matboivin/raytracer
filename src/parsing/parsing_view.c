@@ -6,11 +6,20 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 22:47:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:02:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Parse properties
+**
+** get_resolution()
+** get_ambient()
+** get_cam()
+** get_light()
+*/
 
 void	get_resolution(t_scene *scene, char **input)
 {

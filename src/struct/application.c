@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:05 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:51:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:26:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **
 ** open_app() :  Constructor
 ** quit_app() :  Destructor
-** run_app()  :  Start loop to catch events
+** run_app()  :  Starts loop to listen to events
 */
 
 void	open_app(int p_x, int p_y, char *title)

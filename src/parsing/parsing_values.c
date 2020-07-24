@@ -6,11 +6,21 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 22:35:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 16:53:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Retrieve numeric values for parsing
+**
+** get_integer() :  Retrieves an integer
+** get_double()  :  Retrieves a double
+** get_rgb_val() :  Retrieves a RGB value: int comprised in the range (0, 255)
+** get_color()   :  Retrieves a color: RGB values
+** get_coord3()  :  Retrieves a 3D coordinates: 3 double values
+*/
 
 int				get_integer(t_scene *scene, char **input)
 {

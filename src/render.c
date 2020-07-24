@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 00:04:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:22:14 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** Display rendering in a window
 **
 ** open_window()         :  Creates a new window
-** put_image_to_window() :  Display image in window
-** resize_window()       :  Handle window size if bigger than screen size
-** display_rendering()   :  Display the image and call register events
+** put_image_to_window() :  Displays image in window
+** resize_window()       :  Handles window size if bigger than screen size
+** display_rendering()   :  Displays the image and registers events
 */
 
 void	open_window(void)

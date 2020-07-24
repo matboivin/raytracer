@@ -6,11 +6,21 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 21:08:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 16:41:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Parse objects
+**
+** get_sphere()
+** get_plane()
+** get_square()
+** get_cylinder()
+** get_triangle()
+*/
 
 void	get_sphere(t_scene *scene, char **input)
 {

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_errors.h                                    :+:      :+:    :+:   */
+/*   minirt_exit.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 00:13:21 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:18:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_ERRORS_H
-# define MINIRT_ERRORS_H
+#ifndef MINIRT_EXIT_H
+# define MINIRT_EXIT_H
 
 typedef enum	e_errid
 {
@@ -45,6 +45,8 @@ typedef struct	s_err
 
 extern struct s_err	g_err[];
 
+void			check_filename(const char *filepath);
+void			free_all(t_scene *scene);
 void			put_usage(void);
 char			*catch_err(t_errid raised);
 void			put_error(t_errid raised);

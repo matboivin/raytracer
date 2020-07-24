@@ -6,19 +6,20 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 00:46:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:25:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Parse the scene description
+** Parse the scene description to fill the scene struct
 **
-** call_parsing_func :  Gets the function matching identifier
-** read_scene_file() :  Gets the entire scene description
-** check_scene()     :  Check the scene data is valid
-** parse_scene()     :  Parses the scene description to fill the scene struct
+** g_pars_tab struct   :  Element ids associated to parsing functions
+** call_parsing_func() :  Gets the function matching identifier
+** read_scene_file()   :  Gets the entire scene description
+** check_scene()       :  Checks the scene data is valid
+** parse_scene()       :  Iterates over the input to call functions
 */
 
 struct s_pars_tab	g_pars_tab[] =

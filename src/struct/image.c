@@ -6,11 +6,20 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:31:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:07:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** MLX image
+**
+** create_image()  :  Constructor
+** malloc_image()  :  Malloc function
+** destroy_image() :  Destructor
+** free_image()    :  Free function
+*/
 
 t_img		create_image(int p_x, int p_y)
 {

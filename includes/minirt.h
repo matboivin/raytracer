@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:26:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:19:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 # include "minirt_image.h"
 # include "minirt_application.h"
 # include "minirt_drawing.h"
-# include "minirt_errors.h"
 # include "minirt_events.h"
 # include "minirt_render.h"
 # include "minirt_parsing.h"
 # include "minirt_save.h"
+# include "minirt_exit.h"
 
 extern struct s_app			*g_app;
 extern struct s_pars_tab	g_pars_tab[];

@@ -6,11 +6,21 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 00:31:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/24 17:23:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Utils for parsing
+**
+** ft_coord3_range()  :  Checks if coordinate values are in a given range
+** skip_whitespaces() :  Skips whitespaces
+** skip_separator()   :  Skips a given separator (expected: , . -)
+** skip_integer()     :  Skips integer number
+** skip_double()      :  Skips double number
+*/
 
 bool	ft_coord3_range(t_coord3 coord, double start, double end)
 {
