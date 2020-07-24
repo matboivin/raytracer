@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 00:37:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 01:08:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_app
 	t_img		*img;
 }				t_app;
 
-void			open_app(int p_x, int p_y, char *title);
+void			open_app(char *title);
 void			quit_app(void);
 int				run_app(void);
 

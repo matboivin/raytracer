@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 00:59:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 01:08:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			main(int argc, char **argv)
 	check_filename(argv[1]);
 	if (argc == 3 && ft_strcmp(argv[2], "--save"))
 		put_error(SAVE_OPTION);
-	open_app(RENDER_X, RENDER_Y, WIN_TITLE);
+	open_app(WIN_TITLE);
 	create_scene(&scene);
 	parse_scene(&scene, argv[1]);
 	generate_image(&scene);
