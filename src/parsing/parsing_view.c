@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 01:12:01 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 23:38:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	get_resolution(t_scene *scene, char **input)
 	scene->res.size_y = get_integer(scene, input);
 	if (scene->res.size_x < 1 || scene->res.size_y < 1)
 		exit_error(scene, RES_NEG);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
 
 void	get_ambient(t_scene *scene, char **input)
@@ -44,7 +44,7 @@ void	get_ambient(t_scene *scene, char **input)
 	if (ft_f_range(scene->amb.ratio, 0.0, 1.0) == false)
 		exit_error(scene, AMB_FMT);
 	scene->amb.color = get_color(scene, input);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
 
 void	get_cam(t_scene *scene, char **input)
@@ -57,7 +57,7 @@ void	get_cam(t_scene *scene, char **input)
 	scene->cam.fov = get_integer(scene, input);
 	if (ft_n_range(scene->cam.fov, 0, 180) == false)
 		exit_error(scene, CAM_FMT);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
 
 void	get_light(t_scene *scene, char **input)
@@ -68,5 +68,5 @@ void	get_light(t_scene *scene, char **input)
 	if (ft_f_range(scene->light.ratio, 0.0, 1.0) == false)
 		exit_error(scene, LIGHT_FMT);
 	scene->light.color = get_color(scene, input);
-	skip_whitespaces(input);
+	skip_blank(input);
 }

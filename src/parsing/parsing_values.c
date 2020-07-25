@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 21:00:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 23:40:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				get_integer(t_scene *scene, char **input)
 {
 	int			result;
 
-	skip_whitespaces(input);
+	skip_blank(input);
 	if ((**input) == '-' || ft_isdigit(**input) == true)
 	{
 		result = ft_atoi(*input);
@@ -44,7 +44,7 @@ double			get_double(t_scene *scene, char **input)
 	char		*endptr;
 
 	endptr = NULL;
-	skip_whitespaces(input);
+	skip_blank(input);
 	if (**input == '-' || ft_isdigit(**input) == true)
 	{
 		result = ft_strtod(*input, &endptr);
@@ -76,7 +76,7 @@ t_color			get_color(t_scene *scene, char **input)
 {
 	t_color		result;
 
-	skip_whitespaces(input);
+	skip_blank(input);
 	result.r = get_rgb_val(scene, input);
 	if (!(skip_separator(input, ',')))
 		exit_error(scene, COLOR_FMT);
@@ -91,6 +91,7 @@ t_coord3		get_coord3(t_scene *scene, char **input)
 {
 	t_coord3	result;
 
+	skip_blank(input);
 	result.x = get_double(scene, input);
 	if (!(skip_separator(input, ',')))
 		exit_error(scene, COORD_FMT);

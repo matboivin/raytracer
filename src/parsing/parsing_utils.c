@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 21:02:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 23:50:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Utils for parsing
 **
 ** ft_coord3_range()  :  Checks if coordinate values are in a given range
-** skip_whitespaces() :  Skips whitespaces
+** skip_blank()       :  Skips spaces
 ** skip_separator()   :  Skips a given separator (expected: , . -)
 ** skip_digits()      :  Skips digits
 ** skip_double()      :  Skips double number
@@ -33,9 +33,9 @@ bool	ft_coord3_range(t_coord3 coord, double start, double end)
 	return (true);
 }
 
-void	skip_whitespaces(char **s)
+void	skip_blank(char **s)
 {
-	while (ft_isspace(**s) == true)
+	while (ft_isblank(**s) == true)
 		(*s)++;
 }
 

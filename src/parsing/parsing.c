@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 19:00:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 23:48:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,9 @@ void			parse_scene(t_scene *scene, const char *filepath)
 	head = input;
 	while (*input)
 	{
-		skip_whitespaces(&input);
-		if (ft_ischarset(*input, ids) == true)
+		if (*input == '\n')
+			input++;
+		else if (ft_ischarset(*input, ids) == true)
 			call_parsing_func(scene, &input);
 		else
 			exit_error(scene, SCENE_FMT);

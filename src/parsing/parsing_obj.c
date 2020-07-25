@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 16:41:58 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 23:42:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	get_sphere(t_scene *scene, char **input)
 	scene->sphere.pos = get_coord3(scene, input);
 	scene->sphere.diameter = get_double(scene, input);
 	scene->sphere.color = get_color(scene, input);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
 
 void	get_plane(t_scene *scene, char **input)
@@ -39,7 +39,7 @@ void	get_plane(t_scene *scene, char **input)
 	if (ft_coord3_range(scene->plane.rot, -1.0, 1.0) == false)
 		exit_error(scene, PLANE_FMT);
 	scene->plane.color = get_color(scene, input);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
 
 void	get_square(t_scene *scene, char **input)
@@ -51,7 +51,7 @@ void	get_square(t_scene *scene, char **input)
 		exit_error(scene, SQUARE_FMT);
 	scene->square.side = get_double(scene, input);
 	scene->square.color = get_color(scene, input);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
 
 void	get_cylinder(t_scene *scene, char **input)
@@ -64,7 +64,7 @@ void	get_cylinder(t_scene *scene, char **input)
 	scene->cylinder.diameter = get_double(scene, input);
 	scene->cylinder.side = get_double(scene, input);
 	scene->cylinder.color = get_color(scene, input);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
 
 void	get_triangle(t_scene *scene, char **input)
@@ -74,5 +74,5 @@ void	get_triangle(t_scene *scene, char **input)
 	scene->triangle.point2 = get_coord3(scene, input);
 	scene->triangle.point3 = get_coord3(scene, input);
 	scene->triangle.color = get_color(scene, input);
-	skip_whitespaces(input);
+	skip_blank(input);
 }
