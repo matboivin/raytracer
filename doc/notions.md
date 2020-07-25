@@ -45,6 +45,8 @@ BMP
 Methodology
 
 - [Software SOFT/INTERNAL Documentation Guide](https://www.includehelp.com/articles/software-soft-internal-documentation-guide.aspx)
+- [INRIA Projet CODES: GDB](https://www.rocq.inria.fr/secret/Anne.Canteaut/COURS_C/gdb.html)
+- [Using GDB for Reverse Engineering](http://users.umiacs.umd.edu/~tdumitra/courses/ENEE757/Fall15/misc/gdb_tutorial.html)
 
 ### 42 resources
 
