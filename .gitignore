@@ -55,4 +55,5 @@ dkms.conf
 *.vscode/
 
 miniRT
+minirt.bmp
 tests/

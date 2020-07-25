@@ -1,10 +1,17 @@
 # Notions
 
+- Display graphics, events
+
 ### Books
 
+- [WikiBooks: X Window Programming](https://en.wikibooks.org/wiki/X_Window_Programming/Print_version)
 - [Xlib − C Language X Interface (PDF)](https://www.x.org/docs/X11/xlib.pdf)
 
 ### Links
+
+X  
+
+- [X Window System](https://en.wikipedia.org/wiki/X_Window_System)
 
 Xlib  
 
@@ -34,3 +41,12 @@ BMP
 - [BMP file format](https://www.wikiwand.com/en/BMP_file_format)
 - [Lire et écrire des fichiers image BMP](http://fvirtman.free.fr/recueil/01_09_02_testbmp.c.php)
 - [Creating Bitmap Images with C on Windows](http://ricardolovelace.com/creating-bitmap-images-with-c-on-windows.html)
+
+Methodology
+
+- [Software SOFT/INTERNAL Documentation Guide](https://www.includehelp.com/articles/software-soft-internal-documentation-guide.aspx)
+
+### 42 resources
+
+- [Hyarius' workshop given at 42 for 3 days (new cursus)](https://github.com/Hyarius/PIMP-Your-Code)
+- [keuhdall's images_example](https://github.com/keuhdall/images_example)

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 20:27:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 19:01:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ struct s_err	g_err[] =
 	{ CYL_FMT, "Invalid scene: Cylinder badly formatted." },
 	{ DOUBLE_FMT, "Invalid scene: Double value badly formatted." },
 	{ FILENAME, "Invalid scene file format: Try 'scene.rt'." },
-	{ ID_ERRR, "Invalid scene: Unknown identifier." },
+	{ ID_ERR, "Invalid scene: Unknown identifier." },
 	{ LIGHT_FMT, "Invalid scene: Light badly formatted." },
 	{ MISS_RA, "Invalid scene: Missing resolution or ambient light." },
 	{ NUM_FMT, "Invalid scene: Number badly formatted." },

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 00:08:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 19:01:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef enum	e_errid
 	CYL_FMT,
 	DOUBLE_FMT,
 	FILENAME,
-	ID_ERRR,
+	ID_ERR,
 	LIGHT_FMT,
 	MISS_RA,
 	NUM_FMT,

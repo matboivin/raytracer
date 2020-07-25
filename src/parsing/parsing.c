@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 01:12:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/25 19:00:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void		call_parsing_func(t_scene *scene, char **input)
 		}
 		i++;
 	}
-	exit_error(scene, ID_ERRR);
+	exit_error(scene, ID_ERR);
 }
 
 char			*read_scene_file(t_scene *scene, const char *filepath)
@@ -104,7 +104,7 @@ void			parse_scene(t_scene *scene, const char *filepath)
 		else
 			exit_error(scene, SCENE_FMT);
 	}
-	free(head);
+	ft_strdel(&head);
 	check_scene(scene);
 	resize_window(scene);
 }
