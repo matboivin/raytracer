@@ -54,6 +54,9 @@ dkms.conf
 # Visual Studio code
 *.vscode/
 
+.gdb_history
+peda-session-miniRT.txt
+
 miniRT
 minirt.bmp
 tests/
