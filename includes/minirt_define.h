@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 01:10:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/26 18:39:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,10 @@ typedef enum	e_emask
 # define GRAVITYNOTIFY 24
 
 /*
-** TTY function keys
+** Keys
 */
 
 # define ESC_KEY 65307
+# define SPC_KEY 32
 
 #endif
