@@ -26,6 +26,7 @@ Event Handling
 
 Math  
 
+- [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 - [Khan Academy](https://khanacademy.org/)
 - [Khan Academy: Vectors and Spaces](https://fr.khanacademy.org/math/linear-algebra/vectors-and-spaces)
 
@@ -35,6 +36,7 @@ Ray Tracing
 - [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 - [Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
+- [Développement d'un Raytracer](http://www.alrj.org/docs/3D/raytracer/raytracertutchap1.htm)
 - [Hidden-surface determination](https://en.wikipedia.org/wiki/Hidden-surface_determination)
 
 BMP  
