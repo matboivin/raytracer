@@ -30,6 +30,11 @@ Math
 - [Khan Academy](https://khanacademy.org/)
 - [Khan Academy: Vectors and Spaces](https://fr.khanacademy.org/math/linear-algebra/vectors-and-spaces)
 
+Graphics  
+
+- [Song Ho Ahn](http://www.songho.ca/opengl/index.html)
+- [Scratchapixel 2.0](https://www.scratchapixel.com)
+
 Ray Tracing  
 
 - [Wiki: Ray tracing](https://en.wikipedia.org/wiki/Ray_tracing_(graphics))
@@ -38,6 +43,11 @@ Ray Tracing
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
 - [Développement d'un Raytracer](http://www.alrj.org/docs/3D/raytracer/raytracertutchap1.htm)
 - [Hidden-surface determination](https://en.wikipedia.org/wiki/Hidden-surface_determination)
+
+Camera  
+
+- [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
+- [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
 
 BMP  
 
