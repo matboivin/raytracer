@@ -1,35 +1,64 @@
-- Parser scène -> remplir structure  
-lire+parse+check en même temps  
-Un read + une fonction qui check+parse dans cette fonction faire tableau pointeurs ou un parser récursif https://en.m.wikipedia.org/wiki/Recursive_descent_parser
+# Process
 
-Le Ray tracing procède de la caméra vers les sources de lumière.
+## Working principle
 
-- Si 2e argument --save
-  - Sauver l'image en bmp et exit
+Ray tracing proceeds from camera position to objects and then to light sources.  
+Ray tracing simulates optical effects, such as reflection and refraction, scattering, and dispersion phenomena.
 
-- Sinon rendre la scène dans une fenêtre
+Trace a path from an imaginary camera through each pixel in a virtual screen, and calculate the color of the nearest encountered object.
 
-- Lancer un rayon depuis la caméra
-- Premier point d'impact du rayon sur un objet
-  - Définir cet objet
-    - Lancer rayons depuis ce point d'impact vers chaque source de lumière
-      - Objet est éclairé ou à l'ombre ?
-    - Combiner luminosité avec propriétés de la surface
-      - Couleur ?
-      - Texture ?
-      - Transparence ?
-      - Réflexion ?
-    - Obtenir couleur finale du pixel
+## Implementation
 
-- Gérer les events
+Two main structures:
 
-- Si plus d'une caméra, alterner entre les caméras à l'aide d'un keybind
-- ESC ou croix rouge pour fermer la fenêtre et exit proprement
+- `s_app`: Represents an application to use MLX functions, connects to the X server, contains window and image as members
+- `s_scene`: Stores scene description parsed data which is used to generate images
 
-## MLX images
+Control flow:
 
-1 image = char pointer  
-1  pixel = 4 char = RED, GREEN, BLUE, ALPHA
+- Handle errors: no parameter, invalid `.rt` file, invalid `--save` option
+- Initialize scene struct
+  - -> Connect to the X server with `mlx_init()`
+- Initialize scene struct
+- Parse a given scene description -> store data in the scene struct
+- Generate image using scene data
+- If `--save` option is used
+  - Save the rendered image in BMP format
+  - Program ends
+- Else
+  - Open a new window with `mlx_new_window()`
+  - Display the rendered imaged in window with `mlx_put_image_to_window()`
+  - Dispatch events
+  - Run a loop -> listen to events
+  - If the user presses SPACE
+    - Switch active camera
+  - If the user presses ESC or click on the window cross
+    - Program ends
+
+### Parsing
+
+- Parse scene description -> fill scene struct
+- Read the whole file without using `get_next_line()` (newline character is used as separator) -> store it in a char array
+- Parse the input stored in the char array
+  - Stop at each identifier and call the corresponding parsing function using an array of function pointers
+
+### Ray tracing
+
+- Set up a virtual viewport to know if ray intersects the view frame
+- Trace a ray from camera position
+- Identify nearest object
+  - Identify shape (sphere, plane, square, cylinder, triangle)
+  - At intersection, define light, shadows, texture, ...
+  - Retrieve the color of the pixel
+- Else
+  - Default color
+
+### MLX images
+
+- 1 image = char pointer
+- 1 pixel = 4 char = RED, GREEN, BLUE, ALPHA
+
+MLX is in BGRA so we change the order of values to RGBA.
 
 `x position * 4 + 4 * size_line * y position`
 
@@ -47,3 +76,13 @@ Display the image:
 ```
 mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, 0, 0);
 ```
+
+## TODO
+
+- [ ] Ray tracing rendering
+- [ ] Handle misconfigured scene descriptions
+- [ ] Save the rendered image in bmp format when "--save" is passed
+- [ ] Close window when pressing ESC or clicking red cross
+- [ ] Window size is never greater than the display resolution and cannot be < 1
+- [ ] If more than 1 camera, switch between cameras pressing a key
+- [ ] In case of error, program prints "Error\n" followed by an explicit error message
