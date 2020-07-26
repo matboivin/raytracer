@@ -24,7 +24,6 @@ LIB			=	ft mlx_Linux
 SRC			= 	main.c				\
 				application.c		\
 				color.c				\
-				coord.c				\
 				display.c			\
 				drawing.c			\
 				exit.c				\
@@ -37,6 +36,7 @@ SRC			= 	main.c				\
 				parsing_values.c	\
 				parsing_view.c		\
 				parsing_utils.c		\
+				point.c				\
 				render.c			\
 				save.c				\
 				scene.c				\

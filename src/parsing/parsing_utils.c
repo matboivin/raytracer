@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 23:50:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 00:11:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 /*
 ** Utils for parsing
 **
-** ft_coord3_range()  :  Checks if coordinate values are in a given range
+** ft_point3_range()  :  Checks if point values are in a given range
 ** skip_blank()       :  Skips spaces
 ** skip_separator()   :  Skips a given separator (expected: , . -)
 ** skip_digits()      :  Skips digits
 ** skip_double()      :  Skips double number
 */
 
-bool	ft_coord3_range(t_coord3 coord, double start, double end)
+bool	ft_point3_range(t_point3 point, double start, double end)
 {
 	if (
-		ft_f_range(coord.x, start, end) == false
-		|| ft_f_range(coord.y, start, end) == false
-		|| ft_f_range(coord.z, start, end) == false
+		ft_f_range(point.x, start, end) == false
+		|| ft_f_range(point.y, start, end) == false
+		|| ft_f_range(point.z, start, end) == false
 	)
 		return (false);
 	return (true);
