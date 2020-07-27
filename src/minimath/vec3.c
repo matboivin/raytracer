@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_math.h                                       :+:      :+:    :+:   */
+/*   vec3.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 21:32:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 21:45:51 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/27 22:51:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_MATH_H
-# define LIBFT_MATH_H
+#include "minirt.h"
 
-# include <math.h>
+/*
+** 3D Vector
+**
+** create_vec3()  :  Constructor
+*/
 
-typedef struct	s_vec3
+t_vec3		create_vec3(double p_x, double p_y, double p_z)
 {
-	double		x;
-	double		y;
-	double		z;
-}				t_vec3;
+	t_vec3	result;
 
-t_vec3			create_vec3(double p_x, double p_y, double p_z);
-t_vec3			add_vec3(t_vec3 a, t_vec3 b);
-t_vec3			sub_vec3(t_vec3 a, t_vec3 b);
-t_vec3			mult_vec3(t_vec3 a, t_vec3 b);
-t_vec3			div_vec3(t_vec3 a, t_vec3 b);
-
-#endif
+	result.x = p_x;
+	result.y = p_y;
+	result.z = p_z;
+	return (result);
+}
