@@ -12,14 +12,14 @@ LFLAGS += -lXext -lX11
 .SUFFIXE:
 .SUFFIXES: .c .o .h
 
-LIB_PATH = lib/libft lib/mlx
-INC_PATH = $(shell find includes -type d) lib/libft/includes lib/mlx
+LIB_PATH = lib/libft lib/libft_math lib/mlx
+INC_PATH = $(shell find includes -type d) lib/libft/includes lib/libft_math/includes lib/mlx
 SRC_PATH = $(shell find src -type d)
 OBJ_PATH = obj
 
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 
-LIB			=	ft mlx_Linux
+LIB			=	ft ft_math mlx_Linux
 
 SRC			= 	main.c				\
 				application.c		\
@@ -39,7 +39,6 @@ SRC			= 	main.c				\
 				render.c			\
 				save.c				\
 				scene.c				\
-				vector.c			\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 

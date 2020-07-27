@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_vector.h                                    :+:      :+:    :+:   */
+/*   ft_vector3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 21:32:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 20:45:23 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/27 21:24:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_VECTOR_H
-# define MINIRT_VECTOR_H
+#include "libft_math.h"
 
-typedef struct	s_vec3
+/*
+** 3D Vector
+**
+** create_vec3() :  Constructor
+*/
+
+t_vec3		create_vec3(double p_x, double p_y, double p_z)
 {
-	double		x;
-	double		y;
-	double		z;
-}				t_vec3;
+	t_vec3	result;
 
-t_vec3			create_vec3(double p_x, double p_y, double p_z);
-
-#endif
+	result.x = p_x;
+	result.y = p_y;
+	result.z = p_z;
+	return (result);
+}
