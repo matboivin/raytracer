@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:11 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 17:16:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 18:10:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct	s_img
 	int			endian;
 }				t_img;
 
-t_img			create_image(int p_x, int p_y);
-t_img			*malloc_image(int p_x, int p_y);
+t_img			create_image(void);
+t_img			*malloc_image(void);
 void			destroy_image(t_img to_destroy);
 void			free_image(t_img *to_free);
 

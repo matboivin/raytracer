@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:07:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 18:10:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 ** free_image()    :  Free function
 */
 
-t_img		create_image(int p_x, int p_y)
+t_img		create_image(void)
 {
 	t_img	result;
 
-	result.size_x = p_x;
-	result.size_y = p_y;
+	result.size_x = g_app->win_x;
+	result.size_y = g_app->win_y;
 	result.img_ptr = mlx_new_image(
 		g_app->mlx_ptr,
 		result.size_x,
@@ -41,14 +41,14 @@ t_img		create_image(int p_x, int p_y)
 	return (result);
 }
 
-t_img		*malloc_image(int p_x, int p_y)
+t_img		*malloc_image(void)
 {
 	t_img	*result;
 
 	result = (t_img *)malloc(sizeof(t_img));
 	if (result == NULL)
 		put_error(DEFAULT_ERR);
-	*result = create_image(p_x, p_y);
+	*result = create_image();
 	return (result);
 }
 
