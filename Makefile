@@ -43,7 +43,8 @@ SRC			=	main.c				\
 # Math functions
 
 SRC			+=	vec3.c				\
-				vec_op3.c			\
+				vec3_op.c			\
+				vec3_prod.c			\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 
