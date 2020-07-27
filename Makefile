@@ -36,10 +36,10 @@ SRC			= 	main.c				\
 				parsing_values.c	\
 				parsing_view.c		\
 				parsing_utils.c		\
-				point.c				\
 				render.c			\
 				save.c				\
 				scene.c				\
+				vector.c			\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 

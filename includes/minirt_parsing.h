@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 00:12:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 20:44:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void			skip_double(t_scene *scene, char **s);
 int				get_integer(t_scene *scene, char **input);
 double			get_double(t_scene *scene, char **input);
 t_color			get_color(t_scene *scene, char **input);
-t_point3		get_point3(t_scene *scene, char **input);
-bool			ft_point3_range(t_point3 point, double start, double end);
+t_vec3			get_vec3(t_scene *scene, char **input);
+bool			ft_vec3_range(t_vec3 vec, double start, double end);
 
 #endif

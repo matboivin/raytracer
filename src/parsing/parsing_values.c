@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 00:09:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 20:44:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 ** get_double()  :  Retrieves a double
 ** get_rgb_val() :  Retrieves a RGB value: int comprised in the range (0, 255)
 ** get_color()   :  Retrieves a color: RGB values
-** get_point3()  :  Retrieves a 3D coordinates: 3 double values
+** get_vec3()  :  Retrieves a 3D coordinates: 3 double values
 */
 
-int				get_integer(t_scene *scene, char **input)
+int			get_integer(t_scene *scene, char **input)
 {
-	int			result;
+	int		result;
 
 	skip_blank(input);
 	if ((**input) == '-' || ft_isdigit(**input) == true)
@@ -38,10 +38,10 @@ int				get_integer(t_scene *scene, char **input)
 	return (result);
 }
 
-double			get_double(t_scene *scene, char **input)
+double		get_double(t_scene *scene, char **input)
 {
-	double		result;
-	char		*endptr;
+	double	result;
+	char	*endptr;
 
 	endptr = NULL;
 	skip_blank(input);
@@ -56,9 +56,9 @@ double			get_double(t_scene *scene, char **input)
 	return (result);
 }
 
-static int		get_rgb_val(t_scene *scene, char **input)
+static int	get_rgb_val(t_scene *scene, char **input)
 {
-	int			result;
+	int		result;
 
 	if (ft_isdigit(**input) == false)
 		exit_error(scene, COLOR_FMT);
@@ -72,9 +72,9 @@ static int		get_rgb_val(t_scene *scene, char **input)
 	return (result);
 }
 
-t_color			get_color(t_scene *scene, char **input)
+t_color		get_color(t_scene *scene, char **input)
 {
-	t_color		result;
+	t_color	result;
 
 	skip_blank(input);
 	result.r = get_rgb_val(scene, input);
@@ -87,9 +87,9 @@ t_color			get_color(t_scene *scene, char **input)
 	return (result);
 }
 
-t_point3		get_point3(t_scene *scene, char **input)
+t_vec3		get_vec3(t_scene *scene, char **input)
 {
-	t_point3	result;
+	t_vec3	result;
 
 	skip_blank(input);
 	result.x = get_double(scene, input);

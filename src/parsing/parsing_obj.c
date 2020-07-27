@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 00:09:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 20:42:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 void	get_sphere(t_scene *scene, char **input)
 {
 	(*input) += 2;
-	scene->sphere.pos = get_point3(scene, input);
+	scene->sphere.pos = get_vec3(scene, input);
 	scene->sphere.diameter = get_double(scene, input);
 	scene->sphere.color = get_color(scene, input);
 	skip_blank(input);
@@ -34,9 +34,9 @@ void	get_sphere(t_scene *scene, char **input)
 void	get_plane(t_scene *scene, char **input)
 {
 	(*input) += 2;
-	scene->plane.pos = get_point3(scene, input);
-	scene->plane.rot = get_point3(scene, input);
-	if (ft_point3_range(scene->plane.rot, -1.0, 1.0) == false)
+	scene->plane.pos = get_vec3(scene, input);
+	scene->plane.rot = get_vec3(scene, input);
+	if (ft_vec3_range(scene->plane.rot, -1.0, 1.0) == false)
 		exit_error(scene, PLANE_FMT);
 	scene->plane.color = get_color(scene, input);
 	skip_blank(input);
@@ -45,9 +45,9 @@ void	get_plane(t_scene *scene, char **input)
 void	get_square(t_scene *scene, char **input)
 {
 	(*input) += 2;
-	scene->square.pos = get_point3(scene, input);
-	scene->square.rot = get_point3(scene, input);
-	if (ft_point3_range(scene->square.rot, -1.0, 1.0) == false)
+	scene->square.pos = get_vec3(scene, input);
+	scene->square.rot = get_vec3(scene, input);
+	if (ft_vec3_range(scene->square.rot, -1.0, 1.0) == false)
 		exit_error(scene, SQUARE_FMT);
 	scene->square.side = get_double(scene, input);
 	scene->square.color = get_color(scene, input);
@@ -57,9 +57,9 @@ void	get_square(t_scene *scene, char **input)
 void	get_cylinder(t_scene *scene, char **input)
 {
 	(*input) += 2;
-	scene->cylinder.pos = get_point3(scene, input);
-	scene->cylinder.rot = get_point3(scene, input);
-	if (ft_point3_range(scene->cylinder.rot, -1.0, 1.0) == false)
+	scene->cylinder.pos = get_vec3(scene, input);
+	scene->cylinder.rot = get_vec3(scene, input);
+	if (ft_vec3_range(scene->cylinder.rot, -1.0, 1.0) == false)
 		exit_error(scene, CYL_FMT);
 	scene->cylinder.diameter = get_double(scene, input);
 	scene->cylinder.side = get_double(scene, input);
@@ -70,9 +70,9 @@ void	get_cylinder(t_scene *scene, char **input)
 void	get_triangle(t_scene *scene, char **input)
 {
 	(*input) += 2;
-	scene->triangle.point1 = get_point3(scene, input);
-	scene->triangle.point2 = get_point3(scene, input);
-	scene->triangle.point3 = get_point3(scene, input);
+	scene->triangle.point1 = get_vec3(scene, input);
+	scene->triangle.point2 = get_vec3(scene, input);
+	scene->triangle.vec3 = get_vec3(scene, input);
 	scene->triangle.color = get_color(scene, input);
 	skip_blank(input);
 }

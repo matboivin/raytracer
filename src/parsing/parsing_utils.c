@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 00:11:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 20:45:05 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 /*
 ** Utils for parsing
 **
-** ft_point3_range()  :  Checks if point values are in a given range
+** ft_vec3_range()  :  Checks if vector values are in a given range
 ** skip_blank()       :  Skips spaces
 ** skip_separator()   :  Skips a given separator (expected: , . -)
 ** skip_digits()      :  Skips digits
 ** skip_double()      :  Skips double number
 */
 
-bool	ft_point3_range(t_point3 point, double start, double end)
+bool	ft_vec3_range(t_vec3 vec, double start, double end)
 {
 	if (
-		ft_f_range(point.x, start, end) == false
-		|| ft_f_range(point.y, start, end) == false
-		|| ft_f_range(point.z, start, end) == false
+		ft_f_range(vec.x, start, end) == false
+		|| ft_f_range(vec.y, start, end) == false
+		|| ft_f_range(vec.z, start, end) == false
 	)
 		return (false);
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 00:09:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 20:42:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	get_ambient(t_scene *scene, char **input)
 void	get_cam(t_scene *scene, char **input)
 {
 	(*input) += 2;
-	scene->cam.pos = get_point3(scene, input);
-	scene->cam.rot = get_point3(scene, input);
-	if (ft_point3_range(scene->cam.rot, -1.0, 1.0) == false)
+	scene->cam.pos = get_vec3(scene, input);
+	scene->cam.rot = get_vec3(scene, input);
+	if (ft_vec3_range(scene->cam.rot, -1.0, 1.0) == false)
 		exit_error(scene, CAM_FMT);
 	scene->cam.fov = get_integer(scene, input);
 	if (ft_n_range(scene->cam.fov, 0, 180) == false)
@@ -63,7 +63,7 @@ void	get_cam(t_scene *scene, char **input)
 void	get_light(t_scene *scene, char **input)
 {
 	(*input) += 2;
-	scene->light.pos = get_point3(scene, input);
+	scene->light.pos = get_vec3(scene, input);
 	scene->light.ratio = get_double(scene, input);
 	if (ft_f_range(scene->light.ratio, 0.0, 1.0) == false)
 		exit_error(scene, LIGHT_FMT);

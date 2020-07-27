@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 00:09:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/27 21:04:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ typedef struct	s_amb
 
 typedef struct	s_cam
 {
-	t_point3	pos;
-	t_point3	rot;
+	t_vec3	pos;
+	t_vec3	rot;
 	double		fov;
 }				t_cam;
 
 typedef struct	s_light
 {
-	t_point3	pos;
+	t_vec3	pos;
 	double		ratio;
 	t_color		color;
 }				t_light;
@@ -47,7 +47,7 @@ typedef struct	s_scene
 {
 	t_res		res;
 	t_amb		amb;
-	t_cam		cam;
+	t_cam		main_cam;
 	t_light		light;
 	t_sphere	sphere;
 	t_square	square;
