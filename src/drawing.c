@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 17:04:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 01:18:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,8 @@
 /*
 ** Draw in image
 **
-** fill_image() :  Fills the image with a given color starting from pos (0,0)
-** set_pixel()  :  Sets the pixel in the MLX image data
+** set_pixel() :  Sets the pixel in the MLX image data
 */
-
-void	fill_image(t_color color)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < g_app->win_y)
-	{
-		x = 0;
-		while (x < g_app->win_x)
-		{
-			set_pixel(g_app->img, color, x, y);
-			x++;
-		}
-		y++;
-	}
-}
 
 void	set_pixel(t_img *img, t_color color, int x, int y)
 {
