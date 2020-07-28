@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/24 00:02:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:27:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,28 +91,28 @@ void		write_bmpdata(t_scene *scene, int fd)
 	int		*pixel;
 	int		i;
 
-	y = 0;
-	while (y < g_app->win_y)
+	y = g_app->win_y;
+	while (y > 0)
 	{
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			i = (4 * g_app->win_x * (g_app->win_y - 1 - y)) + (4 * x);
+			i = (x + g_app->win_x * y) * 4;
 			pixel = (int *)(g_app->img->img_data + i);
 			if (write(fd, pixel, 3) < 0)
 				exit_error(scene, DEFAULT_ERR);
 			x++;
 		}
-		y++;
+		y--;
 	}
-	ft_dprintf(STDOUT_FILENO, "Image saved as 'minirt.bmp' in working dir.\n");
+	ft_printf("Image saved as 'minirt.bmp' in working dir.\n\n");
 }
 
 void		save_bmp(t_scene *scene, const char *filename)
 {
 	int		fd;
 
-	ft_dprintf(STDOUT_FILENO, "Saving rendered image in BMP format...\n");
+	ft_printf("Saving rendered image in BMP format...\n");
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd < 0)
 		exit_error(scene, DEFAULT_ERR);
