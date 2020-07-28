@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:26:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 14:58:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		render(t_scene *scene)
 		{
 			set_ray(scene, &ray);
 			ray_color = trace_ray(scene, ray);
-			set_pixel(g_app->img, ray_color, x, y);
+			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;
 		}
 		y++;

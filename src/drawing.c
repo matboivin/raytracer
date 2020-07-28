@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:38:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 14:59:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 /*
 ** Draw in image
 **
-** set_pixel() :  Sets the pixel in the MLX image data
-** image data = char pointer
+** put_pixel_to_image() :  Puts pixel in the MLX image data using a given color
+** image data = image pixels = char pointer
 **
-** To get the index of a pixel in the image data:
+** To get the index of a pixel in the image pixels:
 ** (x position + width * y position) * 4
 ** 1 pixel = 4 char so we multiply 4 times
 **
@@ -27,7 +27,7 @@
 ** We add defined values to index for each component
 */
 
-void	set_pixel(t_img *img, t_color color, int x, int y)
+void	put_pixel_to_image(t_img *img, t_color color, int x, int y)
 {
 	int	i;
 
