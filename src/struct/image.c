@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 12:59:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:36:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_img		create_image(void)
 		result.size_x,
 		result.size_y
 	);
-	result.img_data = mlx_get_data_addr(
+	result.pixels = mlx_get_data_addr(
 		result.img_ptr,
 		&(result.bpp),
 		&(result.size_line),

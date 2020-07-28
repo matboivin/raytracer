@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:11 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 18:10:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:35:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** size_x: Width of the image
 ** size_y: Height of the image
 ** img_ptr: Pointer returned by the mlx_new_image() function
-** img_data: Pointer returned by the mlx_get_data_addr() function: image pixels
+** pixels: Pointer to image data returned by the mlx_get_data_addr() function
 ** Following values are obtained using mlx_get_data_addr()
 ** bpp: bits per pixels
 ** size_line: the size (char) of a line
@@ -31,7 +31,7 @@ typedef struct	s_img
 	int			size_x;
 	int			size_y;
 	void		*img_ptr;
-	char		*img_data;
+	char		*pixels;
 	int			bpp;
 	int			size_line;
 	int			endian;

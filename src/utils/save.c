@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:27:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:37:05 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void		write_bmpdata(t_scene *scene, int fd)
 		while (x < g_app->win_x)
 		{
 			i = (x + g_app->win_x * y) * 4;
-			pixel = (int *)(g_app->img->img_data + i);
+			pixel = (int *)(g_app->img->pixels + i);
 			if (write(fd, pixel, 3) < 0)
 				exit_error(scene, DEFAULT_ERR);
 			x++;
