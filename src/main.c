@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 01:08:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:06:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			main(int argc, char **argv)
 {
 	t_scene	scene;
 
-	if (argc < 2 || argc > 3)
+	if ((argc < 2) || (argc > 3))
 		put_usage();
 	check_filename(argv[1]);
 	if (argc == 3 && ft_strcmp(argv[2], "--save"))

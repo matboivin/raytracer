@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 21:41:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:10:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ typedef struct	s_amb
 
 typedef struct	s_cam
 {
-	t_vec3	pos;
-	t_vec3	rot;
+	t_vec3		pos;
+	t_vec3		rot;
 	double		fov;
 }				t_cam;
 
 typedef struct	s_light
 {
-	t_vec3	pos;
+	t_vec3		pos;
 	double		ratio;
 	t_color		color;
 }				t_light;

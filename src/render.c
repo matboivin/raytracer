@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 01:25:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:05:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void		generate_image(t_scene *scene)
 {
 	g_app->img = malloc_image();
 	render(scene);
-	if (scene->res.size_x < 400 || scene->res.size_y < 400)
+	if ((scene->res.size_x < 400) || (scene->res.size_y < 400))
 		put_warn_res();
 }

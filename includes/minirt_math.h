@@ -6,13 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:32:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 00:22:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:09:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_MATH_H
 # define MINIRT_MATH_H
-
 
 typedef struct	s_vec3
 {

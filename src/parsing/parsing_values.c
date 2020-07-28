@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 20:44:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:08:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			get_integer(t_scene *scene, char **input)
 	int		result;
 
 	skip_blank(input);
-	if ((**input) == '-' || ft_isdigit(**input) == true)
+	if (((**input) == '-') || (ft_isdigit(**input) == true))
 	{
 		result = ft_atoi(*input);
 		skip_separator(input, '-');
@@ -45,7 +45,7 @@ double		get_double(t_scene *scene, char **input)
 
 	endptr = NULL;
 	skip_blank(input);
-	if (**input == '-' || ft_isdigit(**input) == true)
+	if (((**input) == '-') || (ft_isdigit(**input) == true))
 	{
 		result = ft_strtod(*input, &endptr);
 		free(endptr);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 23:48:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:09:14 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 static void		check_scene(t_scene *scene)
 {
 	if (
-		scene->res.is_declared == false
-		|| scene->amb.is_declared == false
+		(scene->res.is_declared == false)
+		|| (scene->amb.is_declared == false)
 	)
 		exit_error(scene, MISS_RA);
 	return ;

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:04:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/28 13:06:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	set_pixel(t_img *img, t_color color, int x, int y)
 	int	i;
 
 	if (
-		ft_n_range(x, 0, img->size_x) == false
-		|| ft_n_range(y, 0, img->size_y) == false
+		(ft_n_range(x, 0, img->size_x) == false)
+		|| (ft_n_range(y, 0, img->size_y) == false)
 	)
 		return ;
 	i = (x + img->size_x * y) * 4;
