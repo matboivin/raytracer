@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 00:39:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/29 20:12:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef unsigned int	t_uint;
 */
 
 /*
+** 42 Norm doesn't allow the following:
 ** # define KEYPRESSMASK (1L << 0)
 ** # define KEYRELEASEMASK (1L << 1)
 ** # define DESTROYNOTIFYMASK (1L << 17)
