@@ -1,6 +1,6 @@
 # Notions
 
-- Display graphics, events
+- Computer graphics, events
 - Basic linear algebra
 
 ### Books
@@ -30,8 +30,10 @@ Math
 
 Graphics / OpenGL  
 
-- [Song Ho Ahn](http://www.songho.ca/opengl/index.html)
+- [Wiki: Rendering (computer graphics)](https://en.wikipedia.org/wiki/Rendering_(computer_graphics))
+- [Computer Graphics: Topology](https://www.as.uky.edu/blogs/tlha222/computer-graphics-topology)
 - [Scratchapixel 2.0](https://www.scratchapixel.com)
+- [Song Ho Ahn](http://www.songho.ca/opengl/index.html)
 - [Apprendre OpenGL moderne](https://opengl.developpez.com/tutoriels/apprendre-opengl/)
 - [Perspective projection view plane distance calculation confusion?](https://stackoverflow.com/questions/36251087/perspective-projection-view-plane-distance-calculation-confusion)
 - [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)

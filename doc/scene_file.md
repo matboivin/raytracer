@@ -1,5 +1,15 @@
 # Scene description file
 
+A scene file is a defined data structure that contains:
+
+- a collection of objects (objects are also called models)
+- a camera
+- lights
+- textures (optional)
+- global render settings or options such as the resolution of the image.
+
+## Format
+
 A scene description file must end by the .rt extension:
 
 scene.rt

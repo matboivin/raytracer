@@ -2,6 +2,8 @@
 
 [Wiki: Viewing frustum](https://en.wikipedia.org/wiki/Viewing_frustum)
 
+Any object contained within the frustum (or overlapping it) is visible and will show up on the image ([source](https://www.scratchapixel.com/lessons/3d-basic-rendering/get-started)).
+
 <p align="center">
   <img src="assets/viewdist00.png" alt="viewdist00" />
 </p>
