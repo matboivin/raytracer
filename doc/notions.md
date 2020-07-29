@@ -1,6 +1,7 @@
 # Notions
 
 - Display graphics, events
+- Basic linear algebra
 
 ### Books
 
@@ -9,12 +10,9 @@
 
 ### Links
 
-X  
+X / Xlib  
 
 - [X Window System](https://en.wikipedia.org/wiki/X_Window_System)
-
-Xlib  
-
 - [Xlib - C Language X Interface](https://www.x.org/releases/X11R7.7/doc/libX11/libX11/libX11.html)
 - [The Xlib Manual (HTML format)](https://tronche.com/gui/x/xlib/)
 
@@ -36,6 +34,9 @@ Graphics / OpenGL
 - [Scratchapixel 2.0](https://www.scratchapixel.com)
 - [Apprendre OpenGL moderne](https://opengl.developpez.com/tutoriels/apprendre-opengl/)
 - [Perspective projection view plane distance calculation confusion?](https://stackoverflow.com/questions/36251087/perspective-projection-view-plane-distance-calculation-confusion)
+- [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
+- [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
+- [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
 
 Ray Tracing  
 
@@ -45,12 +46,6 @@ Ray Tracing
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
 - [Développement d'un Raytracer](http://www.alrj.org/docs/3D/raytracer/raytracertutintro.htm)
 - [Hidden-surface determination](https://en.wikipedia.org/wiki/Hidden-surface_determination)
-
-Camera  
-
-- [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
-- [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
-- [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
 
 BMP  
 

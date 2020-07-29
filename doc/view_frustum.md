@@ -1,4 +1,4 @@
-# View frustrum
+# Viewing frustum
 
 [Wiki: Viewing frustum](https://en.wikipedia.org/wiki/Viewing_frustum)
 
