@@ -30,10 +30,11 @@ Math
 - [Khan Academy](https://khanacademy.org/)
 - [Khan Academy: Vectors and Spaces](https://fr.khanacademy.org/math/linear-algebra/vectors-and-spaces)
 
-Graphics  
+Graphics / OpenGL  
 
 - [Song Ho Ahn](http://www.songho.ca/opengl/index.html)
 - [Scratchapixel 2.0](https://www.scratchapixel.com)
+- [Apprendre OpenGL moderne](https://opengl.developpez.com/tutoriels/apprendre-opengl/)
 
 Ray Tracing  
 
