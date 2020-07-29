@@ -6,12 +6,20 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 20:47:01 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/29 17:17:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_RAY_H
 # define MINIRT_RAY_H
+
+/*
+** Ray struct
+**
+** origin: Origin of the ray
+** dir: Direction of the ray
+** t: Distance travelled by the ray
+*/
 
 typedef struct	s_ray
 {

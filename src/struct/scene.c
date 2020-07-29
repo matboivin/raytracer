@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 21:41:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/29 19:12:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	create_cam(t_cam *cam)
 	cam->pos = create_vec3(0.0, 0.0, 0.0);
 	cam->rot = create_vec3(0.0, 0.0, 0.0);
 	cam->fov = 0.0;
+	cam->viewplane_d = 0.0;
 }
 
 void	create_light(t_light *light)

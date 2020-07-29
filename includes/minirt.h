@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/27 22:48:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/29 19:27:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <errno.h>
 # include <limits.h>
+# include <math.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 14:58:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/29 19:39:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 ** generate_image() :  Generate the rendered image
 */
 
+// P(t) = origin + (t * dir)
+
 t_color		trace_ray(t_scene *scene, t_ray ray)
 {
 	t_color	ray_color;
@@ -33,13 +35,17 @@ t_color		trace_ray(t_scene *scene, t_ray ray)
 	return (ray_color);
 }
 
+static void	set_viewdist(t_cam *cam)
+{
+	cam->viewplane_d = (g_app->win_x * 0.5) * tan(cam->fov * 0.5);
+}
+
 void		set_ray(t_scene *scene, t_ray *ray)
 {
-	(void)scene;
-	// TODO: Retrieve origin and dir
-	// cf. main camera
-	ray->origin = create_vec3(0.0, 0.0, 0.0);
-	ray->dir = create_vec3(0.0, 0.0, 1.0);
+	ray->origin = scene->cam.pos;
+	// TODO: Compute dir
+	ray->dir = scene->cam.dir;
+	set_viewdist(&scene->cam);
 	ray->t = 0.0;
 }
 

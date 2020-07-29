@@ -35,6 +35,7 @@ Graphics / OpenGL
 - [Song Ho Ahn](http://www.songho.ca/opengl/index.html)
 - [Scratchapixel 2.0](https://www.scratchapixel.com)
 - [Apprendre OpenGL moderne](https://opengl.developpez.com/tutoriels/apprendre-opengl/)
+- [Perspective projection view plane distance calculation confusion?](https://stackoverflow.com/questions/36251087/perspective-projection-view-plane-distance-calculation-confusion)
 
 Ray Tracing  
 
@@ -42,13 +43,14 @@ Ray Tracing
 - [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 - [Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
-- [Développement d'un Raytracer](http://www.alrj.org/docs/3D/raytracer/raytracertutchap1.htm)
+- [Développement d'un Raytracer](http://www.alrj.org/docs/3D/raytracer/raytracertutintro.htm)
 - [Hidden-surface determination](https://en.wikipedia.org/wiki/Hidden-surface_determination)
 
 Camera  
 
 - [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
 - [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
+- [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
 
 BMP  
 

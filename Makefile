@@ -7,7 +7,7 @@ RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 IFLAGS = $(foreach dir, $(INC_PATH), -I $(dir))
 LFLAGS = $(foreach dir, $(LIB_PATH), -L $(dir)) $(foreach lib, $(LIB), -l $(lib))
-LFLAGS += -lXext -lX11
+LFLAGS += -lm -lXext -lX11
 
 .SUFFIXE:
 .SUFFIXES: .c .o .h
