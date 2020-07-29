@@ -15,3 +15,21 @@ Source: [ThreeJS: Calculating FOV for perspective camera after browser window re
 </p>
 
 Source: [Perspective projection view plane distance calculation confusion?](https://stackoverflow.com/questions/36251087/perspective-projection-view-plane-distance-calculation-confusion)
+
+## Camera
+
+### FOV
+
+A perspective projection demo: [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
+
+### Orientation
+
+<p align="center">
+  <img src="assets/TranslationController014.jpg" alt="TranslationController014" />
+</p>
+
+<p align="center">
+  <img src="assets/TranslationController016.jpg" alt="TranslationController016" />
+</p>
+
+Source: [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
