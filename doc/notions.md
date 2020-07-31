@@ -19,6 +19,8 @@ X / Xlib
 Event Handling  
 
 - [Wiki: Event (computing)](https://en.wikipedia.org/wiki/Event_(computing))
+- [Wiki: Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)
+- [Wiki: Event loop](https://en.wikipedia.org/wiki/Event_loop)
 - [Xlib - les évènements (PDF)](http://www-igm.univ-mlv.fr/~berstel/Cours/Xlib/13-Evenements.pdf)
 - [Event Dispatch & Handling (PDF)](https://www.student.cs.uwaterloo.ca/~cs349/w16/slides/2.2-event-dispatch.pdf)
 
@@ -57,6 +59,7 @@ BMP
 
 Methodology
 
+- [Wiki: Software design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
 - [Software SOFT/INTERNAL Documentation Guide](https://www.includehelp.com/articles/software-soft-internal-documentation-guide.aspx)
 - [INRIA Projet CODES: GDB](https://www.rocq.inria.fr/secret/Anne.Canteaut/COURS_C/gdb.html)
 - [Using GDB for Reverse Engineering](http://users.umiacs.umd.edu/~tdumitra/courses/ENEE757/Fall15/misc/gdb_tutorial.html)
