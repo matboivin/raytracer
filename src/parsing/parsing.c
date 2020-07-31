@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:09:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 18:05:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 	return (result);
 }
 
-// TODO: Check c not missing, and scene is not in the complete dark
-
 static void		check_scene(t_scene *scene)
 {
 	if (
@@ -83,6 +81,10 @@ static void		check_scene(t_scene *scene)
 		|| (scene->amb.is_declared == false)
 	)
 		exit_error(scene, MISS_RA);
+	if (scene->cameras == NULL)
+		exit_error(scene, MISS_CAM);
+	if (scene->lights == NULL)
+		exit_error(scene, MISS_LIGHT);
 	return ;
 }
 

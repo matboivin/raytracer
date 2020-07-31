@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 19:01:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 18:04:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ struct s_err	g_err[] =
 	{ ID_ERR, "Invalid scene: Unknown identifier." },
 	{ LIGHT_FMT, "Invalid scene: Light badly formatted." },
 	{ MISS_RA, "Invalid scene: Missing resolution or ambient light." },
+	{ MISS_CAM, "Invalid scene: At least one camera is required." },
+	{ MISS_LIGHT, "Invalid scene: At least one light spot is required." },
 	{ NUM_FMT, "Invalid scene: Number badly formatted." },
 	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
