@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:24:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 18:39:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void			parse_scene(t_scene *scene, const char *filepath)
 	char		*head;
 	const char	*ids = "RAclspt";
 
+	create_scene(scene);
 	input = read_scene_file(scene, filepath);
 	if (input == NULL)
 		exit_error(scene, DEFAULT_ERR);
