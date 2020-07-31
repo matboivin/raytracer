@@ -37,6 +37,7 @@ SRC			=	main.c				\
 				parsing_cam.c		\
 				parsing_light.c		\
 				parsing_obj.c		\
+				parsing_objadd.c	\
 				parsing_settings.c	\
 				parsing_values.c	\
 				parsing_utils.c		\
