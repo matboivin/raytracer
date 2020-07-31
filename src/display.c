@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 00:30:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 01:29:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** display_rendering()   :  Displays the image and dispatches events
 */
 
-void	switch_cam(t_scene *scene)
+void	switch_camera(t_scene *scene)
 {
 	scene->cameras = scene->cameras->next;
 	scene->main_cam = scene->cameras->cam;

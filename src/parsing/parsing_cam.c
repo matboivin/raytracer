@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:17:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 01:28:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_cam			*create_camera(t_scene *scene, char **input)
 	return (result);
 }
 
-void			get_cam(t_scene *scene, char **input)
+void			get_camera(t_scene *scene, char **input)
 {
 	t_cam		*cam_data;
 	t_lstcam	*new_cam;

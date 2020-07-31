@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:18:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 01:28:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ struct s_pars_elem	g_pars_elem[] =
 {
 	{ "R ", &get_resolution },
 	{ "A ", &get_ambient },
-	{ "c ", &get_cam },
+	{ "c ", &get_camera },
 	{ "l ", &get_light },
 	{ "sp", &get_sphere },
 	{ "pl", &get_plane },
