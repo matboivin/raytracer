@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:22:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 00:44:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void			get_ambient(t_scene *scene, char **input);
 
 t_cam			*create_camera(t_scene *scene, char **input);
 void			get_cam(t_scene *scene, char **input);
+void			lstcam_circular(t_lstcam *cameras);
 t_light			*create_light(t_scene *scene, char **input);
 void			get_light(t_scene *scene, char **input);
 

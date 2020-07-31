@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   intersect.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 00:27:34 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
+/*   Updated: 2020/08/01 00:15:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Handle events
+** Render image
 **
-** handle_key()     :  Listens to keyboard events
-** dispatch_event() :  Dispatches event handlers
+** trace_ray()      :  Traces ray and retrieves color
+** set_ray()        :  Retrieves origin and direction of ray
+** fill_image()     :  Fills the image starting from pos (0,0)
+** generate_image() :  Generate the rendered image
 */
 
-int		handle_key(int keycode, t_scene *scene)
-{
-	if (keycode == ESC_KEY)
-		exit_success(scene);
-	if (keycode == SPC_KEY)
-		switch_cam(scene);
-	return (0);
-}
+// P(t) = origin + (t * dir)
 
-void	dispatch_event(t_scene *scene)
+void		*intersect(t_scene *scene, t_ray ray)
 {
-	mlx_key_hook(g_app->win_ptr, handle_key, scene);
-	mlx_hook(g_app->win_ptr, DESTROYNOTIFY, DESTROYNOTIFYMASK, exit_success, scene);
+	(void)scene;
+	(void)ray;
+	return (NULL);
 }

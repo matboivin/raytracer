@@ -31,6 +31,7 @@ SRC			=	main.c				\
 				exit_error.c		\
 				events.c			\
 				image.c				\
+				intersect.c			\
 				lights.c			\
 				objects.c			\
 				parsing.c			\

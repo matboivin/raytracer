@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:39:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 01:18:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static void		check_scene(t_scene *scene)
 		exit_error(scene, MISS_CAM);
 	if (scene->lights == NULL)
 		exit_error(scene, MISS_LIGHT);
-	return ;
 }
 
 void			parse_scene(t_scene *scene, const char *filepath)
@@ -107,5 +106,6 @@ void			parse_scene(t_scene *scene, const char *filepath)
 	}
 	ft_strdel(&head);
 	check_scene(scene);
+	lstcam_circular(scene->cameras);
 	resize_window(scene);
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 16:36:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 01:17:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,18 @@ void			get_cam(t_scene *scene, char **input)
 	if (scene->main_cam == NULL)
 		scene->main_cam = scene->cameras->cam;
 	skip_blank(input);
+}
+
+/*
+** Create a circular linked list to switch between cameras
+*/
+
+void			lstcam_circular(t_lstcam *cameras)
+{
+	t_lstcam	*head;
+
+	head = cameras;
+	while (cameras->next)
+		cameras = cameras->next;
+	cameras->next = head;
 }

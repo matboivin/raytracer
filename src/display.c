@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 00:46:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 00:30:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,20 @@
 /*
 ** Display rendering in a window
 **
+** switch_cam()          :  Switches camera and displays image
 ** open_window()         :  Creates a new window
 ** put_image_to_window() :  Displays image in window
 ** resize_window()       :  Handles window size if bigger than screen size
 ** display_rendering()   :  Displays the image and dispatches events
 */
+
+void	switch_cam(t_scene *scene)
+{
+	scene->cameras = scene->cameras->next;
+	scene->main_cam = scene->cameras->cam;
+	render(scene);
+	put_image_to_window();
+}
 
 void	open_window(void)
 {

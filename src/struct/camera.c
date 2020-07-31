@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 23:16:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 01:13:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,19 @@ void			lstcam_add_back(t_lstcam **lst, t_lstcam *new)
 
 void			lstcam_clear(t_lstcam **lst)
 {
+	t_lstcam	*head;
 	t_lstcam	*cursor;
-	t_lstcam	*next_node;
 
 	if (lst == NULL)
 		return ;
-	cursor = *lst;
-	if (*lst)
+	head = *lst;
+	while (*lst)
 	{
-		while (cursor)
-		{
-			next_node = cursor->next;
-			free(cursor->cam);
-			free(cursor);
-			cursor = next_node;
-		}
-		*lst = NULL;
+		cursor = *lst;
+		*lst = (*lst)->next;
+		free(cursor->cam);
+		free(cursor);
+		if (*lst == head)
+			*lst = NULL;
 	}
 }
