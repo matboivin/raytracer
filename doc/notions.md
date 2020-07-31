@@ -41,6 +41,10 @@ Graphics / OpenGL
 - [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
 - [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
 - [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
+- [(x,y,z,w) in OpenGL/Direct3D (Homogeneous Coordinates)](https://andrewharvey4.wordpress.com/2008/09/29/xyzw-in-opengldirect3d-homogeneous-coordinates/)
+- [matrices: Work with homogeneous coordinates](https://rdrr.io/cran/rgl/man/matrices.html)
+- [OpenGL Projection Matrix](http://www.songho.ca/opengl/gl_projectionmatrix.html)
+- [Tutoriel 3 : matrices](http://www.opengl-tutorial.org/fr/beginners-tutorials/tutorial-3-matrices/)
 
 Ray Tracing  
 

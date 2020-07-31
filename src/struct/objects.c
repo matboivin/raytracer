@@ -6,11 +6,19 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 17:25:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 23:16:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Objects
+**
+** new_lstobj()      :  Create a nez object element
+** lstobj_add_back() :  Add a new object at the end of the list
+** lstobj_clear()    :  Delete all objects
+*/
 
 t_lstobj		*new_lstobj(void *obj, char *type)
 {
@@ -29,7 +37,7 @@ void			lstobj_add_back(t_lstobj **lst, t_lstobj *new)
 {
 	t_lstobj	*cursor;
 
-	if (lst == NULL || new == NULL)
+	if ((lst == NULL) || (new == NULL))
 		return ;
 	cursor = *lst;
 	if (*lst)

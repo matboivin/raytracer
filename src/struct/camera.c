@@ -6,11 +6,19 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 16:25:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 23:16:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** Camera
+**
+** new_lstcam()      :  Create a nez camera element
+** lstcam_add_back() :  Add a new camera at the end of the list
+** lstcam_clear()    :  Delete all cameras
+*/
 
 t_lstcam		*new_lstcam(t_cam *cam)
 {
@@ -28,7 +36,7 @@ void			lstcam_add_back(t_lstcam **lst, t_lstcam *new)
 {
 	t_lstcam	*cursor;
 
-	if (lst == NULL || new == NULL)
+	if ((lst == NULL) || (new == NULL))
 		return ;
 	cursor = *lst;
 	if (*lst)

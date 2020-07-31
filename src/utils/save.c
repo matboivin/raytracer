@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:37:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 23:21:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,22 @@ void		write_bmpheaders(int fd)
 	size = g_app->win_x * g_app->win_y * 3;
 	file_header = create_bmpfileheader(size);
 	dib_header = create_bmpdibheader(size);
-	write(fd, &file_header.bmp_type, 2);
-	write(fd, &file_header.file_size, 4);
-	write(fd, &file_header.reserved1, 2);
-	write(fd, &file_header.reserved2, 2);
-	write(fd, &file_header.offset, 4);
-	write(fd, &dib_header.size_header, 4);
-	write(fd, &dib_header.width, 4);
-	write(fd, &dib_header.height, 4);
-	write(fd, &dib_header.planes, 2);
-	write(fd, &dib_header.bit_count, 2);
-	write(fd, &dib_header.compr, 4);
-	write(fd, &dib_header.img_size, 4);
-	write(fd, &dib_header.ppm_x, 4);
-	write(fd, &dib_header.ppm_y, 4);
-	write(fd, &dib_header.clr_used, 4);
-	write(fd, &dib_header.clr_important, 4);
+	write(fd, &(file_header.bmp_type), 2);
+	write(fd, &(file_header.file_size), 4);
+	write(fd, &(file_header.reserved1), 2);
+	write(fd, &(file_header.reserved2), 2);
+	write(fd, &(file_header.offset), 4);
+	write(fd, &(dib_header.size_header), 4);
+	write(fd, &(dib_header.width), 4);
+	write(fd, &(dib_header.height), 4);
+	write(fd, &(dib_header.planes), 2);
+	write(fd, &(dib_header.bit_count), 2);
+	write(fd, &(dib_header.compr), 4);
+	write(fd, &(dib_header.img_size), 4);
+	write(fd, &(dib_header.ppm_x), 4);
+	write(fd, &(dib_header.ppm_y), 4);
+	write(fd, &(dib_header.clr_used), 4);
+	write(fd, &(dib_header.clr_important), 4);
 }
 
 void		write_bmpdata(t_scene *scene, int fd)
@@ -91,8 +91,8 @@ void		write_bmpdata(t_scene *scene, int fd)
 	int		*pixel;
 	int		i;
 
-	y = g_app->win_y;
-	while (y > 0)
+	y = g_app->win_y - 1;
+	while (y > -1)
 	{
 		x = 0;
 		while (x < g_app->win_x)

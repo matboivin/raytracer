@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 16:26:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 23:23:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,24 @@
 
 // P(t) = origin + (t * dir)
 
+void		*intersect(t_scene *scene, t_ray ray)
+{
+	(void)scene;
+	(void)ray;
+	return (NULL);
+}
+
 t_color		trace_ray(t_scene *scene, t_ray ray)
 {
 	t_color	ray_color;
+	void	*nearest_obj;
 
-	(void)scene;
-	(void)ray;
-	// if intersect, compute and retrieve color
-	// else return default color
-	ray_color = create_color(0, 0, 255); // default color
+	nearest_obj = intersect(scene, ray);
+	if (nearest_obj)
+		//ray_color = nearest_obj->color;
+		ray_color = create_color(255, 255, 255);
+	else
+		ray_color = create_color(0, 0, 0);
 	return (ray_color);
 }
 
@@ -40,7 +49,7 @@ static void	set_viewdist(t_cam *cam)
 	cam->viewplane_d = (g_app->win_x * 0.5) * tan(cam->fov * 0.5);
 }
 
-void		set_ray(t_scene *scene, t_ray *ray)
+void		set_camera_ray(t_scene *scene, t_ray *ray)
 {
 	ray->origin = scene->main_cam->pos;
 	// TODO: Compute dir
@@ -62,7 +71,7 @@ void		render(t_scene *scene)
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_ray(scene, &ray);
+			set_camera_ray(scene, &ray);
 			ray_color = trace_ray(scene, ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;

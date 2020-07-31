@@ -2,6 +2,12 @@
 
 ## Working principle
 
+<p align="center">
+  <img src="assets/rt-setup2.png" alt="rt-setup2" />
+</p>
+
+Source: [Scratchapixel: An Overview of the Ray-Tracing Rendering Technique](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
+
 Ray tracing proceeds from camera position to objects and then to light sources.  
 Ray tracing simulates optical effects, such as reflection and refraction, scattering, and dispersion phenomena.
 

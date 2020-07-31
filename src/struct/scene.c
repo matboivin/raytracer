@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 17:01:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 23:18:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 /*
 ** Initialize scene elements
+**
+** create_scene()      :  Constructor for all scene elements
+** create_resolution() :  Constructor for Resolution
+** create_ambient()    :  Constructor for Ambient Light
+** destroy_scene()     :  Destructor for all scene elements
 */
 
 void	create_resolution(t_res *res)
@@ -32,8 +37,8 @@ void	create_ambient(t_amb *amb)
 
 void	create_scene(t_scene *scene)
 {
-	create_resolution(&scene->res);
-	create_ambient(&scene->amb);
+	create_resolution(&(scene->res));
+	create_ambient(&(scene->amb));
 	scene->cameras = NULL;
 	scene->main_cam = NULL;
 	scene->lights = NULL;
