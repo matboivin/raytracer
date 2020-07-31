@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:05:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 18:24:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 /*
 ** Parse the scene description to fill the scene struct
 **
-** g_pars_tab struct   :  Element ids associated to parsing functions
+** g_pars_elem struct  :  Element ids associated to parsing functions
 ** call_parsing_func() :  Gets the function matching identifier
 ** read_scene_file()   :  Gets the entire scene description
 ** check_scene()       :  Checks the scene data is valid
 ** parse_scene()       :  Iterates over the input to call functions
 */
 
-struct s_pars_tab	g_pars_tab[] =
+struct s_pars_elem	g_pars_elem[] =
 {
 	{ "R ", &get_resolution },
 	{ "A ", &get_ambient },
@@ -35,16 +35,16 @@ struct s_pars_tab	g_pars_tab[] =
 	{ "tr", &get_triangle }
 };
 
-static void		call_parsing_func(t_scene *scene, char **input)
+static void		handle_scene_elem(t_scene *scene, char **input)
 {
 	int			i;
 
 	i = 0;
 	while (i < 9)
 	{
-		if (ft_strnequ(g_pars_tab[i].u_id, *input, 2))
+		if (ft_strnequ(g_pars_elem[i].u_id, *input, 2))
 		{
-			(*g_pars_tab[i].func)(scene, input);
+			(*g_pars_elem[i].func)(scene, input);
 			return ;
 		}
 		i++;
@@ -76,12 +76,9 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 
 static void		check_scene(t_scene *scene)
 {
-	if (
-		(scene->res.is_declared == false)
-		|| (scene->amb.is_declared == false)
-	)
+	if ((scene->res.is_declared == false) || (scene->amb.is_declared == false))
 		exit_error(scene, MISS_RA);
-	if (scene->cameras == NULL)
+	if (scene->main_cam == NULL)
 		exit_error(scene, MISS_CAM);
 	if (scene->lights == NULL)
 		exit_error(scene, MISS_LIGHT);
@@ -103,7 +100,7 @@ void			parse_scene(t_scene *scene, const char *filepath)
 		if (*input == '\n')
 			input++;
 		else if (ft_ischarset(*input, ids) == true)
-			call_parsing_func(scene, &input);
+			handle_scene_elem(scene, &input);
 		else
 			exit_error(scene, SCENE_FMT);
 	}
