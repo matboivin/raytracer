@@ -23,6 +23,7 @@ LIB			=	ft mlx_Linux
 
 SRC			=	main.c				\
 				application.c		\
+				camera.c			\
 				color.c				\
 				display.c			\
 				drawing.c			\
@@ -30,11 +31,14 @@ SRC			=	main.c				\
 				exit_error.c		\
 				events.c			\
 				image.c				\
+				lights.c			\
 				objects.c			\
 				parsing.c			\
+				parsing_cam.c		\
+				parsing_light.c		\
 				parsing_obj.c		\
+				parsing_settings.c	\
 				parsing_values.c	\
-				parsing_view.c		\
 				parsing_utils.c		\
 				render.c			\
 				save.c				\

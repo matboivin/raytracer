@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/29 19:12:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 17:01:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 /*
 ** Initialize scene elements
-**
-** create_resolution()
-** create_ambient()
-** create_cam()
-** create_light()
-** create_scene()
 */
 
 void	create_resolution(t_res *res)
@@ -36,35 +30,19 @@ void	create_ambient(t_amb *amb)
 	amb->color = create_color(0, 0, 0);
 }
 
-void	create_cam(t_cam *cam)
-{
-	cam->pos = create_vec3(0.0, 0.0, 0.0);
-	cam->rot = create_vec3(0.0, 0.0, 0.0);
-	cam->fov = 0.0;
-	cam->viewplane_d = 0.0;
-}
-
-void	create_light(t_light *light)
-{
-	light->pos = create_vec3(0.0, 0.0, 0.0);
-	light->ratio = 0.0;
-	light->color = create_color(0, 0, 0);
-}
-
 void	create_scene(t_scene *scene)
 {
 	create_resolution(&scene->res);
 	create_ambient(&scene->amb);
-	create_cam(&scene->cam);
-	create_light(&scene->light);
-	create_sphere(&scene->sphere);
-	create_square(&scene->square);
-	create_plane(&scene->plane);
-	create_cylinder(&scene->cylinder);
-	create_triangle(&scene->triangle);
+	scene->cameras = NULL;
+	scene->main_cam = NULL;
+	scene->lights = NULL;
+	scene->objs = NULL;
 }
 
 void	destroy_scene(t_scene *to_destroy)
 {
-	(void)to_destroy;
+	lstcam_clear(&(to_destroy->cameras));
+	lstlight_clear(&(to_destroy->lights));
+	lstobj_clear(&(to_destroy->objs));
 }

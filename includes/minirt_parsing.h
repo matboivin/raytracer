@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/29 20:13:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 17:07:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,44 @@ typedef struct	s_pars_tab
 	t_pars_func	func;
 }				t_pars_tab;
 
+/*
+** Scene
+*/
+
 char			*read_scene_file(t_scene *scene, const char *filepath);
 void			parse_scene(t_scene *scene, const char *filepath);
+
+/*
+** Global render settings
+*/
+
 void			get_resolution(t_scene *scene, char **input);
 void			get_ambient(t_scene *scene, char **input);
+
+/*
+** Camera and light
+*/
+
+t_cam			*create_camera(t_scene *scene, char **input);
 void			get_cam(t_scene *scene, char **input);
+t_light			*create_light(t_scene *scene, char **input);
 void			get_light(t_scene *scene, char **input);
+
+/*
+** Objects
+*/
+
+void			add_object(t_scene *scene, void *obj_data, char *type);
 void			get_sphere(t_scene *scene, char **input);
 void			get_plane(t_scene *scene, char **input);
 void			get_square(t_scene *scene, char **input);
 void			get_cylinder(t_scene *scene, char **input);
 void			get_triangle(t_scene *scene, char **input);
+
+/*
+** Parsing utils
+*/
+
 int				get_integer(t_scene *scene, char **input);
 double			get_double(t_scene *scene, char **input);
 t_color			get_color(t_scene *scene, char **input);

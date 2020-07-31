@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   objects.c                                          :+:      :+:    :+:   */
+/*   lights.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 17:08:32 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/31 16:41:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstobj		*new_lstobj(void *obj, char *type)
+t_lstlight		*new_lstlight(t_light *light)
 {
-	t_lstobj	*result;
+	t_lstlight	*result;
 
-	result = (t_lstobj *)malloc(sizeof(t_lstobj));
+	result = (t_lstlight *)malloc(sizeof(t_lstlight));
 	if (result == NULL)
 		return (NULL);
-	result->type = type;
-	result->obj = obj;
+	result->light = light;
 	result->next = NULL;
 	return (result);
 }
 
-void			lstobj_add_back(t_lstobj **lst, t_lstobj *new)
+void			lstlight_add_back(t_lstlight **lst, t_lstlight *new)
 {
-	t_lstobj	*cursor;
+	t_lstlight	*cursor;
 
 	if (lst == NULL || new == NULL)
 		return ;
@@ -42,10 +41,10 @@ void			lstobj_add_back(t_lstobj **lst, t_lstobj *new)
 		*lst = new;
 }
 
-void			lstobj_clear(t_lstobj **lst)
+void			lstlight_clear(t_lstlight **lst)
 {
-	t_lstobj	*cursor;
-	t_lstobj	*next_node;
+	t_lstlight	*cursor;
+	t_lstlight	*next_node;
 
 	if (lst == NULL)
 		return ;
@@ -55,7 +54,7 @@ void			lstobj_clear(t_lstobj **lst)
 		while (cursor)
 		{
 			next_node = cursor->next;
-			free(cursor->obj);
+			free(cursor->light);
 			free(cursor);
 			cursor = next_node;
 		}

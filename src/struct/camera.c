@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   objects.c                                          :+:      :+:    :+:   */
+/*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 17:08:32 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
+/*   Updated: 2020/07/31 16:25:46 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstobj		*new_lstobj(void *obj, char *type)
+t_lstcam		*new_lstcam(t_cam *cam)
 {
-	t_lstobj	*result;
+	t_lstcam	*result;
 
-	result = (t_lstobj *)malloc(sizeof(t_lstobj));
+	result = (t_lstcam *)malloc(sizeof(t_lstcam));
 	if (result == NULL)
 		return (NULL);
-	result->type = type;
-	result->obj = obj;
+	result->cam = cam;
 	result->next = NULL;
 	return (result);
 }
 
-void			lstobj_add_back(t_lstobj **lst, t_lstobj *new)
+void			lstcam_add_back(t_lstcam **lst, t_lstcam *new)
 {
-	t_lstobj	*cursor;
+	t_lstcam	*cursor;
 
 	if (lst == NULL || new == NULL)
 		return ;
@@ -42,10 +41,10 @@ void			lstobj_add_back(t_lstobj **lst, t_lstobj *new)
 		*lst = new;
 }
 
-void			lstobj_clear(t_lstobj **lst)
+void			lstcam_clear(t_lstcam **lst)
 {
-	t_lstobj	*cursor;
-	t_lstobj	*next_node;
+	t_lstcam	*cursor;
+	t_lstcam	*next_node;
 
 	if (lst == NULL)
 		return ;
@@ -55,7 +54,7 @@ void			lstobj_clear(t_lstobj **lst)
 		while (cursor)
 		{
 			next_node = cursor->next;
-			free(cursor->obj);
+			free(cursor->cam);
 			free(cursor);
 			cursor = next_node;
 		}

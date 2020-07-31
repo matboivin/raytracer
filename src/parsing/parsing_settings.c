@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_view.c                                     :+:      :+:    :+:   */
+/*   parsing_settings.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:08:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 16:31:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Parse properties
+** Parse global render settings
 **
-** get_resolution()
-** get_ambient()
-** get_cam()
-** get_light()
+** Resolution
+** Ambient light
 */
 
 void	get_resolution(t_scene *scene, char **input)
@@ -44,29 +42,5 @@ void	get_ambient(t_scene *scene, char **input)
 	if (ft_f_range(scene->amb.ratio, 0.0, 1.0) == false)
 		exit_error(scene, AMB_FMT);
 	scene->amb.color = get_color(scene, input);
-	skip_blank(input);
-}
-
-void	get_cam(t_scene *scene, char **input)
-{
-	(*input) += 2;
-	scene->cam.pos = get_vec3(scene, input);
-	scene->cam.rot = get_vec3(scene, input);
-	if (ft_vec3_range(scene->cam.rot, -1.0, 1.0) == false)
-		exit_error(scene, CAM_FMT);
-	scene->cam.fov = get_integer(scene, input);
-	if (ft_n_range(scene->cam.fov, 0, 180) == false)
-		exit_error(scene, CAM_FMT);
-	skip_blank(input);
-}
-
-void	get_light(t_scene *scene, char **input)
-{
-	(*input) += 2;
-	scene->light.pos = get_vec3(scene, input);
-	scene->light.ratio = get_double(scene, input);
-	if (ft_f_range(scene->light.ratio, 0.0, 1.0) == false)
-		exit_error(scene, LIGHT_FMT);
-	scene->light.color = get_color(scene, input);
 	skip_blank(input);
 }
