@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/29 19:39:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 15:55:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		set_ray(t_scene *scene, t_ray *ray)
 {
 	ray->origin = scene->cam.pos;
 	// TODO: Compute dir
-	ray->dir = scene->cam.dir;
+	ray->dir = scene->cam.rot;
 	set_viewdist(&scene->cam);
 	ray->t = 0.0;
 }
