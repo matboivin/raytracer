@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 17:21:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 18:32:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void			get_triangle(t_scene *scene, char **input)
 	(*input) += 2;
 	result->point1 = get_vec3(scene, input);
 	result->point2 = get_vec3(scene, input);
-	result->vec3 = get_vec3(scene, input);
+	result->point3 = get_vec3(scene, input);
 	result->color = get_color(scene, input);
 	add_obj_to_scene(scene, result, "tr");
 	skip_blank(input);

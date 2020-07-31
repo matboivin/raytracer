@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 17:24:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/07/31 18:31:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct		s_tri
 {
 	t_vec3			point1;
 	t_vec3			point2;
-	t_vec3			vec3;
+	t_vec3			point3;
 	t_color			color;
 }					t_tri;
 
