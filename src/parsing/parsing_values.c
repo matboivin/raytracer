@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:08:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 17:18:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** get_double()  :  Retrieves a double
 ** get_rgb_val() :  Retrieves a RGB value: int comprised in the range (0, 255)
 ** get_color()   :  Retrieves a color: RGB values
-** get_vec3()  :  Retrieves a 3D coordinates: 3 double values
+** get_vec3()    :  Retrieves a 3D coordinates: 3 double values
 */
 
 int			get_integer(t_scene *scene, char **input)

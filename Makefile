@@ -36,6 +36,7 @@ SRC			=	main.c				\
 				objects.c			\
 				parsing.c			\
 				parsing_cam.c		\
+				parsing_check.c		\
 				parsing_light.c		\
 				parsing_obj.c		\
 				parsing_objadd.c	\
@@ -45,6 +46,8 @@ SRC			=	main.c				\
 				render.c			\
 				save.c				\
 				scene.c				\
+				shading.c			\
+				switch_cam.c		\
 
 # Math functions
 

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:36:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 18:06:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,28 @@
 
 // P(t) = origin + (t * dir)
 
-t_color		trace_ray(t_scene *scene, t_ray ray)
+t_color			trace_ray(t_scene *scene, t_ray ray)
 {
-	t_color	default_color;
-	void	*nearest_obj;
+	t_color		default_color;
+	t_color		hit_color;
+	t_lstobj	*nearest_obj;
 
 	default_color = create_color(0, 0, 0);
 	nearest_obj = intersect(scene, ray);
 	if (nearest_obj)
-		//return (nearest_obj->color);
-		return (create_color(255, 255, 255)); // tmp
+	{
+		hit_color = shading(scene, nearest_obj->obj);
+		return (hit_color);
+	}
 	return (default_color);
 }
 
-static void	set_viewdist(t_cam *cam)
+static void		set_viewdist(t_cam *cam)
 {
 	cam->viewplane_d = (g_app->win_x * 0.5) * tan(cam->fov * 0.5);
 }
 
-void		set_camera_ray(t_scene *scene, t_ray *ray)
+void			set_camera_ray(t_scene *scene, t_ray *ray)
 {
 	ray->origin = scene->main_cam->pos;
 	// TODO: Compute dir
@@ -50,12 +53,12 @@ void		set_camera_ray(t_scene *scene, t_ray *ray)
 	ray->t = 0.0;
 }
 
-void		render(t_scene *scene)
+void			render(t_scene *scene)
 {
-	int		x;
-	int		y;
-	t_ray	ray;
-	t_color	ray_color;
+	int			x;
+	int			y;
+	t_ray		ray;
+	t_color		ray_color;
 
 	y = 0;
 	while (y < g_app->win_y)
@@ -72,7 +75,7 @@ void		render(t_scene *scene)
 	}
 }
 
-void		generate_image(t_scene *scene)
+void			generate_image(t_scene *scene)
 {
 	g_app->img = malloc_image();
 	render(scene);

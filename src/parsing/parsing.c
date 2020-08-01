@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:28:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 17:29:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 /*
 ** Parse the scene description to fill the scene struct
 **
-** g_pars_elem struct  :  Element ids associated to parsing functions
-** call_parsing_func() :  Gets the function matching identifier
+** g_pars_elem struct  :  Element identifiers associated to parsing functions
+** handle_scene_elem() :  Calls the appropriate function to parse a line
 ** read_scene_file()   :  Gets the entire scene description
-** check_scene()       :  Checks the scene data is valid
 ** parse_scene()       :  Iterates over the input to call functions
 */
 
@@ -74,16 +73,6 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 	return (result);
 }
 
-static void		check_scene(t_scene *scene)
-{
-	if ((scene->res.is_declared == false) || (scene->amb.is_declared == false))
-		exit_error(scene, MISS_RA);
-	if (scene->main_cam == NULL)
-		exit_error(scene, MISS_CAM);
-	if (scene->lights == NULL)
-		exit_error(scene, MISS_LIGHT);
-}
-
 void			parse_scene(t_scene *scene, const char *filepath)
 {
 	char		*input;
@@ -106,6 +95,6 @@ void			parse_scene(t_scene *scene, const char *filepath)
 	}
 	ft_strdel(&head);
 	check_scene(scene);
-	lstcam_circular(scene->cameras);
-	resize_window(scene);
+	check_max_display(scene);
+	create_circular_lstcam(scene->cameras);
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:29:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 17:23:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,10 @@
 /*
 ** Display rendering in a window
 **
-** switch_cam()          :  Switches camera and displays image
 ** open_window()         :  Creates a new window
 ** put_image_to_window() :  Displays image in window
-** resize_window()       :  Handles window size if bigger than screen size
 ** display_rendering()   :  Displays the image and dispatches events
 */
-
-void	switch_camera(t_scene *scene)
-{
-	scene->cameras = scene->cameras->next;
-	scene->main_cam = scene->cameras->cam;
-	render(scene);
-	put_image_to_window();
-}
 
 void	open_window(void)
 {
@@ -49,20 +39,6 @@ void	put_image_to_window(void)
 		0,
 		0
 	);
-}
-
-void	resize_window(t_scene *scene)
-{
-	int	max_x;
-	int	max_y;
-
-	mlx_get_screen_size(g_app->mlx_ptr, &max_x, &max_y);
-	if (scene->res.size_x > max_x)
-		scene->res.size_x = max_x;
-	if (scene->res.size_y > max_y)
-		scene->res.size_y = max_y;
-	g_app->win_x = scene->res.size_x;
-	g_app->win_y = scene->res.size_y;
 }
 
 void	display_rendering(t_scene *scene)

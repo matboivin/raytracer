@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:28:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 17:25:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct	s_pars_elem
 
 char			*read_scene_file(t_scene *scene, const char *filepath);
 void			parse_scene(t_scene *scene, const char *filepath);
+void			check_scene(t_scene *scene);
+void			check_max_display(t_scene *scene);
 
 /*
 ** Global render settings
@@ -41,7 +43,7 @@ void			get_ambient(t_scene *scene, char **input);
 
 t_cam			*create_camera(t_scene *scene, char **input);
 void			get_camera(t_scene *scene, char **input);
-void			lstcam_circular(t_lstcam *cameras);
+void			create_circular_lstcam(t_lstcam *cameras);
 t_light			*create_light(t_scene *scene, char **input);
 void			get_light(t_scene *scene, char **input);
 

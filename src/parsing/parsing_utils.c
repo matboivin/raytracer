@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:07:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 17:19:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 ** Utils for parsing
 **
 ** ft_vec3_range()  :  Checks if vector values are in a given range
-** skip_blank()       :  Skips spaces
-** skip_separator()   :  Skips a given separator (expected: , . -)
-** skip_digits()      :  Skips digits
-** skip_double()      :  Skips double number
+** skip_blank()     :  Skips spaces
+** skip_separator() :  Skips a given separator (expected: , . -)
+** skip_digits()    :  Skips digits
+** skip_double()    :  Skips double number
 */
 
 bool	ft_vec3_range(t_vec3 vec, double start, double end)
