@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 17:31:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 23:53:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ void	switch_camera(t_scene *scene)
 	render(scene);
 	put_image_to_window();
 }
-

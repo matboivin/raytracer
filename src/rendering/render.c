@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 22:32:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 23:43:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void			render(t_scene *scene)
 	t_ray		ray;
 	t_color		ray_color;
 
-	set_camera_ray(scene, &ray);
+	create_camera_ray(scene, &ray);
 	y = 0;
 	while (y < g_app->win_y)
 	{
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_ray_dir(&ray, x, y);
+			set_camera_ray(&ray, x, y);
 			ray_color = cast_ray(scene, &ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;

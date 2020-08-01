@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 17:14:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 23:50:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ void			get_light(t_scene *scene, char **input)
 	if (new_light == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	lstlight_add_back(&(scene->lights), new_light);
+	if (scene->lights_head == NULL)
+		scene->lights_head = scene->lights;
 	skip_blank(input);
 }

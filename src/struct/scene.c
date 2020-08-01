@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 23:18:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 23:50:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ void	create_scene(t_scene *scene)
 	scene->cameras = NULL;
 	scene->main_cam = NULL;
 	scene->lights = NULL;
+	scene->lights_head = NULL;
 	scene->objs = NULL;
+	scene->objs_head = NULL;
 }
 
 void	destroy_scene(t_scene *to_destroy)
 {
 	lstcam_clear(&(to_destroy->cameras));
-	lstlight_clear(&(to_destroy->lights));
-	lstobj_clear(&(to_destroy->objs));
+	lstlight_clear(&(to_destroy->lights_head));
+	lstobj_clear(&(to_destroy->objs_head));
 }
