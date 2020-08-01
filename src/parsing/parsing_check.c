@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 17:25:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 21:28:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Checkers for parsing
 **
-** check_scene()       :  Checks the scene description is valid
+** check_scene()       :  Checks whether the scene description is valid
 ** check_max_display() :  Handles render size if bigger than screen size
 */
 

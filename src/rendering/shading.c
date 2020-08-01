@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 18:35:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 22:38:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Process shading to retrieve final color
 */
 
-t_color		cast_color(t_lstobj *node)
+t_color		get_obj_color(t_lstobj *node)
 {
 	t_color	color;
 
@@ -38,6 +38,6 @@ t_color		shading(t_scene *scene, t_lstobj *node)
 	t_color	final_color;
 
 	(void)scene;
-	final_color = cast_color(node);
+	final_color = get_obj_color(node);
 	return (final_color);
 }

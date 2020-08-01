@@ -46,6 +46,7 @@ SRC			=	main.c				\
 				render.c			\
 				save.c				\
 				scene.c				\
+				set_ray.c			\
 				shading.c			\
 				switch_cam.c		\
 

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 18:38:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 22:32:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,25 @@
 /*
 ** Render image
 **
-** trace_ray()      :  Traces ray and retrieves color
-** set_ray()        :  Retrieves origin and direction of ray
+** cast_ray()       :  Computes the color at the intersection point of a ray
 ** fill_image()     :  Fills the image starting from pos (0,0)
 ** generate_image() :  Generate the rendered image
 */
 
-// P(t) = origin + (t * dir)
-
-t_color			trace_ray(t_scene *scene, t_ray ray)
+t_color			cast_ray(t_scene *scene, t_ray *ray)
 {
 	t_color		default_color;
 	t_color		hit_color;
-	t_lstobj	*nearest_obj;
+	t_lstobj	*hit_obj;
 
 	default_color = create_color(0, 0, 0);
-	nearest_obj = intersect(scene, ray);
-	if (nearest_obj)
+	hit_obj = trace(scene, ray);
+	if (hit_obj)
 	{
-		hit_color = shading(scene, nearest_obj);
+		hit_color = shading(scene, hit_obj);
 		return (hit_color);
 	}
 	return (default_color);
-}
-
-static void		set_viewdist(t_cam *cam)
-{
-	cam->viewplane_d = (g_app->win_x * 0.5) * tan(cam->fov * 0.5);
-}
-
-void			set_camera_ray(t_scene *scene, t_ray *ray)
-{
-	ray->origin = scene->main_cam->pos;
-	// TODO: Compute dir
-	ray->dir = scene->main_cam->rot;
-	set_viewdist(scene->main_cam);
-	ray->t = 0.0;
 }
 
 void			render(t_scene *scene)
@@ -60,14 +43,15 @@ void			render(t_scene *scene)
 	t_ray		ray;
 	t_color		ray_color;
 
+	set_camera_ray(scene, &ray);
 	y = 0;
 	while (y < g_app->win_y)
 	{
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_camera_ray(scene, &ray);
-			ray_color = trace_ray(scene, ray);
+			set_ray_dir(&ray, x, y);
+			ray_color = cast_ray(scene, &ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;
 		}

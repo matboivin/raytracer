@@ -51,13 +51,14 @@ Control flow:
 ### Ray tracing
 
 - Set up a virtual viewport to know if ray intersects the view frame
-- Trace a ray from camera position
-- Identify nearest object
-  - Identify shape (sphere, plane, square, cylinder, triangle)
-  - At intersection, define light, shadows, texture, ...
-  - Retrieve the color of the pixel
-- Else
-  - Default color
+- For each pixel in the image:
+  - Cast a primary ray from camera position
+  - If a ray intersects an object (loop over all the objects)
+    - At the intersection point between the ray and the object, identify the object
+    - Cast secondary ray, process shading
+    - Retrieve the final color of the pixel
+  - Else
+    - Default color
 
 ### MLX images
 

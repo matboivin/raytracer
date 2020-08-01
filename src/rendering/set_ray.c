@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect.c                                        :+:      :+:    :+:   */
+/*   set_ray.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 22:12:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 22:32:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Check if a ray intersects any object
+** Set ray
 **
-** returns: A pointer to the nearest intersected object
-**          NULL otherwise
+** set_viewdist()   :  Set distance between camera and viewplane
+** set_camera_ray() :  Initialize ray from camera position
+** set_ray_dir()    :  Set direction of ray
 */
 
-t_lstobj	*trace(t_scene *scene, t_ray *ray)
+void	set_viewdist(t_cam *cam)
 {
-	void	*nearest_obj;
+	cam->viewplane_d = (g_app->win_x * 0.5) * tan(cam->fov * 0.5);
+}
 
+void	set_camera_ray(t_scene *scene, t_ray *ray)
+{
+	ray->origin = scene->main_cam->pos;
+	ray->dir = scene->main_cam->rot;
+	set_viewdist(scene->main_cam);
+	ray->t = 0.0;
+}
+
+void	set_ray_dir(t_ray *ray, int x, int y)
+{
 	(void)ray;
-	//nearest_obj = NULL;
-	nearest_obj = scene->objs; // tmp
-	return (nearest_obj);
+	(void)x;
+	(void)y;
+	//ray->dir = ;
 }
