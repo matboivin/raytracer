@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 14:59:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:31:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ void	put_pixel_to_image(t_img *img, t_color color, int x, int y)
 {
 	int	i;
 
-	if (
-		(ft_n_range(x, 0, img->size_x) == false)
-		|| (ft_n_range(y, 0, img->size_y) == false)
-	)
+	if ((ft_n_range(x, 0, img->size_x) == false)
+		|| (ft_n_range(y, 0, img->size_y) == false))
 		return ;
 	i = (x + img->size_x * y) * 4;
 	img->pixels[i + RED_COMP] = color.r;

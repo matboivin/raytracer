@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:04:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:10:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /*
 ** Print error messages and exit program
 **
-** g_err struct :  Error ids associated to error messages
-** catch_err()  :  Retrieves the appropriate error message given an error id
+** g_err struct :  Error identifiers associated to error messages
+** catch_err()  :  Given an error id, retrieves the appropriate error message
 ** put_error()  :  Prints error message to standard error
 ** exit_error() :  Frees allocated memory, prints error message and exits
 */
@@ -44,7 +44,7 @@ struct s_err	g_err[] =
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
 	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
-	{ DEFAULT_ERR, "" }
+	{ DEFAULT_ERR, "Error" }
 };
 
 char		*catch_err(t_errid raised)

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:13:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:05:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Camera
 **
-** new_lstcam()      :  Create a nez camera element
+** new_lstcam()      :  Create a new camera element
 ** lstcam_add_back() :  Add a new camera at the end of the list
 ** lstcam_clear()    :  Delete all cameras
 */

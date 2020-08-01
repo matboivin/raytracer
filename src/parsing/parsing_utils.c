@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 17:19:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:29:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ bool	ft_vec3_range(t_vec3 vec, double start, double end)
 	if (
 		(ft_f_range(vec.x, start, end) == false)
 		|| (ft_f_range(vec.y, start, end) == false)
-		|| (ft_f_range(vec.z, start, end) == false)
-	)
+		|| (ft_f_range(vec.z, start, end) == false))
 		return (false);
 	return (true);
 }

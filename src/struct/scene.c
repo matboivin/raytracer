@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 23:50:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:07:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*
 ** Initialize scene elements
 **
-** create_scene()      :  Constructor for all scene elements
 ** create_resolution() :  Constructor for Resolution
 ** create_ambient()    :  Constructor for Ambient Light
+** create_scene()      :  Constructor for all scene elements
 ** destroy_scene()     :  Destructor for all scene elements
 */
 

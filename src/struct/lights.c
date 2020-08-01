@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 23:15:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:06:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Light spot
 **
-** new_lstlight()      :  Create a nez light element
+** new_lstlight()      :  Create a new light element
 ** lstlight_add_back() :  Add a new light spot at the end of the list
 ** lstlight_clear()    :  Delete all light spots
 */

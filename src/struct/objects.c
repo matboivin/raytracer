@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 18:11:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:06:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Objects
 **
-** new_lstobj()      :  Create a nez object element
+** new_lstobj()      :  Create a new object element
 ** lstobj_add_back() :  Add a new object at the end of the list
 ** lstobj_clear()    :  Delete all objects
 */

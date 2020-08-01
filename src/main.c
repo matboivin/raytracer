@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 00:16:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:12:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int			main(int argc, char **argv)
 	generate_image(&scene);
 	if (argc == 3)
 		save_bmp(&scene, BMP_FILENAME);
-	display_rendering(&scene);
+	display_render(&scene);
 	return (run_app());
 }

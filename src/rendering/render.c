@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 23:43:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:23:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 	hit_obj = trace(scene, ray);
 	if (hit_obj)
 	{
-		hit_color = shading(scene, hit_obj);
+		hit_color = shading(scene, ray, hit_obj);
 		return (hit_color);
 	}
 	return (default_color);

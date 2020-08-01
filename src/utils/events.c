@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 01:29:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:32:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ int		handle_key(int keycode, t_scene *scene)
 
 void	dispatch_event(t_scene *scene)
 {
-	mlx_key_hook(g_app->win_ptr, handle_key, scene);
-	mlx_hook(g_app->win_ptr, DESTROYNOTIFY, DESTROYNOTIFYMASK, exit_success, scene);
+	mlx_key_hook(
+		g_app->win_ptr,
+		handle_key,
+		scene);
+	mlx_hook(
+		g_app->win_ptr,
+		DESTROYNOTIFY,
+		DESTROYNOTIFYMASK,
+		exit_success,
+		scene);
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 00:08:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 00:30:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ void	check_filename(const char *filepath)
 
 void	put_usage(void)
 {
-	ft_dprintf(STDERR_FILENO, "Usage: ./miniRT <scene.rt> [--save]\n\n");
 	ft_dprintf(
 		STDERR_FILENO,
-		"optional arguments:\n  --save  save the rendered image in bmp format\n"
-	);
+		"Usage: ./miniRT <scene.rt> [--save]\n\n");
+	ft_dprintf(
+		STDERR_FILENO,
+		"optional arguments:\n  --save  save rendered image to bmp format\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -59,7 +60,7 @@ void	free_all(t_scene *scene)
 int		exit_success(t_scene *scene)
 {
 	free_all(scene);
-	ft_dprintf(STDOUT_FILENO, "EXIT\n");
+	ft_printf("EXIT\n");
 	exit(EXIT_SUCCESS);
 	return (0);
 }
