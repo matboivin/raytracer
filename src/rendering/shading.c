@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 18:06:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 18:35:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,28 @@
 ** Process shading to retrieve final color
 */
 
-t_color		shading(t_scene *scene, void *obj)
+t_color		cast_color(t_lstobj *node)
+{
+	t_color	color;
+
+	if (node->type == SPHERE)
+		color = ((t_sphere *)node->obj)->color;
+	else if (node->type == PLANE)
+		color = ((t_plane *)node->obj)->color;
+	else if (node->type == SQUARE)
+		color = ((t_square *)node->obj)->color;
+	else if (node->type == CYLINDER)
+		color = ((t_cyl *)node->obj)->color;
+	else if (node->type == TRIANGLE)
+		color = ((t_tri *)node->obj)->color;
+	return (color);
+}
+
+t_color		shading(t_scene *scene, t_lstobj *node)
 {
 	t_color	final_color;
 
 	(void)scene;
-	(void)obj;
-	final_color = create_color(255, 255, 255);
+	final_color = cast_color(node);
 	return (final_color);
 }

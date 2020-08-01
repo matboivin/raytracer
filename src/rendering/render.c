@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 18:06:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 18:38:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_color			trace_ray(t_scene *scene, t_ray ray)
 	nearest_obj = intersect(scene, ray);
 	if (nearest_obj)
 	{
-		hit_color = shading(scene, nearest_obj->obj);
+		hit_color = shading(scene, nearest_obj);
 		return (hit_color);
 	}
 	return (default_color);
