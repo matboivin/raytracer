@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 23:16:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 18:11:59 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** lstobj_clear()    :  Delete all objects
 */
 
-t_lstobj		*new_lstobj(void *obj, char *type)
+t_lstobj		*new_lstobj(void *obj, t_objid type)
 {
 	t_lstobj	*result;
 

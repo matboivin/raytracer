@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:32:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 18:12:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void			get_sphere(t_scene *scene, char **input)
 	result->pos = get_vec3(scene, input);
 	result->diameter = get_double(scene, input);
 	result->color = get_color(scene, input);
-	add_obj_to_scene(scene, result, "sp");
+	add_obj_to_scene(scene, result, SPHERE);
 	skip_blank(input);
 }
 
@@ -44,7 +44,7 @@ void			get_plane(t_scene *scene, char **input)
 	if (ft_vec3_range(result->rot, -1.0, 1.0) == false)
 		exit_error(scene, PLANE_FMT);
 	result->color = get_color(scene, input);
-	add_obj_to_scene(scene, result, "pl");
+	add_obj_to_scene(scene, result, PLANE);
 	skip_blank(input);
 }
 
@@ -62,7 +62,7 @@ void			get_square(t_scene *scene, char **input)
 		exit_error(scene, SQUARE_FMT);
 	result->side = get_double(scene, input);
 	result->color = get_color(scene, input);
-	add_obj_to_scene(scene, result, "sq");
+	add_obj_to_scene(scene, result, SQUARE);
 	skip_blank(input);
 }
 
@@ -81,7 +81,7 @@ void			get_cylinder(t_scene *scene, char **input)
 	result->diameter = get_double(scene, input);
 	result->side = get_double(scene, input);
 	result->color = get_color(scene, input);
-	add_obj_to_scene(scene, result, "cy");
+	add_obj_to_scene(scene, result, CYLINDER);
 	skip_blank(input);
 }
 
@@ -97,6 +97,6 @@ void			get_triangle(t_scene *scene, char **input)
 	result->point2 = get_vec3(scene, input);
 	result->point3 = get_vec3(scene, input);
 	result->color = get_color(scene, input);
-	add_obj_to_scene(scene, result, "tr");
+	add_obj_to_scene(scene, result, TRIANGLE);
 	skip_blank(input);
 }

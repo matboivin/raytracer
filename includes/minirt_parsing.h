@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 17:25:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/01 18:12:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void			get_light(t_scene *scene, char **input);
 ** Objects
 */
 
-void			add_obj_to_scene(t_scene *scene, void *obj, char *type);
+void			add_obj_to_scene(t_scene *scene, void *obj, t_objid type);
 void			get_sphere(t_scene *scene, char **input);
 void			get_plane(t_scene *scene, char **input);
 void			get_square(t_scene *scene, char **input);
