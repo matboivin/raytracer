@@ -4,3 +4,6 @@
 [submodule "lib/mlx"]
 	path = lib/mlx
 	url = https://github.com/matboivin/mlx.git
+[submodule "lib/minimath"]
+	path = lib/minimath
+	url = https://github.com/matboivin/minimath.git

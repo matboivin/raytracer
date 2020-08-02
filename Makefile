@@ -4,22 +4,24 @@ SHELL = /bin/sh
 CC = gcc
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
-IFLAGS = $(foreach dir, $(INC_PATH), -I $(dir))
-LFLAGS = $(foreach dir, $(LIB_PATH), -L $(dir)) $(foreach lib, $(LIB), -l $(lib))
-LFLAGS += -lm -lXext -lX11
+CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
+IFLAGS		=	$(foreach dir, $(INC_PATH), -I $(dir))
+LFLAGS		=	$(foreach dir, $(LIB_PATH), -L $(dir)) \
+				$(foreach lib, $(LIB), -l $(lib))
+LFLAGS		+=	-lm -lXext -lX11
 
 .SUFFIXE:
 .SUFFIXES: .c .o .h
 
-LIB_PATH = lib/libft lib/mlx
-INC_PATH = $(shell find includes -type d) lib/libft/includes lib/mlx
-SRC_PATH = $(shell find src -type d)
-OBJ_PATH = obj
+LIB_PATH	=	lib/libft lib/minimath lib/mlx
+INC_PATH	=	$(shell find includes -type d) \
+				lib/libft/includes lib/minimath/includes lib/mlx
+SRC_PATH	=	$(shell find src -type d)
+OBJ_PATH	=	obj
 
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 
-LIB			=	ft mlx_Linux
+LIB			=	ft minimath mlx_Linux
 
 SRC			=	main.c				\
 				application.c		\
@@ -50,12 +52,6 @@ SRC			=	main.c				\
 				shading.c			\
 				switch_cam.c		\
 
-# Math functions
-
-SRC			+=	vec3.c				\
-				vec3_op.c			\
-				vec3_prod.c			\
-
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 
 .PHONY: all
@@ -68,6 +64,7 @@ install :
 .PHONY: re-install
 re-install :
 	@make -C lib/libft fclean
+	@make -C lib/minimath fclean
 	@make -C lib/mlx clean
 	@make install
 
@@ -101,6 +98,7 @@ clean:
 fclean: clean
 	@$(RM) $(NAME)
 	@make -C lib/libft fclean
+	@make -C lib/minimath fclean
 	@echo "[OK]\t\tRemoved $(NAME)"
 
 .PHONY: re

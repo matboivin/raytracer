@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:33:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 23:08:46 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 # include "libft.h"
 # include "mlx.h"
+# include "minimath.h"
 
-# include "minirt_math.h"
 # include "minirt_define.h"
 # include "minirt_color.h"
 # include "minirt_ray.h"
