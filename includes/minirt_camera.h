@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 16:25:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/02 22:13:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ typedef struct		s_cam
 	t_vec3			pos;
 	t_vec3			rot;
 	double			fov;
-	double			viewplane_d;
 }					t_cam;
 
 typedef struct		s_lstcam
