@@ -22,6 +22,8 @@ Source: [Perspective projection view plane distance calculation confusion?](http
 
 A perspective projection demo: [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
 
+Aspect ratio and FOV: [Sratchapixel: 3D Viewing: the Pinhole Camera Model](https://www.scratchapixel.com/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/how-pinhole-camera-works-part-2)
+
 ### Orientation
 
 <p align="center">
@@ -43,20 +45,3 @@ Source: [Scratchapixel: Camera Coordinate System and Camera Space](https://www.s
 </p>
 
 Source: [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
-
-### Perspective Projection
-
-<p align="center">
-  <img src="assets/perspective4.png" alt="perspective4" />
-</p>
-
-Source: [Scratchapixel: Computing the Pixel Coordinates of a 3D Point](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/perspective-projection)
-
-<p align="center">
-  <img src="assets/box-setup4.png" alt="box-setup4" />
-</p>
-
-> The coordinates of the point P', the projection of P on the canvas can be computed using simple geometry. The rectangle ABC and AB'C' are said to be similar (side view).  
-Points in a scene are defined in the world coordinate space. However to project them onto the surface of the canvas, we first need to convert the 3D point coordinates from world space to camera space. This can be done by multiplying the point world coordinates by the inverse of the camera-to-wold matrix. 
-
-Source: [Scratchapixel: Mathematics of Computing the 2D Coordinates of a 3D Point](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/mathematics-computing-2d-coordinates-of-3d-points)

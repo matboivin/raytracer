@@ -18,7 +18,7 @@
 ### Prerequisites
 
 - GNU make and a C compiler
-- MinilibX for Linux
+- [MinilibX for Linux](https://github.com/42Paris/minilibx-linux)
 
 ### Installing
 
