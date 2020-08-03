@@ -12,8 +12,9 @@
 
 - **Unit vectors** are vectors of length 1.
 - A vector of length 1 is **normalised**. Normalising a vector means making the vector length become 1.
-- To normalize the vector, divide it by its length: `(x/len, y/len, z/len)`
+- To normalize the vector:
   - Get the length of a 3D vector (x,y,z): `len = sqrt(x2 + y2 + z2)`
+  - Divide it by its length: `(x/len, y/len, z/len)`
   - The result is a unit vector  that points in the same direction as the original vector.
 
 ## 4x4 Matrix Visualized as a Cartesian Coordinate System
