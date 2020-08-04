@@ -25,7 +25,6 @@ Control flow:
 - Handle errors: no parameter, invalid `.rt` file, invalid `--save` option
 - Initialize scene struct
   - -> Connect to the X server with `mlx_init()`
-- Initialize scene struct
 - Parse a given scene description -> store data in the scene struct
 - Generate image using scene data
 - If `--save` option is used

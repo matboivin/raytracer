@@ -21,7 +21,7 @@
 A matrix is a way of combining scaling, rotation, and translation into one single structure. A point multiplied by a matrix transforms the point to a new position.
 
 <p align="center">
-  <img src="transpose-order.png" alt="transpose matrix" />
+  <img src="assets/transpose-order.png" alt="transpose matrix" />
 </p>
 
 Source: [Scratchapixel: Row Major vs Column Major Vector](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector)
