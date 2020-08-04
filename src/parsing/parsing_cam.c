@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 22:14:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/04 17:30:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_cam			*create_camera(t_scene *scene, char **input)
 	if (result == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	result->pos = get_vec3(scene, input);
-	result->rot = get_vec3(scene, input);
-	if (ft_vec3_range(result->rot, -1.0, 1.0) == false)
+	result->dir = get_vec3(scene, input);
+	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, CAM_FMT);
 	result->fov = get_integer(scene, input);
 	if (ft_n_range(result->fov, 0, 180) == false)

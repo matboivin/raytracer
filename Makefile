@@ -26,6 +26,8 @@ LIB			=	ft minimath mlx_Linux
 SRC			=	main.c				\
 				application.c		\
 				camera.c			\
+				cam_rotation.c		\
+				cam_to_world.c		\
 				color.c				\
 				display.c			\
 				drawing.c			\

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 22:14:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/04 18:43:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void	set_camera_ray(t_ray *ray, int x, int y)
 void	create_camera_ray(t_scene *scene, t_ray *ray)
 {
 	ray->origin = scene->main_cam->pos;
-	ray->dir = scene->main_cam->rot;
+	ray->dir = scene->main_cam->dir;
 	ray->t_nearest = __DBL_MAX__;
 }
