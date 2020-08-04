@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/25 01:08:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:37:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** Struct: Application to use MLX functions
 **
 ** mlx_ptr: Pointer returned by the mlx_init() function
-** win_ptr: Pointer to a MLX window
+** win_ptr: Pointer to a window
 ** win_x: Width of the window
 ** win_y: Height of the window
 ** title: Title of the window

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:11 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/28 13:35:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:37:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_IMAGE_H
 
 /*
-** MLX image struct
+** Image struct
 **
 ** size_x: Width of the image
 ** size_y: Height of the image

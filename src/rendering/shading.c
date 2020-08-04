@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 14:30:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:35:46 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ bool		is_in_shadow(void *obj, t_ray *ray)
 	(void)ray;
 	return (false);
 }
-
-/*
-** Intersection point = ray origin + t * ray direction
-*/
 
 t_color		shading(t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
 {

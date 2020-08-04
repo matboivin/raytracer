@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:15:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:35:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 ** reset_ray_nearest() :  Reset t_nearest to max double value
 ** set_camera_ray()    :  Set direction of ray and reset t_nearest
 ** create_camera_ray() :  Initialize ray from camera position
-*/
-
-/*
-** viewplane_d = (g_app->win_x * 0.5) * tan(cam->fov * 0.5);
 */
 
 t_vec4		get_pixel_coord(t_scene *scene, int x, int y)

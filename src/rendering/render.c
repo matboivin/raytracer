@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:17:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:49:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 ** cast_ray()       :  Computes the color at the intersection point of a ray
 ** render()         :  Fills image starting from pos (0,0)
 ** generate_image() :  Generate the rendered image
+*/
+
+/*
+** If a ray intersects an object, process shading and return its color
+** Else, return the default color
 */
 
 t_color			cast_ray(t_scene *scene, t_ray *ray)
@@ -35,6 +40,14 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 	}
 	return (default_color);
 }
+
+/*
+** Create a cam_to_world matrix
+** Set the ray origin to the camera position
+** Iterate over all pixels in the image
+** At each pixel, set the ray direction, cast the ray
+** Retrieve the ray color and put it in the image
+*/
 
 void			render(t_scene *scene)
 {
@@ -60,6 +73,10 @@ void			render(t_scene *scene)
 		y++;
 	}
 }
+
+/*
+** Malloc an image an start rendering
+*/
 
 void			generate_image(t_scene *scene)
 {
