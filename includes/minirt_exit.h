@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 18:01:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:20:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef enum	e_errid
 	MISS_RA,
 	MISS_CAM,
 	MISS_LIGHT,
+	MISS_OBJ,
 	NUM_FMT,
 	PLANE_FMT,
 	SAVE_OPTION,

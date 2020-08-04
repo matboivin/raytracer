@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 21:28:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:19:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	check_scene(t_scene *scene)
 		exit_error(scene, MISS_CAM);
 	if (scene->lights == NULL)
 		exit_error(scene, MISS_LIGHT);
+	if (scene->objs == NULL)
+		exit_error(scene, MISS_OBJ);
 }
 
 void	check_max_display(t_scene *scene)

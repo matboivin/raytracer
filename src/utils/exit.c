@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:30:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:21:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	put_usage(void)
 
 void	put_warn_res(void)
 {
-	ft_printf("WARNING\nLow window resolution: ");
+	ft_printf("WARNING\nLow resolution: ");
 	ft_printf("A minimum size of 400x400 is recommended.\n\n");
 }
 

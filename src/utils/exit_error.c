@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:10:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:20:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ struct s_err	g_err[] =
 	{ MISS_RA, "Invalid scene: Missing resolution or ambient light." },
 	{ MISS_CAM, "Invalid scene: At least one camera is required." },
 	{ MISS_LIGHT, "Invalid scene: At least one light spot is required." },
+	{ MISS_OBJ, "No object declared. Rendering stopped." },
 	{ NUM_FMT, "Invalid scene: Number badly formatted." },
 	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },

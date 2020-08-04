@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:15:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:17:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Render image
 **
 ** cast_ray()       :  Computes the color at the intersection point of a ray
-** fill_image()     :  Fills the image starting from pos (0,0)
+** render()         :  Fills image starting from pos (0,0)
 ** generate_image() :  Generate the rendered image
 */
 
