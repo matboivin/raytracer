@@ -82,3 +82,6 @@ object_to_world: `translation*rotation*scaling(object_space point)`
 world_to_obj = obj_to_world^(-1)
 objnormal_to_world = world_to_obj^T
 ```
+
+> When working with OpenGL it is very wise to stick with homogeneous coordinates. For 3D space these are 4D vectors where normally the fourth element equals 1. When you do this all your calculations are in 4 dimensional space, so no conversions needed anywhere.  
+Also note that in your example, you will actually lose any translation that may have been recorded in the transformation matrix. If you want to keep this you'll need to use 1 for the 4th element, not 0 ([source](https://stackoverflow.com/questions/36358621/multiply-vec3-with-mat4-using-glm)).
