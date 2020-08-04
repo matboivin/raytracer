@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 18:48:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/04 21:22:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_mat4x4		rotate_cam(t_vec3 dir)
 {
 	t_mat4x4	result;
 
-	result = identity_camtoworld();
+	result = identity_mat4x4();
 	cam_rotation_x(&result, dir.x);
 	cam_rotation_y(&result, dir.y);
 	cam_rotation_z(&result, dir.z);

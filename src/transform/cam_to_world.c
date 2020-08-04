@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 18:43:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/04 21:23:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,6 @@
 **  [0, 0, 1, 0],   [A, A, A, 0],
 **  [0, 0, 0, 1]]   [T, T, T, 1]]
 */
-
-t_mat4x4		identity_camtoworld(void)
-{
-	t_mat4x4	result;
-
-	result.c1 = create_vec4(1, 0, 0, 0);
-	result.c2 = create_vec4(0, 1, 0, 0);
-	result.c3 = create_vec4(0, 0, 1, 0);
-	result.c4 = create_vec4(0, 0, 0, 1);
-	return (result);
-}
 
 t_mat4x4		create_camtoworld(t_vec3 from, t_vec3 to, t_vec3 world_up)
 {
