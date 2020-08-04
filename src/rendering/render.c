@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:00:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 01:15:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ void			render(t_scene *scene)
 	int			y;
 
 	cam_to_world = look_at(scene->main_cam);
-	create_cam_ray(scene->main_cam, &ray, cam_to_world);
+	set_ray_pos(scene->main_cam, &ray, cam_to_world);
 	y = 0;
 	while (y < g_app->win_y)
 	{
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_cam_ray(&ray, cam_to_world, get_pixels_coord(scene, x, y));
+			set_ray_dir(&ray, cam_to_world, get_pixel_coord(scene, x, y));
 			ray_color = cast_ray(scene, &ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;
