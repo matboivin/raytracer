@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 23:47:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 00:13:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@
 bool		intersect(void *obj, t_ray *ray, double *t)
 {
 	(void)obj;
-	*t = ray->t_nearest;
-	if (t)
-		return (true);
-	return (false);
+	(void)ray;
+	*t = 10.0; // tmp
+	return (true);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 18:43:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/04 23:58:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,20 @@ void	reset_ray_nearest(t_ray *ray)
 	ray->t_nearest = __DBL_MAX__;
 }
 
-void	set_camera_ray(t_ray *ray, int x, int y)
+void	set_camera_ray(t_ray *ray, int x, int y, t_mat4x4 mat)
 {
-	(void)x;
-	(void)y;
-	//ray->dir = ;
+	t_vec4	vec;
+
+	vec = create_vec4(x, y, -1, 1);
+	ray->dir = mult_mat4x4_vec4(mat, vec);
 	reset_ray_nearest(ray);
 }
 
-void	create_camera_ray(t_scene *scene, t_ray *ray)
+void	create_camera_ray(t_scene *scene, t_ray *ray, t_mat4x4 mat)
 {
-	ray->origin = scene->main_cam->pos;
-	ray->dir = scene->main_cam->dir;
+	t_vec4	vec;
+
+	vec = create_vec4(scene->main_cam->pos.x, scene->main_cam->pos.y, scene->main_cam->pos.z, 1);
+	ray->origin = mult_mat4x4_vec4(mat, vec);
 	ray->t_nearest = __DBL_MAX__;
 }
