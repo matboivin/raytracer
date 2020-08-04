@@ -21,7 +21,7 @@ Source: [Scratchapixel: Camera Coordinate System and Camera Space](https://www.s
 Source: [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
 
 <p align="center">
-  <img src="assets/lookat-matrix.jpg" alt="lookAt OpenGL" /> <img src="assets/image020.jpg" alt="camera basis vectors 1" />
+  <img src="assets/lookat-matrix.png" alt="lookAt OpenGL" />
 </p>
 
 Source: [Learn OpenGL: Camera](https://learnopengl.com/Getting-started/Camera)
