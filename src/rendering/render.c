@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 00:13:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 00:51:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,21 @@ void			render(t_scene *scene)
 	t_color		ray_color;
 	int			x;
 	int			y;
-	int			i;
-	int			j;
-	double		aspect_ratio;
-	double		scale;
 
-	aspect_ratio = g_app->win_x / g_app->win_y;
-	scale = tan(degrees_to_radians(scene->main_cam->fov * 0.5));
 	cam_to_world = look_at(scene->main_cam);
-	create_camera_ray(scene, &ray, cam_to_world);
-	j = 0;
-	while (j < g_app->win_y)
+	create_cam_ray(scene->main_cam, &ray, cam_to_world);
+	y = 0;
+	while (y < g_app->win_y)
 	{
-		i = 0;
-		while (i < g_app->win_x)
+		x = 0;
+		while (x < g_app->win_x)
 		{
-			x = (2 * (i + 0.5) / g_app->win_x - 1) * aspect_ratio * scale;
-			y = (1 - 2 * (j + 0.5) / g_app->win_y) * scale;
-			set_camera_ray(&ray, x, y, cam_to_world);
+			set_cam_ray(scene, &ray, x, y, cam_to_world);
 			ray_color = cast_ray(scene, &ray);
-			put_pixel_to_image(g_app->img, ray_color, i, j);
-			i++;
+			put_pixel_to_image(g_app->img, ray_color, x, y);
+			x++;
 		}
-		j++;
+		y++;
 	}
 }
 

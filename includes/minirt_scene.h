@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 23:49:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 00:42:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_scene
 	t_lstlight	*lights_head;
 	t_lstobj	*objs;
 	t_lstobj	*objs_head;
+	double		aspect_ratio;
 }				t_scene;
 
 void			create_resolution(t_res *res);
