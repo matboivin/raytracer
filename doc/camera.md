@@ -20,6 +20,8 @@ Source: [Scratchapixel: Camera Coordinate System and Camera Space](https://www.s
 
 Source: [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
 
+> A great thing about matrices is that if you define a coordinate space using 3 perpendicular (or non-linear) axes you can create a matrix with those 3 axes plus a translation vector and you can transform any vector to that coordinate space by multiplying it with this matrix.
+
 <p align="center">
   <img src="assets/lookat-matrix.png" alt="lookAt OpenGL" />
 </p>
