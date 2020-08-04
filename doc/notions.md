@@ -38,6 +38,7 @@ Graphics
 - [Wiki: Rendering (computer graphics)](https://en.wikipedia.org/wiki/Rendering_(computer_graphics))
 - [Hidden-surface determination](https://en.wikipedia.org/wiki/Hidden-surface_determination)
 - [Computer Graphics: Topology](https://www.as.uky.edu/blogs/tlha222/computer-graphics-topology)
+- [Wiki: Graphics pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline)
 - [Perspective projection view plane distance calculation confusion?](https://stackoverflow.com/questions/36251087/perspective-projection-view-plane-distance-calculation-confusion)
 - [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
 - [matrices: Work with homogeneous coordinates](https://rdrr.io/cran/rgl/man/matrices.html)

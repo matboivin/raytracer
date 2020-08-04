@@ -59,36 +59,26 @@ Control flow:
   - Else
     - Default color
 
-### MLX images
+## Pipeline
 
-- 1 image = char pointer
-- 1 pixel = 4 char = RED, GREEN, BLUE, ALPHA
+A [pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline) is a series of processing stages in order. It can be seen as different vector spaces linked to each other by matrix transformations.
 
-MLX is in BGRA so we change the order of values to RGBA.
+Usually, the pipeline is:
+`Camera <-> World <-> Object <-> Texture`
 
-`x position * 4 + 4 * size_line * y position`
+A ray is created from the Camera Space coordinate system. It is then translated to the World Space in order to check for intersection with objects. For each object, the ray is translated to the Object Space.
 
-Create a new image:
+1. Generate rays in Camera Space
+2. Intersections in Object Space
+3. World <-> Object is bidirectional
+
+Absolute origin: `(0, 0, 0)`
+- Camera Space: Camera position
+- World Space: Reference point
+
+object_to_world: `translation*rotation*scaling(object_space point)`
+
 ```
-img_ptr = mlx_new_image(mlx_ptr, width, height);
+world_to_obj = obj_to_world^(-1)
+objnormal_to_world = world_to_obj^T
 ```
-
-Get the image data (pixels):
-```
-img_data = mlx_get_data_addr(img_ptr, &bpp, &size_line, &endian);
-```
-
-Display the image:
-```
-mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, 0, 0);
-```
-
-## TODO
-
-- [ ] Ray tracing rendering
-- [ ] Handle misconfigured scene descriptions
-- [ ] Save the rendered image in bmp format when "--save" is passed
-- [ ] Close window when pressing ESC or clicking red cross
-- [ ] Window size is never greater than the display resolution and cannot be < 1
-- [ ] If more than 1 camera, switch between cameras pressing a key
-- [ ] In case of error, program prints "Error\n" followed by an explicit error message

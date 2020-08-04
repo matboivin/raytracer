@@ -18,11 +18,13 @@
 
 ## 4x4 Matrix Visualized as a Cartesian Coordinate System
 
-A matrix is a way of combining scaling, rotation, and translation into one single structure. A point multiplied by a matrix transforms the point to a new position.
+A matrix is a way of combining scaling, rotation, and translation into one single structure. A point multiplied by a matrix transforms the point to a new position. We translate, scale and rotate objects. These transformation are represented by a 4x4 matrix which can be visualised as a coordinate system.
 
 <p align="center">
   <img src="assets/4x4matrix.png" alt="4x4 matrix" />
 </p>
+
+> The first three coefficients along the diagonal encode the scale (the coefficients c00, c11 and c22).
 
 Source: [Scratchapixel: Computing the Pixel Coordinates of a 3D Point](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/perspective-projection)
 
