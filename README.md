@@ -17,8 +17,13 @@
 
 ### Prerequisites
 
-- GNU make and a C compiler
+GNU make and a C compiler.
+
+### Dependencies
+
 - [MinilibX for Linux](https://github.com/42Paris/minilibx-linux)
+- [libft](https://github.com/matboivin/libft)
+- [minimath](https://github.com/matboivin/minimath)
 
 ### Installing
 
@@ -33,6 +38,8 @@ $ make
 ```
 
 ### Usage
+
+This program takes as a first argument a [scene description file](doc/scene_file.md) ending with the extension `.rt` extension. Example files are located in the [scenes](scenes) directory.
 
 ```console
 $ ./miniRT <scene.rt> [--save]
