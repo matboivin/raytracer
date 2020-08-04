@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 18:11:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/04 14:45:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ typedef struct		s_cyl
 
 typedef struct		s_tri
 {
-	t_vec3			point1;
-	t_vec3			point2;
-	t_vec3			point3;
+	t_vec3			vertex1;
+	t_vec3			vertex2;
+	t_vec3			vertex3;
 	t_color			color;
 }					t_tri;
 
