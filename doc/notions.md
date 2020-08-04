@@ -62,6 +62,7 @@ Ray Tracing
 - [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
 - [Développement d'un Raytracer](http://www.alrj.org/docs/3D/raytracer/raytracertutintro.htm)
+- [Ray Tracing (Shading) (PDF)](http://www.cs.cornell.edu/courses/cs4620/2012fa/lectures/35raytracing.pdf)
 
 BMP  
 
