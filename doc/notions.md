@@ -24,12 +24,14 @@ Event-driven programming
 - [Wiki: Event loop](https://en.wikipedia.org/wiki/Event_loop)
 - [Event Dispatch & Handling (PDF)](https://www.student.cs.uwaterloo.ca/~cs349/w16/slides/2.2-event-dispatch.pdf)
 
-Linear Algebra  
+Linear Algebra / Trigonometry  
 
 - [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 - [Khan Academy](https://khanacademy.org/)
 - [Khan Academy: Vectors and Spaces](https://fr.khanacademy.org/math/linear-algebra/vectors-and-spaces)
 - [Some Linear Algebra](http://math.hws.edu/graphicsbook/c3/s5.html)
+- [Sine, Cosine and Tangent](https://www.mathsisfun.com/sine-cosine-tangent.html)
+- [Scratchapixel 2.0: Geometry](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/points-vectors-and-normals)
 
 Graphics  
 
@@ -54,7 +56,7 @@ Ray Tracing
 
 - [Wiki: Ray tracing](https://en.wikipedia.org/wiki/Ray_tracing_(graphics))
 - [Ray Tracing Basics (PDF)](http://web.cse.ohio-state.edu/~shen.94/681/Site/Slides_files/basic_algo.pdf)
-- [Scratchapixel: An Overview of the Ray-Tracing Rendering Technique](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
+- [Scratchapixel 2.0: An Overview of the Ray-Tracing Rendering Technique](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 - [Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
 - [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 - [Cours 1 de Raytracing / Path-tracing](https://www.youtube.com/watch?v=1HYhrx9bzP8)
