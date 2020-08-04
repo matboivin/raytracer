@@ -27,7 +27,7 @@ GNU make and a C compiler.
 
 ### Installing
 
-Clone the repository:
+Clone the repository and its dependencies:
 ```console
 $ git clone --recursive https://github.com/matboivin/miniRT
 ```
@@ -39,7 +39,7 @@ $ make
 
 ### Usage
 
-This program takes as a first argument a [scene description file](doc/scene_file.md) ending with the extension `.rt` extension. Example files are located in the [scenes](scenes) directory.
+This program takes as a first argument a [scene description file](doc/scene_file.md) ending with the extension `.rt` extension. Example files are provided in the [scenes](scenes) directory.
 
 ```console
 $ ./miniRT <scene.rt> [--save]

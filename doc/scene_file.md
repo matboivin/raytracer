@@ -3,14 +3,14 @@
 A scene file is a defined data structure that contains:
 
 - a collection of objects (objects are also called models)
-- a camera
-- lights
+- one camera or more
+- one light spot or more
 - textures (optional)
 - global render settings or options such as the resolution of the image.
 
 ## Format
 
-A scene description file must end by the .rt extension:
+A scene description file must end by the `.rt` extension:
 
 scene.rt
 
@@ -36,7 +36,7 @@ R 1920 1080
 - x render size
 - y render size
 
-Can only be declared once in a scene.
+Must be declared only once in a scene.
 
 ### Ambient lighting
 
@@ -46,7 +46,7 @@ A 0.2 255,255,255
 - ambient lighting ratio in range [0.0,1.0]
 - R,G,B colors in range [0,255]
 
-Can only be declared once in a scene.
+Must be declared only once in a scene.
 
 ### Camera
 
