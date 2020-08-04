@@ -37,7 +37,7 @@ Souce: [Some Linear Algebra](http://math.hws.edu/graphicsbook/c3/s5.html)
 
 Source: [Scratchapixel: Row Major vs Column Major Vector](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector)
 
-### Perspective Projection
+## Perspective Projection
 
 Perspective projection is a projective transformation and doesn't necessarily preserve parallelism between lines.
 
