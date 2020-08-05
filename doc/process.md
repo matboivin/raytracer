@@ -90,4 +90,9 @@ Also note that in your example, you will actually lose any translation that may 
 viewplane_d = (g_app->win_x * 0.5) * tan(cam->fov * 0.5);
 
 intersection point = ray origin + t * ray direction
+
+[x1 y1 z1 t1]     [ux]
+[x2 y2 z2 t2]     [uy]
+[x3 y3 z3 t3]  *  [uz]
+[ 0  0  0  1]     [ 1]
 ```

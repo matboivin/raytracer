@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 02:15:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 18:42:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_color		shading(t_scene *scene, t_ray *ray, t_lstobj *hit_obj);
 t_vec4		get_pixel_coord(t_scene *scene, int x, int y);
 void		reset_ray_nearest(t_ray *ray);
 void		set_ray_dir(t_ray *ray, t_mat4x4 mat, t_vec4 pixel_coord);
-void		set_ray_pos(t_cam *cam, t_ray *ray, t_mat4x4 mat);
+void		set_ray_pos(t_ray *ray, t_mat4x4 mat);
 
 bool		intersect_sphere(t_sphere *sphere, t_ray *ray, double *t);
 bool		intersect(t_lstobj *objs, t_ray *ray, double *t);
