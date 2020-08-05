@@ -26,6 +26,12 @@ Source: [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://ww
 
 Source: [Learn OpenGL: Camera](https://learnopengl.com/Getting-started/Camera)
 
+<p align="center">
+  <img src="assets/look-at-4.png" alt="lookAt vec" />
+</p>
+
+Source: [Scratchapixel: Placing a Camera: the LookAt Function](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function)
+
 ## Rotation
 
 <p align="center">
