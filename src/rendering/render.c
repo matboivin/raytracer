@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 22:01:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 22:17:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 /*
 ** Render image
 **
-** cast_ray()       :  Computes the color at the intersection point of a ray
-** rasterize()      :  Get pixel coordinates
-** render()         :  Fills image starting from pos (0,0)
-** generate_image() :  Generate the rendered image
+** cast_ray()        :  Computes the color at the intersection point of a ray
+** get_pixel_coord() :  Converts pixel to world coordinates
+** render()          :  Fills image starting from pos (0,0)
+** generate_image()  :  Generate the rendered image
 */
 
 /*
@@ -43,10 +43,10 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 }
 
 /*
-** Get pixel coordinates in raster space
+** Convert pixel to world coordinates
 */
 
-t_vec4		rasterize(t_scene *scene, int x, int y)
+t_vec4		get_pixel_coord(t_scene *scene, int x, int y)
 {
 	t_vec4	result;
 	double	scale;
@@ -84,7 +84,7 @@ void			render(t_scene *scene)
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_ray_dir(&ray, cam_to_world, rasterize(scene, x, y));
+			set_ray_dir(&ray, cam_to_world, get_pixel_coord(scene, x, y));
 			ray_color = cast_ray(scene, &ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;

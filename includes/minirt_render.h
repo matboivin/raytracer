@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 22:04:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 22:11:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void		generate_image(t_scene *scene);
 void		render(t_scene *scene);
 
-t_vec4		rasterize(t_scene *scene, int x, int y);
+t_vec4		get_pixel_coord(t_scene *scene, int x, int y);
 t_color		cast_ray(t_scene *scene, t_ray *ray);
 void		reset_ray_nearest(t_ray *ray);
 void		set_ray_dir(t_ray *ray, t_mat4x4 mat, t_vec4 pixel_coord);
