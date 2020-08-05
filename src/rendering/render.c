@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 18:42:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 21:14:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** Render image
 **
 ** cast_ray()       :  Computes the color at the intersection point of a ray
+** rasterize()      :  Get pixel coordinates
 ** render()         :  Fills image starting from pos (0,0)
 ** generate_image() :  Generate the rendered image
 */
@@ -39,6 +40,20 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 		return (hit_color);
 	}
 	return (default_color);
+}
+
+t_vec4		rasterize(t_scene *scene, int x, int y)
+{
+	t_vec4	result;
+	double	scale;
+	int		pixel_x;
+	int		pixel_y;
+
+	scale = tan(degrees_to_radians(scene->main_cam->fov * 0.5));
+	pixel_x = (2 * (x + 0.5) / g_app->win_x - 1) * scene->aspect_ratio * scale;
+	pixel_y = (1 - 2 * (y + 0.5) / g_app->win_y) * scale;
+	result = create_vec4(pixel_x, pixel_y, -1, 1);
+	return (result);
 }
 
 /*
@@ -65,7 +80,7 @@ void			render(t_scene *scene)
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_ray_dir(&ray, cam_to_world, get_pixel_coord(scene, x, y));
+			set_ray_dir(&ray, cam_to_world, rasterize(scene, x, y));
 			ray_color = cast_ray(scene, &ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;
