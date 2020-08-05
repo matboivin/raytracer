@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:20:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 21:52:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef enum	e_errid
 	PLANE_FMT,
 	SAVE_OPTION,
 	RES_DUP,
+	RES_MIN,
 	RES_NEG,
 	SCENE_FMT,
 	SPHERE_FMT,

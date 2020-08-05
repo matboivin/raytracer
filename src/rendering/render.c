@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 21:14:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 21:47:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 	}
 	return (default_color);
 }
+
+/*
+** Get pixel coordinates in raster space
+*/
 
 t_vec4		rasterize(t_scene *scene, int x, int y)
 {

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:20:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 21:56:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,12 @@ struct s_err	g_err[] =
 	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
 	{ RES_DUP, "Invalid scene: Resolution must be declared once." },
+	{ RES_MIN, "Resolution too low: minimum is 100x100. Rendering stopped." },
 	{ RES_NEG, "Invalid scene: Resolution width and height must be positive." },
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
 	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
-	{ DEFAULT_ERR, "Error" }
+	{ DEFAULT_ERR, "An error occurred." }
 };
 
 char		*catch_err(t_errid raised)
