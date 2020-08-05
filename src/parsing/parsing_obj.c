@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 14:45:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 02:41:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			get_sphere(t_scene *scene, char **input)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
 	result->pos = get_vec3(scene, input);
-	result->diameter = get_double(scene, input);
+	result->radius = get_double(scene, input) / 2;
 	result->color = get_color(scene, input);
 	add_obj_to_scene(scene, result, SPHERE);
 	skip_blank(input);

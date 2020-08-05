@@ -37,6 +37,7 @@ SRC			=	main.c				\
 				events.c			\
 				image.c				\
 				intersect.c			\
+				intersect_sphere.c	\
 				lights.c			\
 				objects.c			\
 				parsing.c			\

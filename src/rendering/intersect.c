@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:15:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 02:15:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 ** Returns true if a ray intersects any object
 */
 
-bool		intersect(void *obj, t_ray *ray, double *t)
+bool		intersect(t_lstobj *objs, t_ray *ray, double *t)
 {
-	(void)obj;
-	(void)ray;
-	*t = 10.0; // tmp
-	return (true);
+	bool	has_hit;
+
+	has_hit = false;
+	if (objs->type == SPHERE)
+		has_hit = intersect_sphere(objs->obj, ray, t);
+	return (has_hit);
 }
 
 /*
@@ -38,7 +40,7 @@ t_lstobj	*trace(t_scene *scene, t_ray *ray)
 	nearest_obj = NULL;
 	while (scene->objs)
 	{
-		if (intersect(scene->objs->obj, ray, &t) == true)
+		if (intersect(scene->objs, ray, &t) == true)
 		{
 			if (t < ray->t_nearest)
 			{

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 14:45:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/05 02:41:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef enum		e_objid
 typedef struct		s_sphere
 {
 	t_vec3			pos;
-	double			diameter;
+	double			radius;
 	t_color			color;
 }					t_sphere;
 
