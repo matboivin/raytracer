@@ -10,9 +10,7 @@
 
 Source: [Scratchapixel: Camera Coordinate System and Camera Space](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/mathematics-computing-2d-coordinates-of-3d-points)
 
-## camToWorld / lookAt / modelView Matrix
-
-[camToWorld](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function) or [lookAt](https://learnopengl.com/Getting-started/Camera) or [modelView](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes) matrix.
+## camToWorld / lookAt
 
 <p align="center">
   <img src="assets/image018.jpg" alt="camera basis vectors 1" /> <img src="assets/image020.jpg" alt="camera basis vectors 1" />
