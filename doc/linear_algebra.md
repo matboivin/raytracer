@@ -37,6 +37,11 @@ Souce: [Some Linear Algebra](http://math.hws.edu/graphicsbook/c3/s5.html)
 
 Source: [Scratchapixel: Row Major vs Column Major Vector](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector)
 
+> When working with OpenGL it is very wise to stick with homogeneous coordinates. For 3D space these are 4D vectors where normally the fourth element equals 1. When you do this all your calculations are in 4 dimensional space, so no conversions needed anywhere.  
+Also note that in your example, you will actually lose any translation that may have been recorded in the transformation matrix. If you want to keep this you'll need to use 1 for the 4th element, not 0 ([source](https://stackoverflow.com/questions/36358621/multiply-vec3-with-mat4-using-glm)).
+
+cam_to-world <-> world_to_cam:
+
 - [Inverting a 4x4 matrix](https://stackoverflow.com/questions/1148309/inverting-a-4x4-matrix)
 - [Fast 4x4 Matrix Inverse with SSE SIMD, Explained](https://lxjk.github.io/2017/09/03/Fast-4x4-Matrix-Inverse-with-SSE-SIMD-Explained.html)
 - [dCode: Inverse d'une Matrice](https://www.dcode.fr/inverse-matrice)
