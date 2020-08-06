@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 02:41:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:21:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Parse objects
+** These functions parse objects
 */
 
 void			get_sphere(t_scene *scene, char **input)

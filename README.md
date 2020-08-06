@@ -21,6 +21,8 @@ GNU make and a C compiler.
 
 ### Dependencies
 
+This program was developed and runs on Debian Linux.
+
 - [MinilibX for Linux](https://github.com/42Paris/minilibx-linux)
 - [libft](https://github.com/matboivin/libft)
 - [minimath](https://github.com/matboivin/minimath)

@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 17:30:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:22:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Parse camera
+** This function parses camera
 */
 
 t_cam			*create_camera(t_scene *scene, char **input)
@@ -33,6 +33,10 @@ t_cam			*create_camera(t_scene *scene, char **input)
 	return (result);
 }
 
+/*
+** This function adds camera to scene
+*/
+
 void			get_camera(t_scene *scene, char **input)
 {
 	t_cam		*cam_data;
@@ -50,7 +54,7 @@ void			get_camera(t_scene *scene, char **input)
 }
 
 /*
-** Create a circular linked list to switch between cameras
+** This function creates a circular linked list to switch between cameras
 */
 
 void			create_circular_lstcam(t_lstcam *cameras)

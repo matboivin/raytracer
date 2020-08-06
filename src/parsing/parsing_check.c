@@ -6,17 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:19:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:15:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Checkers for parsing
-**
-** check_scene()       :  Checks whether the scene description is valid
-** check_max_display() :  Handles render size if bigger than screen size
+** This function checks whether the scene description is valid
 */
 
 void	check_scene(t_scene *scene)
@@ -30,6 +27,10 @@ void	check_scene(t_scene *scene)
 	if (scene->objs == NULL)
 		exit_error(scene, MISS_OBJ);
 }
+
+/*
+** This function handles render size if bigger than screen size
+*/
 
 void	check_max_display(t_scene *scene)
 {

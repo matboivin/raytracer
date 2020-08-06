@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:35:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:13:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Process shading to retrieve final color
+** This function returns the cast color
 */
 
 t_color		get_obj_color(t_lstobj *hit_obj)
@@ -33,12 +33,20 @@ t_color		get_obj_color(t_lstobj *hit_obj)
 	return (color);
 }
 
+/*
+** This function returns true if the object is in shadow
+*/
+
 bool		is_in_shadow(void *obj, t_ray *ray)
 {
 	(void)obj;
 	(void)ray;
 	return (false);
 }
+
+/*
+** This function processes shading to retrieve final color
+*/
 
 t_color		shading(t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
 {

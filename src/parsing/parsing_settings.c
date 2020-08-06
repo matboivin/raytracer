@@ -6,17 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 21:52:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:20:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Parse global render settings
-**
-** Resolution
-** Ambient light
+** This function parses Resolution
 */
 
 void	get_resolution(t_scene *scene, char **input)
@@ -34,6 +31,10 @@ void	get_resolution(t_scene *scene, char **input)
 	scene->aspect_ratio = scene->res.size_x / scene->res.size_y;
 	skip_blank(input);
 }
+
+/*
+** This function parses Ambient light
+*/
 
 void	get_ambient(t_scene *scene, char **input)
 {

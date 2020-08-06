@@ -6,20 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:29:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:19:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Utils for parsing
-**
-** ft_vec3_range()  :  Checks if vector values are in a given range
-** skip_blank()     :  Skips spaces
-** skip_separator() :  Skips a given separator (expected: , . -)
-** skip_digits()    :  Skips digits
-** skip_double()    :  Skips double number
+** This function checks whether vector values are in a given range
 */
 
 bool	ft_vec3_range(t_vec3 vec, double start, double end)
@@ -32,11 +26,19 @@ bool	ft_vec3_range(t_vec3 vec, double start, double end)
 	return (true);
 }
 
+/*
+** This function skips spaces and horizontal tabs
+*/
+
 void	skip_blank(char **s)
 {
 	while (ft_isblank(**s) == true)
 		(*s)++;
 }
+
+/*
+** This function skips a given separator (expected: , . -)
+*/
 
 int		skip_separator(char **s, int sep)
 {
@@ -48,11 +50,19 @@ int		skip_separator(char **s, int sep)
 	return (0);
 }
 
+/*
+** This function skips digits
+*/
+
 void	skip_digits(char **s)
 {
 	while (ft_isdigit(**s) == true)
 		(*s)++;
 }
+
+/*
+** This function skips double number
+*/
 
 void	skip_double(t_scene *scene, char **s)
 {

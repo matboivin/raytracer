@@ -6,20 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 17:18:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:18:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Retrieve numeric values for parsing
-**
-** get_integer() :  Retrieves an integer
-** get_double()  :  Retrieves a double
-** get_rgb_val() :  Retrieves a RGB value: int comprised in the range (0, 255)
-** get_color()   :  Retrieves a color: RGB values
-** get_vec3()    :  Retrieves a 3D coordinates: 3 double values
+** This function retrieves an integer
 */
 
 int			get_integer(t_scene *scene, char **input)
@@ -37,6 +31,10 @@ int			get_integer(t_scene *scene, char **input)
 		exit_error(scene, NUM_FMT);
 	return (result);
 }
+
+/*
+** This function retrieves a double
+*/
 
 double		get_double(t_scene *scene, char **input)
 {
@@ -56,6 +54,10 @@ double		get_double(t_scene *scene, char **input)
 	return (result);
 }
 
+/*
+** This function retrieves a RGB value: int comprised in the range (0, 255)
+*/
+
 static int	get_rgb_val(t_scene *scene, char **input)
 {
 	int		result;
@@ -72,6 +74,10 @@ static int	get_rgb_val(t_scene *scene, char **input)
 	return (result);
 }
 
+/*
+** This function retrieves a color
+*/
+
 t_color		get_color(t_scene *scene, char **input)
 {
 	t_color	result;
@@ -86,6 +92,10 @@ t_color		get_color(t_scene *scene, char **input)
 	result.b = get_rgb_val(scene, input);
 	return (result);
 }
+
+/*
+** This function retrieves a 3D coordinates: 3 double values
+*/
 
 t_vec3		get_vec3(t_scene *scene, char **input)
 {

@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 23:50:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:22:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Parse light spots
+** This function parses light spot
 */
 
 t_light			*create_light(t_scene *scene, char **input)
@@ -30,6 +30,10 @@ t_light			*create_light(t_scene *scene, char **input)
 	result->color = get_color(scene, input);
 	return (result);
 }
+
+/*
+** This function adds light spot to scene
+*/
 
 void			get_light(t_scene *scene, char **input)
 {

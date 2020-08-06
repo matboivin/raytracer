@@ -6,19 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/06 16:32:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:16:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Parse the scene description to fill the scene struct
-**
-** g_pars_elem struct  :  Element identifiers associated to parsing functions
-** handle_scene_elem() :  Calls the appropriate function to parse a line
-** read_scene_file()   :  Gets the entire scene description
-** parse_scene()       :  Iterates over the input to call functions
+** Struct: Element identifiers associated to parsing functions
 */
 
 struct s_pars_elem	g_pars_elem[] =
@@ -33,6 +28,10 @@ struct s_pars_elem	g_pars_elem[] =
 	{ "cy", &get_cylinder },
 	{ "tr", &get_triangle }
 };
+
+/*
+** This function calls the appropriate function to parse a line
+*/
 
 static void		handle_scene_elem(t_scene *scene, char **input)
 {
@@ -50,6 +49,10 @@ static void		handle_scene_elem(t_scene *scene, char **input)
 	}
 	exit_error(scene, ID_ERR);
 }
+
+/*
+** This function gets the entire scene description
+*/
 
 char			*read_scene_file(t_scene *scene, const char *filepath)
 {
@@ -72,6 +75,10 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 	close(fd);
 	return (result);
 }
+
+/*
+** This function iterates over the input to call functions
+*/
 
 void			parse_scene(t_scene *scene, const char *filepath)
 {

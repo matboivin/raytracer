@@ -6,18 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:28:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:23:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Display rendered image in a window
-**
-** open_window()         :  Creates a new window
-** put_image_to_window() :  Displays image in window
-** display_render()      :  Displays the image and dispatches events
+** This function creates a new window
 */
 
 void	open_window(void)
@@ -29,6 +25,10 @@ void	open_window(void)
 		g_app->title);
 }
 
+/*
+** This function displays image in window
+*/
+
 void	put_image_to_window(void)
 {
 	mlx_put_image_to_window(
@@ -38,6 +38,10 @@ void	put_image_to_window(void)
 		0,
 		0);
 }
+
+/*
+** This function displays the image and dispatches events
+*/
 
 void	display_render(t_scene *scene)
 {

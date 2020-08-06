@@ -6,24 +6,15 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/06 23:22:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:11:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Render image
-**
-** cast_ray()        :  Computes the color at the intersection point of a ray
-** get_pixel_coord() :  Converts pixel to world coordinates
-** render()          :  Fills image starting from pos (0,0)
-** generate_image()  :  Generate the rendered image
-*/
-
-/*
-** If a ray intersects an object, process shading and return its color
-** Else, return the default color
+** This function casts a ray. If an object is intersected, it processes shading
+** and final color is returned. Else, default color is returned.
 */
 
 t_color			cast_ray(t_scene *scene, t_ray *ray)
@@ -43,7 +34,7 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 }
 
 /*
-** Convert pixel to world coordinates
+** This function converts pixel to World coordinates
 */
 
 t_vec4			get_pixel_coord(t_scene *scene, int x, int y)
@@ -56,16 +47,15 @@ t_vec4			get_pixel_coord(t_scene *scene, int x, int y)
 	scale = tan(degrees_to_radians(scene->main_cam->fov * 0.5));
 	pixel_x = (2 * (x + 0.5) / g_app->win_x - 1) * scene->aspect_ratio * scale;
 	pixel_y = (1 - 2 * (y + 0.5) / g_app->win_y) * scale;
-	result = create_vec4(pixel_x, pixel_y, 1, 1);
+	result = create_vec4(pixel_x, pixel_y, -1, 1);
 	return (result);
 }
 
 /*
-** Create a cam_to_world matrix
-** Set the ray origin to the camera position
-** Iterate over all pixels in the image
-** At each pixel, set the ray direction, cast the ray
-** Retrieve the ray color and put it in the image
+** This function creates a cam_to_world matrix,
+** sets the ray origin and iterates over all pixels in the image.
+** At each pixel, it sets the ray direction, casts the ray and
+** retrieves the ray color to put it in the image.
 */
 
 void			render(t_scene *scene)
@@ -94,7 +84,7 @@ void			render(t_scene *scene)
 }
 
 /*
-** Malloc an image an start rendering
+** This function creates an image and starts rendering
 */
 
 void			generate_image(t_scene *scene)

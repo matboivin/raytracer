@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:12:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/06 23:48:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_app		*g_app;
 /*
 ** miniRT
 ** Generate images using the Ray tracing protocol
-**
-** Requirements: MinilibX for Linux
 **
 ** Open app to connect to the X server with mlx_init()
 ** Parse a given scene description and store data in the scene struct

@@ -6,17 +6,16 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:31:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:04:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Draw in image
+** This function puts pixel in the MLX image data using a given color
 **
-** put_pixel_to_image() :  Puts pixel in the MLX image data using a given color
-** image data = image pixels = char pointer
+** image data (image pixels) is a char pointer
 **
 ** To get the index of a pixel in the image pixels:
 ** (x position + width * y position) * 4

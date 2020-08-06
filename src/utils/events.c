@@ -6,17 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:32:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/06 23:57:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Handle events
-**
-** handle_key()     :  Listens to keyboard events
-** dispatch_event() :  Dispatches event handlers
+** This function handles keyboard events
 */
 
 int		handle_key(int keycode, t_scene *scene)
@@ -27,6 +24,10 @@ int		handle_key(int keycode, t_scene *scene)
 		switch_camera(scene);
 	return (0);
 }
+
+/*
+** This function dispatches event handlers
+*/
 
 void	dispatch_event(t_scene *scene)
 {

@@ -6,19 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 21:56:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/06 23:57:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Print error messages and exit program
-**
-** g_err struct :  Error identifiers associated to error messages
-** catch_err()  :  Given an error id, retrieves the appropriate error message
-** put_error()  :  Prints error message to standard error
-** exit_error() :  Frees allocated memory, prints error message and exits
+** Struct: Error identifiers associated to error messages
 */
 
 struct s_err	g_err[] =
@@ -49,6 +44,10 @@ struct s_err	g_err[] =
 	{ DEFAULT_ERR, "An error occurred." }
 };
 
+/*
+** This function retrieves the appropriate error message using given error id
+*/
+
 char		*catch_err(t_errid raised)
 {
 	int		i;
@@ -63,6 +62,10 @@ char		*catch_err(t_errid raised)
 	return ((char *)strerror(errno));
 }
 
+/*
+** This function prints an error message to standard error
+*/
+
 void		put_error(t_errid raised)
 {
 	char	*msg;
@@ -71,6 +74,10 @@ void		put_error(t_errid raised)
 	ft_dprintf(STDERR_FILENO, "Error\n%s\n", msg);
 	exit(EXIT_FAILURE);
 }
+
+/*
+** This function frees allocated memory, prints an error message and exits
+*/
 
 void		exit_error(t_scene *scene, t_errid raised)
 {

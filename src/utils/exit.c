@@ -6,20 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 01:21:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/06 23:58:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Exit program
-**
-** check_filename() :  Checks if the filename is correctly formatted
-** put_usage()      :  Prints usage message to standard error
-** put_warn_res()   :  Warns the user if the resolution is too low
-** free_all()       :  Frees scene and application
-** exit_success()   :  Frees allocated memory and exits
+** This function checks if the filename is correctly formatted
 */
 
 void	check_filename(const char *filepath)
@@ -34,6 +28,10 @@ void	check_filename(const char *filepath)
 		put_error(FILENAME);
 }
 
+/*
+** This function prints the usage message to standard error
+*/
+
 void	put_usage(void)
 {
 	ft_dprintf(
@@ -45,17 +43,29 @@ void	put_usage(void)
 	exit(EXIT_FAILURE);
 }
 
+/*
+** This function warns the user if the resolution is too low
+*/
+
 void	put_warn_res(void)
 {
 	ft_printf("WARNING\nLow resolution: ");
 	ft_printf("A minimum size of 400x400 is recommended.\n\n");
 }
 
+/*
+** This function frees scene and application
+*/
+
 void	free_all(t_scene *scene)
 {
 	destroy_scene(scene);
 	quit_app();
 }
+
+/*
+** This function frees allocated memory and exits
+*/
 
 int		exit_success(t_scene *scene)
 {

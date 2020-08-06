@@ -6,20 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 23:21:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:26:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Save rendered image to BMP format
-**
-** create_bmpfileheader() :  Fills the file header structure
-** create_bmpdibheader()  :  Fills the DIB header structure
-** write_bmpheaders()     :  Writes headers to the file
-** write_bmpdata()        :  Writes pixels to the file
-** save_bmp()             :  Carries out file saving
+** This function fills the file header structure
 */
 
 t_bmp_h		create_bmpfileheader(int size)
@@ -35,6 +29,10 @@ t_bmp_h		create_bmpfileheader(int size)
 	result.offset = 54;
 	return (result);
 }
+
+/*
+** This function fills the DIB header structure
+*/
 
 t_dib_h		create_bmpdibheader(int size)
 {
@@ -56,6 +54,10 @@ t_dib_h		create_bmpdibheader(int size)
 	result.clr_important = 0;
 	return (result);
 }
+
+/*
+** This function writes headers to the file
+*/
 
 void		write_bmpheaders(int fd)
 {
@@ -84,6 +86,10 @@ void		write_bmpheaders(int fd)
 	write(fd, &(dib_header.clr_important), 4);
 }
 
+/*
+** This function writes pixels to the file
+*/
+
 void		write_bmpdata(t_scene *scene, int fd)
 {
 	int		x;
@@ -107,6 +113,10 @@ void		write_bmpdata(t_scene *scene, int fd)
 	}
 	ft_printf("Image saved as 'minirt.bmp' in working dir.\n\n");
 }
+
+/*
+** This function carries out file saving to BMP format
+*/
 
 void		save_bmp(t_scene *scene, const char *filename)
 {

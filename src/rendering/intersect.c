@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 02:15:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:07:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Returns true if a ray intersects any object
+** This function returns true if a ray intersects any object
 */
 
 bool		intersect(t_lstobj *objs, t_ray *ray, double *t)
@@ -27,8 +27,10 @@ bool		intersect(t_lstobj *objs, t_ray *ray, double *t)
 }
 
 /*
-** When an intersection is found, the distance is tested against t_nearest
-** Returns a pointer to the nearest intersected object
+** This function iterates over all the scene objects and tests the distance t
+** against t_nearest when an intersection is found.
+** Returns a pointer to the nearest intersected object.
+** Otherwise, a null pointer is returned.
 */
 
 t_lstobj	*trace(t_scene *scene, t_ray *ray)
