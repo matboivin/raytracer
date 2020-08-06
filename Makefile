@@ -27,7 +27,6 @@ SRC			=	main.c				\
 				angle.c				\
 				application.c		\
 				camera.c			\
-				cam_rotation.c		\
 				cam_to_world.c		\
 				color.c				\
 				display.c			\
