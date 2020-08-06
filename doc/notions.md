@@ -52,6 +52,9 @@ OpenGL
 - [(x,y,z,w) in OpenGL/Direct3D (Homogeneous Coordinates)](https://andrewharvey4.wordpress.com/2008/09/29/xyzw-in-opengldirect3d-homogeneous-coordinates/)
 - [OpenGL Projection Matrix](http://www.songho.ca/opengl/gl_projectionmatrix.html)
 - [Tutoriel 3 : matrices](http://www.opengl-tutorial.org/fr/beginners-tutorials/tutorial-3-matrices/)
+- [Apprendre OpenGL moderne: Transformations](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=transformations)
+- [Apprendre OpenGL moderne: Systèmes de Coordonnées](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=systemes-de-coordonnees)
+- [Apprendre OpenGL moderne: Caméra](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=camera)
 
 Ray Tracing  
 

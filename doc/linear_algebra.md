@@ -37,6 +37,10 @@ Souce: [Some Linear Algebra](http://math.hws.edu/graphicsbook/c3/s5.html)
 
 Source: [Scratchapixel: Row Major vs Column Major Vector](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector)
 
+- [Inverting a 4x4 matrix](https://stackoverflow.com/questions/1148309/inverting-a-4x4-matrix)
+- [Fast 4x4 Matrix Inverse with SSE SIMD, Explained](https://lxjk.github.io/2017/09/03/Fast-4x4-Matrix-Inverse-with-SSE-SIMD-Explained.html)
+- [dCode: Inverse d'une Matrice](https://www.dcode.fr/inverse-matrice)
+
 ## Perspective Projection
 
 Perspective projection is a projective transformation and doesn't necessarily preserve parallelism between lines.
