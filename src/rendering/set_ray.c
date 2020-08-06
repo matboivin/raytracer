@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 22:01:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/06 16:29:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		set_ray_origin(t_ray *ray, t_mat4x4 mat)
 {
 	t_vec4	vec;
 
-	vec = create_vec4(0, 0, 0, 1);
+	vec = create_vec4(0.0, 0.0, 0.0, 1.0);
 	ray->origin = mult_mat4x4_vec4(mat, vec);
 	ray->t_nearest = __DBL_MAX__;
 }

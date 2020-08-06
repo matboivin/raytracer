@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/05 22:17:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/06 16:28:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 ** Convert pixel to world coordinates
 */
 
-t_vec4		get_pixel_coord(t_scene *scene, int x, int y)
+t_vec4			get_pixel_coord(t_scene *scene, int x, int y)
 {
-	t_vec4	result;
-	double	scale;
-	int		pixel_x;
-	int		pixel_y;
+	t_vec4		result;
+	double		scale;
+	int			pixel_x;
+	int			pixel_y;
 
 	scale = tan(degrees_to_radians(scene->main_cam->fov * 0.5));
 	pixel_x = (2 * (x + 0.5) / g_app->win_x - 1) * scene->aspect_ratio * scale;

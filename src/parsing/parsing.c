@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 17:29:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/06 16:32:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ static void		handle_scene_elem(t_scene *scene, char **input)
 
 char			*read_scene_file(t_scene *scene, const char *filepath)
 {
+	char		*result;
+	char		buffer[BUFFER_SIZE + 1];
 	int			fd;
 	int			bytes_read;
-	char		buffer[BUFFER_SIZE + 1];
-	char		*result;
 
 	result = NULL;
 	fd = open(filepath, O_RDONLY);
@@ -75,9 +75,9 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 
 void			parse_scene(t_scene *scene, const char *filepath)
 {
+	const char	*ids = "RAclspt";
 	char		*input;
 	char		*head;
-	const char	*ids = "RAclspt";
 
 	create_scene(scene);
 	input = read_scene_file(scene, filepath);
