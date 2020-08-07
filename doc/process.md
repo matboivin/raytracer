@@ -82,3 +82,24 @@ object_to_world: `translation*rotation*scaling(object_space point)`
 world_to_obj = obj_to_world^(-1)
 objnormal_to_world = world_to_obj^T
 ```
+
+## Object intersections
+
+[Primitives](https://en.wikipedia.org/wiki/Geometric_primitive) are simple geometric shapes such as a cube, cylinder, sphere, ...  
+A [quadric](https://en.wikipedia.org/wiki/Quadric) is a surface in a (D + 1)-dimensional space.
+
+A sphere embedded in a 3D space: `x^2 + y^2 + z^2 = 1`
+
+A function that generates the radius 1 sphere would be: `f(x,y,z)=x2+y2+z2−1`
+
+```
+intersection point = ray origin + t * ray direction
+
+origin + t * dir = (o_x + t *d_x, o_y + t *d_y, o_z + t *d_z)
+```
+
+When solving quadratic equation:
+
+`A t^2 + B t + C = 0`
+
+-> Discriminant: `d = sqrt(B^2 - 4 AC)`

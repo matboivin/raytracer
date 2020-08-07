@@ -24,7 +24,7 @@ Event-driven programming
 - [Wiki: Event loop](https://en.wikipedia.org/wiki/Event_loop)
 - [Event Dispatch & Handling (PDF)](https://www.student.cs.uwaterloo.ca/~cs349/w16/slides/2.2-event-dispatch.pdf)
 
-Linear Algebra / Trigonometry  
+Linear Algebra / Geometry  
 
 - [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 - [Khan Academy](https://khanacademy.org/)
@@ -32,6 +32,7 @@ Linear Algebra / Trigonometry
 - [Some Linear Algebra](http://math.hws.edu/graphicsbook/c3/s5.html)
 - [Sine, Cosine and Tangent](https://www.mathsisfun.com/sine-cosine-tangent.html)
 - [Scratchapixel 2.0: Geometry](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/points-vectors-and-normals)
+- [Wiki: Quadrique](https://fr.wikipedia.org/wiki/Quadrique)
 
 Graphics  
 
@@ -42,16 +43,17 @@ Graphics
 - [Perspective projection view plane distance calculation confusion?](https://stackoverflow.com/questions/36251087/perspective-projection-view-plane-distance-calculation-confusion)
 - [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
 - [matrices: Work with homogeneous coordinates](https://rdrr.io/cran/rgl/man/matrices.html)
+- [Wiki: Primitive (modélisation)](https://fr.wikipedia.org/wiki/Primitive_(mod%C3%A9lisation))
 
 OpenGL  
 
 - [Song Ho Ahn](http://www.songho.ca/opengl/index.html)
-- [Apprendre OpenGL moderne](https://opengl.developpez.com/tutoriels/apprendre-opengl/)
 - [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
 - [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
 - [(x,y,z,w) in OpenGL/Direct3D (Homogeneous Coordinates)](https://andrewharvey4.wordpress.com/2008/09/29/xyzw-in-opengldirect3d-homogeneous-coordinates/)
 - [OpenGL Projection Matrix](http://www.songho.ca/opengl/gl_projectionmatrix.html)
 - [Tutoriel 3 : matrices](http://www.opengl-tutorial.org/fr/beginners-tutorials/tutorial-3-matrices/)
+- [Apprendre OpenGL moderne](https://opengl.developpez.com/tutoriels/apprendre-opengl/)
 - [Apprendre OpenGL moderne: Transformations](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=transformations)
 - [Apprendre OpenGL moderne: Systèmes de Coordonnées](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=systemes-de-coordonnees)
 - [Apprendre OpenGL moderne: Caméra](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=camera)
