@@ -16,7 +16,7 @@
 ** Struct: Element identifiers associated to parsing functions
 */
 
-struct s_pars_elem	g_pars_elem[] =
+struct s_pars_arr	g_pars_elem[] =
 {
 	{ "R ", &get_resolution },
 	{ "A ", &get_ambient },

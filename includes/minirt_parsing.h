@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/01 18:12:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/08 17:05:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 typedef	void	(*t_pars_func)(t_scene *scene, char **input);
 
-typedef struct	s_pars_elem
+typedef struct	s_pars_arr
 {
 	char		*u_id;
 	t_pars_func	func;
-}				t_pars_elem;
+}				t_pars_arr;
+
+extern struct s_pars_arr	g_pars_elem[];
 
 /*
 ** Scene

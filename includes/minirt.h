@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/04 18:33:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/08 17:05:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@
 # include "minirt_exit.h"
 
 extern struct s_app			*g_app;
-extern struct s_pars_elem	g_pars_elem[];
 
 #endif
