@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/11 16:26:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/11 18:10:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 /*
 ** This function creates the world_to_cam matrix (World Space to View Space)
+**
+** Right, Up and Forward vectors
+**
+** [[Rx, Ry, Rz, T],
+**  [Ux, Uy, Uz, T],
+**  [Fx, Fy, Fz, T],
+**  [ 0,  0,  0, 1]]
 */
 
 t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
@@ -35,13 +42,6 @@ t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 
 /*
 ** This function creates the cam_to_world matrix (View Space to World Space)
-**
-** Right, Up and Forward vectors
-**
-** [[Rx, Ry, Rz, T],
-**  [Ux, Uy, Uz, T],
-**  [Fx, Fy, Fz, T],
-**  [ 0,  0,  0, 1]]
 */
 
 t_mat4x4		create_camtoworld(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)

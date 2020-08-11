@@ -93,7 +93,26 @@ The general quadric surface equation is
 `F(x, y, z) = Ax2 + By2 + Cz2 + Dxy+ Exz + Fyz + Gx + Hy + Iz + J = 0`  
 Source: [Ray - Quadric Intersection](http://skuld.bmsc.washington.edu/people/merritt/graphics/quadrics.html)
 
-A sphere embedded in a 3D space: `x^2 + y^2 + z^2 = 1`
+discriminant: `b^2 - 4*a*c`
+
+discriminant < 0 : there is no intersection
+discriminant == 0 : only one intersection
+discriminant > 0 : two intersections
+
+A sphere embedded in a 3D space:
+
+```
+x^2 + y^2 + z^2 = 1
+
+// Xc, Yc, Zc : sphere center
+
+a = dir.x^2 + dir.y^2 + dir.z^2
+b = 2 * (dir.x * (origin.x - Xc) + dir.y * (origin.y - Yc) + dir.z * (origin.z - Zc))
+c = ((origin.x - Xc)^2 + (origin.y - Yc)^2 + (origin.z - Zc)^2) - r^2
+
+t0 = (-b + sqrt(det)) / (2*a);
+t1 = (-b - sqrt(det)) / (2*a);
+```
 
 A function that generates the radius 1 sphere would be: `f(x,y,z)=x2+y2+z2−1`
 
