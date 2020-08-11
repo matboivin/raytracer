@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/11 23:04:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 00:34:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,30 @@ t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 }
 
 /*
-** This function creates the cam_to_world matrix (View Space to World Space)
+** This function creates the cam_to_world 4D matrix (View Space to World Space)
 */
 
-t_mat4x4		create_camtoworld(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
+t_mat4x4		create_camtoworld4(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 {
 	t_mat4x4	result;
 	t_mat4x4	world_to_cam;
 
 	world_to_cam = create_worldtocam(from, cam_dir, world_up);
 	result = invert_mat4x4(world_to_cam);
+	return (result);
+}
+
+/*
+** This function creates the cam_to_world 3D matrix (View Space to World Space)
+*/
+
+t_mat3x3		create_camtoworld3(t_mat4x4 mat)
+{
+	t_mat3x3	result;
+
+	result.c1 = create_vec3(mat.c1.x, mat.c1.y, mat.c1.z);
+	result.c2 = create_vec3(mat.c2.x, mat.c2.y, mat.c2.z);
+	result.c3 = create_vec3(mat.c3.x, mat.c3.y, mat.c3.z);
 	return (result);
 }
 
@@ -65,6 +79,6 @@ t_mat4x4		look_at(t_cam *cam)
 	t_vec3		world_up;
 
 	world_up = create_vec3(0.0, 1.0, 0.0);
-	cam_to_world = create_camtoworld(cam->pos, cam->dir, world_up);
+	cam_to_world = create_camtoworld4(cam->pos, cam->dir, world_up);
 	return (cam_to_world);
 }

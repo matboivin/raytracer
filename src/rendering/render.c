@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/11 16:29:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 00:29:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 }
 
 /*
-** This function converts pixel to World coordinates
-*/
-
-t_vec4			get_pixel_coord(t_scene *scene, int x, int y)
-{
-	t_vec4		result;
-	double		scale;
-	double		pixel_x;
-	double		pixel_y;
-
-	scale = tan(degrees_to_radians(scene->main_cam->fov) * 0.5);
-	pixel_x = (2 * (x + 0.5) / g_app->win_x - 1) * scene->aspect_ratio * scale;
-	pixel_y = (1 - 2 * (y + 0.5) / g_app->win_y) * scale;
-	result = create_vec4(pixel_x, pixel_y, -1, 1);
-	return (result);
-}
-
-/*
 ** This function creates a cam_to_world matrix,
 ** sets the ray origin and iterates over all pixels in the image.
 ** At each pixel, it sets the ray direction, casts the ray and
@@ -60,21 +42,23 @@ t_vec4			get_pixel_coord(t_scene *scene, int x, int y)
 
 void			render(t_scene *scene)
 {
-	t_mat4x4	cam_to_world;
+	t_mat3x3	cam_to_world3;
+	t_mat4x4	cam_to_world4;
 	t_ray		ray;
 	t_color		ray_color;
 	int			x;
 	int			y;
 
-	cam_to_world = look_at(scene->main_cam);
-	set_ray_origin(&ray, cam_to_world);
+	cam_to_world4 = look_at(scene->main_cam); // tmp
+	cam_to_world3 = create_camtoworld3(cam_to_world4); // tmp
+	set_ray_origin(&ray, cam_to_world4);
 	y = 0;
 	while (y < g_app->win_y)
 	{
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_ray_dir(&ray, cam_to_world, get_pixel_coord(scene, x, y));
+			set_ray_dir(&ray, cam_to_world3, get_pixel_coord(scene, x, y));
 			ray_color = cast_ray(scene, &ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;

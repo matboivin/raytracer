@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 15:57:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/11 23:56:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 typedef struct	s_ray
 {
-	t_vec4		origin;
-	t_vec4		dir;
+	t_vec3		origin;
+	t_vec3		dir;
 	double		t_nearest;
 }				t_ray;
 

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/11 21:26:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/11 23:59:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ bool		intersect_sphere(t_sphere *sphere, t_ray *ray)
 	double	a;
 	double	b;
 	double	c;
-	t_vec4	d;
-	t_vec4	tmp;
+	t_vec3	d;
+	t_vec3	tmp;
 
-	tmp = create_vec4(sphere->pos.x, sphere->pos.y, sphere->pos.z, 0);
-	d = sub_vec4(ray->origin, tmp);
-	a = quadnorm_vec4(ray->dir);
-	b = 2 * dot_vec4(ray->dir, tmp);
-	c = quadnorm_vec4(d) - ft_sqr(sphere->radius);
+	tmp = create_vec3(sphere->pos.x, sphere->pos.y, sphere->pos.z);
+	d = sub_vec3(ray->origin, tmp);
+	a = quadnorm_vec3(ray->dir);
+	b = 2 * dot_vec3(ray->dir, tmp);
+	c = quadnorm_vec3(d) - ft_sqr(sphere->radius);
 	return (solve_quadratic(ray, a, b, c));
 }
