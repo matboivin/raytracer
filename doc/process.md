@@ -93,6 +93,12 @@ The general quadric surface equation is
 `F(x, y, z) = Ax2 + By2 + Cz2 + Dxy+ Exz + Fyz + Gx + Hy + Iz + J = 0`  
 Source: [Ray - Quadric Intersection](http://skuld.bmsc.washington.edu/people/merritt/graphics/quadrics.html)
 
+When solving quadratic equation:
+
+`A t^2 + B t + C = 0`
+
+-> Discriminant: `d = sqrt(B^2 - 4 AC)`
+
 discriminant: `b^2 - 4*a*c`
 
 discriminant < 0 : there is no intersection
@@ -121,9 +127,3 @@ intersection point = ray origin + t * ray direction
 
 origin + t * dir = (o_x + t *d_x, o_y + t *d_y, o_z + t *d_z)
 ```
-
-When solving quadratic equation:
-
-`A t^2 + B t + C = 0`
-
--> Discriminant: `d = sqrt(B^2 - 4 AC)`

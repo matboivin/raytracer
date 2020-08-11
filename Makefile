@@ -48,6 +48,7 @@ SRC			=	main.c				\
 				parsing_settings.c	\
 				parsing_values.c	\
 				parsing_utils.c		\
+				solve_quadratic.c	\
 				render.c			\
 				save.c				\
 				scene.c				\
