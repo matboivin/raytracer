@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:12:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/11 16:31:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void		reset_ray_nearest(t_ray *ray)
 void		set_ray_dir(t_ray *ray, t_mat4x4 mat, t_vec4 pixel_coord)
 {
 	ray->dir = mult_mat4x4_vec4(mat, pixel_coord);
+	ray->dir = sub_vec4(ray->dir, ray->origin);
 	ray->dir = normalize_vec4(ray->dir);
 }
 

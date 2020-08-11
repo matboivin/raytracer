@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:02:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/11 16:26:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 ** This function creates the world_to_cam matrix (World Space to View Space)
 */
 
-t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 orient, t_vec3 world_up)
+t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 {
 	t_mat4x4	result;
 	t_vec3		forward;
 	t_vec3		up;
 	t_vec3		right;
 
-	forward = normalize_vec3(orient);
+	forward = cam_dir;
 	right = normalize_vec3(cross(world_up, forward));
-	up = cross(forward, right);
+	up = normalize_vec3(cross(forward, right));
 	result.c1 = create_vec4(right.x, right.y, right.z, from.x);
 	result.c2 = create_vec4(up.x, up.y, up.z, from.y);
 	result.c3 = create_vec4(forward.x, forward.y, forward.z, from.z);
@@ -44,12 +44,12 @@ t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 orient, t_vec3 world_up)
 **  [ 0,  0,  0, 1]]
 */
 
-t_mat4x4		create_camtoworld(t_vec3 from, t_vec3 orient, t_vec3 world_up)
+t_mat4x4		create_camtoworld(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 {
 	t_mat4x4	result;
 	t_mat4x4	world_to_cam;
 
-	world_to_cam = create_worldtocam(from, orient, world_up);
+	world_to_cam = create_worldtocam(from, cam_dir, world_up);
 	result = invert_mat4x4(world_to_cam);
 	return (result);
 }
