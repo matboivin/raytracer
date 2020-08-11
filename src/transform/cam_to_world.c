@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 00:34:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 00:42:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,11 @@ t_mat3x3		create_camtoworld3(t_mat4x4 mat)
 ** This function places the camera and returns the cam_to_world matrix
 */
 
-t_mat4x4		look_at(t_cam *cam)
+void			look_at(t_cam *cam)
 {
-	t_mat4x4	cam_to_world;
 	t_vec3		world_up;
 
 	world_up = create_vec3(0.0, 1.0, 0.0);
-	cam_to_world = create_camtoworld4(cam->pos, cam->dir, world_up);
-	return (cam_to_world);
+	cam->cam_to_world4 = create_camtoworld4(cam->pos, cam->dir, world_up);
+	cam->cam_to_world3 = create_camtoworld3(cam->cam_to_world4);
 }
