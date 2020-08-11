@@ -24,7 +24,6 @@ vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 LIB			=	ft minimath mlx_Linux
 
 SRC			=	main.c				\
-				angle.c				\
 				application.c		\
 				camera.c			\
 				cam_to_world.c		\

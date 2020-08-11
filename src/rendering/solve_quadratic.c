@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/11 21:03:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/11 21:26:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool		solve_quadratic(t_ray *ray, double a, double b, double c)
 	double	t1;
 	double	discriminant;
 
-	discriminant = pow(b, 2) - (4 * a * c);
+	discriminant = ft_sqr(b) - (4 * a * c);
 	if (discriminant < 0)
 		return (false);
 	if (discriminant == 0)
