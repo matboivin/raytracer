@@ -101,9 +101,9 @@ When solving quadratic equation:
 
 discriminant: `b^2 - 4*a*c`
 
-discriminant < 0 : there is no intersection
-discriminant == 0 : only one intersection
-discriminant > 0 : two intersections
+- discriminant < 0 : there is no intersection
+- discriminant == 0 : only one intersection
+- discriminant > 0 : two intersections
 
 A sphere embedded in a 3D space:
 
