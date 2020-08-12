@@ -33,6 +33,7 @@ Linear Algebra / Geometry
 - [Sine, Cosine and Tangent](https://www.mathsisfun.com/sine-cosine-tangent.html)
 - [Scratchapixel 2.0: Geometry](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/points-vectors-and-normals)
 - [Wiki: Quadrique](https://fr.wikipedia.org/wiki/Quadrique)
+- [Graph and Roots of Quadratic Polynomial](https://www.cut-the-knot.org/Curriculum/Algebra/QuadraticPolynomial.shtml)
 
 Graphics  
 
