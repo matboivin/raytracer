@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 18:35:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 19:21:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@
 **
 ** In Object Space, the sphere primitive default position is (0.0, 0.0, 0.0)
 ** If a point is on the primitive: x^2 + y^2 + z^2 = 1
+**
+** quad_coef.x = a
+** quad_coef.y = b
+** quad_coef.z = c
 */
 
 bool		intersect_sphere(t_sphere *sphere, t_ray *ray)
 {
 	t_vec3	l;
-	double	a;
-	double	b;
-	double	c;
+	t_vec3	quad_coef;
 
 	l = sub_vec3(ray->origin, sphere->pos);
-	a = quadnorm_vec3(ray->dir);
-	b = 2.0 * dot_vec3(ray->dir, l);
-	c = quadnorm_vec3(l) - ft_sqr(sphere->radius);
-	return (solve_quadratic(ray, a, b, c));
+	quad_coef.x = quadnorm_vec3(ray->dir);
+	quad_coef.y = 2.0 * dot_vec3(ray->dir, l);
+	quad_coef.z = quadnorm_vec3(l) - ft_sqr(sphere->radius);
+	return (solve_quadratic(ray, quad_coef));
 }
