@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 00:43:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 09:53:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void		set_ray_dir(t_ray *ray, t_mat3x3 mat, t_vec3 pixel_coord)
 ** This function initializes the ray origin
 */
 
-void		set_ray_origin(t_ray *ray, t_mat4x4 mat)
+void		set_ray_origin(t_ray *ray, t_vec3 cam_pos)
 {
-	ray->origin = create_vec3(mat.c4.x, mat.c4.y, mat.c4.z);
+	ray->origin = cam_pos;
 	ray->t_nearest = __DBL_MAX__;
 }

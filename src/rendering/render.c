@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 00:46:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 09:52:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void			render(t_scene *scene)
 	int			y;
 
 	look_at(scene->main_cam);
-	set_ray_origin(&ray, scene->main_cam->cam_to_world4);
+	set_ray_origin(&ray, scene->main_cam->pos);
 	y = 0;
 	while (y < g_app->win_y)
 	{
