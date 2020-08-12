@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:20:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 00:59:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	get_resolution(t_scene *scene, char **input)
 		exit_error(scene, RES_NEG);
 	if ((scene->res.size_x < 100) || (scene->res.size_y < 100))
 		exit_error(scene, RES_MIN);
-	scene->aspect_ratio = scene->res.size_x / scene->res.size_y;
+	scene->aspect_ratio = (double)scene->res.size_x / (double)scene->res.size_y;
 	skip_blank(input);
 }
 
