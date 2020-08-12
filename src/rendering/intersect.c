@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/11 18:08:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 18:42:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_lstobj		*trace(t_scene *scene, t_ray *ray)
 {
 	t_lstobj	*nearest_obj;
 
-	reset_ray_nearest(ray);
 	nearest_obj = NULL;
 	while (scene->objs)
 	{
