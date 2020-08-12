@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 00:42:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 09:22:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function creates the world_to_cam matrix (World Space to View Space)
+** This function creates the World Space to Camera Space 4D matrix
 **
 ** Right, Up and Forward vectors
 **
@@ -42,7 +42,7 @@ t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 }
 
 /*
-** This function creates the cam_to_world 4D matrix (View Space to World Space)
+** This function creates the Camera Space to World Space 4D matrix
 */
 
 t_mat4x4		create_camtoworld4(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
@@ -56,7 +56,7 @@ t_mat4x4		create_camtoworld4(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 }
 
 /*
-** This function creates the cam_to_world 3D matrix (View Space to World Space)
+** This function creates the Camera Space to World Space 3D matrix
 */
 
 t_mat3x3		create_camtoworld3(t_mat4x4 mat)
@@ -70,7 +70,7 @@ t_mat3x3		create_camtoworld3(t_mat4x4 mat)
 }
 
 /*
-** This function places the camera and returns the cam_to_world matrix
+** This function places the camera and sets Camera Space to World Space matrices
 */
 
 void			look_at(t_cam *cam)
