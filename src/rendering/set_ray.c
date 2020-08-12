@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 09:53:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/12 10:12:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@ void		reset_ray_nearest(t_ray *ray)
 ** This function sets the ray direction
 */
 
-void		set_ray_dir(t_ray *ray, t_mat3x3 mat, t_vec3 pixel_coord)
+void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 {
-	ray->dir = mult_mat3x3_vec3(mat, pixel_coord);
+	t_vec3	pixel_coord;
+
+	pixel_coord = get_pixel_coord(scene, x, y);
+	ray->dir = mult_mat3x3_vec3(scene->main_cam->cam_to_world3, pixel_coord);
 	ray->dir = normalize_vec3(ray->dir);
 }
 
