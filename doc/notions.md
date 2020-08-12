@@ -69,6 +69,7 @@ Ray Tracing
 - [Développement d'un Raytracer](http://www.alrj.org/docs/3D/raytracer/raytracertutintro.htm)
 - [Ray Tracing (Shading) (PDF)](http://www.cs.cornell.edu/courses/cs4620/2012fa/lectures/35raytracing.pdf)
 - [Ray - Quadric Intersection](http://skuld.bmsc.washington.edu/people/merritt/graphics/quadrics.html)
+- [Understanding the View Matrix](https://www.3dgep.com/understanding-the-view-matrix/)
 
 BMP  
 
