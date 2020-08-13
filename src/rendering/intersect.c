@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 16:45:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 21:50:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,16 @@ bool			intersect(t_scene *scene, t_ray *ray)
 t_lstobj		*trace(t_scene *scene, t_ray *ray)
 {
 	t_lstobj	*nearest_obj;
+	t_lstobj	*head;
 
 	nearest_obj = NULL;
+	head = scene->objs;
 	while (scene->objs)
 	{
 		if (intersect(scene, ray) == true)
 			nearest_obj = scene->objs;
 		scene->objs = scene->objs->next;
 	}
-	scene->objs = scene->objs_head;
+	scene->objs = head;
 	return (nearest_obj);
 }

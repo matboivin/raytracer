@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 02:23:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 21:57:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ struct s_pars_arr	g_pars_elem[] =
 	{ "A ", &get_ambient },
 	{ "c ", &get_camera },
 	{ "l ", &get_light },
+	{ "R\t", &get_resolution },
+	{ "A\t", &get_ambient },
+	{ "c\t", &get_camera },
+	{ "l\t", &get_light },
 	{ "sp", &get_sphere },
 	{ "pl", &get_plane },
 	{ "sq", &get_square },
@@ -38,7 +42,7 @@ static void		handle_scene_elem(t_scene *scene, char **input)
 	int			i;
 
 	i = 0;
-	while (i < 9)
+	while (i < 13)
 	{
 		if (ft_strncmp(g_pars_elem[i].u_id, *input, 2) == 0)
 		{

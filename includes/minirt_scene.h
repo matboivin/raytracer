@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 16:49:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 21:47:15 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ typedef struct	s_scene
 	t_lstcam	*cameras;
 	t_cam		*main_cam;
 	t_lstlight	*lights;
-	t_lstlight	*lights_head;
 	t_lstobj	*objs;
-	t_lstobj	*objs_head;
 	double		aspect_ratio;
 }				t_scene;
 
