@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:16:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 02:23:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void		handle_scene_elem(t_scene *scene, char **input)
 	i = 0;
 	while (i < 9)
 	{
-		if (ft_strnequ(g_pars_elem[i].u_id, *input, 2))
+		if (ft_strncmp(g_pars_elem[i].u_id, *input, 2) == 0)
 		{
 			(*g_pars_elem[i].func)(scene, input);
 			return ;

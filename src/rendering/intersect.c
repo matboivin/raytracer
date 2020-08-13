@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 18:42:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 01:40:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ bool			intersect(t_lstobj *objs, t_ray *ray)
 	has_hit = false;
 	if (objs->type == SPHERE)
 		has_hit = intersect_sphere(objs->obj, ray);
+	else if (objs->type == PLANE)
+		has_hit = intersect_plane(objs->obj, ray);
 	return (has_hit);
 }
 

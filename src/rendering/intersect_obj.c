@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_sphere.c                                 :+:      :+:    :+:   */
+/*   intersect_obj.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/12 19:21:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 02:02:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 ** This function handles intersection with a sphere
 ** If a sphere is intersected, t_nearest is updated and true is returned.
 **
-** In Object Space, the sphere primitive default position is (0.0, 0.0, 0.0)
 ** If a point is on the primitive: x^2 + y^2 + z^2 = 1
 **
 ** quad_coef.x = a
@@ -34,4 +33,31 @@ bool		intersect_sphere(t_sphere *sphere, t_ray *ray)
 	quad_coef.y = 2.0 * dot_vec3(ray->dir, l);
 	quad_coef.z = quadnorm_vec3(l) - ft_sqr(sphere->radius);
 	return (solve_quadratic(ray, quad_coef));
+}
+
+/*
+** This function handles intersection with a plane
+** If a plane is intersected, t_nearest is updated and true is returned.
+**
+** Ax + By + Cz + D = 0
+*/
+
+bool		intersect_plane(t_plane *plane, t_ray *ray)
+{
+	double	t;
+	double	denom;
+	t_vec3	p0l0;
+
+	denom = dot_vec3(plane->rot, ray->dir);
+	if (denom > 1e-6)
+	{
+		p0l0 = sub_vec3(plane->pos, ray->origin);
+		t = dot_vec3(p0l0, plane->rot) / denom;
+		if (t >= 0)
+		{
+			ray->t_nearest = t;
+			return (true);
+		}
+	}
+	return (false);
 }
