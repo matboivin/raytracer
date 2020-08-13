@@ -127,3 +127,14 @@ intersection point = ray origin + t * ray direction
 
 origin + t * dir = (o_x + t *d_x, o_y + t *d_y, o_z + t *d_z)
 ```
+
+A plane:
+
+```
+Ax + By + Cz + D = 0; 
+
+// (A, B, C) : plane normal
+
+t = - ((A*X + B*Y + C*Z + D) / (A*DIR.x + B*DIR.y + C*DIR.z))
+// (X Y Z) = (O.x-pointplaneX O.y-pointplaneY O.z-pointplane.Z)
+```
