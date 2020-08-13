@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 01:39:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 03:05:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_lstobj	*trace(t_scene *scene, t_ray *ray);
 bool		intersect(t_lstobj *objs, t_ray *ray);
 bool		intersect_sphere(t_sphere *sphere, t_ray *ray);
 bool		intersect_plane(t_plane *plane, t_ray *ray);
+bool		intersect_square(t_square *square, t_ray *ray);
 bool		solve_quadratic(t_ray *ray, t_vec3 quad_coef);
 
 t_color		get_obj_color(t_lstobj *hit_obj);
