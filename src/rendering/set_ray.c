@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 00:56:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/13 18:15:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,15 @@ t_vec3		get_pixel_coord(double fov, double aspect_ratio, int x, int y)
 }
 
 /*
+** This function resets t_nearest
+*/
+
+void		reset_ray_nearest(t_ray *ray)
+{
+	ray->t_nearest = __DBL_MAX__;
+}
+
+/*
 ** This function sets the ray direction
 */
 
@@ -49,7 +58,7 @@ void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 		scene->main_cam->cam_to_world3,
 		pixel_coord);
 	ray->dir = normalize_vec3(ray->dir);
-	ray->t_nearest = __DBL_MAX__;
+	reset_ray_nearest(ray);
 }
 
 /*
