@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/14 02:13:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/14 02:18:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ t_mat4x4		create_camtoworld4(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 
 	world_to_cam = create_worldtocam(from, cam_dir, world_up);
 	result = invert_mat4x4(world_to_cam);
-	result = create_worldtocam(from, cam_dir, world_up);
 	return (result);
 }
 
