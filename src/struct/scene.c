@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 21:47:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/14 00:13:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	create_scene(t_scene *scene)
 	scene->main_cam = NULL;
 	scene->lights = NULL;
 	scene->objs = NULL;
-	scene->aspect_ratio = 0.0;
 }
 
 void	destroy_scene(t_scene *to_destroy)

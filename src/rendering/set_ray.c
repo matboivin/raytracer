@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 18:15:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/14 00:44:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@
 ** This function converts pixel to World coordinates
 */
 
-t_vec3		get_pixel_coord(double fov, double aspect_ratio, int x, int y)
+t_vec3		get_pixel_coord(double fov, t_res res, int x, int y)
 {
 	t_vec3	result;
 	double	scale;
 	double	pixel_x;
 	double	pixel_y;
+	double	aspect_ratio;
 
+	aspect_ratio = (double)res.size_x / (double)res.size_y;
 	scale = tan(degrees_to_radians(fov * 0.5));
 	pixel_x = (
-		2 * (x + 0.5) / (double)g_app->win_x - 1) * aspect_ratio * scale;
+		2 * (x + 0.5) / (double)res.size_x - 1) * aspect_ratio * scale;
 	pixel_y = (
-		1 - 2 * (y + 0.5) / (double)g_app->win_y) * scale;
+		1 - 2 * (y + 0.5) / (double)res.size_y) * scale;
 	result = create_vec3(pixel_x, pixel_y, 1);
 	return (result);
 }
@@ -43,6 +45,8 @@ void		reset_ray_nearest(t_ray *ray)
 
 /*
 ** This function sets the ray direction
+**
+** t_nearest is reset to max double value at each ray cast
 */
 
 void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
@@ -51,7 +55,7 @@ void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 
 	pixel_coord = get_pixel_coord(
 		scene->main_cam->fov,
-		scene->aspect_ratio,
+		scene->res,
 		x,
 		y);
 	ray->dir = mult_mat3x3_vec3(
@@ -65,10 +69,7 @@ void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 ** This function initializes the ray origin
 */
 
-void		set_ray_origin(t_ray *ray, t_mat3x3 mat)
+void		set_ray_origin(t_ray *ray, t_vec3 cam_pos)
 {
-	t_vec3	vec;
-
-	vec = create_vec3(0.0, 0.0, 0.0);
-	ray->origin = mult_mat3x3_vec3(mat, vec);
+	ray->origin = cam_pos;
 }

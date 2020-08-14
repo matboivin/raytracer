@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 21:50:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/14 00:31:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ bool			intersect(t_scene *scene, t_ray *ray)
 ** against t_nearest when an intersection is found.
 ** Returns a pointer to the nearest intersected object.
 ** Otherwise, a null pointer is returned.
-**
-** t_nearest is reset to max double value at each ray cast.
 */
 
 t_lstobj		*trace(t_scene *scene, t_ray *ray)
