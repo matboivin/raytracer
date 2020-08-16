@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   handle_key.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:04:59 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
+/*   Updated: 2020/08/16 18:06:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function frees scene and application
+** This function handles keyboard events
 */
 
-static void	free_all(t_scene *scene)
+int		handle_key(int keycode, t_scene *scene)
 {
-	destroy_scene(scene);
-	quit_app();
-}
-
-/*
-** This function frees allocated memory and exits
-*/
-
-int			exit_success(t_scene *scene)
-{
-	free_all(scene);
-	ft_printf("EXIT\n");
-	exit(EXIT_SUCCESS);
+	if (keycode == ESC_KEY)
+		exit_success(scene);
+	if (keycode == SPC_KEY)
+		switch_camera(scene);
 	return (0);
-}
-
-/*
-** This function frees allocated memory, prints an error message and exits
-*/
-
-void		exit_error(t_scene *scene, t_errid raised)
-{
-	free_all(scene);
-	put_error(raised);
 }

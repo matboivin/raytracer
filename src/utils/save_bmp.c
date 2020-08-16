@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save.c                                             :+:      :+:    :+:   */
+/*   save_bmp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:26:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:27:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** This function fills the file header structure
 */
 
-t_bmp_h		create_bmpfileheader(int size)
+static t_bmp_h	create_bmpfileheader(int size)
 {
-	t_bmp_h	result;
+	t_bmp_h		result;
 
 	ft_bzero(&result, sizeof(t_bmp_h));
 	result.bmp_type[0] = 'B';
@@ -34,10 +34,10 @@ t_bmp_h		create_bmpfileheader(int size)
 ** This function fills the DIB header structure
 */
 
-t_dib_h		create_bmpdibheader(int size)
+static t_dib_h	create_bmpdibheader(int size)
 {
-	t_dib_h	result;
-	int		ppm;
+	t_dib_h		result;
+	int			ppm;
 
 	ppm = 96 * 39.375;
 	ft_bzero(&result, sizeof(t_dib_h));
@@ -59,11 +59,11 @@ t_dib_h		create_bmpdibheader(int size)
 ** This function writes headers to the file
 */
 
-void		write_bmpheaders(int fd)
+static void		write_bmpheaders(int fd)
 {
-	int		size;
-	t_bmp_h	file_header;
-	t_dib_h	dib_header;
+	int			size;
+	t_bmp_h		file_header;
+	t_dib_h		dib_header;
 
 	size = g_app->win_x * g_app->win_y * 3;
 	file_header = create_bmpfileheader(size);
@@ -90,12 +90,12 @@ void		write_bmpheaders(int fd)
 ** This function writes pixels to the file
 */
 
-void		write_bmpdata(t_scene *scene, int fd)
+static void		write_bmpdata(t_scene *scene, int fd)
 {
-	int		x;
-	int		y;
-	int		*pixel;
-	int		i;
+	int			x;
+	int			y;
+	int			*pixel;
+	int			i;
 
 	y = g_app->win_y - 1;
 	while (y > -1)
@@ -118,9 +118,9 @@ void		write_bmpdata(t_scene *scene, int fd)
 ** This function carries out file saving to BMP format
 */
 
-void		save_bmp(t_scene *scene, const char *filename)
+void			save_bmp(t_scene *scene, const char *filename)
 {
-	int		fd;
+	int			fd;
 
 	ft_printf("Saving rendered image in BMP format...\n");
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);

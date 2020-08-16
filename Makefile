@@ -23,38 +23,46 @@ vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 
 LIB			=	ft minimath mlx_Linux
 
-SRC			=	main.c				\
-				application.c		\
-				camera.c			\
-				cam_to_world.c		\
-				color.c				\
-				display.c			\
-				drawing.c			\
-				exit.c				\
-				exit_error.c		\
-				events.c			\
-				image.c				\
-				intersect.c			\
-				intersect_obj.c		\
-				lights.c			\
-				objects.c			\
-				parsing.c			\
-				parsing_cam.c		\
-				parsing_check.c		\
-				parsing_light.c		\
-				parsing_obj.c		\
-				parsing_objadd.c	\
-				parsing_settings.c	\
-				parsing_values.c	\
-				parsing_utils.c		\
-				plane.c				\
-				solve_quadratic.c	\
-				render.c			\
-				save.c				\
-				scene.c				\
-				set_ray.c			\
-				shading.c			\
-				switch_cam.c		\
+SRC			=	main.c					\
+				application.c			\
+				camera.c				\
+				check_max_display.c		\
+				check_null_vector.c		\
+				check_params.c			\
+				color.c					\
+				dispatch_event.c		\
+				display.c				\
+				exit.c					\
+				handle_key.c			\
+				handle_window.c			\
+				image.c					\
+				intersect.c				\
+				intersect_obj.c			\
+				lights.c				\
+				look_at.c				\
+				objects.c				\
+				parsing.c				\
+				parsing_cam.c			\
+				parsing_light.c			\
+				parsing_obj.c			\
+				parsing_objadd.c		\
+				parsing_settings.c		\
+				parsing_values.c		\
+				parsing_utils.c			\
+				plane.c					\
+				put_error.c				\
+				put_pixel.c				\
+				put_warning.c			\
+				solve_quadratic.c		\
+				render.c				\
+				save_bmp.c				\
+				scene.c					\
+				set_ray_dir.c			\
+				set_ray_nearest.c		\
+				set_ray_origin.c		\
+				shading.c				\
+				switch_cam.c			\
+				tracer.c				\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 

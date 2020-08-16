@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_error.c                                       :+:      :+:    :+:   */
+/*   put_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/06 23:57:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:02:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ struct s_err	g_err[] =
 ** This function retrieves the appropriate error message using given error id
 */
 
-char		*catch_err(t_errid raised)
+static char	*catch_err(t_errid raised)
 {
 	int		i;
 
@@ -73,14 +73,4 @@ void		put_error(t_errid raised)
 	msg = catch_err(raised);
 	ft_dprintf(STDERR_FILENO, "Error\n%s\n", msg);
 	exit(EXIT_FAILURE);
-}
-
-/*
-** This function frees allocated memory, prints an error message and exits
-*/
-
-void		exit_error(t_scene *scene, t_errid raised)
-{
-	free_all(scene);
-	put_error(raised);
 }

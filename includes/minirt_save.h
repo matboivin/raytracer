@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/21 22:42:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:27:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,6 @@ typedef struct	s_dib_h
 	t_uint		clr_important;
 }				t_dib_h;
 
-t_bmp_h			create_bmpfileheader(int size);
-t_dib_h			create_bmpdibheader(int size);
-void			write_bmpheaders(int fd);
-void			write_bmpdata(t_scene *scene, int fd);
 void			save_bmp(t_scene *scene, const char *filename);
 
 #endif

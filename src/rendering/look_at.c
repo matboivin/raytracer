@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cam_to_world.c                                     :+:      :+:    :+:   */
+/*   look_at.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/14 02:18:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:14:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 ** [0., 0., 0., 1.]
 */
 
-t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
+static t_mat4x4		create_worldtocam(
+	t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 {
 	t_mat4x4	result;
 	t_vec3		forward;
@@ -44,7 +45,8 @@ t_mat4x4		create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 ** This function creates the Camera Space to World Space 4D matrix
 */
 
-t_mat4x4		create_camtoworld4(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
+static t_mat4x4		create_camtoworld4(
+	t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 {
 	t_mat4x4	result;
 	t_mat4x4	world_to_cam;
@@ -58,7 +60,7 @@ t_mat4x4		create_camtoworld4(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 ** This function creates the Camera Space to World Space 3D matrix
 */
 
-t_mat3x3		create_camtoworld3(t_mat4x4 mat)
+static t_mat3x3		create_camtoworld3(t_mat4x4 mat)
 {
 	t_mat3x3	result;
 

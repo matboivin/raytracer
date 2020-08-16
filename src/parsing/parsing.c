@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 21:57:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:19:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void		handle_scene_elem(t_scene *scene, char **input)
 ** This function gets the entire scene description
 */
 
-char			*read_scene_file(t_scene *scene, const char *filepath)
+static char		*read_scene_file(t_scene *scene, const char *filepath)
 {
 	char		*result;
 	char		buffer[BUFFER_SIZE + 1];
@@ -78,6 +78,22 @@ char			*read_scene_file(t_scene *scene, const char *filepath)
 	}
 	close(fd);
 	return (result);
+}
+
+/*
+** This function checks whether the scene description is valid
+*/
+
+static void		check_scene(t_scene *scene)
+{
+	if ((scene->res.is_declared == false) || (scene->amb.is_declared == false))
+		exit_error(scene, MISS_RA);
+	if (scene->main_cam == NULL)
+		exit_error(scene, MISS_CAM);
+	if (scene->lights == NULL)
+		exit_error(scene, MISS_LIGHT);
+	if (scene->objs == NULL)
+		exit_error(scene, MISS_OBJ);
 }
 
 /*

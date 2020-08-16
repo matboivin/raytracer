@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:13:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:44:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** This function returns the cast color
 */
 
-t_color		get_obj_color(t_lstobj *hit_obj)
+static t_color	get_obj_color(t_lstobj *hit_obj)
 {
-	t_color	color;
+	t_color		color;
 
 	if (hit_obj->type == SPHERE)
 		color = ((t_sphere *)hit_obj->obj)->color;
@@ -34,25 +34,25 @@ t_color		get_obj_color(t_lstobj *hit_obj)
 }
 
 /*
-** This function returns true if the object is in shadow
+** This function returns true if the hit point is in shadow
 */
 
-bool		is_in_shadow(void *obj, t_ray *ray)
-{
-	(void)obj;
-	(void)ray;
-	return (false);
-}
+// static bool		is_in_shadow(void *obj, t_ray *ray)
+// {
+// 	(void)obj;
+// 	(void)ray;
+// 	return (false);
+// }
 
 /*
 ** This function processes shading to retrieve final color
 */
 
-t_color		shading(t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
+t_color			shading(t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
 {
-	t_color	final_color;
+	t_color		final_color;
 	//t_vec3	inter;
-	//t_ray	shadow_ray;
+	//t_ray		shadow_ray;
 
 	(void)scene;
 	(void)ray;

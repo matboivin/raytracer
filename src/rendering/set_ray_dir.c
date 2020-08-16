@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_ray.c                                          :+:      :+:    :+:   */
+/*   set_ray_dir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/14 00:44:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:42:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 ** This function converts pixel to World coordinates
 */
 
-t_vec3		get_pixel_coord(double fov, t_res res, int x, int y)
+static t_vec3	get_pixel_coord(double fov, t_res res, int x, int y)
 {
-	t_vec3	result;
-	double	scale;
-	double	pixel_x;
-	double	pixel_y;
-	double	aspect_ratio;
+	t_vec3		result;
+	double		scale;
+	double		pixel_x;
+	double		pixel_y;
+	double		aspect_ratio;
 
 	aspect_ratio = (double)res.size_x / (double)res.size_y;
 	scale = tan(degrees_to_radians(fov * 0.5));
@@ -35,23 +35,14 @@ t_vec3		get_pixel_coord(double fov, t_res res, int x, int y)
 }
 
 /*
-** This function resets t_nearest
-*/
-
-void		reset_ray_nearest(t_ray *ray)
-{
-	ray->t_nearest = __DBL_MAX__;
-}
-
-/*
 ** This function sets the ray direction
 **
 ** t_nearest is reset to max double value at each ray cast
 */
 
-void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
+void			set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 {
-	t_vec3	pixel_coord;
+	t_vec3		pixel_coord;
 
 	pixel_coord = get_pixel_coord(
 		scene->main_cam->fov,
@@ -62,14 +53,5 @@ void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 		scene->main_cam->cam_to_world3,
 		pixel_coord);
 	ray->dir = normalize_vec3(ray->dir);
-	reset_ray_nearest(ray);
-}
-
-/*
-** This function initializes the ray origin
-*/
-
-void		set_ray_origin(t_ray *ray, t_vec3 cam_pos)
-{
-	ray->origin = cam_pos;
+	set_ray_nearest(ray);
 }

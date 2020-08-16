@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   check_null_vector.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/06 23:57:43 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
+/*   Updated: 2020/08/16 18:23:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function handles keyboard events
+** This function handles null vectors which are replaced by a default vector
 */
 
-int		handle_key(int keycode, t_scene *scene)
+static bool	is_null_vector(t_vec3 *to_check)
 {
-	if (keycode == ESC_KEY)
-		exit_success(scene);
-	if (keycode == SPC_KEY)
-		switch_camera(scene);
-	return (0);
+	if ((to_check->x == 0.0) && (to_check->y == 0.0) && (to_check->z == 0.0))
+		return (true);
+	return (false);
 }
 
-/*
-** This function dispatches event handlers
-*/
-
-void	dispatch_event(t_scene *scene)
+void		check_null_vector(t_vec3 *to_check, t_vec3 default_vec)
 {
-	mlx_key_hook(
-		g_app->win_ptr,
-		handle_key,
-		scene);
-	mlx_hook(
-		g_app->win_ptr,
-		DESTROYNOTIFY,
-		DESTROYNOTIFYMASK,
-		exit_success,
-		scene);
+	if (is_null_vector(to_check) == true)
+		cpy_vec3(to_check, default_vec);
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 22:22:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:19:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ extern struct s_pars_arr	g_pars_elem[];
 ** Scene
 */
 
-char			*read_scene_file(t_scene *scene, const char *filepath);
 void			parse_scene(t_scene *scene, const char *filepath);
 
 /*
@@ -76,7 +75,6 @@ void			skip_double(t_scene *scene, char **s);
 ** Checkers
 */
 
-void			check_scene(t_scene *scene);
 void			check_max_display(t_scene *scene);
 void			check_null_vector(t_vec3 *to_check, t_vec3 default_vec);
 

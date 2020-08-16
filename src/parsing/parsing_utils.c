@@ -6,25 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:19:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:20:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** This function checks whether vector values are in a given range
-*/
-
-bool	ft_vec3_range(t_vec3 vec, double start, double end)
-{
-	if (
-		(ft_f_range(vec.x, start, end) == false)
-		|| (ft_f_range(vec.y, start, end) == false)
-		|| (ft_f_range(vec.z, start, end) == false))
-		return (false);
-	return (true);
-}
 
 /*
 ** This function skips spaces and horizontal tabs
@@ -77,4 +63,18 @@ void	skip_double(t_scene *scene, char **s)
 		if ((**s) == '-')
 			exit_error(scene, DOUBLE_FMT);
 	}
+}
+
+/*
+** This function checks whether vector values are in a given range
+*/
+
+bool	ft_vec3_range(t_vec3 vec, double start, double end)
+{
+	if (
+		(ft_f_range(vec.x, start, end) == false)
+		|| (ft_f_range(vec.y, start, end) == false)
+		|| (ft_f_range(vec.z, start, end) == false))
+		return (false);
+	return (true);
 }

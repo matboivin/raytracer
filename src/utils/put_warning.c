@@ -1,45 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   put_warning.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:04:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:04:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function frees scene and application
+** This function warns the user if the resolution is too low
 */
 
-static void	free_all(t_scene *scene)
+void	put_warn_res(void)
 {
-	destroy_scene(scene);
-	quit_app();
-}
-
-/*
-** This function frees allocated memory and exits
-*/
-
-int			exit_success(t_scene *scene)
-{
-	free_all(scene);
-	ft_printf("EXIT\n");
-	exit(EXIT_SUCCESS);
-	return (0);
-}
-
-/*
-** This function frees allocated memory, prints an error message and exits
-*/
-
-void		exit_error(t_scene *scene, t_errid raised)
-{
-	free_all(scene);
-	put_error(raised);
+	ft_printf("WARNING\nLow resolution: ");
+	ft_printf("A minimum size of 400x400 is recommended.\n\n");
 }

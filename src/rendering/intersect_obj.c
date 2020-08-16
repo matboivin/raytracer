@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/14 00:50:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/16 18:42:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ bool		intersect_square(t_scene *scene, t_square *square, t_ray *ray)
 		d = 0.5 * square->side;
 		if ((fabs(v.x) <= d) && (fabs(v.y) <= d) && (fabs(v.z) <= d))
 			return (true);
-		reset_ray_nearest(ray);
+		set_ray_nearest(ray);
 	}
 	else
 		free(tmp);
