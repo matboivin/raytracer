@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/14 00:13:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/17 19:37:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,5 @@ void			create_resolution(t_res *res);
 void			create_ambient(t_amb *amb);
 void			create_scene(t_scene *scene);
 void			destroy_scene(t_scene *to_destroy);
-
-t_plane			*create_plane(
-	t_scene *scene, t_vec3 p_pos, t_vec3 p_rot, t_color p_color);
 
 #endif

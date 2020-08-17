@@ -49,7 +49,6 @@ SRC			=	main.c					\
 				parsing_settings.c		\
 				parsing_values.c		\
 				parsing_utils.c			\
-				plane.c					\
 				put_error.c				\
 				put_pixel.c				\
 				put_warning.c			\

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:42:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/17 19:50:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ bool		intersect_sphere(t_sphere *sphere, t_ray *ray)
 ** Ax + By + Cz + D = 0
 */
 
-bool		intersect_plane(t_plane *plane, t_ray *ray)
+static bool	intersect_surface(t_vec3 pos, t_vec3 rot, t_ray *ray)
 {
 	double	t;
 	double	denom;
 	t_vec3	p0l0;
 
-	denom = dot_vec3(plane->rot, ray->dir);
+	denom = dot_vec3(rot, ray->dir);
 	if (fabs(denom) > 1e-6)
 	{
-		p0l0 = sub_vec3(plane->pos, ray->origin);
-		t = dot_vec3(p0l0, plane->rot) / denom;
-		if (t >= 0)
+		p0l0 = sub_vec3(pos, ray->origin);
+		t = dot_vec3(p0l0, rot) / denom;
+		if ((t >= 0) && (t < ray->t_nearest))
 		{
 			ray->t_nearest = t;
 			return (true);
@@ -62,22 +62,24 @@ bool		intersect_plane(t_plane *plane, t_ray *ray)
 	return (false);
 }
 
+bool		intersect_plane(t_plane *plane, t_ray *ray)
+{
+	return (intersect_surface(plane->pos, plane->rot, ray));
+}
+
 /*
 ** This function handles intersection with a square
 ** If a square is intersected, t_nearest is updated and true is returned.
 */
 
-bool		intersect_square(t_scene *scene, t_square *square, t_ray *ray)
+bool		intersect_square(t_square *square, t_ray *ray)
 {
-	t_plane	*tmp;
 	t_vec3	inter_p;
 	t_vec3	v;
 	double	d;
 
-	tmp = create_plane(scene, square->pos, square->rot, square->color);
-	if (intersect_plane(tmp, ray) == true)
+	if (intersect_surface(square->pos, square->rot, ray) == true)
 	{
-		free(tmp);
 		inter_p = add_vec3(ray->origin, scale_vec3(ray->t_nearest, ray->dir));
 		v = sub_vec3(inter_p, square->pos);
 		d = 0.5 * square->side;
@@ -85,7 +87,5 @@ bool		intersect_square(t_scene *scene, t_square *square, t_ray *ray)
 			return (true);
 		set_ray_nearest(ray);
 	}
-	else
-		free(tmp);
 	return (false);
 }

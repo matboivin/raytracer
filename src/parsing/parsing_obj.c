@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 22:22:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/17 19:19:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			get_square(t_scene *scene, char **input)
 	result->rot = get_vec3(scene, input);
 	if (ft_vec3_range(result->rot, -1.0, 1.0) == false)
 		exit_error(scene, SQUARE_FMT);
-	check_null_vector(&(result->rot), create_vec3(0.0, 1.0, 0.0));
+	check_null_vector(&(result->rot), create_vec3(0.0, 0.0, 1.0));
 	result->rot = normalize_vec3(result->rot);
 	result->side = get_double(scene, input);
 	result->color = get_color(scene, input);
