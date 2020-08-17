@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/17 19:48:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/17 23:59:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void		look_at(t_cam *cam);
 void		set_ray_nearest(t_ray *ray);
 void		set_ray_origin(t_ray *ray, t_vec3 cam_pos);
 void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y);
+t_vec3		get_intersection_point(t_ray *ray);
 
 t_color		cast_ray(t_scene *scene, t_ray *ray);
 
@@ -28,8 +29,11 @@ t_lstobj	*trace(t_scene *scene, t_ray *ray);
 
 bool		intersect(t_lstobj *objs, t_ray *ray);
 bool		intersect_sphere(t_sphere *sphere, t_ray *ray);
+bool		intersect_plane_surface(t_vec3 pos, t_vec3 rot, t_ray *ray);
 bool		intersect_plane(t_plane *plane, t_ray *ray);
 bool		intersect_square(t_square *square, t_ray *ray);
+bool		intersect_cylinder(t_cyl *cylinder, t_ray *ray);
+bool		intersect_triangle(t_tri *triangle, t_ray *ray);
 
 bool		solve_quadratic(t_ray *ray, t_vec3 quad_coef);
 

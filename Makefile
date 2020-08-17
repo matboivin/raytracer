@@ -37,7 +37,12 @@ SRC			=	main.c					\
 				handle_window.c			\
 				image.c					\
 				intersect.c				\
-				intersect_obj.c			\
+				intersect_cylinder.c	\
+				intersect_plane.c		\
+				intersect_sphere.c		\
+				intersect_square.c		\
+				intersect_triangle.c	\
+				intersection_point.c	\
 				lights.c				\
 				look_at.c				\
 				objects.c				\
