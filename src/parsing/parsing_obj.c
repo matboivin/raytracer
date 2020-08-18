@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/17 19:19:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 16:34:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void			get_plane(t_scene *scene, char **input)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
 	result->pos = get_vec3(scene, input);
-	result->rot = get_vec3(scene, input);
-	if (ft_vec3_range(result->rot, -1.0, 1.0) == false)
+	result->dir = get_vec3(scene, input);
+	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, PLANE_FMT);
-	check_null_vector(&(result->rot), create_vec3(0.0, 1.0, 0.0));
-	result->rot = normalize_vec3(result->rot);
+	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
+	result->dir = normalize_vec3(result->dir);
 	result->color = get_color(scene, input);
 	add_obj_to_scene(scene, result, PLANE);
 	skip_blank(input);
@@ -59,11 +59,11 @@ void			get_square(t_scene *scene, char **input)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
 	result->pos = get_vec3(scene, input);
-	result->rot = get_vec3(scene, input);
-	if (ft_vec3_range(result->rot, -1.0, 1.0) == false)
+	result->dir = get_vec3(scene, input);
+	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, SQUARE_FMT);
-	check_null_vector(&(result->rot), create_vec3(0.0, 0.0, 1.0));
-	result->rot = normalize_vec3(result->rot);
+	check_null_vector(&(result->dir), create_vec3(0.0, 0.0, 1.0));
+	result->dir = normalize_vec3(result->dir);
 	result->side = get_double(scene, input);
 	result->color = get_color(scene, input);
 	add_obj_to_scene(scene, result, SQUARE);
@@ -79,11 +79,11 @@ void			get_cylinder(t_scene *scene, char **input)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
 	result->pos = get_vec3(scene, input);
-	result->rot = get_vec3(scene, input);
-	if (ft_vec3_range(result->rot, -1.0, 1.0) == false)
+	result->dir = get_vec3(scene, input);
+	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, CYL_FMT);
-	check_null_vector(&(result->rot), create_vec3(0.0, 1.0, 0.0));
-	result->rot = normalize_vec3(result->rot);
+	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
+	result->dir = normalize_vec3(result->dir);
 	result->diameter = get_double(scene, input);
 	result->side = get_double(scene, input);
 	result->color = get_color(scene, input);

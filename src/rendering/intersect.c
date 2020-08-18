@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/17 19:47:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 00:36:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ bool		intersect(t_lstobj *objs, t_ray *ray)
 		has_hit = intersect_plane(objs->obj, ray);
 	else if (objs->type == SQUARE)
 		has_hit = intersect_square(objs->obj, ray);
+	else if (objs->type == CYLINDER)
+		has_hit = intersect_cylinder(objs->obj, ray);
+	else if (objs->type == TRIANGLE)
+		has_hit = intersect_triangle(objs->obj, ray);
 	return (has_hit);
 }
