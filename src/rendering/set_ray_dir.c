@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 17:31:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 19:46:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ void			set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 		scene->main_cam->cam_to_world3,
 		pixel_coord);
 	ray->dir = normalize_vec3(ray->dir);
-	set_ray_dist_to_max(ray);
+	reset_ray_dist(ray);
 }

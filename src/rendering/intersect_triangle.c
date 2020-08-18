@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 18:54:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 19:46:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ bool			intersect_triangle(t_tri *triangle, t_ray *ray)
 		inter_p = get_intersection_point(ray);
 		if (is_inside_triangle(triangle, inter_p, normal) == true)
 			return (true);
-		set_ray_dist_to_max(ray);
+		reset_ray_dist(ray);
 	}
 	return (false);
 }

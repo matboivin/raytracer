@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 17:31:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 19:46:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		render(t_scene *scene);
 
 void		look_at(t_cam *cam);
 
-void		set_ray_dist_to_max(t_ray *ray);
+void		reset_ray_dist(t_ray *ray);
 void		set_ray_origin(t_ray *ray, t_vec3 cam_pos);
 void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y);
 t_vec3		get_intersection_point(t_ray *ray);
