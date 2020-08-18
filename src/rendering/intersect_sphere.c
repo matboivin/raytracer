@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/17 23:04:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 18:45:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 /*
 ** This function handles intersection with a sphere
 ** If a sphere is intersected, t_nearest is updated and true is returned.
-**
-** If a point is on the primitive: x^2 + y^2 + z^2 = 1
 **
 ** quad_coef.x = a
 ** quad_coef.y = b

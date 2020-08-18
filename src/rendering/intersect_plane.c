@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 16:34:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 18:45:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 /*
 ** This function handles intersection with a plane
 ** If a plane is intersected, t_nearest is updated and true is returned.
-**
-** Ax + By + Cz + D = 0
 */
 
 bool		intersect_plane_surface(t_vec3 pos, t_vec3 dir, t_ray *ray)
