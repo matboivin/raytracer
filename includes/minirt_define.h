@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/29 20:12:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 17:20:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef enum	e_emask
 {
 	KEYPRESSMASK = 1L << 0,
 	KEYRELEASEMASK = 1L << 1,
-	DESTROYNOTIFYMASK = 1L << 17
+	STRUCTURENOTIFYMASK = 1L << 17
 }				t_emask;
 
 /*

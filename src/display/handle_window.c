@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:08:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 17:23:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ void	put_image_to_window(void)
 		g_app->img->img_ptr,
 		0,
 		0);
+}
+
+/*
+** This function reloads image in window
+*/
+
+int		reload_image(void)
+{
+	put_image_to_window();
+	return (0);
 }
