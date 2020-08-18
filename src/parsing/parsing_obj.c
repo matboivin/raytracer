@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 16:34:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 20:39:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			get_sphere(t_scene *scene, char **input)
 	if (result == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
-	result->pos = get_vec3(scene, input);
+	result->center = get_vec3(scene, input);
 	result->radius = get_double(scene, input) / 2;
 	result->color = get_color(scene, input);
 	add_obj_to_scene(scene, result, SPHERE);
@@ -39,7 +39,7 @@ void			get_plane(t_scene *scene, char **input)
 	if (result == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
-	result->pos = get_vec3(scene, input);
+	result->center = get_vec3(scene, input);
 	result->dir = get_vec3(scene, input);
 	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, PLANE_FMT);
@@ -58,7 +58,7 @@ void			get_square(t_scene *scene, char **input)
 	if (result == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
-	result->pos = get_vec3(scene, input);
+	result->center = get_vec3(scene, input);
 	result->dir = get_vec3(scene, input);
 	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, SQUARE_FMT);
@@ -78,7 +78,7 @@ void			get_cylinder(t_scene *scene, char **input)
 	if (result == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
-	result->pos = get_vec3(scene, input);
+	result->center = get_vec3(scene, input);
 	result->dir = get_vec3(scene, input);
 	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, CYL_FMT);

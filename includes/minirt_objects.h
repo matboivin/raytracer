@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 16:33:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 20:36:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ typedef enum		e_objid
 
 typedef struct		s_sphere
 {
-	t_vec3			pos;
+	t_vec3			center;
 	double			radius;
 	t_color			color;
 }					t_sphere;
 
 typedef struct		s_plane
 {
-	t_vec3			pos;
+	t_vec3			center;
 	t_vec3			dir;
 	t_color			color;
 }					t_plane;
 
 typedef struct		s_square
 {
-	t_vec3			pos;
+	t_vec3			center;
 	t_vec3			dir;
 	double			side;
 	t_color			color;
@@ -46,7 +46,7 @@ typedef struct		s_square
 
 typedef struct		s_cyl
 {
-	t_vec3			pos;
+	t_vec3			center;
 	t_vec3			dir;
 	double			diameter;
 	double			side;
