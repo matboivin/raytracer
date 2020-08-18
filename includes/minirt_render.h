@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 20:37:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 23:13:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ t_lstobj	*trace(t_scene *scene, t_ray *ray);
 
 bool		intersect(t_lstobj *objs, t_ray *ray);
 bool		intersect_sphere(t_sphere *sphere, t_ray *ray);
-bool		intersect_plane_surface(t_vec3 center, t_vec3 dir, t_ray *ray);
+bool		intersect_obj_plane(t_vec3 center, t_vec3 dir, t_ray *ray);
 bool		intersect_plane(t_plane *plane, t_ray *ray);
+bool		intersect_disk(
+	t_vec3 center, t_vec3 dir, double radius, t_ray *ray);
 bool		intersect_square(t_square *square, t_ray *ray);
 bool		intersect_cylinder(t_cyl *cylinder, t_ray *ray);
 bool		intersect_triangle(t_tri *triangle, t_ray *ray);

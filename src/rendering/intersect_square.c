@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 20:38:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 20:44:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool		intersect_square(t_square *square, t_ray *ray)
 	t_vec3	v;
 	double	d;
 
-	if (intersect_plane_surface(square->center, square->dir, ray) == true)
+	if (intersect_obj_plane(square->center, square->dir, ray) == true)
 	{
 		inter_p = get_intersection_point(ray);
 		v = sub_vec3(inter_p, square->center);

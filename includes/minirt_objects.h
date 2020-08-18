@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 20:36:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 22:12:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct		s_cyl
 {
 	t_vec3			center;
 	t_vec3			dir;
-	double			diameter;
+	double			radius;
 	double			side;
 	t_color			color;
 }					t_cyl;

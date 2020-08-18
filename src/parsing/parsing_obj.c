@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 20:39:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 22:13:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			get_sphere(t_scene *scene, char **input)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
 	result->center = get_vec3(scene, input);
-	result->radius = get_double(scene, input) / 2;
+	result->radius = get_double(scene, input) * 0.5;
 	result->color = get_color(scene, input);
 	add_obj_to_scene(scene, result, SPHERE);
 	skip_blank(input);
@@ -84,7 +84,7 @@ void			get_cylinder(t_scene *scene, char **input)
 		exit_error(scene, CYL_FMT);
 	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
 	result->dir = normalize_vec3(result->dir);
-	result->diameter = get_double(scene, input);
+	result->radius = get_double(scene, input) * 0.5;
 	result->side = get_double(scene, input);
 	result->color = get_color(scene, input);
 	add_obj_to_scene(scene, result, CYLINDER);

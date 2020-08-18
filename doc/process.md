@@ -93,6 +93,12 @@ The general quadric surface equation is
 `F(x, y, z) = Ax2 + By2 + Cz2 + Dxy+ Exz + Fyz + Gx + Hy + Iz + J = 0`  
 Source: [Ray - Quadric Intersection](http://skuld.bmsc.washington.edu/people/merritt/graphics/quadrics.html)
 
+```
+intersection point = ray origin + t * ray direction
+
+origin + t * dir = (o_x + t *d_x, o_y + t *d_y, o_z + t *d_z)
+```
+
 When solving quadratic equation:
 
 `A t^2 + B t + C = 0`
@@ -122,11 +128,11 @@ t1 = (-b - sqrt(det)) / (2*a);
 
 A function that generates the radius 1 sphere would be: `f(x,y,z)=x2+y2+z2−1`
 
-```
-intersection point = ray origin + t * ray direction
+<p align="center">
+  <img src="assets/inter_sphere.png" alt="intersect sphere" />
+</p>
 
-origin + t * dir = (o_x + t *d_x, o_y + t *d_y, o_z + t *d_z)
-```
+Source: Irisa
 
 A plane:
 
@@ -138,3 +144,15 @@ Ax + By + Cz + D = 0;
 t = - ((A*X + B*Y + C*Z + D) / (A*DIR.x + B*DIR.y + C*DIR.z))
 // (X Y Z) = (O.x-pointplaneX O.y-pointplaneY O.z-pointplane.Z)
 ```
+
+<p align="center">
+  <img src="assets/inter_cylinder.png" alt="intersect cylinder" />
+</p>
+
+Source: Irisa
+
+<p align="center">
+  <img src="assets/inter_cone.png" alt="intersect cone" />
+</p>
+
+Source: Irisa

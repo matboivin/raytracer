@@ -38,6 +38,7 @@ SRC			=	main.c					\
 				image.c					\
 				intersect.c				\
 				intersect_cylinder.c	\
+				intersect_disk.c		\
 				intersect_plane.c		\
 				intersect_sphere.c		\
 				intersect_square.c		\

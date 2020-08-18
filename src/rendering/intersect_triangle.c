@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 19:46:58 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/18 20:44:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ bool			intersect_triangle(t_tri *triangle, t_ray *ray)
 	t_vec3		inter_p;
 
 	normal = get_triangle_normal(triangle);
-	if (intersect_plane_surface(triangle->vertex1, normal, ray) == true)
+	if (intersect_obj_plane(triangle->vertex1, normal, ray) == true)
 	{
 		inter_p = get_intersection_point(ray);
 		if (is_inside_triangle(triangle, inter_p, normal) == true)
