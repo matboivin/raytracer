@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 22:13:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/20 00:06:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,18 @@ void			get_cylinder(t_scene *scene, char **input)
 	if (result == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	(*input) += 2;
-	result->center = get_vec3(scene, input);
+	result->base1 = get_vec3(scene, input);
 	result->dir = get_vec3(scene, input);
 	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
 		exit_error(scene, CYL_FMT);
 	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
 	result->dir = normalize_vec3(result->dir);
 	result->radius = get_double(scene, input) * 0.5;
-	result->side = get_double(scene, input);
+	result->height = get_double(scene, input);
 	result->color = get_color(scene, input);
+	result->base2 = add_vec3(
+		result->base1,
+		scale_vec3(result->height, result->dir));
 	add_obj_to_scene(scene, result, CYLINDER);
 	skip_blank(input);
 }

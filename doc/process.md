@@ -151,6 +151,12 @@ t = - ((A*X + B*Y + C*Z + D) / (A*DIR.x + B*DIR.y + C*DIR.z))
 
 Source: Irisa
 
+Compute cylinder's normal:
+
+```
+(inter_p – center)  - (z_axis. (inter_p – center) ) z_axis)
+```
+
 <p align="center">
   <img src="assets/inter_cone.png" alt="intersect cone" />
 </p>

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/19 19:14:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/20 00:21:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,21 @@ static t_vec3	set_vec3_ynull(t_vec3 v)
 }
 
 /*
+** This function computes cylinder's normal
+*/
+
+static t_vec3	get_cylinder_normal(t_vec3 v, t_vec3 dir)
+{
+	t_vec3		result;
+	double		dot_prod;
+
+	dot_prod = dot_vec3(dir, v);
+	result = sub_vec3(v, scale_vec3(dot_prod, dir));
+	result = normalize_vec3(result);
+	return (result);
+}
+
+/*
 ** This function handles intersection with a cylinder
 ** If a cylinder is intersected, t_nearest is updated and true is returned.
 */
@@ -34,18 +49,23 @@ static t_vec3	set_vec3_ynull(t_vec3 v)
 bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
 {
 	t_vec3		quad_coef;
-	t_vec3		origin;
-	t_vec3		dir;
-	t_vec3		center;
+	t_vec3		inter_p;
+	t_vec3		v;
+	t_vec3		normal;
 
-	origin = set_vec3_ynull(ray->origin);
-	dir = set_vec3_ynull(ray->dir);
-	center = set_vec3_ynull(cylinder->center);
-	quad_coef = get_quad_coef(origin, dir, center, cylinder->radius);
+	quad_coef = get_quad_coef(
+		set_vec3_ynull(ray->origin),
+		set_vec3_ynull(ray->dir),
+		set_vec3_ynull(cylinder->base1),
+		cylinder->radius);
 	if (solve_quadratic(ray, quad_coef) == true)
 	{
-		return (true);
-		//reset_ray_dist(ray);
+		inter_p = get_intersection_point(ray);
+		v = sub_vec3(inter_p, cylinder->base1);
+		normal = get_cylinder_normal(v, cylinder->dir);
+		if (dot_vec3(normal, v) > 0)
+			return (true);
+		reset_ray_dist(ray);
 	}
 	return (false);
 }

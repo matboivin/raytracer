@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 20:44:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/19 23:51:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static bool		is_inside_triangle(t_tri *tri, t_vec3 inter_p, t_vec3 normal)
 }
 
 /*
-** This function computes the triangle's normal
+** This function computes triangle's normal
 */
 
 static t_vec3	get_triangle_normal(t_tri *tri)
