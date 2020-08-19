@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_disk.c                                   :+:      :+:    :+:   */
+/*   get_quad_coeff.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/19 18:52:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/19 18:50:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function handles intersection with a disk
-** If a disk is intersected, t_nearest is updated and true is returned.
+** This function computes the coefficients for solving quadratic equation
 */
 
-bool		intersect_disk(t_vec3 center, t_vec3 dir, double radius, t_ray *ray)
+t_vec3	get_quad_coeff(t_vec3 origin, t_vec3 dir, t_vec3 center, double radius)
 {
-	t_vec3	inter_p;
-	t_vec3	v;
-	double	d;
+	t_vec3	result;
+	t_vec3	l;
 
-	if (intersect_obj_plane(center, dir, ray) == true)
-	{
-		inter_p = get_intersection_point(ray);
-		v = sub_vec3(inter_p, center);
-		d = quadnorm_vec3(v);
-		if (d <= ft_sqr(radius))
-			return (true);
-		reset_ray_dist(ray);
-	}
-	return (false);
+	l = sub_vec3(origin, center);
+	result.x = quadnorm_vec3(dir);
+	result.y = 2.0 * dot_vec3(dir, l);
+	result.z = quadnorm_vec3(l) - ft_sqr(radius);
+	return (result);
 }

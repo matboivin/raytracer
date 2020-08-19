@@ -6,38 +6,47 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 23:41:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/19 18:54:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function handles intersection with a cylinder
-** If a cylinder is intersected, t_nearest is updated and true is returned.
-**
-** quad_coef.x = a
-** quad_coef.y = b
-** quad_coef.z = c
+** This function sets y of a given 3D vector to null
 */
 
-bool		intersect_cylinder(t_cyl *cylinder, t_ray *ray)
+static t_vec3	set_vec3_ynull(t_vec3 v)
 {
-	t_vec2	ray_origin;
-	t_vec2	cyl_center;
-	t_vec2	l;
-	t_vec3	quad_coef;
+	t_vec3		result;
 
-	ray_origin = create_vec2(ray->origin.x, ray->origin.y);
-	cyl_center = create_vec2(cylinder->center.x, cylinder->center.y);
-	l = sub_vec2(ray_origin, cyl_center);
-	quad_coef.x = quadnorm_vec2(ray_origin);
-	quad_coef.y = 2.0 * dot_vec2(ray_origin, l);
-	quad_coef.z = quadnorm_vec2(l) - ft_sqr(cylinder->radius);
-	if (solve_quadratic(ray, quad_coef) == true)
+	result.x = v.x;
+	result.y = 0.0;
+	result.z = v.z;
+	return (result);
+}
+
+/*
+** This function handles intersection with a cylinder
+** If a cylinder is intersected, t_nearest is updated and true is returned.
+*/
+
+bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
+{
+	t_vec3		quad_coeff;
+	t_vec3		origin;
+	t_vec3		dir;
+	t_vec3		center;
+
+	origin = set_vec3_ynull(ray->origin);
+	dir = set_vec3_ynull(ray->dir);
+	center = set_vec3_ynull(cylinder->center);
+	quad_coeff = get_quad_coeff(origin, dir, center, cylinder->radius);
+	if (solve_quadratic(ray, quad_coeff) == true)
 	{
-		//
-		reset_ray_dist(ray);
+		//if (intersect_disk(cylinder->center, cylinder->dir, cylinder->radius, ray) == true)
+		return (true);
+		//reset_ray_dist(ray);
 	}
 	return (false);
 }
