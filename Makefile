@@ -33,7 +33,7 @@ SRC			=	main.c					\
 				dispatch_event.c		\
 				display.c				\
 				exit.c					\
-				get_quad_coeff.c		\
+				get_quad_coef.c			\
 				handle_key.c			\
 				handle_window.c			\
 				image.c					\

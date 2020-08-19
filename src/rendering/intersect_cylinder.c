@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/19 18:54:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/19 19:14:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_vec3	set_vec3_ynull(t_vec3 v)
 
 bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
 {
-	t_vec3		quad_coeff;
+	t_vec3		quad_coef;
 	t_vec3		origin;
 	t_vec3		dir;
 	t_vec3		center;
@@ -41,10 +41,9 @@ bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
 	origin = set_vec3_ynull(ray->origin);
 	dir = set_vec3_ynull(ray->dir);
 	center = set_vec3_ynull(cylinder->center);
-	quad_coeff = get_quad_coeff(origin, dir, center, cylinder->radius);
-	if (solve_quadratic(ray, quad_coeff) == true)
+	quad_coef = get_quad_coef(origin, dir, center, cylinder->radius);
+	if (solve_quadratic(ray, quad_coef) == true)
 	{
-		//if (intersect_disk(cylinder->center, cylinder->dir, cylinder->radius, ray) == true)
 		return (true);
 		//reset_ray_dist(ray);
 	}
