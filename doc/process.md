@@ -67,7 +67,7 @@ Usually, the pipeline is:
 `Camera <-> World <-> Object <-> Texture`
 
 In my case:  
-`Camera <-> World <-> Object`
+`Camera <-> World`
 
 A ray is created from the Camera Space coordinate system. It is then translated to the World Space in order to check for intersection with objects. For each object, the ray is translated to the Object Space.
 
@@ -146,7 +146,7 @@ discriminant: `b^2 - 4*a*c`
   <img src="assets/inter_sphere.png" alt="intersect sphere" />
 </p>
 
-Source: Irisa
+Image source: Irisa
 
 A sphere embedded in a 3D space:
 
@@ -188,7 +188,7 @@ t = - ((A*X + B*Y + C*Z + D) / (A*DIR.x + B*DIR.y + C*DIR.z))
   <img src="assets/inter_cylinder.png" alt="intersect cylinder" />
 </p>
 
-Source: Irisa
+Image source: Irisa
 
 #### Infinite cylinder
 
@@ -232,4 +232,4 @@ dot(ray dir, normal) > 0
   <img src="assets/inter_cone.png" alt="intersect cone" />
 </p>
 
-Source: Irisa
+Image source: Irisa
