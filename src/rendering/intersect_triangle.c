@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 14:06:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/20 14:24:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,19 @@ static t_vec3	get_triangle_normal(t_tri *tri)
 
 bool			intersect_triangle(t_tri *triangle, t_ray *ray)
 {
+	double		t;
 	t_vec3		normal;
 	t_vec3		inter_p;
 
 	normal = get_triangle_normal(triangle);
-	if (intersect_obj_plane(triangle->vertex1, normal, ray) == true)
+	if (intersect_obj_plane(triangle->vertex1, normal, ray, &t) == true)
 	{
-		inter_p = get_intersection_point(ray->origin, ray->t_nearest, ray->dir);
+		inter_p = get_intersection_point(ray->origin, t, ray->dir);
 		if (is_inside_triangle(triangle, inter_p, normal) == true)
+		{
+			ray->t_nearest = t;
 			return (true);
-		ray->t_nearest = __DBL_MAX__;
+		}
 	}
 	return (false);
 }
