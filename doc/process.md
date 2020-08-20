@@ -95,8 +95,6 @@ Source: [Ray - Quadric Intersection](http://skuld.bmsc.washington.edu/people/mer
 
 ```
 intersection point = ray origin + t * ray direction
-
-origin + t * dir = (o_x + t *d_x, o_y + t *d_y, o_z + t *d_z)
 ```
 
 When solving quadratic equation:
@@ -110,6 +108,14 @@ discriminant: `b^2 - 4*a*c`
 - discriminant < 0 : there is no intersection
 - discriminant == 0 : only one intersection
 - discriminant > 0 : two intersections
+
+### Sphere
+
+<p align="center">
+  <img src="assets/inter_sphere.png" alt="intersect sphere" />
+</p>
+
+Source: Irisa
 
 A sphere embedded in a 3D space:
 
@@ -128,13 +134,7 @@ t1 = (-b - sqrt(det)) / (2*a);
 
 A function that generates the radius 1 sphere would be: `f(x,y,z)=x2+y2+z2−1`
 
-<p align="center">
-  <img src="assets/inter_sphere.png" alt="intersect sphere" />
-</p>
-
-Source: Irisa
-
-A plane:
+### Plane
 
 ```
 Ax + By + Cz + D = 0; 
@@ -145,17 +145,44 @@ t = - ((A*X + B*Y + C*Z + D) / (A*DIR.x + B*DIR.y + C*DIR.z))
 // (X Y Z) = (O.x-pointplaneX O.y-pointplaneY O.z-pointplane.Z)
 ```
 
+### Square, triangle and disk
+
+1. Intersect with plane
+2. Use side / vertices / radius to check if point is inside shape
+
+### Cylinder
+
 <p align="center">
   <img src="assets/inter_cylinder.png" alt="intersect cylinder" />
 </p>
 
 Source: Irisa
 
-Compute cylinder's normal:
+#### Infinite cylinder
+
+Same process than a sphere but set the z axis (or y according to your coordinates system) to null.
+
+(In my case: y is set to null)
+
+```
+x^2 + y^2 - r^2 = 0
+```
+
+Formula to compute cylinder's normal:
 
 ```
 (inter_p – center)  - (z_axis. (inter_p – center) ) z_axis)
 ```
+
+#### Finite cylinder
+
+Use the normal to compute intersection angle with cylinder.
+
+```
+dot(ray dir, normal) > 0
+```
+
+### Cone
 
 <p align="center">
   <img src="assets/inter_cone.png" alt="intersect cone" />
