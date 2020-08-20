@@ -85,7 +85,7 @@ objnormal_to_world = world_to_obj^T
 ```
 
 - [OpenGL Transformation](http://www.songho.ca/opengl/gl_transform.html)
-- [Tutoriel 3 : matrices](http://www.opengl-tutorial.org/fr/beginners-tutorials/tutorial-3-matrices/)
+- [Tutoriel 3 : matrices](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
 - [OpenGL 101: Matrices - projection, view, model](https://solarianprogrammer.com/2013/05/22/opengl-101-matrices-projection-view-model/)
 
 object_to_world or model view matrix:  
@@ -94,6 +94,27 @@ object_to_world or model view matrix:
 - [Scale](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml)
 - [Rotate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glRotate.xml)
 - [Translate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml)
+
+- 3x3 dir: product scale matrix and rotate matrix
+- 4x4 pos: product scale matrix, rotate matrix and translate matrix
+
+```
+   c1  c2  c3  c4
+
+x [Rx, Ux, Fx, Tx]
+y [Ry, Uy, Fy, Ty]
+z [Rz, Uz, Fz, Tz]
+w [0., 0., 0., 1.]
+
+// scaling
+
+x [ s,  0,  0,  0]
+y [ 0,  s,  0,  0]
+z [ 0,  0,  s,  0]
+w [ 0,  0,  0,  1]
+```
+
+- [The Matrix and Quaternions FAQ](http://www.opengl-tutorial.org/assets/faq_quaternions/index.html)
 
 ## Object intersections
 

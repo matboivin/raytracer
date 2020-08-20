@@ -48,6 +48,7 @@ Graphics
 
 OpenGL  
 
+- [The Matrix and Quaternions FAQ](http://www.opengl-tutorial.org/assets/faq_quaternions/index.html)
 - [Song Ho Ahn](http://www.songho.ca/opengl/index.html)
 - [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
 - [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
