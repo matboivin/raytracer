@@ -6,23 +6,74 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 14:03:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/20 22:40:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function sets y of a given 3D vector to null
+** This function checks whether the intersection point lies in cylinder
 */
 
-static t_vec3	set_vec3_ynull(t_vec3 v)
+static bool		is_inside_cyl(t_cyl *cylinder, t_ray *ray, double t)
+{
+	t_vec3		inter_p;
+	t_vec3		zmin;
+	t_vec3		zmax;
+
+	inter_p = get_intersection_point(ray->origin, t, ray->dir);
+	zmin = sub_vec3(inter_p, cylinder->base1);
+	zmax = sub_vec3(inter_p, cylinder->base2);
+	if ((dot_vec3(cylinder->dir, zmin) > 0)
+		&& (dot_vec3(cylinder->dir, zmax) < 0))
+		return (true);
+	return (false);
+}
+
+/*
+** This function solves quadratic equation
+**
+** quad_coef.x = a
+** quad_coef.y = b
+** quad_coef.z = c
+*/
+
+static bool		solve_quadratic_cyl(
+	t_cyl *cylinder, t_ray *ray, t_vec3 quad_coef)
+{
+	double		root1;
+	double		root2;
+
+	if (get_quad_roots(&root1, &root2, quad_coef) == true)
+	{
+		if ((root1 <= 0.0 && root2 <= 0.0)
+			|| (root1 > ray->t_nearest && root2 > ray->t_nearest))
+			return (false);
+		if ((is_inside_cyl(cylinder, ray, root1) == false)
+			&& (is_inside_cyl(cylinder, ray, root2) == false))
+			return (false);
+		if (is_inside_cyl(cylinder, ray, root1) == false)
+			root1 = root2;
+		if (is_inside_cyl(cylinder, ray, root2) == false)
+			root2 = root1;
+		if (root1 > root2)
+			root1 = root2;
+		ray->t_nearest = root1;
+		return (true);
+	}
+	return (false);
+}
+
+/*
+** This function helps computing coefficients for solving quadratic equation
+*/
+
+static t_vec3	pre_compute_coeff(t_vec3 v, t_vec3 dir)
 {
 	t_vec3		result;
 
-	result.x = v.x;
-	result.y = 0.0;
-	result.z = v.z;
+	result = sub_vec3(v, scale_vec3(dot_vec3(v, dir), dir));
 	return (result);
 }
 
@@ -34,15 +85,15 @@ static t_vec3	set_vec3_ynull(t_vec3 v)
 bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
 {
 	t_vec3		quad_coef;
+	t_vec3		l;
+	t_vec3		tmp_a;
+	t_vec3		tmp_b;
 
-	quad_coef = get_quad_coef(
-		set_vec3_ynull(ray->origin),
-		set_vec3_ynull(ray->dir),
-		set_vec3_ynull(cylinder->base1),
-		cylinder->radius);
-	if (solve_quadratic(ray, quad_coef) == true)
-	{
-		return (true);
-	}
-	return (false);
+	l = sub_vec3(ray->origin, cylinder->base1);
+	tmp_a = pre_compute_coeff(ray->dir, cylinder->dir);
+	tmp_b = pre_compute_coeff(l, cylinder->dir);
+	quad_coef.x = quadnorm_vec3(tmp_a);
+	quad_coef.y = 2.0 * dot_vec3(tmp_a, tmp_b);
+	quad_coef.z = quadnorm_vec3(tmp_b) - ft_sqr(cylinder->radius);
+	return (solve_quadratic_cyl(cylinder, ray, quad_coef));
 }

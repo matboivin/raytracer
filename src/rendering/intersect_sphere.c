@@ -6,11 +6,39 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/19 19:11:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/20 22:24:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*
+** This function solves quadratic equation
+**
+** quad_coef.x = a
+** quad_coef.y = b
+** quad_coef.z = c
+*/
+
+static bool	solve_quadratic_sphere(t_ray *ray, t_vec3 quad_coef)
+{
+	double	root1;
+	double	root2;
+
+	if (get_quad_roots(&root1, &root2, quad_coef) == true)
+	{
+		if ((root1 <= 0.0 && root2 <= 0.0)
+		|| (root1 > ray->t_nearest && root2 > ray->t_nearest))
+			return (false);
+		if (root2 <= 0.0)
+			root2 = root1;
+		if ((root1 <= 0.0) || (root1 > root2))
+			root1 = root2;
+		ray->t_nearest = root1;
+		return (true);
+	}
+	return (false);
+}
 
 /*
 ** This function handles intersection with a sphere
@@ -20,11 +48,11 @@
 bool		intersect_sphere(t_sphere *sphere, t_ray *ray)
 {
 	t_vec3	quad_coef;
+	t_vec3	l;
 
-	quad_coef = get_quad_coef(
-		ray->origin,
-		ray->dir,
-		sphere->center,
-		sphere->radius);
-	return (solve_quadratic(ray, quad_coef));
+	l = sub_vec3(ray->origin, sphere->center);
+	quad_coef.x = quadnorm_vec3(ray->dir);
+	quad_coef.y = 2.0 * dot_vec3(ray->dir, l);
+	quad_coef.z = quadnorm_vec3(l) - ft_sqr(sphere->radius);
+	return (solve_quadratic_sphere(ray, quad_coef));
 }

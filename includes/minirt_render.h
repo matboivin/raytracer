@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 14:31:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/20 22:12:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y);
 t_vec3		get_intersection_point(t_vec3 origin, double t, t_vec3 dir);
 
 t_color		cast_ray(t_scene *scene, t_ray *ray);
-
 t_lstobj	*trace(t_scene *scene, t_ray *ray);
 
 bool		intersect(t_lstobj *objs, t_ray *ray);
@@ -33,10 +32,7 @@ bool		intersect_plane(t_plane *plane, t_ray *ray);
 bool		intersect_square(t_square *square, t_ray *ray);
 bool		intersect_cylinder(t_cyl *cylinder, t_ray *ray);
 bool		intersect_triangle(t_tri *triangle, t_ray *ray);
-
-t_vec3		get_quad_coef(
-	t_vec3 origin, t_vec3 dir, t_vec3 center, double radius);
-bool		solve_quadratic(t_ray *ray, t_vec3 quad_coef);
+bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef);
 
 t_color		shading(t_scene *scene, t_ray *ray, t_lstobj *hit_obj);
 

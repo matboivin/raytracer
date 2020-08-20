@@ -33,7 +33,7 @@ SRC			=	main.c					\
 				dispatch_event.c		\
 				display.c				\
 				exit.c					\
-				get_quad_coef.c			\
+				get_quad_roots.c		\
 				handle_key.c			\
 				handle_window.c			\
 				image.c					\
@@ -58,7 +58,6 @@ SRC			=	main.c					\
 				put_error.c				\
 				put_pixel.c				\
 				put_warning.c			\
-				solve_quadratic.c		\
 				render.c				\
 				save_bmp.c				\
 				scene.c					\

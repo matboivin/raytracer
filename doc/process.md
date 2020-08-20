@@ -156,9 +156,9 @@ x^2 + y^2 + z^2 = 1
 // Xc, Yc, Zc : sphere center
 // Solving quadratic equation
 
-a = dir.x^2 + dir.y^2 + dir.z^2
-b = 2 * (dir.x * (origin.x - Xc) + dir.y * (origin.y - Yc) + dir.z * (origin.z - Zc))
-c = ((origin.x - Xc)^2 + (origin.y - Yc)^2 + (origin.z - Zc)^2) - r^2
+a = ray dir.x^2 + ray dir.y^2 + ray dir.z^2
+b = 2 * (ray dir.x * (ray origin.x - Xc) + ray dir.y * (ray origin.y - Yc) + ray dir.z * (ray origin.z - Zc))
+c = ((ray origin.x - Xc)^2 + (ray origin.y - Yc)^2 + (ray origin.z - Zc)^2) - r^2
 
 root1 = (-b + sqrt(det)) / (2 * a);
 root2 = (-b - sqrt(det)) / (2 * a);
@@ -196,15 +196,27 @@ Same process than a sphere but set the z axis (or y according to your coordinate
 
 In my case: y is set to null.
 
-```
-x^2 + y^2 - r^2 = 0
-```
-
 Formula to compute cylinder's normal:
 
 ```
 (inter_p – center)  - (z_axis. (inter_p – center) ) z_axis)
 ```
+
+```
+x^2 + y^2 - r^2 = 0
+
+// Solving quadratic equation
+
+tmp_a = ray dir - dot(ray dir, cyl dir) * cyl dir
+delta = ray pos - cyl base
+tmp_b = delta - dot(delta, cyl dir) * cyl dir
+
+a = tmp_a^2
+b = 2 * dot(tmp_a, tmp_b))
+c = tmp_b^2 - r^2
+```
+
+Source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf)
 
 #### Finite cylinder
 
