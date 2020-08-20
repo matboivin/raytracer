@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 22:49:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/21 00:54:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 static bool		is_inside_cyl(t_cyl *cylinder, t_ray *ray, double t)
 {
-	t_vec3		inter_p;
+	t_vec3		hit_p;
 	t_vec3		ymin;
 	t_vec3		ymax;
 
-	inter_p = get_intersection_point(ray->origin, t, ray->dir);
-	ymin = sub_vec3(inter_p, cylinder->base1);
-	ymax = sub_vec3(inter_p, cylinder->base2);
+	hit_p = get_hit_point(ray->origin, t, ray->dir);
+	ymin = sub_vec3(hit_p, cylinder->base1);
+	ymax = sub_vec3(hit_p, cylinder->base2);
 	if ((dot_vec3(cylinder->dir, ymin) > 0)
 		&& (dot_vec3(cylinder->dir, ymax) < 0))
 		return (true);

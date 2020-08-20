@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/14 00:36:58 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/21 00:09:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ t_color			cast_ray(t_scene *scene, t_ray *ray)
 	t_lstobj	*hit_obj;
 
 	default_color = create_color(0, 0, 0);
-	hit_obj = trace(scene, ray);
+	hit_obj = trace_primary_ray(scene, ray);
 	if (hit_obj)
 	{
-		hit_color = shading(scene, ray, hit_obj);
+		hit_color = trace_secondary_ray(scene, ray, hit_obj);
 		return (hit_color);
 	}
 	return (default_color);

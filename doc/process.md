@@ -49,14 +49,13 @@ Control flow:
 
 ### Ray tracing
 
-- Set up a virtual viewport to know if ray intersects the view frame
+- Create the Cam to World matrix
 - For each pixel in the image:
-  - Cast a primary ray from camera position
-  - If a ray intersects an object (loop over all the objects)
-    - At the intersection point between the ray and the object, identify the object
-    - Cast secondary ray, process shading
+  - Trace a primary ray from camera position
+  - Loop over all the objects and keep the nearest one
+    - Trace secondary ray, process shading
     - Retrieve the final color of the pixel
-  - Else
+  - Else if no object has been intersected
     - Default color
 
 ## Pipeline

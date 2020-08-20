@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 14:04:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/21 00:54:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** intersection point = ray origin + t * ray direction
 */
 
-t_vec3		get_intersection_point(t_vec3 origin, double t, t_vec3 dir)
+t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir)
 {
 	t_vec3	result;
 

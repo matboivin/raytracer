@@ -64,6 +64,7 @@ Ray Tracing
 
 - [Wiki: Ray tracing](https://en.wikipedia.org/wiki/Ray_tracing_(graphics))
 - [Ray Tracing Basics (PDF)](http://web.cse.ohio-state.edu/~shen.94/681/Site/Slides_files/basic_algo.pdf)
+- [Organizing a RayTracer (PDF)](https://web.cs.wpi.edu/~emmanuel/courses/cs543/f13/slides/lecture13_p1.pdf)
 - [Ray tracing primitives](https://www.cl.cam.ac.uk/teaching/1999/AGraphHCI/SMAG/node2.html)
 - [Scratchapixel 2.0: An Overview of the Ray-Tracing Rendering Technique](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 - [Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
