@@ -91,9 +91,7 @@ objnormal_to_world = world_to_obj^T
 object_to_world or model view matrix:  
 `translation*rotation*scaling(object_space point)`
 
-- [Scale](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml)
-- [Rotate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glRotate.xml)
-- [Translate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml)
+[Scale](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml) > [Rotate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glRotate.xml) > [Translate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml)
 
 - 3x3 dir: product scale matrix and rotate matrix
 - 4x4 pos: product scale matrix, rotate matrix and translate matrix
