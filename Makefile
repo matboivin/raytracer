@@ -63,7 +63,6 @@ SRC			=	main.c					\
 				save_bmp.c				\
 				scene.c					\
 				set_ray_dir.c			\
-				set_ray_dist.c			\
 				set_ray_origin.c		\
 				shading.c				\
 				switch_cam.c			\
