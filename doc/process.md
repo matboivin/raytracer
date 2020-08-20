@@ -63,8 +63,11 @@ Control flow:
 
 A [pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline) is a series of processing stages in order. It can be seen as different vector spaces linked to each other by matrix transformations.
 
-Usually, the pipeline is:
+Usually, the pipeline is:  
 `Camera <-> World <-> Object <-> Texture`
+
+In my case:  
+`Camera <-> World <-> Object`
 
 A ray is created from the Camera Space coordinate system. It is then translated to the World Space in order to check for intersection with objects. For each object, the ray is translated to the Object Space.
 
@@ -76,12 +79,21 @@ Absolute origin: `(0, 0, 0)`
 - Camera Space: Camera position
 - World Space: Reference point
 
-object_to_world: `translation*rotation*scaling(object_space point)`
-
 ```
 world_to_obj = obj_to_world^(-1)
 objnormal_to_world = world_to_obj^T
 ```
+
+- [OpenGL Transformation](http://www.songho.ca/opengl/gl_transform.html)
+- [Tutoriel 3 : matrices](http://www.opengl-tutorial.org/fr/beginners-tutorials/tutorial-3-matrices/)
+- [OpenGL 101: Matrices - projection, view, model](https://solarianprogrammer.com/2013/05/22/opengl-101-matrices-projection-view-model/)
+
+object_to_world or model view matrix:  
+`translation*rotation*scaling(object_space point)`
+
+- [Scale](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml)
+- [Rotate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glRotate.xml)
+- [Translate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml)
 
 ## Object intersections
 
@@ -123,13 +135,14 @@ A sphere embedded in a 3D space:
 x^2 + y^2 + z^2 = 1
 
 // Xc, Yc, Zc : sphere center
+// Solving quadratic equation
 
 a = dir.x^2 + dir.y^2 + dir.z^2
 b = 2 * (dir.x * (origin.x - Xc) + dir.y * (origin.y - Yc) + dir.z * (origin.z - Zc))
 c = ((origin.x - Xc)^2 + (origin.y - Yc)^2 + (origin.z - Zc)^2) - r^2
 
-t0 = (-b + sqrt(det)) / (2*a);
-t1 = (-b - sqrt(det)) / (2*a);
+root1 = (-b + sqrt(det)) / (2 * a);
+root2 = (-b - sqrt(det)) / (2 * a);
 ```
 
 A function that generates the radius 1 sphere would be: `f(x,y,z)=x2+y2+z2−1`
@@ -162,7 +175,7 @@ Source: Irisa
 
 Same process than a sphere but set the z axis (or y according to your coordinates system) to null.
 
-(In my case: y is set to null)
+In my case: y is set to null.
 
 ```
 x^2 + y^2 - r^2 = 0
