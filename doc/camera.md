@@ -3,7 +3,7 @@
 - [Apprendre OpenGL moderne: Caméra](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=camera)
 - [Learn openGL: Camera](https://learnopengl.com/Getting-started/Camera)
 - [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
-- [Scratchapixel: Placing a Camera: the LookAt Function](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function)
+- [Scratchapixel 2.0: Placing a Camera: the LookAt Function](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function)
 
 ## Orientation
 
@@ -13,7 +13,7 @@
 
 > When you create a camera, it is by default aligned along the world coordinate system negative z-axis. This is a convention used by most 3D applications.
 
-Source: [Scratchapixel: Camera Coordinate System and Camera Space](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/mathematics-computing-2d-coordinates-of-3d-points)
+Source: [Scratchapixel 2.0: Camera Coordinate System and Camera Space](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/mathematics-computing-2d-coordinates-of-3d-points)
 
 ## cam_to-world <-> world_to_cam
 
@@ -37,7 +37,7 @@ From the camera position, define 3 axis:
   <img src="assets/look-at-4.png" alt="lookAt vec" />
 </p>
 
-Image source: [Scratchapixel: Placing a Camera: the LookAt Function](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function)
+Image source: [Scratchapixel 2.0: Placing a Camera: the LookAt Function](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function)
 
 <p align="center">
   <img src="assets/lookat-matrix.png" alt="lookAt OpenGL" />
@@ -69,4 +69,4 @@ Images source: [Interactive Techniques in Three-dimensional Scenes (Part 1)](htt
 
 A perspective projection demo: [Perspective Projections](http://learnwebgl.brown37.net/08_projections/projections_perspective.html)
 
-Aspect ratio and FOV: [Sratchapixel: 3D Viewing: the Pinhole Camera Model](https://www.scratchapixel.com/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/how-pinhole-camera-works-part-2)
+Aspect ratio and FOV: [Scratchapixel 2.0: the Pinhole Camera Model](https://www.scratchapixel.com/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/how-pinhole-camera-works-part-2)

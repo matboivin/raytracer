@@ -32,7 +32,7 @@ Linear Algebra / Geometry
 - [Sine, Cosine and Tangent](https://www.mathsisfun.com/sine-cosine-tangent.html)
 - [Scratchapixel 2.0: Geometry](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/points-vectors-and-normals)
 
-Graphics  
+Computer Graphics  
 
 - [Wiki: Rendering (computer graphics)](https://en.wikipedia.org/wiki/Rendering_(computer_graphics))
 - [Wiki: Graphics pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline)

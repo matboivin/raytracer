@@ -28,7 +28,7 @@ b^2 - (4 * a * c)
 - discriminant == 0 : only one intersection
 - discriminant > 0 : two intersections
 
-- [Graph and Roots of Quadratic Polynomial](https://www.cut-the-knot.org/Curriculum/Algebra/QuadraticPolynomial.shtml)
+Read more: [Graph and Roots of Quadratic Polynomial](https://www.cut-the-knot.org/Curriculum/Algebra/QuadraticPolynomial.shtml)
 
 ## Sphere
 
@@ -38,7 +38,8 @@ b^2 - (4 * a * c)
   <img src="assets/inter_sphere.png" alt="intersect sphere" />
 </p>
 
-Image source: Irisa
+Image source: [Scratchapixel 2.0: Ray-Sphere Intersection](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)
+
 
 A sphere embedded in a 3D space:
 
@@ -73,6 +74,12 @@ w [ 0,  0,  0,  1]
 
 ## Plane
 
+<p align="center">
+  <img src="assets/inter_plane.png" alt="intersect plane" />
+</p>
+
+Image source: [Scratchapixel 2.0: Ray-Plane and Ray-Disk Intersection](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-plane-and-ray-disk-intersection)
+
 ```
 Ax + By + Cz + D = 0; 
 
@@ -84,6 +91,12 @@ t = - ((A*X + B*Y + C*Z + D) / (A*DIR.x + B*DIR.y + C*DIR.z))
 
 ## Square, triangle and disk
 
+<p align="center">
+  <img src="assets/inter_disk.png" alt="intersect disk" />
+</p>
+
+Image source: [Scratchapixel 2.0: Ray-Plane and Ray-Disk Intersection](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-plane-and-ray-disk-intersection)
+
 1. Intersect with plane
 2. Use side / vertices / radius to check if point is inside shape
 
@@ -93,7 +106,31 @@ t = - ((A*X + B*Y + C*Z + D) / (A*DIR.x + B*DIR.y + C*DIR.z))
   <img src="assets/inter_cylinder.png" alt="intersect cylinder" />
 </p>
 
-Image source: Irisa
+Image source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf)
+
+### World Space
+
+#### Infinite cylinder
+
+```
+x^2 + y^2 - r^2 = 0
+
+// Solving quadratic equation
+
+tmp_a = ray dir - dot(ray dir, cyl dir) * cyl dir
+delta = ray pos - cyl base
+tmp_b = delta - dot(delta, cyl dir) * cyl dir
+
+a = tmp_a^2
+b = 2 * dot(tmp_a, tmp_b))
+c = tmp_b^2 - r^2
+```
+
+Source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf)
+
+#### Finite cylinder
+
+Check if point is between zmin and zmax (or ymin and ymax).
 
 ### Local Space
 
@@ -125,35 +162,3 @@ Formula to compute cylinder's normal:
 ```
 (inter_p – center)  - (z_axis. (inter_p – center) ) z_axis)
 ```
-
-### World Space
-
-#### Infinite cylinder
-
-```
-x^2 + y^2 - r^2 = 0
-
-// Solving quadratic equation
-
-tmp_a = ray dir - dot(ray dir, cyl dir) * cyl dir
-delta = ray pos - cyl base
-tmp_b = delta - dot(delta, cyl dir) * cyl dir
-
-a = tmp_a^2
-b = 2 * dot(tmp_a, tmp_b))
-c = tmp_b^2 - r^2
-```
-
-Source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf)
-
-#### Finite cylinder
-
-Check if point is between zmin and zmax (or ymin and ymax).
-
-## Cone
-
-<p align="center">
-  <img src="assets/inter_cone.png" alt="intersect cone" />
-</p>
-
-Image source: Irisa

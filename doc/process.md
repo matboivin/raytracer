@@ -6,7 +6,7 @@
   <img src="assets/rt-setup2.png" alt="rt-setup2" />
 </p>
 
-Image source: [Scratchapixel: An Overview of the Ray-Tracing Rendering Technique](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
+Image source: [Scratchapixel 2.0: An Overview of the Ray-Tracing Rendering Technique](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 
 Ray tracing proceeds from camera position to objects and then to light sources.  
 Ray tracing simulates optical effects, such as reflection and refraction, scattering, and dispersion phenomena.
@@ -65,7 +65,7 @@ A [pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline) is a series of pro
 Usually, the pipeline is:  
 `Camera <-> World <-> Object <-> Texture`
 
-- [Apprendre OpenGL moderne: Systèmes de Coordonnées](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=systemes-de-coordonnees)
+Read more: [Apprendre OpenGL moderne: Systèmes de Coordonnées](https://opengl.developpez.com/tutoriels/apprendre-opengl/?page=systemes-de-coordonnees)
 
 A ray is created from the Camera Space coordinate system. It is then translated to the World Space in order to check for intersection with objects. For each object, the ray is translated to the Object Space.
 
@@ -122,5 +122,8 @@ My scene structure is simple. However, here is an interesting page about scene g
 
 To read more about matrices:  
 - [The Matrix and Quaternions FAQ](http://www.opengl-tutorial.org/assets/faq_quaternions/index.html)
+
+To read more about CG:  
+- [Wiki: Graphics pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline)
 - [Computer Graphics: Topology](https://www.as.uky.edu/blogs/tlha222/computer-graphics-topology)
 

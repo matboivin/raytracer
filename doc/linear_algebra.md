@@ -29,7 +29,7 @@ A matrix is a way of combining scaling, rotation, and translation into one singl
 </p>
 
 > The first three coefficients along the diagonal encode the scale (the coefficients c00, c11 and c22).  
-Source: [Scratchapixel: Computing the Pixel Coordinates of a 3D Point](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/perspective-projection)
+Source: [Scratchapixel 2.0: Computing the Pixel Coordinates of a 3D Point](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/perspective-projection)
 
 ```
    c1  c2  c3  c4
@@ -51,7 +51,7 @@ w [ 0,  0,  0,  1]
   <img src="assets/transpose-order.png" alt="transpose matrix" />
 </p>
 
-Image source: [Scratchapixel: Row Major vs Column Major Vector](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector)
+Image source: [Scratchapixel 2.0: Row Major vs Column Major Vector](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector)
 
 Column-major matrix:
 
