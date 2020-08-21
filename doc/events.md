@@ -12,4 +12,4 @@ An event is an action, or an occurence, the software needs to know about. Events
   <img src="assets/jeanberstel-events.png" alt="jeanberstel-events" />
 </p>
 
-Source: [Xlib - les évènements (PDF)](http://www-igm.univ-mlv.fr/~berstel/Cours/Xlib/13-Evenements.pdf)
+Images source: [Xlib - les évènements (PDF)](http://www-igm.univ-mlv.fr/~berstel/Cours/Xlib/13-Evenements.pdf)
