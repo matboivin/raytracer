@@ -115,10 +115,10 @@ w [ 0,  0,  0,  1]
 For this school project, my pipeline is:  
 `Camera <-> World`
 
-For example, creating the obj_to_world and world_to_obj matrices for the triangle, given 3 vertices, is unfortunately more complicated than staying in World Space to check for intersection. A scale given in the scene file as a 3D vector would have made the implementation of the pipeline easier. Lacking time, that's why I didn't implement a `Camera <-> World <-> Object` pipeline.
+For example, creating the obj_to_world and world_to_obj matrices for the triangle, given 3 vertices, is unfortunately more complicated than checking for intersection in World Space. A scale given in the scene file as a 3D vector would have made the implementation of the pipeline easier. Lacking time, that's why I didn't implement a `Camera <-> World <-> Object` pipeline.
 
-My scene structure is simple. However, here is an interesting page about scene graph:  
-- [Wiki: Scene graph](https://en.wikipedia.org/wiki/Scene_graph).
+My scene structure is simple. However, here is a more complete page about scene graph:  
+- [Wiki: Scene graph](https://en.wikipedia.org/wiki/Scene_graph)
 
 To read more about matrices:  
 - [The Matrix and Quaternions FAQ](http://www.opengl-tutorial.org/assets/faq_quaternions/index.html)
