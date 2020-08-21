@@ -6,32 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 00:09:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/21 12:06:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** This function casts a ray. If an object is intersected, it processes shading
-** and final color is returned. Else, default color is returned.
-*/
-
-t_color			cast_ray(t_scene *scene, t_ray *ray)
-{
-	t_color		default_color;
-	t_color		hit_color;
-	t_lstobj	*hit_obj;
-
-	default_color = create_color(0, 0, 0);
-	hit_obj = trace_primary_ray(scene, ray);
-	if (hit_obj)
-	{
-		hit_color = trace_secondary_ray(scene, ray, hit_obj);
-		return (hit_color);
-	}
-	return (default_color);
-}
 
 /*
 ** This function creates a cam_to_world matrix,
@@ -56,7 +35,7 @@ void			render(t_scene *scene)
 		while (x < g_app->win_x)
 		{
 			set_ray_dir(&ray, scene, x, y);
-			ray_color = cast_ray(scene, &ray);
+			ray_color = trace_ray(scene, &ray);
 			put_pixel_to_image(g_app->img, ray_color, x, y);
 			x++;
 		}
