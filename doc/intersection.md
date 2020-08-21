@@ -156,9 +156,3 @@ Use the normal to compute intersection angle with cylinder.
 ```
 dot(ray dir, normal) > 0
 ```
-
-Formula to compute cylinder's normal:
-
-```
-(inter_p – center)  - (z_axis. (inter_p – center) ) z_axis)
-```

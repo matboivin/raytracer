@@ -4,7 +4,7 @@ A scene file is a defined data structure that contains:
 
 - a collection of objects (objects are also called models)
 - one camera or more
-- one light spot or more
+- one light point or more
 - textures (optional)
 - global render settings or options such as the resolution of the image.
 

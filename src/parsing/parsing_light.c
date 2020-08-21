@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 21:50:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/21 19:16:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function parses light spot
+** This function parses light points
 */
 
 t_light			*create_light(t_scene *scene, char **input)
