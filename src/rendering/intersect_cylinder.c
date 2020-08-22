@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 00:54:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:46:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static bool		solve_quadratic_cyl(
 ** This function helps computing coefficients for solving quadratic equation
 */
 
-static t_vec3	pre_compute_coeff(t_vec3 v, t_vec3 dir)
+static t_vec3	pre_compute_coef(t_vec3 v, t_vec3 dir)
 {
 	t_vec3		result;
 
@@ -79,7 +79,7 @@ static t_vec3	pre_compute_coeff(t_vec3 v, t_vec3 dir)
 
 /*
 ** This function handles intersection with a cylinder
-** If a cylinder is intersected, t_nearest is updated and true is returned.
+** If a cylinder is intersected, t_nearest is updated and true is returned
 */
 
 bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
@@ -90,10 +90,8 @@ bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
 	t_vec3		tmp_b;
 
 	l = sub_vec3(ray->origin, cylinder->base1);
-	tmp_a = pre_compute_coeff(ray->dir, cylinder->dir);
-	tmp_b = pre_compute_coeff(l, cylinder->dir);
-	quad_coef.x = quadnorm_vec3(tmp_a);
-	quad_coef.y = 2.0 * dot_vec3(tmp_a, tmp_b);
-	quad_coef.z = quadnorm_vec3(tmp_b) - ft_sqr(cylinder->radius);
+	tmp_a = pre_compute_coef(ray->dir, cylinder->dir);
+	tmp_b = pre_compute_coef(l, cylinder->dir);
+	quad_coef = get_quad_coef(tmp_a, tmp_b, cylinder->radius);
 	return (solve_quadratic_cyl(cylinder, ray, quad_coef));
 }

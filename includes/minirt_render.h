@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:13:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:44:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ bool		intersect_plane(t_plane *plane, t_ray *ray);
 bool		intersect_square(t_square *square, t_ray *ray);
 bool		intersect_cylinder(t_cyl *cylinder, t_ray *ray);
 bool		intersect_triangle(t_tri *triangle, t_ray *ray);
+t_vec3		get_quad_coef(t_vec3 a, t_vec3 b, double radius);
 bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef);
 
 t_color		get_obj_color(t_lstobj *hit_obj);

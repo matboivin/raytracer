@@ -34,6 +34,7 @@ SRC			=	main.c						\
 				dispatch_event.c			\
 				display_render.c			\
 				exit.c						\
+				get_quad_coef.c				\
 				get_quad_roots.c			\
 				handle_key.c				\
 				image.c						\
