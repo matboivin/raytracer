@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:46:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 19:31:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,20 @@
 static bool		is_inside_cyl(t_cyl *cylinder, t_ray *ray, double t)
 {
 	t_vec3		hit_p;
-	t_vec3		ymin;
-	t_vec3		ymax;
+	t_vec3		bottom;
+	t_vec3		top;
 
 	hit_p = get_hit_point(ray->origin, t, ray->dir);
-	ymin = sub_vec3(hit_p, cylinder->base1);
-	ymax = sub_vec3(hit_p, cylinder->base2);
-	if ((dot_vec3(cylinder->dir, ymin) > 0)
-		&& (dot_vec3(cylinder->dir, ymax) < 0))
+	bottom = sub_vec3(hit_p, cylinder->base1);
+	top = sub_vec3(hit_p, cylinder->base2);
+	if ((dot_vec3(cylinder->dir, bottom) > 0)
+		&& (dot_vec3(cylinder->dir, top) < 0))
 		return (true);
 	return (false);
 }
 
 /*
 ** This function solves quadratic equation
-**
-** quad_coef.x = a
-** quad_coef.y = b
-** quad_coef.z = c
 */
 
 static bool		solve_quadratic_cyl(
@@ -85,13 +81,13 @@ static t_vec3	pre_compute_coef(t_vec3 v, t_vec3 dir)
 bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
 {
 	t_vec3		quad_coef;
-	t_vec3		l;
+	t_vec3		dist;
 	t_vec3		tmp_a;
 	t_vec3		tmp_b;
 
-	l = sub_vec3(ray->origin, cylinder->base1);
+	dist = sub_vec3(ray->origin, cylinder->base1);
 	tmp_a = pre_compute_coef(ray->dir, cylinder->dir);
-	tmp_b = pre_compute_coef(l, cylinder->dir);
+	tmp_b = pre_compute_coef(dist, cylinder->dir);
 	quad_coef = get_quad_coef(tmp_a, tmp_b, cylinder->radius);
 	return (solve_quadratic_cyl(cylinder, ray, quad_coef));
 }

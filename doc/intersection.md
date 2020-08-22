@@ -117,9 +117,9 @@ x^2 + y^2 - r^2 = 0
 
 // Solving quadratic equation
 
+d = ray pos - cyl base pos
 tmp_a = ray dir - dot(ray dir, cyl dir) * cyl dir
-delta = ray pos - cyl base
-tmp_b = delta - dot(delta, cyl dir) * cyl dir
+tmp_b = d - dot(d, cyl dir) * cyl dir
 
 a = tmp_a^2
 b = 2 * dot(tmp_a, tmp_b))
@@ -128,9 +128,32 @@ c = tmp_b^2 - r^2
 
 Source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf)
 
-#### Finite cylinder
+#### Finite cylinder without caps
 
 Check if point is between zmin and zmax (or ymin and ymax).
+
+zmin -> the center of the first base of the cylinder (bottom)
+zmax -> the center of the second base of the cylinder (stop)
+
+```
+dot(ray dir, hit point - cyl base pos) > 0
+&&
+dot(ray dir, hit point - cyl top pos) < 0
+```
+
+#### Finite cylinder with caps
+
+zmin -> center of first cap plane (bottom)
+zmax -> center of second cap plane (top)
+
+1. Intersect with each plane using the 2 centers.
+2. Check whether the intersections are inside caps.
+
+```
+dot(ray dir, hit point - cyl base pos) = 0, (point - cyl base pos)^2 < r^2
+&&
+dot(ray dir, hit point - cyl top pos) = 0, (hit point - cyl top pos)^2 < r^2
+```
 
 ### Local Space
 

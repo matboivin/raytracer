@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 00:54:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:52:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static t_vec3	get_triangle_normal(t_tri *tri)
 
 /*
 ** This function handles intersection with a triangle
-** If a triangle is intersected, t_nearest is updated and true is returned.
+** If a triangle is intersected, t_nearest is updated and true is returned
 */
 
 bool			intersect_triangle(t_tri *triangle, t_ray *ray)

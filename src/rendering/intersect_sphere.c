@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:46:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 19:09:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static bool	solve_quadratic_sphere(t_ray *ray, t_vec3 quad_coef)
 bool		intersect_sphere(t_sphere *sphere, t_ray *ray)
 {
 	t_vec3	quad_coef;
-	t_vec3	l;
+	t_vec3	dist;
 
-	l = sub_vec3(ray->origin, sphere->center);
-	quad_coef = get_quad_coef(ray->dir, l, sphere->radius);
+	dist = sub_vec3(ray->origin, sphere->center);
+	quad_coef = get_quad_coef(ray->dir, dist, sphere->radius);
 	return (solve_quadratic_sphere(ray, quad_coef));
 }
