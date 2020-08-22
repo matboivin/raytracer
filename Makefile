@@ -23,49 +23,53 @@ vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 
 LIB			=	ft minimath mlx_Linux
 
-SRC			=	main.c					\
-				application.c			\
-				camera.c				\
-				check_max_display.c		\
-				check_null_vector.c		\
-				check_params.c			\
-				color.c					\
-				dispatch_event.c		\
-				display.c				\
-				exit.c					\
-				get_quad_roots.c		\
-				handle_key.c			\
-				handle_window.c			\
-				image.c					\
-				intersect.c				\
-				intersect_cylinder.c	\
-				intersect_plane.c		\
-				intersect_sphere.c		\
-				intersect_square.c		\
-				intersect_triangle.c	\
-				intersection_point.c	\
-				lights.c				\
-				look_at.c				\
-				objects.c				\
-				parsing.c				\
-				parsing_cam.c			\
-				parsing_light.c			\
-				parsing_obj.c			\
-				parsing_objadd.c		\
-				parsing_settings.c		\
-				parsing_values.c		\
-				parsing_utils.c			\
-				put_error.c				\
-				put_pixel.c				\
-				put_warning.c			\
-				render.c				\
-				save_bmp.c				\
-				scene.c					\
-				set_ray_dir.c			\
-				set_ray_origin.c		\
-				shading.c				\
-				switch_cam.c			\
-				tracer.c				\
+SRC			=	main.c						\
+				application.c				\
+				camera.c					\
+				check_max_display.c			\
+				check_null_vector.c			\
+				check_params.c				\
+				color.c						\
+				create_circular_lstcam.c	\
+				dispatch_event.c			\
+				display_render.c			\
+				exit.c						\
+				get_quad_roots.c			\
+				handle_key.c				\
+				image.c						\
+				intersect.c					\
+				intersect_cylinder.c		\
+				intersect_plane.c			\
+				intersect_sphere.c			\
+				intersect_square.c			\
+				intersect_triangle.c		\
+				intersection_point.c		\
+				lights.c					\
+				look_at.c					\
+				objects.c					\
+				open_window.c				\
+				parsing.c					\
+				parsing_ambient.c			\
+				parsing_cam.c				\
+				parsing_light.c				\
+				parsing_obj.c				\
+				parsing_objadd.c			\
+				parsing_resolution.c		\
+				parsing_values.c			\
+				parsing_utils.c				\
+				put_error.c					\
+				put_image_to_window.c		\
+				put_pixel.c					\
+				put_warning.c				\
+				reload_image.c				\
+				render.c					\
+				save_bmp.c					\
+				scene.c						\
+				set_ray_dir.c				\
+				set_ray_origin.c			\
+				shading.c					\
+				switch_cam.c				\
+				trace_ray.c					\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 

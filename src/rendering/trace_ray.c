@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tracer.c                                           :+:      :+:    :+:   */
+/*   trace_ray.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 12:10:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:13:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** final color.
 */
 
-t_color			trace_secondary_ray(
+static t_color	trace_secondary_ray(
 	t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
 {
 	t_color		final_color;
@@ -45,7 +45,7 @@ t_color			trace_secondary_ray(
 ** intersected object. Otherwise, a null pointer is returned.
 */
 
-t_lstobj		*trace_primary_ray(t_scene *scene, t_ray *ray)
+static t_lstobj	*trace_primary_ray(t_scene *scene, t_ray *ray)
 {
 	t_lstobj	*nearest_obj;
 	t_lstobj	*head;

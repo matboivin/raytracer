@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_ray_origin.c                                   :+:      :+:    :+:   */
+/*   display_render.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:14:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:23:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function initializes the ray origin
+** This function displays the image and dispatches events
 */
 
-void	set_ray_origin(t_ray *ray, t_vec3 cam_pos)
+void	display_render(t_scene *scene)
 {
-	ray->origin = cam_pos;
+	open_window();
+	put_image_to_window();
+	dispatch_event(scene);
 }

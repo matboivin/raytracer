@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_settings.c                                 :+:      :+:    :+:   */
+/*   parsing_resolution.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/14 00:13:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:19:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,5 @@ void	get_resolution(t_scene *scene, char **input)
 		exit_error(scene, RES_NEG);
 	if ((scene->res.size_x < 100) || (scene->res.size_y < 100))
 		exit_error(scene, RES_MIN);
-	skip_blank(input);
-}
-
-/*
-** This function parses Ambient light
-*/
-
-void	get_ambient(t_scene *scene, char **input)
-{
-	if (scene->amb.is_declared == true)
-		exit_error(scene, AMB_DUP);
-	scene->amb.is_declared = true;
-	(*input) += 2;
-	scene->amb.ratio = get_double(scene, input);
-	if (ft_f_range(scene->amb.ratio, 0.0, 1.0) == false)
-		exit_error(scene, AMB_FMT);
-	scene->amb.color = get_color(scene, input);
 	skip_blank(input);
 }

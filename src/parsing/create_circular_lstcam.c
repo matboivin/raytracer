@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   create_circular_lstcam.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:07:58 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
+/*   Updated: 2020/08/22 18:21:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function displays the image and dispatches events
+** This function creates a circular linked list to switch between cameras
 */
 
-void	display_render(t_scene *scene)
+void			create_circular_lstcam(t_lstcam *cameras)
 {
-	open_window();
-	put_image_to_window();
-	dispatch_event(scene);
+	t_lstcam	*head;
+
+	head = cameras;
+	while (cameras->next)
+		cameras = cameras->next;
+	cameras->next = head;
 }

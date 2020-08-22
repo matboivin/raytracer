@@ -6,17 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 19:16:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:17:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function parses light points
+** This function parses light information
 */
 
-t_light			*create_light(t_scene *scene, char **input)
+static t_light	*create_light(t_scene *scene, char **input)
 {
 	t_light		*result;
 
@@ -32,7 +32,7 @@ t_light			*create_light(t_scene *scene, char **input)
 }
 
 /*
-** This function adds light spot to scene
+** This function adds a light to scene
 */
 
 void			get_light(t_scene *scene, char **input)

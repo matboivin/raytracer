@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 12:05:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/22 18:13:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void		render(t_scene *scene);
 void		look_at(t_cam *cam);
 void		set_ray_origin(t_ray *ray, t_vec3 cam_pos);
 void		set_ray_dir(t_ray *ray, t_scene *scene, int x, int y);
+
 t_color		trace_ray(t_scene *scene, t_ray *ray);
-t_lstobj	*trace_primary_ray(t_scene *scene, t_ray *ray);
-t_color		trace_secondary_ray(t_scene *scene, t_ray *ray, t_lstobj *hit_obj);
 
 t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir);
 bool		intersect(t_lstobj *objs, t_ray *ray);
