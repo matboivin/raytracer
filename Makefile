@@ -36,6 +36,8 @@ SRC			=	main.c						\
 				exit.c						\
 				get_quad_coef.c				\
 				get_quad_roots.c			\
+				get_sphere_normal.c			\
+				get_triangle_normal.c		\
 				handle_key.c				\
 				image.c						\
 				intersect.c					\

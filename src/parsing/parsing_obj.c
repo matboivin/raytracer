@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 00:06:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/23 01:16:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void			get_triangle(t_scene *scene, char **input)
 	result->vertex2 = get_vec3(scene, input);
 	result->vertex3 = get_vec3(scene, input);
 	result->color = get_color(scene, input);
+	result->normal = get_triangle_normal(result);
 	add_obj_to_scene(scene, result, TRIANGLE);
 	skip_blank(input);
 }

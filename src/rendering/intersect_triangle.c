@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:52:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/23 01:21:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,6 @@ static bool		is_inside_triangle(t_tri *tri, t_vec3 hit_p, t_vec3 normal)
 }
 
 /*
-** This function computes triangle's normal
-*/
-
-static t_vec3	get_triangle_normal(t_tri *tri)
-{
-	t_vec3		result;
-
-	result = cross(
-		sub_vec3(tri->vertex2, tri->vertex1),
-		sub_vec3(tri->vertex3, tri->vertex1));
-	result = normalize_vec3(result);
-	return (result);
-}
-
-/*
 ** This function handles intersection with a triangle
 ** If a triangle is intersected, t_nearest is updated and true is returned
 */
@@ -63,14 +48,13 @@ static t_vec3	get_triangle_normal(t_tri *tri)
 bool			intersect_triangle(t_tri *triangle, t_ray *ray)
 {
 	double		t;
-	t_vec3		normal;
 	t_vec3		hit_p;
 
-	normal = get_triangle_normal(triangle);
-	if (intersect_obj_plane(triangle->vertex1, normal, ray, &t) == true)
+	if (intersect_obj_plane(
+		triangle->vertex1, triangle->normal, ray, &t) == true)
 	{
 		hit_p = get_hit_point(ray->origin, t, ray->dir);
-		if (is_inside_triangle(triangle, hit_p, normal) == true)
+		if (is_inside_triangle(triangle, hit_p, triangle->normal) == true)
 		{
 			ray->t_nearest = t;
 			return (true);

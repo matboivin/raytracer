@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 00:05:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/23 01:16:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_tri
 	t_vec3			vertex1;
 	t_vec3			vertex2;
 	t_vec3			vertex3;
+	t_vec3			normal;
 	t_color			color;
 }					t_tri;
 
@@ -72,5 +73,8 @@ typedef struct		s_lstobj
 t_lstobj			*new_lstobj(void *obj, t_objid type);
 void				lstobj_add_back(t_lstobj **lst, t_lstobj *new);
 void				lstobj_clear(t_lstobj **lst);
+
+t_vec3				get_sphere_normal(t_vec3 hit_p, t_vec3 center);
+t_vec3				get_triangle_normal(t_tri *tri);
 
 #endif

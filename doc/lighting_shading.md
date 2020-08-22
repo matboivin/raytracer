@@ -54,3 +54,59 @@ Bui Tuong Phong, 1975.
 Phong shading is also called Phong interpolation or normal-vector interpolation shading.
 
 Surface properties such as mirror, transparent or glossy are not handled in this project.
+
+## Steps
+
+Tangent plane to a sphere:
+
+<p align="center">
+  <img src="assets/440px-Image_Tangent-plane.svg.png" alt="Tangent to a sphere" />
+</p>
+
+Image source: [Wiki: Tangent](https://en.wikipedia.org/wiki/Tangent)
+
+A normal is the orientation of an object at a point on that surface. A normal is like a perpendicular vector to the [tangent](https://en.wikipedia.org/wiki/Tangent) to the plane at a point.
+
+<p align="center">
+  <img src="assets/normal.png" alt="Normal" />
+</p>
+
+Image source: [Scratchapixel 2.0: Geometry](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry)
+
+- `P` : hit point
+- `N` : normal at point `P`
+- `L` : light direction (trace a line from `P` to light source)
+
+Incoming or incident light direction is the light coming to the surface.
+
+- **angle of incidence**: angle formed by `N` at `P` and `L`.
+
+Outcoming light is reflected by a surface.
+
+- **angle of reflection**: mirrors the angle of incidence.
+
+The brightness of the object decreases as the angle of incidence increases.
+
+1. Compute the normal at hit point
+2. Get the view direction normalized vector (- ray dir)
+3. Facing ratio: `dot(N, view_dir)`
+
+> Lambert's Cosine Law. The amount of light that a surface receives is directly proportional to the angle between the surface normal N and the light direction L. This angle can be define mathematically as: cos(angle) = dot(normal, light dir)  
+Source: [Scratchapixel 2.0: Diffuse and Lambertian Shading](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-shading/diffuse-lambertian-shading)
+
+```
+light dir = hit point - light pos
+light amount = light color * light intensity
+```
+
+Formula to compute sphere's normal at hit point:
+
+```
+hit point – sphere center
+```
+
+Formula to compute cylinder's normal at hit point:
+
+```
+(hit point – cyl center)  - (z_axis dot(hit point – cyl center) ) z_axis)
+```
