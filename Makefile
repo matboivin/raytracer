@@ -92,14 +92,14 @@ re-install :
 
 $(NAME): install $(OBJ_PATH) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
-	@echo "[OK]\t\t$(NAME) is ready"
+	@echo "\nOK\t\t$(NAME) is ready"
 
 $(OBJ_PATH):
 	@mkdir -p $@
-	@echo "[OK]\t\tCreated $@ directory"
+	@echo "Created\t\t$@ directory"
 
 $(OBJ_PATH)/%.o : %.c
-	@echo "[Compiling]\t$< -> $@ ..."
+	@echo "\r\033[KCompiling\t$< \c"
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: debug
@@ -114,14 +114,14 @@ bonus: $(NAME)
 clean:
 	@$(RM) $(OBJ_PATH)
 	@$(foreach dir, $(LIB_PATH), make -C $(dir) clean;)
-	@echo "[OK]\t\tCleaned object files"
+	@echo "Cleaned\t\tobject files"
 
 .PHONY: fclean
 fclean: clean
 	@$(RM) $(NAME)
 	@make -C lib/libft fclean
 	@make -C lib/minimath fclean
-	@echo "[OK]\t\tRemoved $(NAME)"
+	@echo "Removed\t\t$(NAME)"
 
 .PHONY: re
 re: fclean all
