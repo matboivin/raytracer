@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/23 01:16:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 00:39:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ t_lstobj			*new_lstobj(void *obj, t_objid type);
 void				lstobj_add_back(t_lstobj **lst, t_lstobj *new);
 void				lstobj_clear(t_lstobj **lst);
 
+t_vec3				get_obj_normal(t_vec3 hit_p, t_lstobj *hit_obj);
 t_vec3				get_sphere_normal(t_vec3 hit_p, t_vec3 center);
 t_vec3				get_triangle_normal(t_tri *tri);
+t_vec3				get_cylinder_normal(t_vec3 hit_p, t_cyl *cylinder);
 
 #endif

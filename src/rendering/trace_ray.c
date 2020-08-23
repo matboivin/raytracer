@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:13:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 01:07:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,16 @@
 ** final color.
 */
 
-static t_color	trace_secondary_ray(
-	t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
+static t_color	trace_secondary_ray(t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
 {
-	t_color		final_color;
-	// t_ray		hit_p;
-	// t_lstlight	*head;
+	t_color		color;
+	t_vec3		hit_p;
+	t_vec3		normal;
 
-	(void)scene;
-	(void)ray;
-	final_color = get_obj_color(hit_obj);
-	// hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
-	// head = scene->lights;
-	// while (scene->lights)
-	// {
-	// 	final_color = ;
-	// 	scene->lights = scene->lights->next;
-	// }
-	// scene->lights = head;
-	return (final_color);
+	hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
+	normal = get_obj_normal(hit_p, hit_obj);
+	color = handle_light_point(scene, ray, hit_obj, hit_p, normal);
+	return (color);
 }
 
 /*
