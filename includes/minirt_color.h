@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:32:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/23 23:25:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/23 20:18:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@
 
 typedef struct	s_color
 {
-	t_uchar		r;
-	t_uchar		g;
-	t_uchar		b;
-	t_uchar		a;
+	double		r;
+	double		g;
+	double		b;
 }				t_color;
 
-t_color			create_color(t_uchar p_r, t_uchar p_g, t_uchar p_b);
+t_color			create_color(double p_r, double p_g, double p_b);
 
 #endif
