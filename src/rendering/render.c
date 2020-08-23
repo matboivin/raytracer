@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 12:06:21 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/23 16:50:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void			render(t_scene *scene)
 	t_color		ray_color;
 	int			x;
 	int			y;
+	int			progress;
 
 	look_at(scene->main_cam);
 	set_ray_origin(&ray, scene->main_cam->pos);
@@ -40,7 +41,10 @@ void			render(t_scene *scene)
 			x++;
 		}
 		y++;
+		progress = y * 100 / g_app->win_y;
+		ft_printf("\rRendering image... %d%%", progress);
 	}
+	ft_printf("\n");
 }
 
 /*
