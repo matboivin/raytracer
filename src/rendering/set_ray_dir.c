@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/20 14:05:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 19:44:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void			set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 	t_vec3		pixel_coord;
 
 	pixel_coord = get_pixel_coord(
-		scene->main_cam->fov,
+		scene->cameras->cam->fov,
 		scene->res,
 		x,
 		y);
 	ray->dir = mult_mat3x3_vec3(
-		scene->main_cam->cam_to_world3,
+		scene->cameras->cam->cam_to_world3,
 		pixel_coord);
 	ray->dir = normalize_vec3(ray->dir);
 	ray->t_nearest = __DBL_MAX__;

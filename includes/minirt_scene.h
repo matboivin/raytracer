@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/17 19:37:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 19:49:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct	s_scene
 {
 	t_res		res;
 	t_amb		amb;
+	int			cam_count;
 	t_lstcam	*cameras;
-	t_cam		*main_cam;
 	t_lstlight	*lights;
 	t_lstobj	*objs;
 }				t_scene;

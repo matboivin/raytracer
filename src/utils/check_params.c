@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/17 19:57:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 19:26:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,15 @@ static void	put_usage(void)
 ** This function checks the parameters
 */
 
-void		check_params(int argc, char **argv)
+void		check_params(int argc, char **argv, bool *to_bmp)
 {
 	if ((argc < 2) || (argc > 3))
 		put_usage();
 	check_filename(argv[1]);
-	if ((argc == 3) && (ft_strcmp(argv[2], "--save")))
-		put_error(SAVE_OPTION);
+	if (argc == 3)
+	{
+		if (ft_strcmp(argv[2], "--save"))
+			put_error(SAVE_OPTION);
+		*to_bmp = true;
+	}
 }

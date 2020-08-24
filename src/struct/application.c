@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:52:05 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 22:58:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 19:16:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	open_app(char *title)
 
 void	quit_app(void)
 {
-	if (g_app->img)
-		free_image(g_app->img);
 	if (g_app->win_ptr)
 		mlx_destroy_window(g_app->mlx_ptr, g_app->win_ptr);
 }

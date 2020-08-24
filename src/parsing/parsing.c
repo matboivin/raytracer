@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:19:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:55:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static void		check_scene(t_scene *scene)
 {
 	if ((scene->res.is_declared == false) || (scene->amb.is_declared == false))
 		exit_error(scene, MISS_RA);
-	if (scene->main_cam == NULL)
+	if (scene->cameras == NULL)
 		exit_error(scene, MISS_CAM);
 	if (scene->lights == NULL)
 		exit_error(scene, MISS_LIGHT);

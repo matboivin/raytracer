@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:05:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 19:43:15 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,21 @@ void			lstcam_clear(t_lstcam **lst)
 	{
 		cursor = *lst;
 		*lst = (*lst)->next;
-		free(cursor->cam);
+		free_camera(cursor->cam);
 		free(cursor);
 		if (*lst == head)
 			*lst = NULL;
 	}
+}
+
+void			destroy_camera(t_cam to_destroy)
+{
+	if (to_destroy.img)
+		free_image(to_destroy.img);
+}
+
+void			free_camera(t_cam *to_free)
+{
+	destroy_camera(*to_free);
+	free(to_free);
 }

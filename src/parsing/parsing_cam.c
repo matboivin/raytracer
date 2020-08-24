@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:21:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:49:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static t_cam	*create_camera(t_scene *scene, char **input)
 	result->fov = get_integer(scene, input);
 	if (ft_n_range(result->fov, 0, 180) == false)
 		exit_error(scene, CAM_FMT);
+	result->img = NULL;
 	return (result);
 }
 
@@ -50,7 +51,6 @@ void			get_camera(t_scene *scene, char **input)
 	if (new_cam == NULL)
 		exit_error(scene, DEFAULT_ERR);
 	lstcam_add_back(&(scene->cameras), new_cam);
-	if (scene->main_cam == NULL)
-		scene->main_cam = scene->cameras->cam;
+	scene->cam_count += 1;
 	skip_blank(input);
 }

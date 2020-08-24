@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/23 18:40:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 19:49:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	create_scene(t_scene *scene)
 	create_resolution(&(scene->res));
 	create_ambient(&(scene->amb));
 	scene->cameras = NULL;
-	scene->main_cam = NULL;
+	scene->cam_count = 0;
 	scene->lights = NULL;
 	scene->objs = NULL;
 }

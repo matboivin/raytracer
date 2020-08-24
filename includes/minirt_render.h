@@ -6,15 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:44:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 19:44:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_RENDER_H
 # define MINIRT_RENDER_H
 
-void		generate_image(t_scene *scene);
-void		render(t_scene *scene);
+void		render(t_scene *scene, bool to_bmp);
 
 void		look_at(t_cam *cam);
 void		set_ray_origin(t_ray *ray, t_vec3 cam_pos);
