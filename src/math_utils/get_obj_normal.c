@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 00:48:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/24 16:46:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_vec3		get_obj_normal(t_vec3 hit_p, t_lstobj *hit_obj)
 	t_vec3	normal;
 
 	if (hit_obj->type == SPHERE)
-		normal = get_sphere_normal(hit_p, ((t_sphere *)hit_obj->obj)->center);
+		normal = get_sphere_normal(hit_p, hit_obj->obj);
 	else if (hit_obj->type == PLANE)
 		normal = ((t_plane *)hit_obj->obj)->dir;
 	else if (hit_obj->type == SQUARE)
