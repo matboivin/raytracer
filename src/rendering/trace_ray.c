@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 18:45:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 01:38:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,33 @@
 
 static t_color	trace_secondary_ray(t_scene *scene, t_ray *ray, t_lstobj *hit_obj)
 {
-	t_color		color;
-	// t_vec3		hit_p;
-	// t_vec3		normal;
+	t_lstlight	*head;
+	t_color		obj_color;
+	t_color		final_color;
+	t_vec3		hit_p;
+	t_vec3		normal;
+	t_vec3		light_dir;
+	double		angle;
 
-	// hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
-	// normal = get_obj_normal(hit_p, hit_obj);
-	(void)scene;
-	(void)ray;
-	color = get_obj_color(hit_obj);
-	return (color);
+	final_color = create_vec3(0.0, 0.0, 0.0);
+	hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
+	normal = get_obj_normal(hit_p, hit_obj);
+	obj_color = get_obj_color(hit_obj);
+	head = scene->lights;
+	while (scene->lights)
+	{
+		light_dir = sub_vec3(scene->lights->light->pos, hit_p);
+		angle = dot_vec3(normal, normalize_vec3(light_dir));
+		if (angle > 0.0)
+		{
+			final_color = scale_vec3(fabs(angle), obj_color);
+		}
+		else
+			final_color = create_vec3(0.0, 0.0, 0.0);
+		scene->lights = scene->lights->next;
+	}
+	scene->lights = head;
+	return (final_color);
 }
 
 /*
@@ -67,7 +84,7 @@ t_color			trace_ray(t_scene *scene, t_ray *ray)
 	t_color		hit_color;
 	t_lstobj	*hit_obj;
 
-	default_color = create_color(0, 0, 0);
+	default_color = create_vec3(255.0, 255.0, 255.0);
 	hit_obj = trace_primary_ray(scene, ray);
 	if (hit_obj)
 	{

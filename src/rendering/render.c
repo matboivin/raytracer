@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 19:48:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 01:32:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ static void	render_image(t_scene *scene, t_cam *cam)
 	}
 	ft_printf("\n");
 }
-
-/*
-** This function creates an image and starts rendering
-*/
 
 static void	render_n_image(t_scene *scene, int n)
 {

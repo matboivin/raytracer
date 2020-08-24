@@ -29,7 +29,6 @@ SRC			=	main.c						\
 				check_max_display.c			\
 				check_null_vector.c			\
 				check_params.c				\
-				color.c						\
 				create_circular_lstcam.c	\
 				dispatch_event.c			\
 				display_render.c			\

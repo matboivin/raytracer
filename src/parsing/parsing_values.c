@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/07 00:18:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 00:27:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,13 @@ t_color		get_color(t_scene *scene, char **input)
 	t_color	result;
 
 	skip_blank(input);
-	result.r = get_rgb_val(scene, input);
+	result.x = get_rgb_val(scene, input);
 	if (!(skip_separator(input, ',')))
 		exit_error(scene, COLOR_FMT);
-	result.g = get_rgb_val(scene, input);
+	result.y = get_rgb_val(scene, input);
 	if (!(skip_separator(input, ',')))
 		exit_error(scene, COLOR_FMT);
-	result.b = get_rgb_val(scene, input);
+	result.z = get_rgb_val(scene, input);
 	return (result);
 }
 
