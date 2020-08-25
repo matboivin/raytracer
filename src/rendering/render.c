@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 19:57:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 20:20:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,4 @@ void		render(t_scene *scene, bool to_bmp)
 	}
 	ft_printf("Generating %d image(s)\n", scene->cam_count);
 	render_n_image(scene, scene->cam_count);
-	if ((scene->res.size_x < 400) || (scene->res.size_y < 400))
-		put_warn_res();
 }

@@ -66,7 +66,6 @@ SRC			=	main.c						\
 				put_error.c					\
 				put_image_to_window.c		\
 				put_pixel.c					\
-				put_warning.c				\
 				reload_image.c				\
 				render.c					\
 				save_bmp.c					\
