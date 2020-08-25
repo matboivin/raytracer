@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 01:38:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 18:40:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_color	trace_secondary_ray(t_scene *scene, t_ray *ray, t_lstobj *hit_obj
 
 	final_color = create_vec3(0.0, 0.0, 0.0);
 	hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
-	normal = get_obj_normal(hit_p, hit_obj);
+	normal = get_obj_normal(hit_p, hit_obj, ray);
 	obj_color = get_obj_color(hit_obj);
 	head = scene->lights;
 	while (scene->lights)
@@ -40,8 +40,6 @@ static t_color	trace_secondary_ray(t_scene *scene, t_ray *ray, t_lstobj *hit_obj
 		{
 			final_color = scale_vec3(fabs(angle), obj_color);
 		}
-		else
-			final_color = create_vec3(0.0, 0.0, 0.0);
 		scene->lights = scene->lights->next;
 	}
 	scene->lights = head;
@@ -84,7 +82,8 @@ t_color			trace_ray(t_scene *scene, t_ray *ray)
 	t_color		hit_color;
 	t_lstobj	*hit_obj;
 
-	default_color = create_vec3(255.0, 255.0, 255.0);
+	// default_color = create_vec3(255.0, 255.0, 255.0);
+	default_color =  create_vec3(0.0, 0.0, 0.0);
 	hit_obj = trace_primary_ray(scene, ray);
 	if (hit_obj)
 	{
