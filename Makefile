@@ -33,9 +33,11 @@ SRC			=	main.c						\
 				dispatch_event.c			\
 				display_render.c			\
 				exit.c						\
+				get_angle_in.c				\
 				get_quad_coef.c				\
 				get_quad_roots.c			\
 				get_cylinder_normal.c		\
+				get_hit_point.c				\
 				get_obj_normal.c			\
 				get_obj_color.c				\
 				get_sphere_normal.c			\
@@ -48,7 +50,6 @@ SRC			=	main.c						\
 				intersect_sphere.c			\
 				intersect_square.c			\
 				intersect_triangle.c		\
-				intersection_point.c		\
 				lights.c					\
 				look_at.c					\
 				objects.c					\
@@ -72,6 +73,7 @@ SRC			=	main.c						\
 				scene.c						\
 				set_ray_dir.c				\
 				set_ray_origin.c			\
+				shading.c					\
 				switch_cam.c				\
 				trace_ray.c					\
 

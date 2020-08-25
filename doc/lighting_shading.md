@@ -87,17 +87,15 @@ Outcoming light is reflected by a surface.
 
 The brightness of the object decreases as the angle of incidence increases.
 
-1. Compute the normal at hit point
-2. Get the view direction normalized vector (- ray dir)
-3. Facing ratio: `dot(N, view_dir)`
-
 > Lambert's Cosine Law. The amount of light that a surface receives is directly proportional to the angle between the surface normal N and the light direction L. This angle can be define mathematically as: cos(angle) = dot(normal, light dir)  
 Source: [Scratchapixel 2.0: Diffuse and Lambertian Shading](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-shading/diffuse-lambertian-shading)
 
-```
-light dir = hit point - light pos
-light amount = light color * light intensity
-```
+### Illuminate
+
+1. Compute the hit point
+2. Compute the normal at hit point (if the intersection is inside an object, inverse the vector: `N = -1 * N`)
+2. Get the light direction normalized vector `light dir = hit point - light pos`
+3. Compute the angle of incidence: `dot(N, light_dir)` (both `N` and light_dir are normalized vectors)
 
 Formula to compute sphere's normal at hit point:
 
@@ -110,3 +108,8 @@ Formula to compute cylinder's normal at hit point:
 ```
 (hit point – cyl center)  - (z_axis dot(hit point – cyl center) ) z_axis)
 ```
+
+```
+light amount = light color * light intensity
+```
+

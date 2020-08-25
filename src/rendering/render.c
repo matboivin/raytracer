@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 01:32:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 19:57:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 static void	render_image(t_scene *scene, t_cam *cam)
 {
 	t_ray	ray;
-	t_color	ray_color;
 	int		x;
 	int		y;
 	int		progress;
@@ -36,8 +35,8 @@ static void	render_image(t_scene *scene, t_cam *cam)
 		while (x < g_app->win_x)
 		{
 			set_ray_dir(&ray, scene, x, y);
-			ray_color = trace_ray(scene, &ray);
-			put_pixel_to_image(cam->img, ray_color, x, y);
+			trace_ray(scene, &ray);
+			put_pixel_to_image(cam->img, ray.color, x, y);
 			x++;
 		}
 		y++;

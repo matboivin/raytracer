@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/23 16:51:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 19:11:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ static void		write_bmpdata(t_scene *scene, int fd)
 		ft_printf("\rSaving rendered image in BMP format... %d%%", progress);
 		y--;
 	}
-	ft_printf("\nImage saved as 'minirt.bmp' in working dir.\n\n");
+	ft_printf("\nImage saved as 'minirt.bmp' in working dir.\n");
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 19:44:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 20:02:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,6 @@ void			set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
 		pixel_coord);
 	ray->dir = normalize_vec3(ray->dir);
 	ray->t_nearest = __DBL_MAX__;
+	ray->color = create_vec3(0.0, 0.0, 0.0);
+	// ray->color = create_vec3(255.0, 255.0, 255.0);
 }

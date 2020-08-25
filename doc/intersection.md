@@ -174,8 +174,10 @@ w [ 0,  0,  0,  1]
 
 #### Finite cylinder
 
-Use the normal to compute intersection angle with cylinder.
+The intersection is inside the cylinder if:
 
 ```
 dot(ray dir, normal) > 0
 ```
+
+Else, the intersection is outside.

@@ -54,6 +54,11 @@ optional arguments:
   --save  save the rendered image in bmp format
 ```
 
+### Common tasks
+
+* Pressing `ESC` key: Exits the program.
+* Pressing space bar: Switches view.
+
 ### Acknowledgements
 
 School project done at [42 Paris](https://www.42.fr).

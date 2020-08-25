@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersection_point.c                               :+:      :+:    :+:   */
+/*   shading.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/21 00:54:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 20:00:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-/*
-** This function computes the intersection point
-**
-** intersection point = ray origin + t * ray direction
-*/
-
-t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir)
+void			illuminate(t_lstlight *lights, t_ray *ray)
 {
-	t_vec3	result;
+	t_lstlight	*head;
+	double		angle;
 
-	result = add_vec3(origin, scale_vec3(t, dir));
-	return (result);
+	head = lights;
+	while (lights)
+	{
+		angle = get_angle_in(lights->light->pos, ray->hit_p, ray->normal);
+		if (angle > 0.0)
+		{
+			ray->color = scale_vec3(fabs(angle), ray->obj_color);
+		}
+		lights = lights->next;
+	}
+	lights = head;
 }
