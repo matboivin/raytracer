@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   tracers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 01:36:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 01:16:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void	render_n_image(t_scene *scene, int n)
+void			trace_ray_to_lights(t_scene *scene, t_ray *ray)
 {
-	int		i;
-
-	i = 0;
-	while (i < n)
-	{
-		scene->cameras->cam->img = malloc_image();
-		raytrace(scene, scene->cameras->cam);
-		if (g_app->img == NULL)
-			g_app->img = scene->cameras->cam->img;
-		scene->cameras = scene->cameras->next;
-		i++;
-	}
+	illuminate(scene, scene->lights, ray);
+	// add ambient, diffuse, specular
+	// return later to do more intersections
+	ray->color = rescale_color(ray->color, 1.0, 0.0);
 }
 
-void		render(t_scene *scene, bool to_bmp)
+t_lstobj		*trace_ray_to_objs(t_scene *scene, t_ray *ray)
 {
-	if (to_bmp == true)
+	t_lstobj	*nearest_obj;
+	t_lstobj	*head;
+
+	nearest_obj = NULL;
+	head = scene->objs;
+	while (scene->objs)
 	{
-		render_n_image(scene, 1);
-		save_bmp(scene, BMP_FILENAME);
+		if (hit(scene->objs, ray) == true)
+			nearest_obj = scene->objs;
+		scene->objs = scene->objs->next;
 	}
-	ft_printf("Generating %d image(s)\n", scene->cam_count);
-	render_n_image(scene, scene->cam_count);
+	scene->objs = head;
+	return (nearest_obj);
 }

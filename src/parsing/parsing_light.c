@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:17:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 00:23:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static t_light	*create_light(t_scene *scene, char **input)
 	if (ft_f_range(result->ratio, 0.0, 1.0) == false)
 		exit_error(scene, LIGHT_FMT);
 	result->color = get_color(scene, input);
+	result->color = scale_vec3(result->ratio, result->color);
 	return (result);
 }
 

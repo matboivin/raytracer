@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 19:59:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 01:05:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ typedef struct	s_ray
 	t_vec3		hit_p;
 	t_vec3		normal;
 }				t_ray;
+
+t_ray			create_ray(t_vec3 p_origin, t_vec3 p_dir, double p_tnearest);
 
 #endif

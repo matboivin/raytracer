@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:56:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 00:53:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void		reset_ray(t_ray *ray)
 ** t_nearest is reset to max double value at each ray cast
 */
 
-void			set_ray_dir(t_ray *ray, t_scene *scene, int x, int y)
+void			set_ray_dir(t_scene *scene, t_ray *ray, int x, int y)
 {
 	t_vec3		pixel_coord;
 

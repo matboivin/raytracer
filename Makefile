@@ -4,7 +4,7 @@ SHELL = /bin/sh
 CC = gcc
 RM = rm -rf
 
-CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror
 IFLAGS		=	$(foreach dir, $(INC_PATH), -I $(dir))
 LFLAGS		=	$(foreach dir, $(LIB_PATH), -L $(dir)) \
 				$(foreach lib, $(LIB), -l $(lib))
@@ -67,6 +67,8 @@ SRC			=	main.c						\
 				put_error.c					\
 				put_image_to_window.c		\
 				put_pixel.c					\
+				ray.c						\
+				raytrace.c					\
 				reload_image.c				\
 				render.c					\
 				rescale_color.c				\
@@ -76,7 +78,7 @@ SRC			=	main.c						\
 				set_ray_origin.c			\
 				shade.c						\
 				switch_cam.c				\
-				trace_ray.c					\
+				tracers.c					\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 

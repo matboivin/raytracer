@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:43:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 01:35:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** retrieves the ray color to put it in the image.
 */
 
-void		trace_ray(t_scene *scene, t_cam *cam)
+void		raytrace(t_scene *scene, t_cam *cam)
 {
 	t_ray	ray;
 	int		x;
@@ -33,7 +33,7 @@ void		trace_ray(t_scene *scene, t_cam *cam)
 		x = 0;
 		while (x < g_app->win_x)
 		{
-			set_ray_dir(&ray, scene, x, y);
+			set_ray_dir(scene, &ray, x, y);
 			shade(scene, &ray);
 			put_pixel_to_image(cam->img, ray.color, x, y);
 			x++;

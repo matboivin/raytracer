@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 00:40:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 00:43:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function computes cylinder normal at a point
 */
 
-t_vec3		get_cylinder_normal(t_vec3 hit_p, t_cyl *cylinder)
+t_vec3		get_cylinder_normal(t_cyl *cylinder, t_vec3 hit_p)
 {
 	t_vec3	dist;
 	t_vec3	result;
