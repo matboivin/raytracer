@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_in_range.c                                   :+:      :+:    :+:   */
+/*   rescale_color.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 23:10:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 23:17:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_color		color_in_range(t_color color, double max, double min)
+t_color		rescale_color(t_color color, double max, double min)
 {
 	t_color	result;
 

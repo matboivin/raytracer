@@ -29,7 +29,6 @@ SRC			=	main.c						\
 				check_max_display.c			\
 				check_null_vector.c			\
 				check_params.c				\
-				color_in_range.c			\
 				create_circular_lstcam.c	\
 				dispatch_event.c			\
 				display_render.c			\
@@ -70,6 +69,7 @@ SRC			=	main.c						\
 				put_pixel.c					\
 				reload_image.c				\
 				render.c					\
+				rescale_color.c				\
 				save_bmp.c					\
 				scene.c						\
 				set_ray_dir.c				\

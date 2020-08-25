@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:53:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 23:17:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void		trace_secondary_ray(t_scene *scene, t_ray *ray)
 	illuminate(scene->lights, ray);
 	// add ambient, diffuse, specular
 	// return later to do more intersections
+	ray->color = rescale_color(ray->color, 1.0, 0.0);
 }
 
 static t_lstobj	*trace_primary_ray(t_scene *scene, t_ray *ray)
