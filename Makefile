@@ -117,14 +117,11 @@ bonus: $(NAME)
 .PHONY: clean
 clean:
 	@$(RM) $(OBJ_PATH)
-	@$(foreach dir, $(LIB_PATH), make -C $(dir) clean;)
 	@echo "Cleaned\t\tobject files"
 
 .PHONY: fclean
 fclean: clean
 	@$(RM) $(NAME)
-	@make -C lib/libft fclean
-	@make -C lib/minimath fclean
 	@echo "Removed\t\t$(NAME)"
 
 .PHONY: re
