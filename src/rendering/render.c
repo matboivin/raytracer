@@ -6,45 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 20:20:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:43:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** This function creates a cam_to_world matrix,
-** sets the ray origin and iterates over all pixels in the image.
-** At each pixel, it sets the ray direction, casts the ray and
-** retrieves the ray color to put it in the image.
-*/
-
-static void	render_image(t_scene *scene, t_cam *cam)
-{
-	t_ray	ray;
-	int		x;
-	int		y;
-	int		progress;
-
-	look_at(cam);
-	set_ray_origin(&ray, cam->pos);
-	y = 0;
-	while (y < g_app->win_y)
-	{
-		x = 0;
-		while (x < g_app->win_x)
-		{
-			set_ray_dir(&ray, scene, x, y);
-			trace_ray(scene, &ray);
-			put_pixel_to_image(cam->img, ray.color, x, y);
-			x++;
-		}
-		y++;
-		progress = y * 100 / g_app->win_y;
-		ft_printf("\rRendering image... %d%%", progress);
-	}
-	ft_printf("\n");
-}
 
 static void	render_n_image(t_scene *scene, int n)
 {
@@ -54,7 +20,7 @@ static void	render_n_image(t_scene *scene, int n)
 	while (i < n)
 	{
 		scene->cameras->cam->img = malloc_image();
-		render_image(scene, scene->cameras->cam);
+		trace_ray(scene, scene->cameras->cam);
 		if (g_app->img == NULL)
 			g_app->img = scene->cameras->cam->img;
 		scene->cameras = scene->cameras->next;

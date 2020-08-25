@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shading.c                                          :+:      :+:    :+:   */
+/*   hit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 20:00:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:52:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void			illuminate(t_lstlight *lights, t_ray *ray)
-{
-	t_lstlight	*head;
-	double		angle;
+/*
+** This function returns true if a ray intersects any object
+*/
 
-	head = lights;
-	while (lights)
-	{
-		angle = get_angle_in(lights->light->pos, ray->hit_p, ray->normal);
-		if (angle > 0.0)
-		{
-			ray->color = scale_vec3(fabs(angle), ray->obj_color);
-		}
-		lights = lights->next;
-	}
-	lights = head;
+bool		hit(t_lstobj *objs, t_ray *ray)
+{
+	bool	has_hit;
+
+	has_hit = false;
+	if (objs->type == SPHERE)
+		has_hit = hit_sphere(objs->obj, ray);
+	else if (objs->type == PLANE)
+		has_hit = hit_plane(objs->obj, ray);
+	else if (objs->type == SQUARE)
+		has_hit = hit_square(objs->obj, ray);
+	else if (objs->type == CYLINDER)
+		has_hit = hit_cylinder(objs->obj, ray);
+	else if (objs->type == TRIANGLE)
+		has_hit = hit_triangle(objs->obj, ray);
+	return (has_hit);
 }

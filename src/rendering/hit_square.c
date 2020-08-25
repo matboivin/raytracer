@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_square.c                                 :+:      :+:    :+:   */
+/*   hit_square.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 19:42:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:58:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static bool	is_inside_square(t_square *square, t_vec3 hit_p)
 ** If a square is intersected, t_nearest is updated and true is returned
 */
 
-bool		intersect_square(t_square *square, t_ray *ray)
+bool		hit_square(t_square *square, t_ray *ray)
 {
 	double	t;
 	t_vec3	hit_p;
 
-	if (intersect_obj_plane(square->center, square->dir, ray, &t) == true)
+	if (hit_obj_plane(square->center, square->dir, ray, &t) == true)
 	{
 		hit_p = get_hit_point(ray->origin, t, ray->dir);
 		if (is_inside_square(square, hit_p) == true)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_triangle.c                               :+:      :+:    :+:   */
+/*   hit_triangle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/23 01:21:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:58:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ static bool		is_inside_triangle(t_tri *tri, t_vec3 hit_p, t_vec3 normal)
 ** If a triangle is intersected, t_nearest is updated and true is returned
 */
 
-bool			intersect_triangle(t_tri *triangle, t_ray *ray)
+bool			hit_triangle(t_tri *triangle, t_ray *ray)
 {
 	double		t;
 	t_vec3		hit_p;
 
-	if (intersect_obj_plane(
+	if (hit_obj_plane(
 		triangle->vertex1, triangle->normal, ray, &t) == true)
 	{
 		hit_p = get_hit_point(ray->origin, t, ray->dir);

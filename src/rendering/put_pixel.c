@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 01:38:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 23:13:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@
 
 static uint32_t	rgb_to_int(t_color color)
 {
+	t_color		result;
 	t_uchar		r;
 	t_uchar		g;
 	t_uchar		b;
 
-	r = fmin(255.0, fmax(0.0, color.x));
-	g = fmin(255.0, fmax(0.0, color.y));
-	b = fmin(255.0, fmax(0.0, color.z));
+	result = scale_vec3(255.0, color);
+	result = color_in_range(result, 255.0, 0.0);
+	r = result.x;
+	g = result.y;
+	b = result.z;
 	return (r << 16 | g << 8 | b);
 }
 

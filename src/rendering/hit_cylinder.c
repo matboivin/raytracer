@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_cylinder.c                               :+:      :+:    :+:   */
+/*   hit_cylinder.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 19:31:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:58:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static t_vec3	pre_compute_coef(t_vec3 v, t_vec3 dir)
 ** If a cylinder is intersected, t_nearest is updated and true is returned
 */
 
-bool			intersect_cylinder(t_cyl *cylinder, t_ray *ray)
+bool			hit_cylinder(t_cyl *cylinder, t_ray *ray)
 {
 	t_vec3		quad_coef;
 	t_vec3		dist;

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect.c                                        :+:      :+:    :+:   */
+/*   illuminate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 00:36:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:46:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-/*
-** This function returns true if a ray intersects any object
-*/
-
-bool		intersect(t_lstobj *objs, t_ray *ray)
+void			illuminate(t_lstlight *lights, t_ray *ray)
 {
-	bool	has_hit;
+	t_lstlight	*head;
+	double		angle;
 
-	has_hit = false;
-	if (objs->type == SPHERE)
-		has_hit = intersect_sphere(objs->obj, ray);
-	else if (objs->type == PLANE)
-		has_hit = intersect_plane(objs->obj, ray);
-	else if (objs->type == SQUARE)
-		has_hit = intersect_square(objs->obj, ray);
-	else if (objs->type == CYLINDER)
-		has_hit = intersect_cylinder(objs->obj, ray);
-	else if (objs->type == TRIANGLE)
-		has_hit = intersect_triangle(objs->obj, ray);
-	return (has_hit);
+	head = lights;
+	while (lights)
+	{
+		angle = get_angle_in(lights->light->pos, ray->hit_p, ray->normal);
+		if (angle > 0.0)
+		{
+			ray->color = scale_vec3(fabs(angle), ray->obj_color);
+		}
+		lights = lights->next;
+	}
+	lights = head;
 }

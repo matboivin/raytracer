@@ -29,6 +29,7 @@ SRC			=	main.c						\
 				check_max_display.c			\
 				check_null_vector.c			\
 				check_params.c				\
+				color_in_range.c			\
 				create_circular_lstcam.c	\
 				dispatch_event.c			\
 				display_render.c			\
@@ -43,13 +44,14 @@ SRC			=	main.c						\
 				get_sphere_normal.c			\
 				get_triangle_normal.c		\
 				handle_key.c				\
+				illuminate.c				\
 				image.c						\
-				intersect.c					\
-				intersect_cylinder.c		\
-				intersect_plane.c			\
-				intersect_sphere.c			\
-				intersect_square.c			\
-				intersect_triangle.c		\
+				hit.c						\
+				hit_cylinder.c				\
+				hit_plane.c					\
+				hit_sphere.c				\
+				hit_square.c				\
+				hit_triangle.c				\
 				lights.c					\
 				look_at.c					\
 				objects.c					\
@@ -72,7 +74,7 @@ SRC			=	main.c						\
 				scene.c						\
 				set_ray_dir.c				\
 				set_ray_origin.c			\
-				shading.c					\
+				shade.c						\
 				switch_cam.c				\
 				trace_ray.c					\
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_sphere.c                                 :+:      :+:    :+:   */
+/*   hit_sphere.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 19:09:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:58:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static bool	solve_quadratic_sphere(t_ray *ray, t_vec3 quad_coef)
 ** If a sphere is intersected, t_nearest is updated and true is returned
 */
 
-bool		intersect_sphere(t_sphere *sphere, t_ray *ray)
+bool		hit_sphere(t_sphere *sphere, t_ray *ray)
 {
 	t_vec3	quad_coef;
 	t_vec3	dist;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_plane.c                                  :+:      :+:    :+:   */
+/*   hit_plane.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 19:48:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/25 22:58:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function handles intersection with the plane of an object
 */
 
-bool		intersect_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
+bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 {
 	double	dist;
 	double	denom;
@@ -41,11 +41,11 @@ bool		intersect_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 ** If a plane is intersected, t_nearest is updated and true is returned
 */
 
-bool		intersect_plane(t_plane *plane, t_ray *ray)
+bool		hit_plane(t_plane *plane, t_ray *ray)
 {
 	double	t;
 
-	if (intersect_obj_plane(plane->center, plane->dir, ray, &t) == true)
+	if (hit_obj_plane(plane->center, plane->dir, ray, &t) == true)
 	{
 		ray->t_nearest = t;
 		return (true);
