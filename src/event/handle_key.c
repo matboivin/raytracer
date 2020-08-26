@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:28:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 00:47:59 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 ** This function handles keyboard events
 */
 
-int		handle_key(t_minirt *env, int keycode)
+int				handle_key(int keycode, void *param)
 {
+	t_minirt	*env;
+
+	env = (t_minirt *)param;
 	if (keycode == ESC_KEY)
 		exit_success(env);
 	if (keycode == SPC_KEY)
