@@ -4,7 +4,7 @@ SHELL = /bin/sh
 CC = gcc
 RM = rm -rf
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
 IFLAGS		=	$(foreach dir, $(INC_PATH), -I $(dir))
 LFLAGS		=	$(foreach dir, $(LIB_PATH), -L $(dir)) \
 				$(foreach lib, $(LIB), -l $(lib))
