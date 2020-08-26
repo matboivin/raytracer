@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 22:40:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:25:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ typedef struct	s_err
 	t_errid		u_id;
 	char		*msg;
 }				t_err;
-
-extern struct s_err	g_err[];
 
 void			check_params(int argc, char **argv, bool *to_bmp);
 void			put_error(t_errid raised);

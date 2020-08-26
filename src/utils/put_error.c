@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:02:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:30:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Struct: Error identifiers associated to error messages
 */
 
-struct s_err	g_err[] =
+static t_err	g_errors[] =
 {
 	{ AMB_DUP, "Invalid scene: Ambient light must be declared once." },
 	{ AMB_FMT, "Invalid scene: Ambient light badly formatted." },
@@ -53,10 +53,10 @@ static char	*catch_err(t_errid raised)
 	int		i;
 
 	i = 0;
-	while (g_err[i].u_id != DEFAULT_ERR)
+	while (g_errors[i].u_id != DEFAULT_ERR)
 	{
-		if (g_err[i].u_id == raised)
-			return (g_err[i].msg);
+		if (g_errors[i].u_id == raised)
+			return (g_errors[i].msg);
 		i++;
 	}
 	return ((char *)strerror(errno));

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:51:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:32:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Struct: Element identifiers associated to parsing functions
 */
 
-struct s_pars_arr	g_pars_elem[] =
+static t_parsers	g_parsers[] =
 {
 	{ "R ", &get_resolution },
 	{ "A ", &get_ambient },
@@ -44,9 +44,9 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 	i = 0;
 	while (i < 13)
 	{
-		if (ft_strncmp(g_pars_elem[i].u_id, *input, 2) == 0)
+		if (ft_strncmp(g_parsers[i].u_id, *input, 2) == 0)
 		{
-			(*g_pars_elem[i].func)(env, input);
+			(*g_parsers[i].func)(env, input);
 			return ;
 		}
 		i++;
