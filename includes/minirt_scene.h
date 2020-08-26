@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 19:49:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 19:17:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_amb
 {
 	bool		is_declared;
 	double		ratio;
-	t_color		color;
+	t_vcolor	vcolor;
 }				t_amb;
 
 typedef struct	s_scene

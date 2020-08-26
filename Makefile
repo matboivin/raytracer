@@ -43,7 +43,6 @@ SRC			=	main.c						\
 				get_sphere_normal.c			\
 				get_triangle_normal.c		\
 				handle_key.c				\
-				illuminate.c				\
 				image.c						\
 				hit.c						\
 				hit_cylinder.c				\
@@ -68,7 +67,6 @@ SRC			=	main.c						\
 				put_image_to_window.c		\
 				put_pixel.c					\
 				ray.c						\
-				raytrace.c					\
 				reload_image.c				\
 				render.c					\
 				rescale_color.c				\
@@ -78,6 +76,7 @@ SRC			=	main.c						\
 				set_ray_origin.c			\
 				shade.c						\
 				switch_cam.c				\
+				trace_ray.c					\
 				tracers.c					\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
@@ -111,7 +110,7 @@ $(OBJ_PATH)/%.o : %.c
 .PHONY: debug
 debug: CFLAGS+=-g3 -fsanitize=address
 debug: re
-	./miniRT scenes/scene.rt
+	./miniRT scenes/sphere1.rt
 
 .PHONY: bonus
 bonus: $(NAME)

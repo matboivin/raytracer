@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/07/31 16:49:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 19:14:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ typedef struct			s_light
 {
 	t_vec3				pos;
 	double				ratio;
-	t_color				color;
+	t_vcolor			vcolor;
 }						t_light;
 
 typedef struct			s_lstlight

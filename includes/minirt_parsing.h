@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:28:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 19:16:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			get_triangle(t_scene *scene, char **input);
 
 int				get_integer(t_scene *scene, char **input);
 double			get_double(t_scene *scene, char **input);
-t_color			get_color(t_scene *scene, char **input);
+t_vcolor		get_color(t_scene *scene, char **input);
 t_vec3			get_vec3(t_scene *scene, char **input);
 bool			ft_vec3_range(t_vec3 vec, double start, double end);
 void			skip_blank(char **s);

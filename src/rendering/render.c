@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 01:36:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 20:22:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	render_n_image(t_scene *scene, int n)
 	while (i < n)
 	{
 		scene->cameras->cam->img = malloc_image();
-		raytrace(scene, scene->cameras->cam);
+		trace_ray(scene, scene->cameras->cam);
 		if (g_app->img == NULL)
 			g_app->img = scene->cameras->cam->img;
 		scene->cameras = scene->cameras->next;

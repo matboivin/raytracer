@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 23:16:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 19:22:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	create_ambient(t_amb *amb)
 {
 	amb->is_declared = false;
 	amb->ratio = 0.0;
-	amb->color = create_vec3(0.0, 0.0, 0.0);
+	amb->vcolor = create_vec3(0.0, 0.0, 0.0);
 }
 
 void	create_scene(t_scene *scene)

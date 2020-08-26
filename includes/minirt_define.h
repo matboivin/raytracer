@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 00:42:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 19:13:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 
 # define ALPHA 0xFF
 
-typedef t_vec3			t_color;
+typedef t_vec3			t_vcolor;
+typedef uint32_t		t_color;
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
 

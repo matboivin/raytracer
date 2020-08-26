@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 01:05:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 19:16:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct	s_ray
 	t_vec3		origin;
 	t_vec3		dir;
 	double		t_nearest;
-	t_color		obj_color;
-	t_color		color;
+	t_vcolor	obj_color;
+	t_vcolor	vcolor;
 	t_vec3		hit_p;
 	t_vec3		normal;
 }				t_ray;
