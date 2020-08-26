@@ -6,19 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:06:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:32:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** Objects
-**
-** new_lstobj()      :  Create a new object element
-** lstobj_add_back() :  Add a new object at the end of the list
-** lstobj_clear()    :  Delete all objects
-*/
 
 t_lstobj		*new_lstobj(void *obj, t_objid type)
 {
@@ -33,32 +25,32 @@ t_lstobj		*new_lstobj(void *obj, t_objid type)
 	return (result);
 }
 
-void			lstobj_add_back(t_lstobj **lst, t_lstobj *new)
+void			lstobj_add_back(t_lstobj **objs, t_lstobj *new)
 {
 	t_lstobj	*cursor;
 
-	if ((lst == NULL) || (new == NULL))
+	if ((objs == NULL) || (new == NULL))
 		return ;
-	cursor = *lst;
-	if (*lst)
+	cursor = *objs;
+	if (*objs)
 	{
 		while (cursor->next)
 			cursor = cursor->next;
 		cursor->next = new;
 	}
 	else
-		*lst = new;
+		*objs = new;
 }
 
-void			lstobj_clear(t_lstobj **lst)
+void			lstobj_clear(t_lstobj **objs)
 {
 	t_lstobj	*cursor;
 	t_lstobj	*next_node;
 
-	if (lst == NULL)
+	if (objs == NULL)
 		return ;
-	cursor = *lst;
-	if (*lst)
+	cursor = *objs;
+	if (*objs)
 	{
 		while (cursor)
 		{
@@ -67,6 +59,6 @@ void			lstobj_clear(t_lstobj **lst)
 			free(cursor);
 			cursor = next_node;
 		}
-		*lst = NULL;
+		*objs = NULL;
 	}
 }

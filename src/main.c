@@ -6,13 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 19:35:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 00:29:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-t_app		*g_app;
 
 /*
 ** miniRT
@@ -26,16 +24,16 @@ t_app		*g_app;
 ** Run a loop to listen to events
 */
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
-	t_scene	scene;
-	bool	to_bmp;
+	t_minirt	env;
+	bool		to_bmp;
 
 	to_bmp = false;
 	check_params(argc, argv, &to_bmp);
-	open_app(WIN_TITLE);
-	parse_scene(&scene, argv[1]);
-	render(&scene, to_bmp);
-	display_render(&scene);
-	return (run_app());
+	init_minirt(&env, WIN_TITLE);
+	parse_scene(&env, argv[1]);
+	render(&env, to_bmp);
+	display_render(&env);
+	return (run_minirt(&env));
 }

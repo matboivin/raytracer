@@ -24,15 +24,8 @@ vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 LIB			=	ft minimath mlx_Linux
 
 SRC			=	main.c						\
-				application.c				\
-				camera.c					\
 				check_max_display.c			\
 				check_null_vector.c			\
-				check_params.c				\
-				create_circular_lstcam.c	\
-				dispatch_event.c			\
-				display_render.c			\
-				exit.c						\
 				get_angle_in.c				\
 				get_quad_coef.c				\
 				get_quad_roots.c			\
@@ -42,18 +35,13 @@ SRC			=	main.c						\
 				get_obj_color.c				\
 				get_sphere_normal.c			\
 				get_triangle_normal.c		\
-				handle_key.c				\
-				image.c						\
 				hit.c						\
 				hit_cylinder.c				\
 				hit_plane.c					\
 				hit_sphere.c				\
 				hit_square.c				\
 				hit_triangle.c				\
-				lights.c					\
 				look_at.c					\
-				objects.c					\
-				open_window.c				\
 				parsing.c					\
 				parsing_ambient.c			\
 				parsing_cam.c				\
@@ -63,21 +51,43 @@ SRC			=	main.c						\
 				parsing_resolution.c		\
 				parsing_values.c			\
 				parsing_utils.c				\
-				put_error.c					\
-				put_image_to_window.c		\
 				put_pixel.c					\
-				ray.c						\
-				reload_image.c				\
 				render.c					\
 				rescale_color.c				\
-				save_bmp.c					\
-				scene.c						\
 				set_ray_dir.c				\
 				set_ray_origin.c			\
 				shade.c						\
-				switch_cam.c				\
 				trace_ray.c					\
 				tracers.c					\
+
+# Display and event handling
+
+SRC			+=	dispatch_event.c			\
+				display_render.c			\
+				handle_key.c				\
+				open_window.c				\
+				put_image_to_window.c		\
+				reload_image.c				\
+				switch_cam.c				\
+
+# Utils
+
+SRC			+=	check_params.c				\
+				exit.c						\
+				put_error.c					\
+				save_bmp.c					\
+
+# Structs
+
+SRC			+=	ambient.c					\
+				camera.c					\
+				image.c						\
+				lights.c					\
+				lstimg.c					\
+				minirt.c					\
+				objects.c					\
+				ray.c						\
+				resolution.c				\
 
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 

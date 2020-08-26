@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 20:30:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:47:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static void		set_secondary_ray(t_lstobj *hit_obj, t_ray *ray)
 	ray->normal = get_obj_normal(hit_obj, ray, ray->hit_p);
 }
 
-static void		shade(t_scene *scene, t_ray *ray)
+static void		shade(t_minirt *env, t_ray *ray)
 {
 	t_lstobj	*hit_obj;
 
-	hit_obj = trace_ray_to_objs(scene->objs, ray);
+	hit_obj = trace_ray_to_objs(env->objs, ray);
 	if (hit_obj)
 	{
 		set_secondary_ray(hit_obj, ray);
-		trace_ray_to_lights(scene->objs, scene->lights, ray);
+		trace_ray_to_lights(env, ray);
 	}
 }
 
@@ -37,7 +37,7 @@ static void		shade(t_scene *scene, t_ray *ray)
 ** retrieves the ray color to put it in the image.
 */
 
-void			trace_ray(t_scene *scene, t_cam *cam)
+void			trace_ray(t_minirt *env, t_cam *cam, t_img *img)
 {
 	t_ray		ray;
 	int			x;
@@ -47,18 +47,18 @@ void			trace_ray(t_scene *scene, t_cam *cam)
 	look_at(cam);
 	set_ray_origin(&ray, cam->pos);
 	y = 0;
-	while (y < g_app->win_y)
+	while (y < env->res.size_y)
 	{
 		x = 0;
-		while (x < g_app->win_x)
+		while (x < env->res.size_x)
 		{
-			set_ray_dir(scene, &ray, x, y);
-			shade(scene, &ray);
-			put_pixel_to_image(cam->img, ray.vcolor, x, y);
+			set_ray_dir(env, &ray, x, y);
+			shade(env, &ray);
+			put_pixel_to_image(img, ray.vcolor, x, y);
 			x++;
 		}
 		y++;
-		progress = y * 100 / g_app->win_y;
+		progress = y * 100 / env->res.size_y;
 		ft_printf("\rRendering image... %d%%", progress);
 	}
 	ft_printf("\n");

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 20:21:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 22:40:59 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ extern struct s_err	g_err[];
 
 void			check_params(int argc, char **argv, bool *to_bmp);
 void			put_error(t_errid raised);
-void			exit_error(t_scene *scene, t_errid raised);
-int				exit_success(t_scene *scene);
+void			exit_error(t_minirt *env, t_errid raised);
+int				exit_success(t_minirt *env);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/13 21:51:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:07:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 ** This functions adds parsed object to scene
 */
 
-void			add_obj_to_scene(t_scene *scene, void *obj, t_objid type)
+void			add_obj_to_scene(t_minirt *env, void *obj, t_objid type)
 {
 	t_lstobj	*new_obj;
 
 	new_obj = new_lstobj(obj, type);
 	if (new_obj == NULL)
-		exit_error(scene, DEFAULT_ERR);
-	lstobj_add_back(&(scene->objs), new_obj);
+		exit_error(env, DEFAULT_ERR);
+	lstobj_add_back(&(env->objs), new_obj);
 }

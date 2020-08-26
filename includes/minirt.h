@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 18:39:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 00:34:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@
 
 # include "minirt_define.h"
 # include "minirt_ray.h"
-# include "minirt_image.h"
-# include "minirt_scene.h"
-# include "minirt_application.h"
+# include "minirt_camera.h"
+# include "minirt_light.h"
+# include "minirt_objects.h"
+# include "minirt_env.h"
 # include "minirt_events.h"
 # include "minirt_render.h"
 # include "minirt_math_utils.h"
@@ -40,7 +41,5 @@
 # include "minirt_display.h"
 # include "minirt_save.h"
 # include "minirt_exit.h"
-
-extern struct s_app			*g_app;
 
 #endif

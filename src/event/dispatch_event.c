@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/18 17:22:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:24:15 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 ** This function dispatches event handlers
 */
 
-void	dispatch_event(t_scene *scene)
+void	dispatch_event(t_minirt *env)
 {
 	mlx_key_hook(
-		g_app->win_ptr,
+		env->win_ptr,
 		handle_key,
-		scene);
+		env);
 	mlx_hook(
-		g_app->win_ptr,
+		env->win_ptr,
 		DESTROYNOTIFY,
 		STRUCTURENOTIFYMASK,
 		exit_success,
-		scene);
+		env);
 	mlx_hook(
-		g_app->win_ptr,
+		env->win_ptr,
 		MAPNOTIFY,
 		STRUCTURENOTIFYMASK,
 		reload_image,
-		scene);
+		env);
 }

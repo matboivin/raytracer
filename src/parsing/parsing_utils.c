@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:20:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:08:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ void	skip_digits(char **s)
 ** This function skips double number
 */
 
-void	skip_double(t_scene *scene, char **s)
+void	skip_double(t_minirt *env, char **s)
 {
 	skip_separator(s, '-');
 	skip_digits(s);
 	if (skip_separator(s, '.'))
 	{
 		if (ft_isdigit(**s) == false)
-			exit_error(scene, DOUBLE_FMT);
+			exit_error(env, DOUBLE_FMT);
 		while (ft_isdigit(**s) == true)
 			(*s)++;
 		if ((**s) == '-')
-			exit_error(scene, DOUBLE_FMT);
+			exit_error(env, DOUBLE_FMT);
 	}
 }
 

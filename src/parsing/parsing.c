@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 18:55:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:51:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ struct s_pars_arr	g_pars_elem[] =
 ** This function calls the appropriate function to parse a line
 */
 
-static void		handle_scene_elem(t_scene *scene, char **input)
+static void		handle_scene_elem(t_minirt *env, char **input)
 {
 	int			i;
 
@@ -46,19 +46,19 @@ static void		handle_scene_elem(t_scene *scene, char **input)
 	{
 		if (ft_strncmp(g_pars_elem[i].u_id, *input, 2) == 0)
 		{
-			(*g_pars_elem[i].func)(scene, input);
+			(*g_pars_elem[i].func)(env, input);
 			return ;
 		}
 		i++;
 	}
-	exit_error(scene, ID_ERR);
+	exit_error(env, ID_ERR);
 }
 
 /*
 ** This function gets the entire scene description
 */
 
-static char		*read_scene_file(t_scene *scene, const char *filepath)
+static char		*read_scene_file(t_minirt *env, const char *filepath)
 {
 	char		*result;
 	char		buffer[BUFFER_SIZE + 1];
@@ -68,13 +68,13 @@ static char		*read_scene_file(t_scene *scene, const char *filepath)
 	result = NULL;
 	fd = open(filepath, O_RDONLY);
 	if (fd < 0)
-		exit_error(scene, DEFAULT_ERR);
+		exit_error(env, DEFAULT_ERR);
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[bytes_read] = '\0';
 		result = ft_strjoindelone(result, buffer);
 		if (result == NULL)
-			exit_error(scene, DEFAULT_ERR);
+			exit_error(env, DEFAULT_ERR);
 	}
 	close(fd);
 	return (result);
@@ -84,44 +84,42 @@ static char		*read_scene_file(t_scene *scene, const char *filepath)
 ** This function checks whether the scene description is valid
 */
 
-static void		check_scene(t_scene *scene)
+static void		check_scene(t_minirt *env)
 {
-	if ((scene->res.is_declared == false) || (scene->amb.is_declared == false))
-		exit_error(scene, MISS_RA);
-	if (scene->cameras == NULL)
-		exit_error(scene, MISS_CAM);
-	if (scene->lights == NULL)
-		exit_error(scene, MISS_LIGHT);
-	if (scene->objs == NULL)
-		exit_error(scene, MISS_OBJ);
+	if ((env->res.is_declared == false) || (env->ambient.is_declared == false))
+		exit_error(env, MISS_RA);
+	if (env->cams == NULL)
+		exit_error(env, MISS_CAM);
+	if (env->lights == NULL)
+		exit_error(env, MISS_LIGHT);
+	if (env->objs == NULL)
+		exit_error(env, MISS_OBJ);
 }
 
 /*
 ** This function iterates over the input to call functions
 */
 
-void			parse_scene(t_scene *scene, const char *filepath)
+void			parse_scene(t_minirt *env, const char *filepath)
 {
 	const char	*ids = "RAclspt";
 	char		*input;
 	char		*head;
 
-	create_scene(scene);
-	input = read_scene_file(scene, filepath);
+	input = read_scene_file(env, filepath);
 	if (input == NULL)
-		exit_error(scene, DEFAULT_ERR);
+		exit_error(env, DEFAULT_ERR);
 	head = input;
 	while (*input)
 	{
 		if (*input == '\n')
 			input++;
 		else if (ft_ischarset(*input, ids) == true)
-			handle_scene_elem(scene, &input);
+			handle_scene_elem(env, &input);
 		else
-			exit_error(scene, SCENE_FMT);
+			exit_error(env, SCENE_FMT);
 	}
 	ft_strdel(&head);
-	check_scene(scene);
-	check_max_display(scene);
-	create_circular_lstcam(scene->cameras);
+	check_scene(env);
+	check_max_display(env);
 }

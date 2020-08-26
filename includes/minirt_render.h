@@ -6,22 +6,22 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 20:28:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:48:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_RENDER_H
 # define MINIRT_RENDER_H
 
-void		render(t_scene *scene, bool to_bmp);
+void		render(t_minirt *env, bool to_bmp);
 
 void		look_at(t_cam *cam);
 void		set_ray_origin(t_ray *ray, t_vec3 cam_pos);
-void		set_ray_dir(t_scene *scene, t_ray *ray, int x, int y);
+void		set_ray_dir(t_minirt *env, t_ray *ray, int x, int y);
 
-void		trace_ray(t_scene *scene, t_cam *cam);
+void		trace_ray(t_minirt *env, t_cam *cam, t_img *img);
 t_lstobj	*trace_ray_to_objs(t_lstobj *objs, t_ray *ray);
-void		trace_ray_to_lights(t_lstobj *objs, t_lstlight *lights, t_ray *ray);
+void		trace_ray_to_lights(t_minirt *env, t_ray *ray);
 
 bool		hit(t_lstobj *objs, t_ray *ray);
 bool		hit_sphere(t_sphere *sphere, t_ray *ray);

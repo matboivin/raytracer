@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/16 18:06:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:28:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 ** This function handles keyboard events
 */
 
-int		handle_key(int keycode, t_scene *scene)
+int		handle_key(t_minirt *env, int keycode)
 {
 	if (keycode == ESC_KEY)
-		exit_success(scene);
+		exit_success(env);
 	if (keycode == SPC_KEY)
-		switch_camera(scene);
+		switch_camera(env);
 	return (0);
 }

@@ -6,19 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 19:43:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 00:23:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** Camera
-**
-** new_lstcam()      :  Create a new camera element
-** lstcam_add_back() :  Add a new camera at the end of the list
-** lstcam_clear()    :  Delete all cameras
-*/
 
 t_lstcam		*new_lstcam(t_cam *cam)
 {
@@ -32,50 +24,40 @@ t_lstcam		*new_lstcam(t_cam *cam)
 	return (result);
 }
 
-void			lstcam_add_back(t_lstcam **lst, t_lstcam *new)
+void			lstcam_add_back(t_lstcam **cams, t_lstcam *new)
 {
 	t_lstcam	*cursor;
 
-	if ((lst == NULL) || (new == NULL))
+	if ((cams == NULL) || (new == NULL))
 		return ;
-	cursor = *lst;
-	if (*lst)
+	cursor = *cams;
+	if (*cams)
 	{
 		while (cursor->next)
 			cursor = cursor->next;
 		cursor->next = new;
 	}
 	else
-		*lst = new;
+		*cams = new;
 }
 
-void			lstcam_clear(t_lstcam **lst)
+void			lstcam_clear(t_lstcam **cams)
 {
-	t_lstcam	*head;
 	t_lstcam	*cursor;
+	t_lstcam	*next_node;
 
-	if (lst == NULL)
+	if (cams == NULL)
 		return ;
-	head = *lst;
-	while (*lst)
+	cursor = *cams;
+	if (*cams)
 	{
-		cursor = *lst;
-		*lst = (*lst)->next;
-		free_camera(cursor->cam);
-		free(cursor);
-		if (*lst == head)
-			*lst = NULL;
+		while (cursor)
+		{
+			next_node = cursor->next;
+			free(cursor->cam);
+			free(cursor);
+			cursor = next_node;
+		}
+		*cams = NULL;
 	}
-}
-
-void			destroy_camera(t_cam to_destroy)
-{
-	if (to_destroy.img)
-		free_image(to_destroy.img);
-}
-
-void			free_camera(t_cam *to_free)
-{
-	destroy_camera(*to_free);
-	free(to_free);
 }

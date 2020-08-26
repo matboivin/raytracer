@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 19:19:21 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:06:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 ** This function parses light information
 */
 
-static t_light	*create_light(t_scene *scene, char **input)
+static t_light	*create_light(t_minirt *env, char **input)
 {
 	t_light		*result;
 
 	result = (t_light *)malloc(sizeof(t_light));
 	if (result == NULL)
-		exit_error(scene, DEFAULT_ERR);
-	result->pos = get_vec3(scene, input);
-	result->ratio = get_double(scene, input);
+		exit_error(env, DEFAULT_ERR);
+	result->pos = get_vec3(env, input);
+	result->ratio = get_double(env, input);
 	if (ft_f_range(result->ratio, 0.0, 1.0) == false)
-		exit_error(scene, LIGHT_FMT);
-	result->vcolor = get_color(scene, input);
+		exit_error(env, LIGHT_FMT);
+	result->vcolor = get_color(env, input);
 	result->vcolor = scale_vec3(result->ratio, result->vcolor);
 	return (result);
 }
@@ -36,16 +36,16 @@ static t_light	*create_light(t_scene *scene, char **input)
 ** This function adds a light to scene
 */
 
-void			get_light(t_scene *scene, char **input)
+void			get_light(t_minirt *env, char **input)
 {
 	t_light		*light_data;
 	t_lstlight	*new_light;
 
 	(*input) += 2;
-	light_data = create_light(scene, input);
+	light_data = create_light(env, input);
 	new_light = new_lstlight(light_data);
 	if (new_light == NULL)
-		exit_error(scene, DEFAULT_ERR);
-	lstlight_add_back(&(scene->lights), new_light);
+		exit_error(env, DEFAULT_ERR);
+	lstlight_add_back(&(env->lights), new_light);
 	skip_blank(input);
 }

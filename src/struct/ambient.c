@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_circular_lstcam.c                           :+:      :+:    :+:   */
+/*   ambient.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:21:00 by mboivin          ###   ########.fr       */
+/*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
+/*   Updated: 2020/08/26 23:41:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-/*
-** This function creates a circular linked list to switch between cameras
-*/
-
-void			create_circular_lstcam(t_lstcam *cameras)
+void	create_ambient(t_amb *ambient)
 {
-	t_lstcam	*head;
-
-	head = cameras;
-	while (cameras->next)
-		cameras = cameras->next;
-	cameras->next = head;
+	ambient->is_declared = false;
+	ambient->ratio = 0.0;
+	ambient->vcolor = create_vec3(0.0, 0.0, 0.0);
 }

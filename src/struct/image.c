@@ -6,29 +6,20 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/02 00:29:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 00:31:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-/*
-** MLX image
-**
-** create_image()  :  Constructor
-** malloc_image()  :  Malloc function
-** destroy_image() :  Destructor
-** free_image()    :  Free function
-*/
-
-t_img		create_image(void)
+t_img		create_image(t_minirt *env)
 {
 	t_img	result;
 
-	result.size_x = g_app->win_x;
-	result.size_y = g_app->win_y;
+	result.size_x = env->res.size_x;
+	result.size_y = env->res.size_y;
 	result.img_ptr = mlx_new_image(
-		g_app->mlx_ptr,
+		env->mlx_ptr,
 		result.size_x,
 		result.size_y);
 	result.pixels = mlx_get_data_addr(
@@ -39,24 +30,24 @@ t_img		create_image(void)
 	return (result);
 }
 
-t_img		*malloc_image(void)
+t_img		*malloc_image(t_minirt *env)
 {
 	t_img	*result;
 
 	result = (t_img *)malloc(sizeof(t_img));
 	if (result == NULL)
 		put_error(DEFAULT_ERR);
-	*result = create_image();
+	*result = create_image(env);
 	return (result);
 }
 
-void		destroy_image(t_img to_destroy)
+void		destroy_image(void *mlx_ptr, t_img to_destroy)
 {
-	mlx_destroy_image(g_app->mlx_ptr, to_destroy.img_ptr);
+	mlx_destroy_image(mlx_ptr, to_destroy.img_ptr);
 }
 
-void		free_image(t_img *to_free)
+void		free_image(void *mlx_ptr, t_img *to_free)
 {
-	destroy_image(*to_free);
+	destroy_image(mlx_ptr, *to_free);
 	free(to_free);
 }

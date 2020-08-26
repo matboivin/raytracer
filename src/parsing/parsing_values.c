@@ -6,13 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 19:18:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 23:07:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int				get_integer(t_scene *scene, char **input)
+int				get_integer(t_minirt *env, char **input)
 {
 	int			result;
 
@@ -24,11 +24,11 @@ int				get_integer(t_scene *scene, char **input)
 		skip_digits(input);
 	}
 	else
-		exit_error(scene, NUM_FMT);
+		exit_error(env, NUM_FMT);
 	return (result);
 }
 
-double			get_double(t_scene *scene, char **input)
+double			get_double(t_minirt *env, char **input)
 {
 	double		result;
 	char		*endptr;
@@ -39,56 +39,56 @@ double			get_double(t_scene *scene, char **input)
 	{
 		result = ft_strtod(*input, &endptr);
 		free(endptr);
-		skip_double(scene, input);
+		skip_double(env, input);
 	}
 	else
-		exit_error(scene, DOUBLE_FMT);
+		exit_error(env, DOUBLE_FMT);
 	return (result);
 }
 
-static int		get_rgb_val(t_scene *scene, char **input)
+static int		get_rgb_val(t_minirt *env, char **input)
 {
 	int			result;
 
 	if (ft_isdigit(**input) == false)
-		exit_error(scene, COLOR_FMT);
+		exit_error(env, COLOR_FMT);
 	else if (ft_isdigit(**input) == true)
 	{
-		result = get_integer(scene, input);
+		result = get_integer(env, input);
 		if (ft_n_range(result, 0, 255) == false)
-			exit_error(scene, COLOR_FMT);
+			exit_error(env, COLOR_FMT);
 		skip_digits(input);
 	}
 	return (result);
 }
 
-t_vcolor		get_color(t_scene *scene, char **input)
+t_vcolor		get_color(t_minirt *env, char **input)
 {
 	t_vcolor	result;
 
 	skip_blank(input);
-	result.x = get_rgb_val(scene, input);
+	result.x = get_rgb_val(env, input);
 	if (!(skip_separator(input, ',')))
-		exit_error(scene, COLOR_FMT);
-	result.y = get_rgb_val(scene, input);
+		exit_error(env, COLOR_FMT);
+	result.y = get_rgb_val(env, input);
 	if (!(skip_separator(input, ',')))
-		exit_error(scene, COLOR_FMT);
-	result.z = get_rgb_val(scene, input);
+		exit_error(env, COLOR_FMT);
+	result.z = get_rgb_val(env, input);
 	result = scale_vec3((1.0 / 255.0), result);
 	return (result);
 }
 
-t_vec3			get_vec3(t_scene *scene, char **input)
+t_vec3			get_vec3(t_minirt *env, char **input)
 {
 	t_vec3		result;
 
 	skip_blank(input);
-	result.x = get_double(scene, input);
+	result.x = get_double(env, input);
 	if (!(skip_separator(input, ',')))
-		exit_error(scene, COORD_FMT);
-	result.y = get_double(scene, input);
+		exit_error(env, COORD_FMT);
+	result.y = get_double(env, input);
 	if (!(skip_separator(input, ',')))
-		exit_error(scene, COORD_FMT);
-	result.z = get_double(scene, input);
+		exit_error(env, COORD_FMT);
+	result.z = get_double(env, input);
 	return (result);
 }

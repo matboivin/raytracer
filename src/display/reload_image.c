@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/22 18:23:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/26 22:43:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int		reload_image(void)
+int		reload_image(t_minirt *env)
 {
-	put_image_to_window();
+	put_image_to_window(env);
 	return (0);
 }
