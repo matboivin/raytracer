@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 01:32:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:48:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 	int			i;
 
 	i = 0;
-	while (i < 13)
+	while (i < PARS_FUNC)
 	{
 		if (ft_strncmp(g_parsers[i].u_id, *input, 2) == 0)
 		{
@@ -86,14 +86,16 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 
 static void		check_scene(t_minirt *env)
 {
-	if ((env->res.is_declared == false) || (env->ambient.is_declared == false))
-		exit_error(env, MISS_RA);
+	if (env->res.is_declared == false)
+		exit_error(env, NO_RES);
+	if (env->ambient.is_declared == false)
+		exit_error(env, NO_AMB);
 	if (env->cams == NULL)
-		exit_error(env, MISS_CAM);
+		exit_error(env, NO_CAM);
 	if (env->lights == NULL)
-		exit_error(env, MISS_LIGHT);
+		exit_error(env, NO_LIGHT);
 	if (env->objs == NULL)
-		exit_error(env, MISS_OBJ);
+		exit_error(env, NO_OBJ);
 }
 
 /*

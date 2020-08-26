@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 01:25:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:47:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ typedef enum	e_errid
 	FILENAME,
 	ID_ERR,
 	LIGHT_FMT,
-	MISS_RA,
-	MISS_CAM,
-	MISS_LIGHT,
-	MISS_OBJ,
+	NO_AMB,
+	NO_CAM,
+	NO_LIGHT,
+	NO_OBJ,
+	NO_RES,
 	NUM_FMT,
 	PLANE_FMT,
 	SAVE_OPTION,

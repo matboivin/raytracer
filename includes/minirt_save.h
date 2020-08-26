@@ -6,14 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 22:39:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:34:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_SAVE_H
 # define MINIRT_SAVE_H
-
-# define BMP_FILENAME "minirt.bmp"
 
 /*
 ** Struct: Bitmap file header
