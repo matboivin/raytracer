@@ -6,27 +6,24 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 00:43:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 21:08:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_vec3		get_obj_normal(t_lstobj *hit_obj, t_ray *ray, t_vec3 hit_p)
+void	get_obj_normal(t_lstobj *hit_obj, t_ray *ray, t_vec3 hit_p)
 {
-	t_vec3	normal;
-
 	if (hit_obj->type == SPHERE)
-		normal = get_sphere_normal(hit_obj->obj, hit_p);
+		ray->normal = get_sphere_normal(hit_obj->obj, hit_p);
 	else if (hit_obj->type == PLANE)
-		normal = ((t_plane *)hit_obj->obj)->dir;
+		ray->normal = ((t_plane *)hit_obj->obj)->dir;
 	else if (hit_obj->type == SQUARE)
-		normal = ((t_square *)hit_obj->obj)->dir;
+		ray->normal = ((t_square *)hit_obj->obj)->dir;
 	else if (hit_obj->type == CYLINDER)
-		normal = get_cylinder_normal(hit_obj->obj, hit_p);
+		ray->normal = get_cylinder_normal(hit_obj->obj, hit_p);
 	else if (hit_obj->type == TRIANGLE)
-		normal = get_triangle_normal(hit_obj->obj);
-	if (dot_vec3(ray->dir, normal) > 0.0)
-		normal = scale_vec3(-1, normal);
-	return (normal);
+		ray->normal = get_triangle_normal(hit_obj->obj);
+	if (dot_vec3(ray->dir, ray->normal) > 0.0)
+		ray->normal = scale_vec3(-1, ray->normal);
 }

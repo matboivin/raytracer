@@ -31,6 +31,7 @@ SRC			=	main.c						\
 				get_quad_roots.c			\
 				get_cylinder_normal.c		\
 				get_hit_point.c				\
+				get_light_dir.c				\
 				get_obj_normal.c			\
 				get_obj_color.c				\
 				get_sphere_normal.c			\
