@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:31:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 02:01:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void			create_circular_lstimg(t_lstimg *imgs)
 	while (imgs->next)
 		imgs = imgs->next;
 	imgs->next = head;
+	imgs = imgs->next;
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:34:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:59:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ typedef struct		s_minirt
 	void			*mlx_ptr;
 	void			*win_ptr;
 	char			*title;
-	t_img			*active_img;
 	t_lstimg		*imgs;
 	t_res			res;
 	t_amb			ambient;

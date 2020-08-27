@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:01:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 02:00:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ static void		write_bmpdata(t_minirt *env, int fd)
 		while (x < env->res.size_x)
 		{
 			i = (x + env->res.size_x * y) * 4;
-			pixel = (int *)(env->active_img->pixels + i);
+			pixel = (int *)(env->imgs->img->pixels + i);
 			if (write(fd, pixel, 3) < 0)
 				exit_error(env, DEFAULT_ERR);
 			x++;

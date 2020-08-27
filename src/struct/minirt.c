@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:28:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/27 01:59:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	init_minirt(t_minirt *env, char *title)
 	env->mlx_ptr = mlx_init();
 	env->win_ptr = NULL;
 	env->title = title;
-	env->active_img = NULL;
 	env->imgs = NULL;
 	create_resolution(&(env->res));
 	create_ambient(&(env->ambient));
