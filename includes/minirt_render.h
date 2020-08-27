@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:48:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 00:46:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ bool		hit_cylinder(t_cyl *cylinder, t_ray *ray);
 bool		hit_triangle(t_tri *triangle, t_ray *ray);
 t_vec3		get_quad_coef(t_vec3 a, t_vec3 b, double radius);
 bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef);
-
-void		add_light_color(t_ray *ray, t_vcolor light_color, double angle);
-bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir);
 
 t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir);
 t_vcolor	get_obj_color(t_lstobj *hit_obj);

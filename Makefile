@@ -57,9 +57,9 @@ SRC			=	main.c						\
 				rescale_color.c				\
 				set_ray_dir.c				\
 				set_ray_origin.c			\
-				shade.c						\
 				trace_ray.c					\
-				tracers.c					\
+				trace_ray_to_lights.c		\
+				trace_ray_to_objs.c			\
 
 # Display and event handling
 

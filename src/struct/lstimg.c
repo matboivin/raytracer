@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 02:01:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 01:21:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_lstimg		*new_lstimg(t_img *img)
 	return (result);
 }
 
-void			lstimg_add_back(t_lstimg **imgs, t_lstimg *new)
+void			lstimg_add_back(t_lstimg **imgs, t_img *new)
 {
 	t_lstimg	*cursor;
 
@@ -35,10 +35,10 @@ void			lstimg_add_back(t_lstimg **imgs, t_lstimg *new)
 	{
 		while (cursor->next)
 			cursor = cursor->next;
-		cursor->next = new;
+		cursor->next = new_lstimg(new);
 	}
 	else
-		*imgs = new;
+		*imgs = new_lstimg(new);
 }
 
 void			lstimg_clear(void *mlx_ptr, t_lstimg **imgs)
