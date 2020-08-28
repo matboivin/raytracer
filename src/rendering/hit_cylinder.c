@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:58:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 20:56:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ static bool		solve_quadratic_cyl(
 			root1 = root2;
 		if (is_inside_cyl(cylinder, ray, root2) == false)
 			root2 = root1;
-		if (root1 > root2)
-			root1 = root2;
-		ray->t_nearest = root1;
+		ray->t_nearest = fmin(root1, root2);
 		return (true);
 	}
 	return (false);

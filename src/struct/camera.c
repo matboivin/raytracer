@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:23:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 21:56:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_lstcam		*new_lstcam(t_cam *cam)
 	return (result);
 }
 
-void			lstcam_add_back(t_lstcam **cams, t_lstcam *new)
+void			lstcam_append(t_lstcam **cams, t_lstcam *new)
 {
 	t_lstcam	*cursor;
 

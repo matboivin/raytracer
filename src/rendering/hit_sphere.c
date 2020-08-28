@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:58:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 20:55:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static bool	solve_quadratic_sphere(t_ray *ray, t_vec3 quad_coef)
 		if ((root1 <= 0.0 && root2 <= 0.0)
 		|| (root1 > ray->t_nearest && root2 > ray->t_nearest))
 			return (false);
+		if (root1 <= 0.0)
+			root1 = root2;
 		if (root2 <= 0.0)
 			root2 = root1;
-		if ((root1 <= 0.0) || (root1 > root2))
-			root1 = root2;
-		ray->t_nearest = root1;
+		ray->t_nearest = fmin(root1, root2);
 		return (true);
 	}
 	return (false);

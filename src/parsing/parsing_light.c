@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:06:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 21:58:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void			get_light(t_minirt *env, char **input)
 	new_light = new_lstlight(light_data);
 	if (new_light == NULL)
 		exit_error(env, DEFAULT_ERR);
-	lstlight_add_back(&(env->lights), new_light);
+	lstlight_append(&(env->lights), new_light);
 	skip_blank(input);
 }

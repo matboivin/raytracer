@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 01:23:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 21:58:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 static void		render_n_images(t_minirt *env, int n)
 {
 	t_lstcam	*head;
-	t_img		*new_img;
+	t_lstimg	*new_img;
 	int			i;
 
 	i = 0;
 	head = env->cams;
 	while (i < n)
 	{
-		new_img = malloc_image(env);
-		trace_ray(env, env->cams->cam, new_img);
-		lstimg_add_back(&(env->imgs), new_img);
+		new_img = new_lstimg(malloc_image(env));
+		trace_ray(env, env->cams->cam, new_img->img);
+		lstimg_append(&(env->imgs), new_img);
 		env->cams = env->cams->next;
 		i++;
 	}

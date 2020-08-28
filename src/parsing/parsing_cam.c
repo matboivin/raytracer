@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:52:01 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 21:58:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			get_camera(t_minirt *env, char **input)
 	new_cam = new_lstcam(cam_data);
 	if (new_cam == NULL)
 		exit_error(env, DEFAULT_ERR);
-	lstcam_add_back(&(env->cams), new_cam);
+	lstcam_append(&(env->cams), new_cam);
 	env->cam_count += 1;
 	skip_blank(input);
 }
