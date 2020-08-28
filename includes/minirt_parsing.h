@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 01:31:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 23:03:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void			skip_digits(char **s);
 void			skip_double(t_minirt *env, char **s);
 void			check_max_display(t_minirt *env);
 void			check_null_vector(t_vec3 *to_check, t_vec3 default_vec);
+void			check_null_light(t_vcolor *vcolor, double *ratio);
 
 #endif

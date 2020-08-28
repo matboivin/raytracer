@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_ambient.c                                  :+:      :+:    :+:   */
+/*   check_null_light.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 23:04:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/28 23:04:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function parses Ambient light
+** This function handles null light ratio and color which are replaced by
+** default values
 */
 
-void		get_ambient(t_minirt *env, char **input)
+void	check_null_light(t_vcolor *vcolor, double *ratio)
 {
-	if (env->ambient.is_declared == true)
-		exit_error(env, AMB_DUP);
-	env->ambient.is_declared = true;
-	(*input) += 2;
-	env->ambient.ratio = get_double(env, input);
-	if (ft_f_range(env->ambient.ratio, 0.0, 1.0) == false)
-		exit_error(env, AMB_FMT);
-	env->ambient.vcolor = get_color(env, input);
-	check_null_light(&(env->ambient.vcolor), &(env->ambient.ratio));
-	env->ambient.vcolor = scale_vec3(env->ambient.ratio, env->ambient.vcolor);
-	skip_blank(input);
+	if ((vcolor->x == 0.0 && vcolor->y == 0.0 && vcolor->z == 0.0)
+		|| (*ratio == 0.0))
+	{
+		*vcolor = create_vec3(1.0, 1.0, 1.0);
+		*ratio = 0.1;
+	}
 }
