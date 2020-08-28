@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:29:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/29 01:25:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 ** miniRT
 ** A minimal ray tracer
 **
-** Open app to connect to the X server with mlx_init()
-** Parse a given scene description and store data in the scene struct
-** Use scene data to generate an image
+** Init miniRT controler to connect to the X server with mlx_init()
+** Parse given scene description and render image(s)
 ** If '--save' option is used, save the image in BMP format
 ** Else, display the rendered imaged in a window
 ** Run a loop to listen to events

@@ -15,30 +15,27 @@ Trace a path from an imaginary camera through each pixel in a virtual screen, an
 
 ## Implementation
 
-### Two main structures
-
-- `s_app`: Represents an application to use MLX functions (then connects to the X server) and contains window and image as members
-- `s_scene`: Stores scene description data which is used to generate images
-
 ### Control flow
 
 - Handle errors: no parameter, invalid `.rt` file, invalid `--save` option
-- Initialize scene struct
+- Initialize miniRT controler
   - -> Connect to the X server with `mlx_init()`
-- Parse a given scene description -> store data in the scene struct
-- Generate image using scene data
-- If `--save` option is used
-  - Save the rendered image in BMP format
-  - Program ends
-- Else
-  - Open a new window with `mlx_new_window()`
-  - Display the rendered imaged in window with `mlx_put_image_to_window()`
-  - Dispatch events
-  - Run a loop -> listen to events
-  - If the user presses SPACE
-    - Switch active camera
-  - If the user presses ESC or click on the window cross
+- Parse given scene description
+- Generate image(s) using scene data
+  - If `--save` option is used
+    - Generate only one image
+    - Save the rendered image in BMP format
     - Program ends
+  - Else
+    - Generate one image per camera
+    - Open a new window with `mlx_new_window()`
+    - Display the first rendered imaged in window with `mlx_put_image_to_window()`
+    - Dispatch events
+    - Run a loop -> listen to events
+    - If the user presses SPACE
+      - Switch active camera
+    - If the user presses ESC or click on the window cross
+      - Program ends
 
 ### Parsing
 

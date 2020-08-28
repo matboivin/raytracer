@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 23:04:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/29 00:49:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	check_null_light(t_vcolor *vcolor, double *ratio)
 		|| (*ratio == 0.0))
 	{
 		*vcolor = create_vec3(1.0, 1.0, 1.0);
-		*ratio = 0.1;
+		*ratio = 1.0;
 	}
 }
