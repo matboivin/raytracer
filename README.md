@@ -54,10 +54,20 @@ optional arguments:
   --save  save the rendered image in bmp format
 ```
 
+### Example
+
+```console
+$ ./miniRT scenes/room.rt
+```
+<p align="center">
+  <img src="assets/room00.png" alt="example 1" width="450" />
+  <img src="assets/room01.png" alt="example 2" width="450" />
+</p>
+
 ### Common tasks
 
-* Pressing `ESC` key: Exits the program.
-* Pressing space bar: Switches view.
+* Press `ESC` key to exit the program.
+* Press space bar to switch view point.
 
 ### Acknowledgements
 
