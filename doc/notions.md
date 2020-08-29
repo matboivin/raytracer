@@ -38,6 +38,7 @@ Computer Graphics
 - [Wiki: Graphics pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline)
 - [Wiki: Primitive (modélisation)](https://fr.wikipedia.org/wiki/Primitive_(mod%C3%A9lisation))
 - [Wiki: Quadrique](https://fr.wikipedia.org/wiki/Quadrique)
+- [Computer Graphics from scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/introduction.html)
 
 OpenGL  
 

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:52:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/29 21:45:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ static t_vec3	get_pixel_coord(double fov, t_res res, int x, int y)
 static void		reset_ray(t_ray *ray)
 {
 	ray->t_nearest = __DBL_MAX__;
-	ray->obj_color = create_vec3(0.0, 0.0, 0.0);
 	ray->vcolor = create_vec3(0.0, 0.0, 0.0);
 	ray->hit_p = create_vec3(0.0, 0.0, 0.0);
 	ray->normal = create_vec3(0.0, 0.0, 0.0);
-	// ray->vcolor = create_vec3(255.0, 255.0, 255.0);
 }
 
 /*
