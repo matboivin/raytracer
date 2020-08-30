@@ -18,6 +18,13 @@
   - Divide it by its length: `(x/len, y/len, z/len)`
   - The result is a unit vector  that points in the same direction as the original vector.
 
+> The cosine of the angle between two vectors is equal to the dot product of this vectors divided by the product of vector magnitude.  
+Source: [Angle between two vectors](https://onlinemschool.com/math/library/vector/angl/)
+
+```
+dot(v1, v2) / norm(v1) * norm(v2)
+```
+
 ## 4x4 Matrix Visualized as a Cartesian Coordinate System
 
 A matrix is a way of combining scaling, rotation, and translation into one single structure. A point multiplied by a matrix transforms the point to a new position. We translate, scale and rotate objects. These transformation are represented by a 4x4 matrix which can be visualised as a coordinate system.

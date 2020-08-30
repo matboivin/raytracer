@@ -40,7 +40,7 @@ $ git clone --recursive https://github.com/matboivin/miniRT
 
 Change it to your working directory and run:
 ```console
-$ make
+$ make install && make
 ```
 
 ### Usage

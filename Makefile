@@ -96,6 +96,7 @@ all: $(NAME)
 
 .PHONY: install
 install :
+	@apt-get update && apt-get install libxext-dev libbsd-dev
 	@$(foreach dir, $(LIB_PATH), make -C $(dir);)
 
 .PHONY: re-install
@@ -105,7 +106,7 @@ re-install :
 	@make -C lib/mlx clean
 	@make install
 
-$(NAME): install $(OBJ_PATH) $(OBJ)
+$(NAME): $(OBJ_PATH) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
 	@echo "\nOK\t\t$(NAME) is ready"
 
