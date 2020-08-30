@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 20:34:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 23:48:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 	t_vcolor	to_add;
 	t_vec3		light_dir;
 	double		angle;
+	double		coef;
 
 	to_add = create_vec3(0.0, 0.0, 0.0);
 	add_light(&to_add, env->ambient.vcolor, env->ambient.ratio);
@@ -44,10 +45,12 @@ void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 	while (env->lights)
 	{
 		light_dir = sub_vec3(env->lights->light->pos, ray->hit_p);
-		angle = fmax(0.0, dot_vec3(ray->normal, normalize_vec3(light_dir)));
-		if (is_in_shadow(env->objs, ray, light_dir) == false)
+		angle = dot_vec3(ray->normal, normalize_vec3(light_dir));
+		if ((is_in_shadow(env->objs, ray, light_dir) == false) && (angle > 0.0))
 		{
-			add_light(&to_add, env->lights->light->vcolor, angle);
+			coef = env->lights->light->ratio * cos_vec3(
+				ray->normal, normalize_vec3(light_dir));
+			add_light(&to_add, env->lights->light->vcolor, coef);
 		}
 		env->lights = env->lights->next;
 	}
