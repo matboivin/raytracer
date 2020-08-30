@@ -25,9 +25,8 @@ LIB			=	ft minimath mlx_Linux
 
 SRC			=	main.c						\
 				check_max_display.c			\
-				 check_null_light.c			\
+				check_null_light.c			\
 				check_null_vector.c			\
-				get_angle_in.c				\
 				get_quad_coef.c				\
 				get_quad_roots.c			\
 				get_cylinder_normal.c		\

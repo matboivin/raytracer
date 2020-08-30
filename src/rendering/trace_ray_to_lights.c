@@ -6,19 +6,15 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/29 21:07:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 02:20:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void		add_light_color(t_ray *ray, t_vcolor light_color, double coef)
+static void		add_light(t_vcolor *output, t_vcolor light_color, double ratio)
 {
-	t_vcolor	diffuse_color;
-
-	diffuse_color = mult_vec3(ray->obj_color, light_color);
-	diffuse_color = scale_vec3(coef, diffuse_color);
-	ray->vcolor = add_vec3(ray->vcolor, diffuse_color);
+	*output = add_vec3(*output, scale_vec3(ratio, light_color));
 }
 
 static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
@@ -38,22 +34,25 @@ static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
 void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 {
 	t_lstlight	*head;
+	t_vcolor	to_add;
 	t_vec3		light_dir;
 	double		angle;
-	double		coef;
+	// double		coef;
 
-	ray->vcolor = mult_vec3(ray->vcolor, env->ambient.vcolor);
+	to_add = create_vec3(0.0, 0.0, 0.0);
+	add_light(&to_add, env->ambient.vcolor, env->ambient.ratio);
 	head = env->lights;
 	while (env->lights)
 	{
 		light_dir = get_light_dir(env->lights->light->pos, ray->hit_p);
-		angle = get_angle_in(ray->normal, normalize_vec3(light_dir));
-		if ((is_in_shadow(env->objs, ray, light_dir) == false) && (angle > 0.0))
+		angle = fmax(0.0, dot_vec3(ray->normal, normalize_vec3(light_dir)));
+		if (is_in_shadow(env->objs, ray, light_dir) == false)
 		{
-			coef = angle / (norm_vec3(ray->normal) * norm_vec3(light_dir));
-			add_light_color(ray, env->lights->light->vcolor, coef);
+			// coef = angle / (norm_vec3(ray->normal) * norm_vec3(light_dir));
+			add_light(&to_add, env->lights->light->vcolor, angle);
 		}
 		env->lights = env->lights->next;
 	}
 	env->lights = head;
+	ray->vcolor = mult_vec3(ray->vcolor, to_add);
 }

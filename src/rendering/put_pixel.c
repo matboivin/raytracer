@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 20:01:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 01:41:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ static t_color	rgb_to_int(t_vcolor vcolor)
 	t_uchar		g;
 	t_uchar		b;
 
-	result = scale_vec3(255.0, vcolor);
-	result = rescale_color(result, 255.0, 0.0);
+	result = rescale_color(vcolor, 255.0, 0.0);
 	r = result.x;
 	g = result.y;
 	b = result.z;

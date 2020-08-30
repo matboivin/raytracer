@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:07:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 02:19:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_vcolor		get_color(t_minirt *env, char **input)
 	if (!(skip_separator(input, ',')))
 		exit_error(env, COLOR_FMT);
 	result.z = get_rgb_val(env, input);
-	result = scale_vec3((1.0 / 255.0), result);
 	return (result);
 }
 
