@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 19:16:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 20:26:46 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void			render(t_minirt *env, bool to_bmp)
 	}
 	ft_printf("Generating %d image(s)\n", env->cam_count);
 	ft_printf(
-		"Press space bar to switch view point if there are several cameras\n");
+		"Press space bar to switch view point in case of several cameras\n");
 	ft_printf("Press ESC to exit\n");
 	render_n_images(env, env->cam_count);
 }

@@ -7,7 +7,7 @@
 > This project is an introduction to the beautiful world of Raytracing. Once completed you will be able to render simple Computer-Generated-Images and you will never be afraid of implementing mathematical formulas again.  
 
 <p align="center">
-  <img src="assets/wip.png" alt="render" width="800" />
+  <img src="assets/preview.png" alt="render" width="800" />
 </p>
 
 | Program name      | miniRT                                                              |
