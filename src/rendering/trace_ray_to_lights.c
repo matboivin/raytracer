@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 02:20:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 03:11:46 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 	t_vcolor	to_add;
 	t_vec3		light_dir;
 	double		angle;
-	// double		coef;
 
 	to_add = create_vec3(0.0, 0.0, 0.0);
 	add_light(&to_add, env->ambient.vcolor, env->ambient.ratio);
@@ -48,11 +47,11 @@ void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 		angle = fmax(0.0, dot_vec3(ray->normal, normalize_vec3(light_dir)));
 		if (is_in_shadow(env->objs, ray, light_dir) == false)
 		{
-			// coef = angle / (norm_vec3(ray->normal) * norm_vec3(light_dir));
 			add_light(&to_add, env->lights->light->vcolor, angle);
 		}
 		env->lights = env->lights->next;
 	}
 	env->lights = head;
+	to_add = rescale_color(to_add, 1.0, 0.0);
 	ray->vcolor = mult_vec3(ray->vcolor, to_add);
 }
