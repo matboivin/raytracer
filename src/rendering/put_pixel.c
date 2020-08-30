@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 01:41:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 18:50:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,23 @@
 ** 1 pixel = 4 char so we multiply 4 times
 */
 
-static t_color	rgb_to_int(t_vcolor vcolor)
+void			put_pixel_to_image(t_img *img, t_vcolor vcolor, int x, int y)
 {
-	t_vcolor	result;
 	t_uchar		r;
 	t_uchar		g;
 	t_uchar		b;
-
-	result = rescale_color(vcolor, 255.0, 0.0);
-	r = result.x;
-	g = result.y;
-	b = result.z;
-	return (r << 16 | g << 8 | b);
-}
-
-void			put_pixel_to_image(t_img *img, t_vcolor vcolor, int x, int y)
-{
-	t_color		pixel;
 	int			i;
 
 	if ((ft_n_range(x, 0, img->size_x) == false)
 		|| (ft_n_range(y, 0, img->size_y) == false))
 		return ;
 	i = (x + img->size_x * y) * 4;
-	pixel = rgb_to_int(vcolor);
-	img->pixels[i + RED_COMP] = (pixel >> 16) & ALPHA;
-	img->pixels[i + GREEN_COMP] = (pixel >> 8) & ALPHA;
-	img->pixels[i + BLUE_COMP] = (pixel) & ALPHA;
+	vcolor = rescale_color(vcolor, 255.0, 0.0);
+	r = vcolor.x;
+	g = vcolor.y;
+	b = vcolor.z;
+	img->pixels[i + RED_COMP] = r;
+	img->pixels[i + GREEN_COMP] = g;
+	img->pixels[i + BLUE_COMP] = b;
 	img->pixels[i + ALPHA_COMP] = 0;
 }
