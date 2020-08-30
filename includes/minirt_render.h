@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 00:59:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 20:35:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef);
 
 t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir);
 t_vcolor	get_obj_color(t_lstobj *hit_obj);
-t_vec3		get_light_dir(t_vec3 pos, t_vec3 hit_p);
 
 void		put_pixel_to_image(t_img *img, t_vcolor vcolor, int x, int y);
 

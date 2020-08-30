@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 03:11:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/30 20:34:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 	head = env->lights;
 	while (env->lights)
 	{
-		light_dir = get_light_dir(env->lights->light->pos, ray->hit_p);
+		light_dir = sub_vec3(env->lights->light->pos, ray->hit_p);
 		angle = fmax(0.0, dot_vec3(ray->normal, normalize_vec3(light_dir)));
 		if (is_in_shadow(env->objs, ray, light_dir) == false)
 		{
