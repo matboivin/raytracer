@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 18:50:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:33:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 ** To get the index of a pixel in the image pixels:
 ** (x position + width * y position) * 4
 ** 1 pixel = 4 char so we multiply 4 times
+**
+** 1 pixel = 4 char = RED, GREEN, BLUE, ALPHA
+** MLX is in BGRA so we change the order of values to RGBA
+** We add defined values to index for each component
 */
 
 void			put_pixel_to_image(t_img *img, t_vcolor vcolor, int x, int y)

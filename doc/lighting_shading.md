@@ -134,4 +134,6 @@ if dot(reflect, rev_raydir) > 0
 
 Source: [Computer Graphics from scratch: Light](https://www.gabrielgambetta.com/computer-graphics-from-scratch/light.html)
 
-More on shadows: [Advanced Topics in Computer GraphicsShadows](https://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk6_p2_sam_shadows.pdf)
+Use Epsilon set to `0.00001` in order to avoid salt-and-pepper noise. Hit points can be above or below the surface of the object.
+
+Source: [Advanced Topics in Computer Graphics: Shadows](https://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk6_p2_sam_shadows.pdf)

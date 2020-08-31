@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 01:48:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:26:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 	int			i;
 
 	i = 0;
-	while (i < PARS_FUNC)
+	while (i < MAX_PARS)
 	{
 		if (ft_strncmp(g_parsers[i].u_id, *input, 2) == 0)
 		{

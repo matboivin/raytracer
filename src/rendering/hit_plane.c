@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 03:20:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:35:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 	t_vec3	p;
 
 	denom = dot_vec3(dir, ray->dir);
-	if (fabs(denom) > 1e-6)
+	if (fabs(denom) > EPSILON)
 	{
 		p = sub_vec3(pos, ray->origin);
 		dist = dot_vec3(p, dir) / denom;
-		if ((dist > ray->t_min) && (dist < ray->t_nearest))
+		if ((dist > EPSILON) && (dist < ray->t_nearest))
 		{
 			*t = dist;
 			return (true);

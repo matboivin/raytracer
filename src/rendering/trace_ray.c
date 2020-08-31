@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/30 01:40:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:39:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void		set_secondary_ray(t_lstobj *hit_obj, t_ray *ray)
 	ray->vcolor = get_obj_color(hit_obj);
 	ray->hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
 	get_obj_normal(hit_obj, ray, ray->hit_p);
-	ray->hit_p = add_vec3(ray->hit_p, scale_vec3(0.001, ray->normal));
 }
 
 static void		shade(t_minirt *env, t_ray *ray)

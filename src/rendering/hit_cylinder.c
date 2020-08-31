@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 03:20:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:35:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static bool		solve_quadratic_cyl(
 
 	if (get_quad_roots(&root1, &root2, quad_coef) == true)
 	{
-		if ((root1 <= ray->t_min && root2 <= ray->t_min)
+		if ((root1 <= EPSILON && root2 <= EPSILON)
 			|| (root1 >= ray->t_nearest && root2 >= ray->t_nearest))
 			return (false);
 		if ((is_inside_cyl(cylinder, ray, root1) == false)

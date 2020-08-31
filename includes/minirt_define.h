@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 01:32:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:27:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 # define WIN_TITLE "miniRT"
 # define BMP_FILENAME "minirt.bmp"
-# define PARS_FUNC 13
+# define MAX_PARS 13
+# define EPSILON 0.00001
 
 /*
 ** MLX is in BGRA so we change the order of values to RGBA
