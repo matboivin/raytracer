@@ -24,6 +24,12 @@ When solving quadratic equation:
 b^2 - (4 * a * c)
 ```
 
+<p align="center">
+  <img src="assets/04-sphere-solutions.png" alt="sphere solutions" />
+</p>
+
+Image source: [Gabriel Gambetta](https://www.gabrielgambetta.com/computer-graphics-from-scratch/basic-ray-tracing.html)
+
 - discriminant < 0 : there is no intersection
 - discriminant == 0 : only one intersection
 - discriminant > 0 : two intersections
