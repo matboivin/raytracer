@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:58:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 03:20:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 	{
 		p = sub_vec3(pos, ray->origin);
 		dist = dot_vec3(p, dir) / denom;
-		if ((dist >= 0) && (dist < ray->t_nearest))
+		if ((dist > ray->t_min) && (dist < ray->t_nearest))
 		{
 			*t = dist;
 			return (true);

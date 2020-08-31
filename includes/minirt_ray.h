@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/29 21:40:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 03:09:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ typedef struct	s_ray
 	t_vec3		origin;
 	t_vec3		dir;
 	double		t_nearest;
+	double		t_min;
 	t_vcolor	vcolor;
 	t_vec3		hit_p;
 	t_vec3		normal;
 }				t_ray;
 
-t_ray			create_ray(t_vec3 p_origin, t_vec3 p_dir, double p_tnearest);
+t_ray			create_ray(
+	t_vec3 p_origin, t_vec3 p_dir, double p_tnear, double p_tmin);
 
 #endif
