@@ -89,6 +89,10 @@ SRC			+=	ambient.c					\
 				ray.c						\
 				resolution.c				\
 
+# Bonus
+
+SRC			+=	get_specular.c				\
+
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 
 .PHONY: all
@@ -124,6 +128,8 @@ debug: re
 	./miniRT scenes/sphere1.rt
 
 .PHONY: bonus
+bonus: fclean
+bonus: CFLAGS+=-D BONUS=1
 bonus: $(NAME)
 
 .PHONY: clean

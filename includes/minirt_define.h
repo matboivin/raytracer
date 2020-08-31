@@ -6,12 +6,16 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 01:34:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 01:32:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_DEFINE_H
 # define MINIRT_DEFINE_H
+
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
 # define WIN_TITLE "miniRT"
 # define BMP_FILENAME "minirt.bmp"
@@ -26,7 +30,7 @@
 # define BLUE_COMP 0
 # define ALPHA_COMP 3
 
-# define ALPHA 0xFF
+# define SPECULAR 70
 
 typedef t_vec3			t_vcolor;
 typedef uint32_t		t_color;

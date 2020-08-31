@@ -117,9 +117,9 @@ x^2 + y^2 - r^2 = 0
 
 // Solving quadratic equation
 
-d = ray pos - cyl base pos
-tmp_a = ray dir - dot(ray dir, cyl dir) * cyl dir
-tmp_b = d - dot(d, cyl dir) * cyl dir
+d = ray_pos - cyl_base_center
+tmp_a = ray_dir - dot(ray_dir, cyl_dir) * cyl_dir
+tmp_b = d - dot(d, cyl_dir) * cyl_dir
 
 a = tmp_a^2
 b = 2 * dot(tmp_a, tmp_b))
@@ -136,9 +136,9 @@ zmin -> the center of the first base of the cylinder (bottom)
 zmax -> the center of the second base of the cylinder (stop)
 
 ```
-dot(ray dir, hit point - cyl base pos) > 0
+dot(ray_dir, hit_point - cyl_base_center) > 0
 &&
-dot(ray dir, hit point - cyl top pos) < 0
+dot(ray_dir, hit_point - cyl_top_center) < 0
 ```
 
 #### Finite cylinder with caps
@@ -150,9 +150,9 @@ zmax -> center of second cap plane (top)
 2. Check whether the intersections are inside caps.
 
 ```
-dot(ray dir, hit point - cyl base pos) = 0, (point - cyl base pos)^2 < r^2
+dot(ray_dir, hit_point - cyl_base_center) = 0, (point - cyl_base_center)^2 < r^2
 &&
-dot(ray dir, hit point - cyl top pos) = 0, (hit point - cyl top pos)^2 < r^2
+dot(ray_dir, hit_point - cyl_top_center) = 0, (hit_point - cyl_top_center)^2 < r^2
 ```
 
 ### Local Space
@@ -177,7 +177,7 @@ w [ 0,  0,  0,  1]
 The intersection is inside the cylinder if:
 
 ```
-dot(ray dir, normal) > 0
+dot(ray_dir, N) > 0
 ```
 
 Else, the intersection is outside.

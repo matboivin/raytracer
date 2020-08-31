@@ -90,26 +90,46 @@ The brightness of the object decreases as the angle of incidence increases.
 > Lambert's Cosine Law. The amount of light that a surface receives is directly proportional to the angle between the surface normal N and the light direction L. This angle can be define mathematically as: cos(angle) = dot(normal, light dir)  
 Source: [Scratchapixel 2.0: Diffuse and Lambertian Shading](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-shading/diffuse-lambertian-shading)
 
-### Illuminate
+### Compute lighting
 
 1. Compute the hit point
 2. Compute the normal at hit point (if the intersection is inside an object, inverse the vector: `N = -1 * N`)
-2. Get the light direction normalized vector `light dir = hit point - light pos`
-3. Compute the angle of incidence: `dot(N, light_dir)` (both `N` and light_dir are normalized vectors)
 
 Formula to compute sphere's normal at hit point:
 
 ```
-hit point – sphere center
+hit_point – sphere_center
 ```
 
 Formula to compute cylinder's normal at hit point:
 
 ```
-(hit point – cyl center)  - (z_axis dot(hit point – cyl center) ) z_axis)
+(hit_point – cyl_center)  - (z_axis dot(hit_point – cyl_center) ) z_axis)
 ```
 
+3. Get the light direction normalized vector `light dir = hit point - light pos`
+4. Compute the angle of incidence: `dot(N, light_dir)` (both `N` and light_dir are normalized vectors)
+5. If point not in shadow and the angle > 0
+6. Model diffuse reflection with the [cosine of the angle](https://onlinemschool.com/math/library/vector/angl/)
+
 ```
-light amount = light color * light intensity
+cos = dot(v1, v2) / norm(v1) * norm(v2)
 ```
 
+7. Add light contribution
+
+```
+add to final color: hit_color * (light_intensity * cos)
+```
+
+8. Add specular reflection
+
+```
+rev_raydir = -ray_dir
+reflect = 2 * 
+R = 2 * angle_incidence * N - light_dir
+if dot(reflect, rev_raydir) > 0
+  then add to final color: hit_color * (light_intensity * pow(cos, specular_coef))
+```
+
+Source: [Computer Graphics from scratch: Light](https://www.gabrielgambetta.com/computer-graphics-from-scratch/light.html)
