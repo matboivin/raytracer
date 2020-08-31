@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 22:54:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/01 00:34:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,7 @@ static bool		solve_quadratic_cyl(
 
 static t_vec3	pre_compute_coef(t_vec3 v1, t_vec3 v2)
 {
-	t_vec3		result;
-
-	result = sub_vec3(v1, scale_vec3(dot_vec3(v1, v2), v2));
-	return (result);
+	return (sub_vec3(v1, scale_vec3(dot_vec3(v1, v2), v2)));
 }
 
 /*
