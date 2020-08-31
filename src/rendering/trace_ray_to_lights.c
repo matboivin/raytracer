@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 03:24:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 21:51:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,23 @@ static void		add_light(t_vcolor *output, t_vcolor light_color, double ratio)
 
 static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
 {
+	t_lstobj	*head;
 	t_ray		shadow_ray;
-	t_lstobj	*hit_obj;
 	double		t;
 
 	t = norm_vec3(light_dir);
 	shadow_ray = create_ray(ray->hit_p, normalize_vec3(light_dir), t, 0.001);
-	hit_obj = trace_ray_to_objs(objs, &shadow_ray);
-	if (hit_obj)
-		return (true);
+	head = objs;
+	while (objs)
+	{
+		if (hit(objs, &shadow_ray) == true)
+		{
+			objs = head;
+			return (true);
+		}
+		objs = objs->next;
+	}
+	objs = head;
 	return (false);
 }
 

@@ -133,3 +133,5 @@ if dot(reflect, rev_raydir) > 0
 ```
 
 Source: [Computer Graphics from scratch: Light](https://www.gabrielgambetta.com/computer-graphics-from-scratch/light.html)
+
+More on shadows: [Advanced Topics in Computer GraphicsShadows](https://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk6_p2_sam_shadows.pdf)
