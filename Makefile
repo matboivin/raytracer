@@ -100,7 +100,7 @@ all: $(NAME)
 
 .PHONY: install
 install :
-	@sudo apt-get update && apt-get install libxext-dev libbsd-dev
+	sudo apt-get update && apt-get install libxext-dev libbsd-dev
 	@$(foreach dir, $(LIB_PATH), make -C $(dir);)
 
 .PHONY: re-install

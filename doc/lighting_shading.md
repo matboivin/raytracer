@@ -92,6 +92,10 @@ Source: [Scratchapixel 2.0: Diffuse and Lambertian Shading](https://www.scratcha
 
 ### Compute lighting
 
+For intersection, use Epsilon set to `0.00001` as `tmin` in order to avoid salt-and-pepper noise. Hit points can be above or below the surface of the object.
+
+Source: [Advanced Topics in Computer Graphics: Shadows (PDF)](https://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk6_p2_sam_shadows.pdf)
+
 1. Compute the hit point
 2. Compute the normal at hit point (if the intersection is inside an object, inverse the vector: `N = -1 * N`)
 
@@ -134,6 +138,7 @@ if dot(reflect, rev_raydir) > 0
 
 Source: [Computer Graphics from scratch: Light](https://www.gabrielgambetta.com/computer-graphics-from-scratch/light.html)
 
-Use Epsilon set to `0.00001` in order to avoid salt-and-pepper noise. Hit points can be above or below the surface of the object.
+### Shadow
 
-Source: [Advanced Topics in Computer Graphics: Shadows](https://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk6_p2_sam_shadows.pdf)
+- Hit point not in shadow is shaded with ambient and direct illumination
+- Hit point in shadow is shaded with only ambient illumination

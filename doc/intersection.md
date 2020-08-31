@@ -14,14 +14,24 @@ Formula to compute the intersection point:
 intersection point = ray origin + t * ray direction
 ```
 
-When solving quadratic equation:
-
-`A t^2 + B t + C = 0`
-
--> Discriminant: `d = sqrt(B^2 - 4 AC)`
+Solving quadratic equation returns 2 roots:
 
 ```
-b^2 - (4 * a * c)
+O = ray_origin
+C = obj_center
+r = obj_radius
+OC = O - C
+
+A = dot(D, D)
+B = 2 * dot(D, OC)
+C = dot(OC, OC) - r^2
+
+discriminant = B * B - (4 * A * C)
+if discriminant < 0:
+  return false
+
+root1 = (-B + sqrt(discriminant)) / (2 * A)
+root2 = (-B - sqrt(discriminant)) / (2 * A)
 ```
 
 <p align="center">
@@ -46,23 +56,15 @@ Read more: [Graph and Roots of Quadratic Polynomial](https://www.cut-the-knot.or
 
 Image source: [Scratchapixel 2.0: Ray-Sphere Intersection](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)
 
-
-A sphere embedded in a 3D space:
-
-```
-x^2 + y^2 + z^2 = 1
-
-// Xc, Yc, Zc : sphere center
-// Solving quadratic equation
-
-a = ray dir.x^2 + ray dir.y^2 + ray dir.z^2
-b = 2 * (ray dir.x * (ray origin.x - Xc) + ray dir.y * (ray origin.y - Yc) + ray dir.z * (ray origin.z - Zc))
-c = ((ray origin.x - Xc)^2 + (ray origin.y - Yc)^2 + (ray origin.z - Zc)^2) - r^2
-
-root1 = (-b + sqrt(det)) / (2 * a);
-root2 = (-b - sqrt(det)) / (2 * a);
+Compute the coefficients to solve quadratic equation:
 
 ```
+OC = ray_origin - sphere_center
+A = dot(ray_dir, ray_dir)
+B = 2 * dot(ray_dir, OC)
+C = dot(OC, OC) - r^2
+```
+
 ### Local Space
 
 A function that generates the radius 1 sphere would be: `f(x,y,z)=x2+y2+z2−1`
@@ -118,23 +120,21 @@ Image source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/le
 
 #### Infinite cylinder
 
+Compute the coefficients to solve quadratic equation:
+
 ```
-x^2 + y^2 - r^2 = 0
+OC = ray_origin - cyl_base_center
+dir = ray_dir - dot(ray_dir, cyl_dir) * cyl_dir
+ocdir = OC - dot(OC, cyl_dir) * cyl_dir
 
-// Solving quadratic equation
-
-d = ray_pos - cyl_base_center
-tmp_a = ray_dir - dot(ray_dir, cyl_dir) * cyl_dir
-tmp_b = d - dot(d, cyl_dir) * cyl_dir
-
-a = tmp_a^2
-b = 2 * dot(tmp_a, tmp_b))
-c = tmp_b^2 - r^2
+A = dir^2
+B = 2 * dot(dir, ocdir))
+C = ocdir^2 - r^2
 ```
 
 Source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf)
 
-#### Finite cylinder without caps
+#### Open finite cylinder
 
 Check if point is between zmin and zmax (or ymin and ymax).
 
@@ -178,12 +178,14 @@ z [ 0,  0,  r, T3]
 w [ 0,  0,  0,  1]
 ```
 
-#### Finite cylinder
+#### Open cylinder
 
 The intersection is inside the cylinder if:
 
 ```
 dot(ray_dir, N) > 0
 ```
+
+A positive dot product means the two vectors are pointing in similar directions.
 
 Else, the intersection is outside.

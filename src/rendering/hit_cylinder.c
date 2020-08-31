@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 22:35:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:54:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ static bool		solve_quadratic_cyl(
 ** This function helps computing coefficients for solving quadratic equation
 */
 
-static t_vec3	pre_compute_coef(t_vec3 v, t_vec3 dir)
+static t_vec3	pre_compute_coef(t_vec3 v1, t_vec3 v2)
 {
 	t_vec3		result;
 
-	result = sub_vec3(v, scale_vec3(dot_vec3(v, dir), dir));
+	result = sub_vec3(v1, scale_vec3(dot_vec3(v1, v2), v2));
 	return (result);
 }
 
@@ -79,13 +79,13 @@ static t_vec3	pre_compute_coef(t_vec3 v, t_vec3 dir)
 bool			hit_cylinder(t_cyl *cylinder, t_ray *ray)
 {
 	t_vec3		quad_coef;
-	t_vec3		dist;
-	t_vec3		tmp_a;
-	t_vec3		tmp_b;
+	t_vec3		oc;
+	t_vec3		dir;
+	t_vec3		ocdir;
 
-	dist = sub_vec3(ray->origin, cylinder->base1);
-	tmp_a = pre_compute_coef(ray->dir, cylinder->dir);
-	tmp_b = pre_compute_coef(dist, cylinder->dir);
-	quad_coef = get_quad_coef(tmp_a, tmp_b, cylinder->radius);
+	oc = sub_vec3(ray->origin, cylinder->base1);
+	dir = pre_compute_coef(ray->dir, cylinder->dir);
+	ocdir = pre_compute_coef(oc, cylinder->dir);
+	quad_coef = get_quad_coef(dir, ocdir, cylinder->radius);
 	return (solve_quadratic_cyl(cylinder, ray, quad_coef));
 }

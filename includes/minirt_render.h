@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 01:37:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:55:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool		hit_plane(t_plane *plane, t_ray *ray);
 bool		hit_square(t_square *square, t_ray *ray);
 bool		hit_cylinder(t_cyl *cylinder, t_ray *ray);
 bool		hit_triangle(t_tri *triangle, t_ray *ray);
-t_vec3		get_quad_coef(t_vec3 a, t_vec3 b, double radius);
+t_vec3		get_quad_coef(t_vec3 dir, t_vec3 oc, double radius);
 bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef);
 
 t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir);
