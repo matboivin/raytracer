@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/01 00:21:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/01 01:59:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		set_secondary_ray(t_lstobj *hit_obj, t_ray *ray)
 	ray->vcolor = get_obj_color(hit_obj);
 	ray->hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
 	get_obj_normal(hit_obj, ray, ray->hit_p);
-	ray->hit_p = add_vec3(ray->hit_p, scale_vec3(0.001, ray->normal));
+	ray->hit_p = add_vec3(ray->hit_p, scale_vec3(EPSILON, ray->normal));
 }
 
 static void		shade(t_minirt *env, t_ray *ray)
@@ -55,6 +55,8 @@ void			trace_ray(t_minirt *env, t_cam *cam, t_img *img)
 		{
 			set_ray_dir(env, &ray, x, y);
 			shade(env, &ray);
+			if (DEBUG)
+				ray.vcolor = color_map(&ray);
 			put_pixel_to_image(img, ray.vcolor, x, y);
 			x++;
 		}

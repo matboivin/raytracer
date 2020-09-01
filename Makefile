@@ -89,6 +89,12 @@ SRC			+=	ambient.c					\
 				ray.c						\
 				resolution.c				\
 
+# Debug
+
+SRC			+=	color_map.c					\
+				color_normals.c				\
+				color_rev_normals.c			\
+
 # Bonus
 
 SRC			+=	get_specular.c				\
@@ -123,9 +129,8 @@ $(OBJ_PATH)/%.o : %.c
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: debug
-debug: CFLAGS+=-g3 -fsanitize=address
+debug: CFLAGS+=-g3 -fsanitize=address -D DEBUG=1
 debug: re
-	./miniRT scenes/sphere1.rt
 
 .PHONY: bonus
 bonus: fclean

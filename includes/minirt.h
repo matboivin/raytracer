@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:34:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/01 01:03:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@
 # include "minirt_display.h"
 # include "minirt_save.h"
 # include "minirt_exit.h"
+# include "minirt_debug.h"
 
 #endif
