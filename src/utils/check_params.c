@@ -6,15 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/24 19:26:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/02 22:24:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** This function checks if the filename is correctly formatted
-*/
 
 static void	check_filename(const char *filepath)
 {
@@ -28,10 +24,6 @@ static void	check_filename(const char *filepath)
 		put_error(FILENAME);
 }
 
-/*
-** This function prints the usage message to standard error
-*/
-
 static void	put_usage(void)
 {
 	ft_dprintf(
@@ -42,10 +34,6 @@ static void	put_usage(void)
 		"optional arguments:\n  --save  save rendered image to bmp format\n");
 	exit(EXIT_FAILURE);
 }
-
-/*
-** This function checks the parameters
-*/
 
 void		check_params(int argc, char **argv, bool *to_bmp)
 {
