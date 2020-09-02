@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/01 00:01:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/02 22:19:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,19 @@ static void		add_light(t_vcolor *output, t_vcolor light_color, double ratio)
 
 static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
 {
-	t_lstobj	*head;
+	t_lstobj	*cursor;
 	t_ray		shadow_ray;
 	double		t;
 
 	t = norm_vec3(light_dir);
 	shadow_ray = create_ray(ray->hit_p, normalize_vec3(light_dir), t);
-	head = objs;
-	while (objs)
+	cursor = objs;
+	while (cursor)
 	{
-		if (hit(objs, &shadow_ray) == true)
-		{
-			objs = head;
+		if (hit(cursor, &shadow_ray) == true)
 			return (true);
-		}
-		objs = objs->next;
+		cursor = cursor->next;
 	}
-	objs = head;
 	return (false);
 }
 
@@ -63,17 +59,16 @@ void			compute_lighting(
 
 void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 {
-	t_lstlight	*head;
+	t_lstlight	*cursor;
 	t_vcolor	to_add;
 
 	to_add = create_vec3(0.0, 0.0, 0.0);
 	add_light(&to_add, env->ambient.vcolor, env->ambient.ratio);
-	head = env->lights;
-	while (env->lights)
+	cursor = env->lights;
+	while (cursor)
 	{
-		compute_lighting(env->objs, env->lights->light, ray, &to_add);
-		env->lights = env->lights->next;
+		compute_lighting(env->objs, cursor->light, ray, &to_add);
+		cursor = cursor->next;
 	}
-	env->lights = head;
 	ray->vcolor = mult_vec3(ray->vcolor, to_add);
 }
