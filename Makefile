@@ -27,6 +27,7 @@ SRC			=	main.c						\
 				check_max_display.c			\
 				check_null_light.c			\
 				check_null_vector.c			\
+				get_pixel_coord.c			\
 				get_quad_coef.c				\
 				get_quad_roots.c			\
 				get_cylinder_normal.c		\

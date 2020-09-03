@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/02 22:24:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/03 15:52:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			trace_ray(t_minirt *env, t_cam *cam, t_img *img)
 		x = 0;
 		while (x < env->res.size_x)
 		{
-			set_ray_dir(env, &ray, x, y);
+			set_ray_dir(cam, &ray, get_pixel_coord(cam->fov, env->res, x, y));
 			shade(env, &ray);
 			put_pixel_to_image(img, ray.vcolor, x, y);
 			x++;
