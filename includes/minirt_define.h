@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/01 01:07:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/04 17:22:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 
 # ifndef BONUS
 #  define BONUS 0
-# endif
-
-# ifndef DEBUG
-#  define DEBUG 0
 # endif
 
 # define WIN_TITLE "miniRT"

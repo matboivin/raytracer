@@ -27,15 +27,9 @@ SRC			=	main.c						\
 				check_max_display.c			\
 				check_null_light.c			\
 				check_null_vector.c			\
-				get_pixel_coord.c			\
-				get_quad_coef.c				\
-				get_quad_roots.c			\
-				get_cylinder_normal.c		\
 				get_hit_point.c				\
-				get_obj_normal.c			\
+				get_pixel_coord.c			\
 				get_obj_color.c				\
-				get_sphere_normal.c			\
-				get_triangle_normal.c		\
 				hit.c						\
 				hit_cylinder.c				\
 				hit_plane.c					\
@@ -55,11 +49,21 @@ SRC			=	main.c						\
 				put_pixel.c					\
 				render.c					\
 				rescale_color.c				\
+				rotate_cam.c				\
 				set_ray_dir.c				\
 				set_ray_origin.c			\
 				trace_ray.c					\
 				trace_ray_to_lights.c		\
 				trace_ray_to_objs.c			\
+
+# Math utils
+
+SRC			+=	get_cylinder_normal.c		\
+				get_obj_normal.c			\
+				get_quad_coef.c				\
+				get_quad_roots.c			\
+				get_sphere_normal.c			\
+				get_triangle_normal.c		\
 
 # Display and event handling
 
