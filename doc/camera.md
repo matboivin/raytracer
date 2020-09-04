@@ -55,11 +55,22 @@ Invert the world_to_cam matrix to get the cam_to-world matrix.
 
 Rotation is handled by the matrix.
 
-<p align="center">
-  <img src="assets/TranslationController014.jpg" alt="TranslationController014" />
-</p>
+[Scale](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml) > [Rotate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glRotate.xml) > [Translate](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml)
 
 <p align="center">
+  <img src="assets/image022.jpg" alt="GL functions" />
+</p>
+
+Decomposition of the rotation submatrix:
+
+<p align="center">
+  <img src="TranslationController015.jpg" alt="Submatrix decomposition" />
+</p>
+
+Moving the camera using spherical coordinates:
+
+<p align="center">
+  <img src="assets/TranslationController014.jpg" alt="TranslationController014" />
   <img src="assets/TranslationController016.jpg" alt="TranslationController016" />
 </p>
 
