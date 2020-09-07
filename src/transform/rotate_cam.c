@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/04 17:26:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 16:45:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@
 ** z [0,  sinx,  cosx]
 */
 
-static void		cam_rotation_x(t_mat3x3 *mat, double x)
+static t_mat3x3	cam_rotation_x(double x)
 {
-	mat->c2.y = cos(x);
-	mat->c2.z = sin(x);
-	mat->c3.y = -sin(x);
-	mat->c3.z = cos(x);
+	t_mat3x3	result;
+
+	result = identity_mat3x3();
+	result.c2.y = cos(x);
+	result.c2.z = sin(x);
+	result.c3.y = -sin(x);
+	result.c3.z = cos(x);
+	return (result);
 }
 
 /*
@@ -34,12 +38,16 @@ static void		cam_rotation_x(t_mat3x3 *mat, double x)
 ** z [-siny, 0,  cosy]
 */
 
-static void		cam_rotation_y(t_mat3x3 *mat, double y)
+static t_mat3x3	cam_rotation_y(double y)
 {
-	mat->c1.x = cos(y);
-	mat->c1.z = -sin(y);
-	mat->c3.x = sin(y);
-	mat->c3.z = cos(y);
+	t_mat3x3	result;
+
+	result = identity_mat3x3();
+	result.c1.x = cos(y);
+	result.c1.z = -sin(y);
+	result.c3.x = sin(y);
+	result.c3.z = cos(y);
+	return (result);
 }
 
 /*
@@ -49,21 +57,27 @@ static void		cam_rotation_y(t_mat3x3 *mat, double y)
 ** z [    0,     0, 1]
 */
 
-static void		cam_rotation_z(t_mat3x3 *mat, double z)
-{
-	mat->c1.x = cos(z);
-	mat->c1.y = sin(z);
-	mat->c2.x = -sin(z);
-	mat->c2.y = cos(z);
-}
-
-t_mat3x3		rotate_cam(t_vec3 dir)
+static t_mat3x3	cam_rotation_z(double z)
 {
 	t_mat3x3	result;
 
 	result = identity_mat3x3();
-	cam_rotation_x(&result, dir.x);
-	cam_rotation_y(&result, dir.y);
-	cam_rotation_z(&result, dir.z);
+	result.c1.x = cos(z);
+	result.c1.y = sin(z);
+	result.c2.x = -sin(z);
+	result.c2.y = cos(z);
+	return (result);
+}
+
+t_mat3x3		rotate_cam(t_vec3 coefs)
+{
+	t_mat3x3	result;
+	t_mat3x3	tmp;
+
+	result = cam_rotation_x(coefs.x);
+	tmp = cam_rotation_y(coefs.y);
+	result = mult_mat3x3_mat3x3(result, tmp);
+	tmp = cam_rotation_z(coefs.z);
+	result = mult_mat3x3_mat3x3(result, tmp);
 	return (result);
 }
