@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 16:43:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 21:24:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_vec3		get_quad_coef(t_vec3 dir, t_vec3 oc, double radius);
 bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef);
 
 t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir);
-t_vcolor	get_obj_color(t_lstobj *hit_obj);
+void		get_obj_color(t_lstobj *hit_obj, t_ray *ray);
 double		get_specular(
 	t_ray *ray, t_light *light, t_vec3 light_dir, double angle);
 
