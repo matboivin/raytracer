@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 22:33:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:35:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void			put_pixel_to_image(t_img *img, t_vcolor vcolor, int x, int y)
 	t_uchar		b;
 	int			i;
 
-	if ((ft_n_range(x, 0, img->size_x) == false)
-		|| (ft_n_range(y, 0, img->size_y) == false))
+	if (!ft_n_range(x, 0, img->size_x)
+		|| !ft_n_range(y, 0, img->size_y))
 		return ;
 	i = (x + img->size_x * y) * 4;
-	vcolor = rescale_color(vcolor, 255.0, 0.0);
+	vcolor = rescale_color(vcolor, MAX_RGB, 0.0);
 	r = vcolor.x;
 	g = vcolor.y;
 	b = vcolor.z;

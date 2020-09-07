@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 21:56:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:09:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_lstobj		*new_lstobj(void *obj, t_objid type)
 	t_lstobj	*result;
 
 	result = (t_lstobj *)malloc(sizeof(t_lstobj));
-	if (result == NULL)
+	if (!result)
 		return (NULL);
 	result->type = type;
 	result->obj = obj;
@@ -29,7 +29,7 @@ void			lstobj_append(t_lstobj **objs, t_lstobj *new)
 {
 	t_lstobj	*cursor;
 
-	if ((objs == NULL) || (new == NULL))
+	if (!objs || !new)
 		return ;
 	cursor = *objs;
 	if (*objs)
@@ -47,7 +47,7 @@ void			lstobj_clear(t_lstobj **objs)
 	t_lstobj	*cursor;
 	t_lstobj	*next_node;
 
-	if (objs == NULL)
+	if (!objs)
 		return ;
 	cursor = *objs;
 	if (*objs)

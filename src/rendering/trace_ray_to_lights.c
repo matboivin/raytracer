@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/02 22:19:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:24:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
 	cursor = objs;
 	while (cursor)
 	{
-		if (hit(cursor, &shadow_ray) == true)
+		if (hit(cursor, &shadow_ray))
 			return (true);
 		cursor = cursor->next;
 	}
@@ -44,16 +44,16 @@ void			compute_lighting(
 	double		coef;
 
 	light_dir = sub_vec3(light->pos, ray->hit_p);
-	angle = dot_vec3(ray->normal, normalize_vec3(light_dir));
-	if (angle > 0.0 && is_in_shadow(objs, ray, light_dir) == false)
+	angle = fmax(0.0, dot_vec3(ray->normal, normalize_vec3(light_dir)));
+	if (!is_in_shadow(objs, ray, light_dir) && angle > 0.0)
 	{
 		coef = light->ratio * cos_vec3(ray->normal, normalize_vec3(light_dir));
 		add_light(output, light->vcolor, coef);
-	}
-	if (angle > 0.0 && is_in_shadow(objs, ray, light_dir) == false && BONUS)
-	{
-		coef = get_specular(ray, light, light_dir, angle);
-		add_light(output, light->vcolor, coef);
+		if (BONUS)
+		{
+			coef = get_specular(ray, light, light_dir, angle);
+			add_light(output, light->vcolor, coef);
+		}
 	}
 }
 

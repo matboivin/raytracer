@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 21:56:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:09:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_lstimg		*new_lstimg(t_img *img)
 	t_lstimg	*result;
 
 	result = (t_lstimg *)malloc(sizeof(t_lstimg));
-	if (result == NULL)
+	if (!result)
 		return (NULL);
 	result->img = img;
 	result->next = NULL;
@@ -28,7 +28,7 @@ void			lstimg_append(t_lstimg **imgs, t_lstimg *new)
 {
 	t_lstimg	*cursor;
 
-	if ((imgs == NULL) || (new == NULL))
+	if (!imgs || !new)
 		return ;
 	cursor = *imgs;
 	if (*imgs)
@@ -46,7 +46,7 @@ void			lstimg_clear(void *mlx_ptr, t_lstimg **imgs)
 	t_lstimg	*cursor;
 	t_lstimg	*head;
 
-	if (imgs == NULL)
+	if (!imgs)
 		return ;
 	head = *imgs;
 	while (*imgs)

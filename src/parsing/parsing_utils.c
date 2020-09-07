@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:08:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 17:58:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	skip_blank(char **s)
 {
-	while (ft_isblank(**s) == true)
+	while (ft_isblank(**s))
 		(*s)++;
 }
 
@@ -42,7 +42,7 @@ int		skip_separator(char **s, int sep)
 
 void	skip_digits(char **s)
 {
-	while (ft_isdigit(**s) == true)
+	while (ft_isdigit(**s))
 		(*s)++;
 }
 
@@ -56,9 +56,9 @@ void	skip_double(t_minirt *env, char **s)
 	skip_digits(s);
 	if (skip_separator(s, '.'))
 	{
-		if (ft_isdigit(**s) == false)
+		if (!ft_isdigit(**s))
 			exit_error(env, DOUBLE_FMT);
-		while (ft_isdigit(**s) == true)
+		while (ft_isdigit(**s))
 			(*s)++;
 		if ((**s) == '-')
 			exit_error(env, DOUBLE_FMT);
@@ -72,9 +72,9 @@ void	skip_double(t_minirt *env, char **s)
 bool	ft_vec3_range(t_vec3 vec, double start, double end)
 {
 	if (
-		(ft_f_range(vec.x, start, end) == false)
-		|| (ft_f_range(vec.y, start, end) == false)
-		|| (ft_f_range(vec.z, start, end) == false))
+		(!ft_f_range(vec.x, start, end))
+		|| (!ft_f_range(vec.y, start, end))
+		|| (!ft_f_range(vec.z, start, end)))
 		return (false);
 	return (true);
 }

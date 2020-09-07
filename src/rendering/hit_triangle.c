@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:58:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:03:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static bool		check_edge(t_vec3 to, t_vec3 from, t_vec3 hit_p, t_vec3 normal)
 
 static bool		is_inside_triangle(t_tri *tri, t_vec3 hit_p, t_vec3 normal)
 {
-	if ((check_edge(tri->vertex2, tri->vertex1, hit_p, normal) == true)
-		&& (check_edge(tri->vertex3, tri->vertex2, hit_p, normal) == true)
-		&& (check_edge(tri->vertex1, tri->vertex3, hit_p, normal) == true))
+	if ((check_edge(tri->vertex2, tri->vertex1, hit_p, normal))
+		&& (check_edge(tri->vertex3, tri->vertex2, hit_p, normal))
+		&& (check_edge(tri->vertex1, tri->vertex3, hit_p, normal)))
 		return (true);
 	return (false);
 }
@@ -50,11 +50,10 @@ bool			hit_triangle(t_tri *triangle, t_ray *ray)
 	double		t;
 	t_vec3		hit_p;
 
-	if (hit_obj_plane(
-		triangle->vertex1, triangle->normal, ray, &t) == true)
+	if (hit_obj_plane(triangle->vertex1, triangle->normal, ray, &t))
 	{
 		hit_p = get_hit_point(ray->origin, t, ray->dir);
-		if (is_inside_triangle(triangle, hit_p, triangle->normal) == true)
+		if (is_inside_triangle(triangle, hit_p, triangle->normal))
 		{
 			ray->t_nearest = t;
 			return (true);

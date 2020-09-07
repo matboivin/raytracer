@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 21:56:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:09:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_lstlight		*new_lstlight(t_light *light)
 	t_lstlight	*result;
 
 	result = (t_lstlight *)malloc(sizeof(t_lstlight));
-	if (result == NULL)
+	if (!result)
 		return (NULL);
 	result->light = light;
 	result->next = NULL;
@@ -28,7 +28,7 @@ void			lstlight_append(t_lstlight **lst, t_lstlight *new)
 {
 	t_lstlight	*cursor;
 
-	if ((lst == NULL) || (new == NULL))
+	if (!lst || !new)
 		return ;
 	cursor = *lst;
 	if (*lst)
@@ -46,7 +46,7 @@ void			lstlight_clear(t_lstlight **lst)
 	t_lstlight	*cursor;
 	t_lstlight	*next_node;
 
-	if (lst == NULL)
+	if (!lst)
 		return ;
 	cursor = *lst;
 	if (*lst)

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/01 01:59:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:05:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ static bool		solve_quadratic_cyl(
 	double		root1;
 	double		root2;
 
-	if (get_quad_roots(&root1, &root2, quad_coef) == true)
+	if (get_quad_roots(&root1, &root2, quad_coef))
 	{
 		if ((root1 <= 0.0 && root2 <= 0.0)
 			|| (root1 >= ray->t_nearest && root2 >= ray->t_nearest))
 			return (false);
-		if ((is_inside_cyl(cylinder, ray, root1) == false)
-			&& (is_inside_cyl(cylinder, ray, root2) == false))
+		if (!is_inside_cyl(cylinder, ray, root1)
+			&& !is_inside_cyl(cylinder, ray, root2))
 			return (false);
-		if (is_inside_cyl(cylinder, ray, root1) == false)
+		if (!is_inside_cyl(cylinder, ray, root1))
 			root1 = root2;
-		if (is_inside_cyl(cylinder, ray, root2) == false)
+		if (!is_inside_cyl(cylinder, ray, root2))
 			root2 = root1;
 		ray->t_nearest = fmin(root1, root2);
 		return (true);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/01 02:01:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:02:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ bool		hit_plane(t_plane *plane, t_ray *ray)
 {
 	double	t;
 
-	if (hit_obj_plane(plane->center, plane->dir, ray, &t) == true)
+	if (hit_obj_plane(plane->center, plane->dir, ray, &t))
 	{
 		ray->t_nearest = t;
 		return (true);

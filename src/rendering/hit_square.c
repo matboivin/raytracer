@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/25 22:58:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:02:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ bool		hit_square(t_square *square, t_ray *ray)
 	double	t;
 	t_vec3	hit_p;
 
-	if (hit_obj_plane(square->center, square->dir, ray, &t) == true)
+	if (hit_obj_plane(square->center, square->dir, ray, &t))
 	{
 		hit_p = get_hit_point(ray->origin, t, ray->dir);
-		if (is_inside_square(square, hit_p) == true)
+		if (is_inside_square(square, hit_p))
 		{
 			ray->t_nearest = t;
 			return (true);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 22:26:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:06:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 	{
 		buffer[bytes_read] = '\0';
 		result = ft_strjoindelone(result, buffer);
-		if (result == NULL)
+		if (!result)
 			exit_error(env, DEFAULT_ERR);
 	}
 	close(fd);
@@ -86,15 +86,15 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 
 static void		check_scene(t_minirt *env)
 {
-	if (env->res.is_declared == false)
+	if (!env->res.is_declared)
 		exit_error(env, NO_RES);
-	if (env->ambient.is_declared == false)
+	if (!env->ambient.is_declared)
 		exit_error(env, NO_AMB);
-	if (env->cams == NULL)
+	if (!env->cams)
 		exit_error(env, NO_CAM);
-	if (env->lights == NULL)
+	if (!env->lights)
 		exit_error(env, NO_LIGHT);
-	if (env->objs == NULL)
+	if (!env->objs)
 		exit_error(env, NO_OBJ);
 }
 
@@ -109,14 +109,14 @@ void			parse_scene(t_minirt *env, const char *filepath)
 	char		*head;
 
 	input = read_scene_file(env, filepath);
-	if (input == NULL)
+	if (!input)
 		exit_error(env, DEFAULT_ERR);
 	head = input;
 	while (*input)
 	{
 		if (*input == '\n')
 			input++;
-		else if (ft_ischarset(*input, ids) == true)
+		else if (ft_ischarset(*input, ids))
 			handle_scene_elem(env, &input);
 		else
 			exit_error(env, SCENE_FMT);

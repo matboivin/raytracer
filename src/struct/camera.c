@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 21:56:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:08:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_lstcam		*new_lstcam(t_cam *cam)
 	t_lstcam	*result;
 
 	result = (t_lstcam *)malloc(sizeof(t_lstcam));
-	if (result == NULL)
+	if (!result)
 		return (NULL);
 	result->cam = cam;
 	result->next = NULL;
@@ -28,7 +28,7 @@ void			lstcam_append(t_lstcam **cams, t_lstcam *new)
 {
 	t_lstcam	*cursor;
 
-	if ((cams == NULL) || (new == NULL))
+	if (!cams || !new)
 		return ;
 	cursor = *cams;
 	if (*cams)
@@ -46,7 +46,7 @@ void			lstcam_clear(t_lstcam **cams)
 	t_lstcam	*cursor;
 	t_lstcam	*next_node;
 
-	if (cams == NULL)
+	if (!cams)
 		return ;
 	cursor = *cams;
 	if (*cams)

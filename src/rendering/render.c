@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/03 15:50:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:05:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void		render_n_images(t_minirt *env, int n)
 
 void			render(t_minirt *env, bool to_bmp)
 {
-	if (to_bmp == true)
+	if (to_bmp)
 	{
 		render_n_images(env, 1);
 		save_bmp(env, BMP_FILENAME);

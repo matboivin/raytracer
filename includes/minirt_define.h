@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/04 17:22:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:35:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # define WIN_TITLE "miniRT"
 # define BMP_FILENAME "minirt.bmp"
+# define STRAIGHT_ANGLE 180.0
+# define MAX_RGB 255
 # define MAX_PARS 13
 # define EPSILON 0.00001
 

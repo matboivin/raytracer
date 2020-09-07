@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 22:32:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 17:12:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 **            Expected default: max double value
 **            Keeps track of the nearest distance between the ray origin and the
 **            intersection point while we iterate over the objects
+** hit_p: intersection point
+** normal: normal at intersection point
 */
 
 typedef struct	s_ray

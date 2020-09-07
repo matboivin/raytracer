@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:07:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:07:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			get_sphere(t_minirt *env, char **input)
 	t_sphere	*result;
 
 	result = (t_sphere *)malloc(sizeof(t_sphere));
-	if (result == NULL)
+	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += 2;
 	result->center = get_vec3(env, input);
@@ -36,12 +36,12 @@ void			get_plane(t_minirt *env, char **input)
 	t_plane		*result;
 
 	result = (t_plane *)malloc(sizeof(t_plane));
-	if (result == NULL)
+	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += 2;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
-	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
+	if (!ft_vec3_range(result->dir, -1.0, 1.0))
 		exit_error(env, PLANE_FMT);
 	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
 	result->dir = normalize_vec3(result->dir);
@@ -55,12 +55,12 @@ void			get_square(t_minirt *env, char **input)
 	t_square	*result;
 
 	result = (t_square *)malloc(sizeof(t_square));
-	if (result == NULL)
+	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += 2;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
-	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
+	if (!ft_vec3_range(result->dir, -1.0, 1.0))
 		exit_error(env, SQUARE_FMT);
 	check_null_vector(&(result->dir), create_vec3(0.0, 0.0, 1.0));
 	result->dir = normalize_vec3(result->dir);
@@ -75,12 +75,12 @@ void			get_cylinder(t_minirt *env, char **input)
 	t_cyl		*result;
 
 	result = (t_cyl *)malloc(sizeof(t_cyl));
-	if (result == NULL)
+	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += 2;
 	result->base1 = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
-	if (ft_vec3_range(result->dir, -1.0, 1.0) == false)
+	if (!ft_vec3_range(result->dir, -1.0, 1.0))
 		exit_error(env, CYL_FMT);
 	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
 	result->dir = normalize_vec3(result->dir);
@@ -99,7 +99,7 @@ void			get_triangle(t_minirt *env, char **input)
 	t_tri		*result;
 
 	result = (t_tri *)malloc(sizeof(t_tri));
-	if (result == NULL)
+	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += 2;
 	result->vertex1 = get_vec3(env, input);

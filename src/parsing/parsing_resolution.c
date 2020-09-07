@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:08:58 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 18:05:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	get_resolution(t_minirt *env, char **input)
 {
-	if (env->res.is_declared == true)
+	if (env->res.is_declared)
 		exit_error(env, RES_DUP);
 	env->res.is_declared = true;
 	(*input) += 2;
