@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 01:59:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 23:12:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	quit_minirt(t_minirt *env)
 	lstobj_clear(&(env->objs));
 }
 
-int		run_minirt(t_minirt *env)
+int		run_loop(t_minirt *env)
 {
 	mlx_loop(env->mlx_ptr);
 	return (EXIT_SUCCESS);

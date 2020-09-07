@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:24:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 23:36:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
 {
 	t_lstobj	*cursor;
 	t_ray		shadow_ray;
-	double		t;
+	double		t_nearest;
 
-	t = norm_vec3(light_dir);
-	shadow_ray = create_ray(ray->hit_p, normalize_vec3(light_dir), t);
+	t_nearest = norm_vec3(light_dir);
+	shadow_ray = create_ray(ray->hit_p, normalize_vec3(light_dir), t_nearest);
 	cursor = objs;
 	while (cursor)
 	{

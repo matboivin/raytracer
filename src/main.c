@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/29 01:25:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 23:12:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int				main(int argc, char **argv)
 	parse_scene(&env, argv[1]);
 	render(&env, to_bmp);
 	display_render(&env);
-	return (run_minirt(&env));
+	return (run_loop(&env));
 }

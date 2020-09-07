@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:31:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 23:44:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static t_cam	*create_camera(t_minirt *env, char **input)
 	if (!ft_vec3_range(result->dir, -1.0, 1.0))
 		exit_error(env, CAM_FMT);
 	check_null_vector(&(result->dir), create_vec3(0.0, 0.0, 1.0));
+	if (result->dir.z == 0.0)
+		result->dir.z = 1.0;
 	result->dir = normalize_vec3(result->dir);
 	result->fov = get_integer(env, input);
 	if (!ft_f_range(result->fov, 0.0, STRAIGHT_ANGLE))

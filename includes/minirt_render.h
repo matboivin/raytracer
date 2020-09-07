@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 21:24:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/07 23:15:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void		render(t_minirt *env, bool to_bmp);
 
 void		look_at(t_cam *cam);
-t_mat3x3	rotate_cam(t_vec3 coefs);
 void		set_ray_origin(t_ray *ray, t_vec3 cam_pos);
 void		set_ray_dir(t_cam *cam, t_ray *ray, t_vec3 pixel_coord);
 t_vec3		get_pixel_coord(double fov, t_res res, int x, int y);

@@ -49,7 +49,6 @@ SRC			=	main.c						\
 				put_pixel.c					\
 				render.c					\
 				rescale_color.c				\
-				rotate_cam.c				\
 				set_ray_dir.c				\
 				set_ray_origin.c			\
 				trace_ray.c					\
