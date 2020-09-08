@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 02:00:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 23:52:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ static t_bmp_h	create_bmpfileheader(int size)
 	ft_bzero(&result, sizeof(t_bmp_h));
 	result.bmp_type[0] = 'B';
 	result.bmp_type[1] = 'M';
-	result.file_size = 54 + size;
-	result.reserved1 = 0;
-	result.reserved2 = 0;
-	result.offset = 54;
+	result.file_size = HEADER_BYTES + size;
+	result.reserved1 = UNUSED;
+	result.reserved2 = UNUSED;
+	result.offset = HEADER_BYTES;
 	return (result);
 }
 
@@ -39,19 +39,19 @@ static t_dib_h	create_bmpdibheader(t_minirt *env, int size)
 	t_dib_h		result;
 	int			ppm;
 
-	ppm = 96 * 39.375;
+	ppm = DEFAULT_DPI * PPM_CONV_FACTOR;
 	ft_bzero(&result, sizeof(t_dib_h));
 	result.size_header = sizeof(t_dib_h);
 	result.width = env->res.size_x;
 	result.height = env->res.size_y;
-	result.planes = 1;
-	result.bit_count = 24;
-	result.compr = 0;
-	result.img_size = 54 + size;
+	result.planes = DEFAULT_BIPLANES;
+	result.bit_count = TRUE_COLOR;
+	result.compr = UNUSED;
+	result.img_size = HEADER_BYTES + size;
 	result.ppm_x = ppm;
 	result.ppm_y = ppm;
-	result.clr_used = 0;
-	result.clr_important = 0;
+	result.clr_used = UNUSED;
+	result.clr_important = UNUSED;
 	return (result);
 }
 
@@ -65,7 +65,7 @@ static void		write_bmpheaders(t_minirt *env, int fd)
 	t_dib_h		dib_header;
 	int			size;
 
-	size = env->res.size_x * env->res.size_y * 3;
+	size = env->res.size_x * env->res.size_y * RGB_LEN;
 	file_header = create_bmpfileheader(size);
 	dib_header = create_bmpdibheader(env, size);
 	write(fd, &(file_header.bmp_type), 2);
@@ -104,9 +104,9 @@ static void		write_bmpdata(t_minirt *env, int fd)
 		x = 0;
 		while (x < env->res.size_x)
 		{
-			i = (x + env->res.size_x * y) * 4;
+			i = (x + env->res.size_x * y) * PIXEL_LEN;
 			pixel = (int *)(env->imgs->img->pixels + i);
-			if (write(fd, pixel, 3) < 0)
+			if (write(fd, pixel, RGB_LEN) < 0)
 				exit_error(env, DEFAULT_ERR);
 			x++;
 		}
@@ -125,8 +125,8 @@ void			save_bmp(t_minirt *env, const char *filename)
 {
 	int			fd;
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd < 0)
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, FILE_PERMISSIONS);
+	if (!fd)
 		exit_error(env, DEFAULT_ERR);
 	write_bmpheaders(env, fd);
 	write_bmpdata(env, fd);

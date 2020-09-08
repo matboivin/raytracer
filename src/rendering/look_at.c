@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 00:12:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 00:59:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 static void		check_collinear_vectors(
 	t_vec3 cam_dir, t_vec3 *right, t_vec3 world_up)
 {
-	if (cam_dir.y == 1.0)
-		*right = create_vec3(1.0, 0.0, 0.0);
-	else if (cam_dir.y == -1.0)
-		*right = create_vec3(-1.0, 0.0, 0.0);
+	if (cam_dir.y == UNIT_VALUE)
+		*right = create_vec3(UNIT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
+	else if (cam_dir.y == REVUNIT_VALUE)
+		*right = create_vec3(REVUNIT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	else
 		*right = cross(normalize_vec3(world_up), cam_dir);
 }
@@ -44,10 +44,10 @@ static t_mat4x4	create_worldtocam(t_vec3 from, t_vec3 cam_dir, t_vec3 world_up)
 	forward = cam_dir;
 	check_collinear_vectors(cam_dir, &right, world_up);
 	up = cross(forward, right);
-	result.c1 = create_vec4(right.x, right.y, right.z, 0.0);
-	result.c2 = create_vec4(up.x, up.y, up.z, 0.0);
-	result.c3 = create_vec4(forward.x, forward.y, forward.z, 0.0);
-	result.c4 = create_vec4(from.x, from.y, from.z, 1.0);
+	result.c1 = create_vec4(right.x, right.y, right.z, DEFAULT_VALUE);
+	result.c2 = create_vec4(up.x, up.y, up.z, DEFAULT_VALUE);
+	result.c3 = create_vec4(forward.x, forward.y, forward.z, DEFAULT_VALUE);
+	result.c4 = create_vec4(from.x, from.y, from.z, UNIT_VALUE);
 	return (result);
 }
 
@@ -87,7 +87,7 @@ void			look_at(t_cam *cam)
 {
 	t_vec3		world_up;
 
-	world_up = create_vec3(0.0, 1.0, 0.0);
+	world_up = create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE);
 	cam->cam_to_world4 = create_camtoworld4(cam->pos, cam->dir, world_up);
 	cam->cam_to_world3 = create_camtoworld3(cam->cam_to_world4);
 }

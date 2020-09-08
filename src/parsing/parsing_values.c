@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:32:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 01:05:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int		get_rgb_val(t_minirt *env, char **input)
 	else if (ft_isdigit(**input))
 	{
 		result = get_integer(env, input);
-		if (!ft_n_range(result, 0, MAX_RGB))
+		if (!ft_n_range(result, DEFAULT_VALUE, MAX_RGB))
 			exit_error(env, COLOR_FMT);
 		skip_digits(input);
 	}

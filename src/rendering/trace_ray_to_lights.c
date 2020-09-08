@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 23:36:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 00:59:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void		add_light(t_vcolor *output, t_vcolor light_color, double ratio)
 {
 	*output = add_vec3(*output, scale_vec3(ratio, light_color));
-	*output = rescale_color(*output, 1.0, 0.0);
 }
 
 static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
@@ -62,7 +61,7 @@ void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 	t_lstlight	*cursor;
 	t_vcolor	to_add;
 
-	to_add = create_vec3(0.0, 0.0, 0.0);
+	to_add = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	add_light(&to_add, env->ambient.vcolor, env->ambient.ratio);
 	cursor = env->lights;
 	while (cursor)

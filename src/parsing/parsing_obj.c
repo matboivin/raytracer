@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:07:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 01:05:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			get_sphere(t_minirt *env, char **input)
 	result = (t_sphere *)malloc(sizeof(t_sphere));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += 2;
+	(*input) += IDENTIFIER_LEN;
 	result->center = get_vec3(env, input);
 	result->radius = get_double(env, input) * 0.5;
 	result->vcolor = get_color(env, input);
@@ -38,12 +38,14 @@ void			get_plane(t_minirt *env, char **input)
 	result = (t_plane *)malloc(sizeof(t_plane));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += 2;
+	(*input) += IDENTIFIER_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
-	if (!ft_vec3_range(result->dir, -1.0, 1.0))
+	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
 		exit_error(env, PLANE_FMT);
-	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
+	check_null_vector(
+		&(result->dir),
+		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
 	result->dir = normalize_vec3(result->dir);
 	result->vcolor = get_color(env, input);
 	add_obj_to_scene(env, result, PLANE);
@@ -57,12 +59,14 @@ void			get_square(t_minirt *env, char **input)
 	result = (t_square *)malloc(sizeof(t_square));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += 2;
+	(*input) += IDENTIFIER_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
-	if (!ft_vec3_range(result->dir, -1.0, 1.0))
+	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
 		exit_error(env, SQUARE_FMT);
-	check_null_vector(&(result->dir), create_vec3(0.0, 0.0, 1.0));
+	check_null_vector(
+		&(result->dir),
+		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
 	result->dir = normalize_vec3(result->dir);
 	result->side = get_double(env, input);
 	result->vcolor = get_color(env, input);
@@ -77,12 +81,14 @@ void			get_cylinder(t_minirt *env, char **input)
 	result = (t_cyl *)malloc(sizeof(t_cyl));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += 2;
+	(*input) += IDENTIFIER_LEN;
 	result->base1 = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
-	if (!ft_vec3_range(result->dir, -1.0, 1.0))
+	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
 		exit_error(env, CYL_FMT);
-	check_null_vector(&(result->dir), create_vec3(0.0, 1.0, 0.0));
+	check_null_vector(
+		&(result->dir),
+		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
 	result->dir = normalize_vec3(result->dir);
 	result->radius = get_double(env, input) * 0.5;
 	result->height = get_double(env, input);
@@ -101,7 +107,7 @@ void			get_triangle(t_minirt *env, char **input)
 	result = (t_tri *)malloc(sizeof(t_tri));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += 2;
+	(*input) += IDENTIFIER_LEN;
 	result->vertex1 = get_vec3(env, input);
 	result->vertex2 = get_vec3(env, input);
 	result->vertex3 = get_vec3(env, input);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/02 22:24:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 23:57:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void	check_filename(const char *filepath)
 {
-	int	len;
+	size_t	filename_len;
 
-	len = ft_strlen(filepath);
-	if (len < 4)
+	filename_len = ft_strlen(filepath);
+	if (filename_len < MIN_FILENAME_LEN)
 		put_error(FILENAME);
-	filepath += len - 3;
-	if (ft_strncmp(filepath, ".rt", 3) != 0)
+	filepath += filename_len - EXT_LEN;
+	if (ft_strncmp(filepath, ".rt", EXT_LEN))
 		put_error(FILENAME);
 }
 

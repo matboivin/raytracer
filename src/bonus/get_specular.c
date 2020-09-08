@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/31 01:42:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 00:00:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ double		get_specular(
 	reflect = sub_vec3(
 		scale_vec3(2 * angle, ray->normal), normalize_vec3(light_dir));
 	if (dot_vec3(reflect, rev_dir) > 0.0)
-		coef = light->ratio * pow(cos_vec3(reflect, rev_dir), SPECULAR);
+		coef = light->ratio * pow(cos_vec3(reflect, rev_dir), SPECULAR_COEF);
 	return (coef);
 }

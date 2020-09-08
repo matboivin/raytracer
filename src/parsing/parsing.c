@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 21:56:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 01:03:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 	i = 0;
 	while (i < MAX_PARS_FUNC)
 	{
-		if (ft_strncmp(g_parsers[i].u_id, *input, 2) == 0)
+		if (!ft_strncmp(g_parsers[i].u_id, *input, IDENTIFIER_LEN))
 		{
 			(*g_parsers[i].func)(env, input);
 			return ;
@@ -67,7 +67,7 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 
 	result = NULL;
 	fd = open(filepath, O_RDONLY);
-	if (fd < 0)
+	if (!fd)
 		exit_error(env, DEFAULT_ERR);
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{

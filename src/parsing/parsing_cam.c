@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 23:44:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 01:03:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ static t_cam	*create_camera(t_minirt *env, char **input)
 		exit_error(env, DEFAULT_ERR);
 	result->pos = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
-	if (!ft_vec3_range(result->dir, -1.0, 1.0))
+	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
 		exit_error(env, CAM_FMT);
-	check_null_vector(&(result->dir), create_vec3(0.0, 0.0, 1.0));
-	if (result->dir.z == 0.0)
-		result->dir.z = 1.0;
+	check_null_vector(
+		&(result->dir),
+		create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, UNIT_VALUE));
+	if ((result->dir.x == DEFAULT_VALUE) && (result->dir.z == DEFAULT_VALUE))
+		result->dir.z = UNIT_VALUE;
 	result->dir = normalize_vec3(result->dir);
 	result->fov = get_integer(env, input);
-	if (!ft_f_range(result->fov, 0.0, STRAIGHT_ANGLE))
+	if (!ft_f_range(result->fov, DEFAULT_VALUE, STRAIGHT_ANGLE))
 		exit_error(env, CAM_FMT);
 	return (result);
 }
@@ -46,7 +48,7 @@ void			get_camera(t_minirt *env, char **input)
 	t_cam		*cam_data;
 	t_lstcam	*new_cam;
 
-	(*input) += 2;
+	(*input) += IDENTIFIER_LEN;
 	cam_data = create_camera(env, input);
 	new_cam = new_lstcam(cam_data);
 	if (!new_cam)

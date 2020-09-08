@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 00:55:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 00:20:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	reset_ray(t_ray *ray)
 {
 	ray->t_nearest = INFINITY;
-	ray->vcolor = create_vec3(0.0, 0.0, 0.0);
-	ray->hit_p = create_vec3(0.0, 0.0, 0.0);
-	ray->normal = create_vec3(0.0, 0.0, 0.0);
+	ray->vcolor = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
+	ray->hit_p = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
+	ray->normal = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 }
 
 void		set_ray_dir(t_cam *cam, t_ray *ray, t_vec3 pixel_coord)

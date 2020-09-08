@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:05:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/09 00:56:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static bool		is_inside_cyl(t_cyl *cylinder, t_ray *ray, double t)
 	hit_p = get_hit_point(ray->origin, t, ray->dir);
 	bottom = sub_vec3(hit_p, cylinder->base1);
 	top = sub_vec3(hit_p, cylinder->base2);
-	if ((dot_vec3(cylinder->dir, bottom) > 0)
-		&& (dot_vec3(cylinder->dir, top) < 0))
+	if ((dot_vec3(cylinder->dir, bottom) > 0.0)
+		&& (dot_vec3(cylinder->dir, top) < 0.0))
 		return (true);
 	return (false);
 }
@@ -43,7 +43,7 @@ static bool		solve_quadratic_cyl(
 
 	if (get_quad_roots(&root1, &root2, quad_coef))
 	{
-		if ((root1 <= 0.0 && root2 <= 0.0)
+		if ((root1 <= EPSILON && root2 <= EPSILON)
 			|| (root1 >= ray->t_nearest && root2 >= ray->t_nearest))
 			return (false);
 		if (!is_inside_cyl(cylinder, ray, root1)

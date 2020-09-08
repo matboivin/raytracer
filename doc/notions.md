@@ -39,6 +39,7 @@ Computer Graphics
 - [Wiki: Primitive (modélisation)](https://fr.wikipedia.org/wiki/Primitive_(mod%C3%A9lisation))
 - [Wiki: Quadrique](https://fr.wikipedia.org/wiki/Quadrique)
 - [Computer Graphics from scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/introduction.html)
+- [Game Programming Patterns](http://gameprogrammingpatterns.com/contents.html)
 
 OpenGL  
 
@@ -64,6 +65,7 @@ BMP
 - [BMP file format](https://www.wikiwand.com/en/BMP_file_format)
 - [Lire et écrire des fichiers image BMP](http://fvirtman.free.fr/recueil/01_09_02_testbmp.c.php)
 - [Creating Bitmap Images with C on Windows](http://ricardolovelace.com/creating-bitmap-images-with-c-on-windows.html)
+- [Conversion factor](https://stackoverflow.com/questions/33167602/i-found-a-video-on-youtube-https-www-youtube-com-watchv-kjhkwczyahq-and-ther)
 
 Methodology
 

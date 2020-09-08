@@ -6,12 +6,22 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 01:34:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 23:52:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_SAVE_H
 # define MINIRT_SAVE_H
+
+# define BMP_FILENAME "minirt.bmp"
+# define RGB_LEN 3
+# define TRUE_COLOR 24
+# define DEFAULT_DPI 96
+# define PPM_CONV_FACTOR 39.375
+# define HEADER_BYTES 54
+# define DEFAULT_BIPLANES 1
+# define UNUSED 0
+# define FILE_PERMISSIONS 0644
 
 /*
 ** Struct: Bitmap file header
