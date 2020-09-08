@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/03 15:51:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 00:55:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	reset_ray(t_ray *ray)
 {
-	ray->t_nearest = __DBL_MAX__;
+	ray->t_nearest = INFINITY;
 	ray->vcolor = create_vec3(0.0, 0.0, 0.0);
 	ray->hit_p = create_vec3(0.0, 0.0, 0.0);
 	ray->normal = create_vec3(0.0, 0.0, 0.0);
