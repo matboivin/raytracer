@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:09:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 18:04:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ t_lstobj		*new_lstobj(void *obj, t_objid type)
 	return (result);
 }
 
-void			lstobj_append(t_lstobj **objs, t_lstobj *new)
+void			lstobj_append(t_lstobj **objs, t_lstobj *new_obj)
 {
 	t_lstobj	*cursor;
 
-	if (!objs || !new)
+	if (!objs || !new_obj)
 		return ;
 	cursor = *objs;
 	if (*objs)
 	{
 		while (cursor->next)
 			cursor = cursor->next;
-		cursor->next = new;
+		cursor->next = new_obj;
 	}
 	else
-		*objs = new;
+		*objs = new_obj;
 }
 
 void			lstobj_clear(t_lstobj **objs)

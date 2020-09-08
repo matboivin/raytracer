@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 21:55:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 18:02:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct			s_lstlight
 }						t_lstlight;
 
 t_lstlight				*new_lstlight(t_light *light);
-void					lstlight_append(t_lstlight **lights, t_lstlight *new);
+void					lstlight_append(
+	t_lstlight **lights, t_lstlight *new_light);
 void					lstlight_clear(t_lstlight **lights);
 
 #endif

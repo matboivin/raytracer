@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 21:57:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 18:01:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_lstcam
 }					t_lstcam;
 
 t_lstcam			*new_lstcam(t_cam *cam);
-void				lstcam_append(t_lstcam **cams, t_lstcam *new);
+void				lstcam_append(t_lstcam **cams, t_lstcam *new_cam);
 void				lstcam_clear(t_lstcam **cams);
 
 #endif

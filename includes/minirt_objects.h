@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/28 21:57:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 18:02:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct		s_lstobj
 }					t_lstobj;
 
 t_lstobj			*new_lstobj(void *obj, t_objid type);
-void				lstobj_append(t_lstobj **objs, t_lstobj *new);
+void				lstobj_append(t_lstobj **objs, t_lstobj *new_obj);
 void				lstobj_clear(t_lstobj **objs);
 
 #endif

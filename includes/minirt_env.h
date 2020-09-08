@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 23:12:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 18:02:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_img				*malloc_image(t_minirt *env);
 void				destroy_image(void *mlx_ptr, t_img to_destroy);
 void				free_image(void *mlx_ptr, t_img *to_free);
 t_lstimg			*new_lstimg(t_img *img);
-void				lstimg_append(t_lstimg **imgs, t_lstimg *new);
+void				lstimg_append(t_lstimg **imgs, t_lstimg *new_img);
 void				lstimg_clear(void *mlx_ptr, t_lstimg **imgs);
 void				create_circular_lstimg(t_lstimg *imgs);
 

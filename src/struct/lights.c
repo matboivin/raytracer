@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:09:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/08 18:03:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ t_lstlight		*new_lstlight(t_light *light)
 	return (result);
 }
 
-void			lstlight_append(t_lstlight **lst, t_lstlight *new)
+void			lstlight_append(t_lstlight **lst, t_lstlight *new_light)
 {
 	t_lstlight	*cursor;
 
-	if (!lst || !new)
+	if (!lst || !new_light)
 		return ;
 	cursor = *lst;
 	if (*lst)
 	{
 		while (cursor->next)
 			cursor = cursor->next;
-		cursor->next = new;
+		cursor->next = new_light;
 	}
 	else
-		*lst = new;
+		*lst = new_light;
 }
 
 void			lstlight_clear(t_lstlight **lst)
