@@ -14,8 +14,9 @@ LFLAGS		+=	-lm -lXext -lX11
 .SUFFIXES: .c .o .h
 
 LIB_PATH	=	lib/libft lib/minimath lib/mlx
-INC_PATH	=	includes lib/libft/includes lib/minimath/includes lib/mlx
-SRC_PATH	=	src
+INC_PATH	=	$(shell find includes -type d) \
+				lib/libft/includes lib/minimath/includes lib/mlx
+SRC_PATH	=	$(shell find src -type d)
 OBJ_PATH	=	obj
 
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
