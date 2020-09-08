@@ -14,14 +14,31 @@ LFLAGS		+=	-lm -lXext -lX11
 .SUFFIXES: .c .o .h
 
 LIB_PATH	=	lib/libft lib/minimath lib/mlx
-INC_PATH	=	$(shell find includes -type d) \
-				lib/libft/includes lib/minimath/includes lib/mlx
-SRC_PATH	=	$(shell find src -type d)
+INC_PATH	=	includes lib/libft/includes lib/minimath/includes lib/mlx
+SRC_PATH	=	src
 OBJ_PATH	=	obj
 
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 
 LIB			=	ft minimath mlx_Linux
+
+INC_FILES	=	minirt_camera.h				\
+				minirt_debug.h				\
+				minirt_define.h				\
+				minirt_display.h			\
+				minirt_env.h				\
+				minirt_events.h				\
+				minirt_exit.h				\
+				minirt.h					\
+				minirt_light.h				\
+				minirt_math_utils.h			\
+				minirt_objects.h			\
+				minirt_parsing.h			\
+				minirt_ray.h				\
+				minirt_render.h				\
+				minirt_save.h				\
+
+INC			=	$(addprefix includes/, $(INC_FILES))
 
 SRC			=	main.c						\
 				check_max_display.c			\
@@ -120,7 +137,7 @@ re-install :
 	@make -C lib/mlx clean
 	@make install
 
-$(NAME): $(OBJ_PATH) $(OBJ)
+$(NAME): $(OBJ_PATH) $(OBJ) $(INC)
 	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
 	@echo "\nOK\t\t$(NAME) is ready"
 
