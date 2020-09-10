@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:00:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 00:38:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@
 # define ALPHA_COMP 3
 
 typedef t_vec3			t_vcolor;
-typedef uint32_t		t_color;
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
 

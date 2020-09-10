@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/01 01:03:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 00:41:59 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@
 # include "minirt_light.h"
 # include "minirt_objects.h"
 # include "minirt_env.h"
-# include "minirt_events.h"
 # include "minirt_render.h"
 # include "minirt_math_utils.h"
 # include "minirt_parsing.h"
-# include "minirt_display.h"
 # include "minirt_save.h"
 # include "minirt_exit.h"
 # include "minirt_debug.h"

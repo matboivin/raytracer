@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 18:02:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 00:49:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ typedef struct		s_lstimg
 	struct s_lstimg	*next;
 }					t_lstimg;
 
+/*
+** Global render settings
+*/
+
 typedef struct		s_amb
 {
 	bool			is_declared;
@@ -56,6 +60,10 @@ typedef struct		s_res
 	int				size_x;
 	int				size_y;
 }					t_res;
+
+/*
+** miniRT controler
+*/
 
 typedef struct		s_minirt
 {
