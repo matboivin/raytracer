@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 00:59:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 00:58:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void			compute_lighting(
 	double		coef;
 
 	light_dir = sub_vec3(light->pos, ray->hit_p);
-	angle = fmax(0.0, dot_vec3(ray->normal, normalize_vec3(light_dir)));
+	angle = dot_vec3(ray->normal, normalize_vec3(light_dir));
+	coef = DEFAULT_VALUE;
 	if (!is_in_shadow(objs, ray, light_dir) && angle > 0.0)
 	{
 		coef = light->ratio * cos_vec3(ray->normal, normalize_vec3(light_dir));

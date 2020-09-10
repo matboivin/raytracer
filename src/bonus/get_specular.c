@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 00:00:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 00:54:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ double		get_specular(
 	t_vec3	reflect;
 	double	coef;
 
+	coef = DEFAULT_VALUE;
 	rev_dir = scale_vec3(-1, ray->dir);
 	reflect = sub_vec3(
 		scale_vec3(2 * angle, ray->normal), normalize_vec3(light_dir));
