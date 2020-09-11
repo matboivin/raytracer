@@ -25,8 +25,8 @@ LIB			=	ft minimath mlx_Linux
 
 INC_FILES	=	minirt_camera.h				\
 				minirt_debug.h				\
-				minirt_define.h				\
 				minirt_env.h				\
+				minirt_events.h				\
 				minirt_exit.h				\
 				minirt.h					\
 				minirt_light.h				\

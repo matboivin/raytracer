@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 21:51:21 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/12 00:08:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,6 @@ double		get_specular(
 
 void		put_pixel_to_image(t_img *img, t_vcolor vcolor, int x, int y);
 t_vcolor	rescale_color(t_vcolor vcolor, double min, double max);
-
-/*
-** Events
-*/
-
-int			handle_key(int keycode, void *param);
-void		dispatch_event(t_minirt *env);
 
 /*
 ** Display
