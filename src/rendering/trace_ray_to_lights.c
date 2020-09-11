@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 22:19:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 22:44:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static bool		is_in_shadow(t_lstobj *objs, t_ray *ray, t_vec3 light_dir)
 	return (false);
 }
 
-void			compute_lighting(
+static void		compute_lighting(
 	t_lstobj *objs, t_light *light, t_ray *ray, t_vcolor *output)
 {
 	t_vec3		light_dir;
