@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 22:24:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 21:54:59 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 {
-	double	dist;
 	double	denom;
 	t_vec3	p;
 
@@ -26,12 +25,8 @@ bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 	if (fabs(denom) > EPSILON)
 	{
 		p = sub_vec3(pos, ray->origin);
-		dist = dot_vec3(p, dir) / denom;
-		if ((dist > EPSILON) && (dist < ray->t_nearest))
-		{
-			*t = dist;
-			return (true);
-		}
+		*t = dot_vec3(p, dir) / denom;
+		return (*t >= EPSILON);
 	}
 	return (false);
 }
@@ -41,14 +36,7 @@ bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 ** If a plane is intersected, t_nearest is updated and true is returned
 */
 
-bool		hit_plane(t_plane *plane, t_ray *ray)
+bool		hit_plane(t_plane *plane, t_ray *ray, double *t)
 {
-	double	t;
-
-	if (hit_obj_plane(plane->center, plane->dir, ray, &t))
-	{
-		ray->t_nearest = t;
-		return (true);
-	}
-	return (false);
+	return (hit_obj_plane(plane->center, plane->dir, ray, t));
 }

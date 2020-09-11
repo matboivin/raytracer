@@ -6,47 +6,40 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 22:24:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 22:09:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function solves quadratic equation for a sphere
-*/
-
-static bool	solve_quadratic_sphere(t_ray *ray, t_vec3 quad_coef)
-{
-	double	root1;
-	double	root2;
-
-	if (get_quad_roots(&root1, &root2, quad_coef))
-	{
-		if ((root1 <= EPSILON && root2 <= EPSILON)
-		|| (root1 >= ray->t_nearest && root2 >= ray->t_nearest))
-			return (false);
-		if (root1 <= EPSILON)
-			root1 = root2;
-		if (root2 <= EPSILON)
-			root2 = root1;
-		ray->t_nearest = fmin(root1, root2);
-		return (true);
-	}
-	return (false);
-}
-
-/*
 ** This function handles intersection with a sphere
 ** If a sphere is intersected, t_nearest is updated and true is returned
 */
 
-bool		hit_sphere(t_sphere *sphere, t_ray *ray)
+bool		hit_sphere(t_sphere *sphere, t_ray *ray, double *t)
 {
 	t_vec3	quad_coef;
 	t_vec3	oc;
+	double	root1;
+	double	root2;
+	bool	retvalue;
 
+	retvalue = false;
 	oc = sub_vec3(ray->origin, sphere->center);
 	quad_coef = get_quad_coef(ray->dir, oc, sphere->radius);
-	return (solve_quadratic_sphere(ray, quad_coef));
+	if (get_quad_roots(&root1, &root2, quad_coef))
+	{
+		if ((root1 > EPSILON) && (root1 < INFINITY))
+		{
+			*t = root1;
+			retvalue = true;
+		}
+		if ((root2 > EPSILON) && (root2 < root1))
+		{
+			*t = root2;
+			retvalue = true;
+		}
+	}
+	return (retvalue);
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 00:56:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 22:18:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,34 +32,6 @@ static bool		is_inside_cyl(t_cyl *cylinder, t_ray *ray, double t)
 }
 
 /*
-** This function solves quadratic equation
-*/
-
-static bool		solve_quadratic_cyl(
-	t_cyl *cylinder, t_ray *ray, t_vec3 quad_coef)
-{
-	double		root1;
-	double		root2;
-
-	if (get_quad_roots(&root1, &root2, quad_coef))
-	{
-		if ((root1 <= EPSILON && root2 <= EPSILON)
-			|| (root1 >= ray->t_nearest && root2 >= ray->t_nearest))
-			return (false);
-		if (!is_inside_cyl(cylinder, ray, root1)
-			&& !is_inside_cyl(cylinder, ray, root2))
-			return (false);
-		if (!is_inside_cyl(cylinder, ray, root1))
-			root1 = root2;
-		if (!is_inside_cyl(cylinder, ray, root2))
-			root2 = root1;
-		ray->t_nearest = fmin(root1, root2);
-		return (true);
-	}
-	return (false);
-}
-
-/*
 ** This function helps computing coefficients for solving quadratic equation
 */
 
@@ -73,16 +45,36 @@ static t_vec3	pre_compute_coef(t_vec3 v1, t_vec3 v2)
 ** If a cylinder is intersected, t_nearest is updated and true is returned
 */
 
-bool			hit_cylinder(t_cyl *cylinder, t_ray *ray)
+bool			hit_cylinder(t_cyl *cylinder, t_ray *ray, double *t)
 {
 	t_vec3		quad_coef;
 	t_vec3		oc;
 	t_vec3		dir;
 	t_vec3		ocdir;
+	double		root1;
+	double		root2;
+	bool		retvalue;
 
+	retvalue = false;
 	oc = sub_vec3(ray->origin, cylinder->base1);
 	dir = pre_compute_coef(ray->dir, cylinder->dir);
 	ocdir = pre_compute_coef(oc, cylinder->dir);
 	quad_coef = get_quad_coef(dir, ocdir, cylinder->radius);
-	return (solve_quadratic_cyl(cylinder, ray, quad_coef));
+	if (get_quad_roots(&root1, &root2, quad_coef))
+	{
+		if ((root1 > EPSILON) && is_inside_cyl(cylinder, ray, root1))
+		{
+			*t = root1;
+			retvalue = true;
+		}
+		if ((root2 > EPSILON) && is_inside_cyl(cylinder, ray, root2))
+		{
+			if (root2 < root1)
+			{
+				*t = root2;
+				retvalue = true;
+			}
+		}
+	}
+	return (retvalue);
 }
