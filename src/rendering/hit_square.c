@@ -6,15 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 21:56:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 23:09:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** This function checks whether the intersection point lies in square
-*/
 
 static bool	is_inside_square(t_square *square, t_vec3 hit_p)
 {
@@ -29,11 +25,6 @@ static bool	is_inside_square(t_square *square, t_vec3 hit_p)
 		return (true);
 	return (false);
 }
-
-/*
-** This function handles intersection with a square
-** If a square is intersected, t_nearest is updated and true is returned
-*/
 
 bool		hit_square(t_square *square, t_ray *ray, double *t)
 {

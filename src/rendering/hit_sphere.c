@@ -6,16 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 22:09:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 23:08:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** This function handles intersection with a sphere
-** If a sphere is intersected, t_nearest is updated and true is returned
-*/
 
 bool		hit_sphere(t_sphere *sphere, t_ray *ray, double *t)
 {
