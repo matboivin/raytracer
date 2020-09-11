@@ -6,16 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 18:03:01 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 23:09:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** This function checks whether the intersection point vector is on the left
-** side of the edge vector
-*/
 
 static bool		check_edge(t_vec3 to, t_vec3 from, t_vec3 hit_p, t_vec3 normal)
 {
@@ -27,10 +22,6 @@ static bool		check_edge(t_vec3 to, t_vec3 from, t_vec3 hit_p, t_vec3 normal)
 	return (dot_vec3(normal, cross(edge, vec_p)) >= 0.0);
 }
 
-/*
-** This function checks whether the intersection point lies in triangle
-*/
-
 static bool		is_inside_triangle(t_tri *tri, t_vec3 hit_p, t_vec3 normal)
 {
 	if ((check_edge(tri->vertex2, tri->vertex1, hit_p, normal))
@@ -40,24 +31,14 @@ static bool		is_inside_triangle(t_tri *tri, t_vec3 hit_p, t_vec3 normal)
 	return (false);
 }
 
-/*
-** This function handles intersection with a triangle
-** If a triangle is intersected, t_nearest is updated and true is returned
-*/
-
-bool			hit_triangle(t_tri *triangle, t_ray *ray)
+bool			hit_triangle(t_tri *triangle, t_ray *ray, double *t)
 {
-	double		t;
 	t_vec3		hit_p;
 
-	if (hit_obj_plane(triangle->vertex1, triangle->normal, ray, &t))
+	if (hit_obj_plane(triangle->vertex1, triangle->normal, ray, t))
 	{
-		hit_p = get_hit_point(ray->origin, t, ray->dir);
-		if (is_inside_triangle(triangle, hit_p, triangle->normal))
-		{
-			ray->t_nearest = t;
-			return (true);
-		}
+		hit_p = get_hit_point(ray->origin, *t, ray->dir);
+		return (is_inside_triangle(triangle, hit_p, triangle->normal));
 	}
 	return (false);
 }
