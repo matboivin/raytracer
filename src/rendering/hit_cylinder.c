@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:09:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/12 00:26:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static bool		solve_cylinder(
 
 	root1 = INFINITY;
 	root2 = INFINITY;
+	retvalue = false;
 	if (get_quad_roots(&root1, &root2, quad_coef))
 	{
 		if ((root1 > EPSILON) && is_inside_cyl(cylinder, ray, root1))

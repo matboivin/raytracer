@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:08:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/12 00:14:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ bool		hit_sphere(t_sphere *sphere, t_ray *ray, double *t)
 	double	root2;
 	bool	retvalue;
 
+	root1 = INFINITY;
+	root2 = INFINITY;
 	retvalue = false;
 	oc = sub_vec3(ray->origin, sphere->center);
 	quad_coef = get_quad_coef(ray->dir, oc, sphere->radius);
