@@ -59,6 +59,7 @@ Ray Tracing
 - [Ray - Quadric Intersection](http://skuld.bmsc.washington.edu/people/merritt/graphics/quadrics.html)
 - [Ray Tracing (Shading) (PDF)](http://www.cs.cornell.edu/courses/cs4620/2012fa/lectures/35raytracing.pdf)
 - [Advanced Topics in Computer Graphics: Shadows (PDF)](https://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk6_p2_sam_shadows.pdf)
+- [Texture Mapping II (PDF)](https://pdfs.semanticscholar.org/05e3/e2b7e3e3d99d1b3a60b7c8c4327beffd8810.pdf)
 
 BMP  
 

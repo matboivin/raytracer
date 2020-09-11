@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:56:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/11 23:35:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int			exit_success(t_minirt *env)
 void		exit_error(t_minirt *env, t_errid raised)
 {
 	quit_minirt(env);
-	put_error(raised);
+	print_error(raised);
 }

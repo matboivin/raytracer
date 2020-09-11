@@ -94,7 +94,7 @@ SRC			+=	dispatch_event.c			\
 
 SRC			+=	check_params.c				\
 				exit.c						\
-				put_error.c					\
+				print_error.c				\
 				save_bmp.c					\
 
 # Structs
@@ -111,9 +111,9 @@ SRC			+=	ambient.c					\
 
 # Debug
 
-SRC			+=	color_map.c					\
-				color_normals.c				\
-				color_rev_normals.c			\
+SRC			+=	map_normal2.c				\
+				map_normal2_rev.c			\
+				map_normal.c				\
 
 # Bonus
 
