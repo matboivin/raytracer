@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/22 21:56:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 00:43:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/13 00:42:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,5 @@
 
 t_vec3		get_sphere_normal(t_sphere *sphere, t_vec3 hit_p)
 {
-	t_vec3	result;
-
-	result = sub_vec3(hit_p, sphere->center);
-	result = normalize_vec3(result);
-	return (result);
+	return (normalize_vec3(sub_vec3(hit_p, sphere->center)));
 }

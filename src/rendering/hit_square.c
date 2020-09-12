@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:09:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/13 00:45:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ bool		hit_square(t_square *square, t_ray *ray, double *t)
 {
 	t_vec3	hit_p;
 
+	hit_p = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	if (hit_obj_plane(square->center, square->dir, ray, t))
 	{
 		hit_p = get_hit_point(ray->origin, *t, ray->dir);
