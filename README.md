@@ -2,9 +2,10 @@
 
 `miniRT` is an individual school project at [42 Paris](https://www.42.fr) campus.
 
-42 is a private, non-profit and tuition-free Computer Science school based on peer-to-peer learning and hands-on projects.
+42 is a private, non-profit and tuition-free Computer Science school based on peer-to-peer learning and hands-on projects.  
+All programs written in C follow [42 style guideline](https://github.com/matboivin/42-projects#the-norm).
 
-> This project is an introduction to the beautiful world of Raytracing. Once completed you will be able to render simple Computer-Generated-Images and you will never be afraid of implementing mathematical formulas again.  
+> This project is an introduction to the beautiful world of Ray tracing. Once completed you will be able to render simple Computer-Generated-Images and you will never be afraid of implementing mathematical formulas again.  
 
 <p align="center">
   <img src="assets/preview.png" alt="render" width="800" />
@@ -21,11 +22,12 @@
 
 ### Prerequisites
 
-GNU make and a C compiler.
+This program was developed and runs on Debian Linux.
+
+- GNU make and a C compiler
+- libxext-dev and libbsd-dev packages (see `make install` rule in Makefile)
 
 ### Dependencies
-
-This program was developed and runs on Debian Linux.
 
 - [MinilibX for Linux](https://github.com/42Paris/minilibx-linux)
 - [libft](https://github.com/matboivin/libft)
@@ -57,7 +59,7 @@ optional arguments:
 ### Common tasks
 
 * Press `ESC` key to exit the program.
-* Press space bar to switch view point.
+* Press space bar to switch view point in case of several cameras.
 
 ### Examples
 

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 00:20:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/13 01:20:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	reset_ray(t_ray *ray)
 void		set_ray_dir(t_cam *cam, t_ray *ray, t_vec3 pixel_coord)
 {
 	ray->dir = mult_mat3x3_vec3(
-		cam->cam_to_world3,
+		cam->cam_to_world,
 		pixel_coord);
 	ray->dir = normalize_vec3(ray->dir);
 	reset_ray(ray);
