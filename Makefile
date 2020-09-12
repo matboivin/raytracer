@@ -23,12 +23,13 @@ vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 
 LIB			=	ft minimath mlx_Linux
 
-INC_FILES	=	minirt_camera.h				\
+INC_FILES	=	minirt.h					\
+				minirt_camera.h				\
 				minirt_debug.h				\
+				minirt_define.h				\
 				minirt_env.h				\
 				minirt_events.h				\
 				minirt_exit.h				\
-				minirt.h					\
 				minirt_light.h				\
 				minirt_math_utils.h			\
 				minirt_objects.h			\
