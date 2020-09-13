@@ -1,9 +1,9 @@
 [submodule "lib/libft"]
 	path = lib/libft
 	url = https://github.com/matboivin/libft.git
-[submodule "lib/mlx"]
-	path = lib/mlx
-	url = https://github.com/matboivin/mlx.git
 [submodule "lib/minimath"]
 	path = lib/minimath
 	url = https://github.com/matboivin/minimath.git
+[submodule "lib/minilibx-linux"]
+	path = lib/minilibx-linux
+	url = https://github.com/42Paris/minilibx-linux.git

@@ -4,7 +4,7 @@ SHELL = /bin/sh
 CC = gcc
 RM = rm -rf
 
-CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror
 IFLAGS		=	$(foreach dir, $(INC_PATH), -I $(dir))
 LFLAGS		=	$(foreach dir, $(LIB_PATH), -L $(dir)) \
 				$(foreach lib, $(LIB), -l $(lib))
@@ -13,9 +13,9 @@ LFLAGS		+=	-lm -lXext -lX11
 .SUFFIXE:
 .SUFFIXES: .c .o .h
 
-LIB_PATH	=	lib/libft lib/minimath lib/mlx
+LIB_PATH	=	lib/libft lib/minimath lib/minilibx-linux
 INC_PATH	=	$(shell find includes -type d) \
-				lib/libft/includes lib/minimath/includes lib/mlx
+				lib/libft/includes lib/minimath/includes lib/minilibx-linux
 SRC_PATH	=	$(shell find src -type d)
 OBJ_PATH	=	obj
 
@@ -127,14 +127,14 @@ all: $(NAME)
 
 .PHONY: install
 install :
-	sudo apt-get update && apt-get install libxext-dev libbsd-dev
+	#sudo apt-get update && apt-get install libxext-dev libbsd-dev
 	@$(foreach dir, $(LIB_PATH), make -C $(dir);)
 
 .PHONY: re-install
 re-install :
 	@make -C lib/libft fclean
 	@make -C lib/minimath fclean
-	@make -C lib/mlx clean
+	@make -C lib/minilibx-linux clean
 	@make install
 
 $(NAME): $(OBJ_PATH) $(OBJ) $(INC)
