@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/13 00:29:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/13 02:09:15 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define REVUNIT_VALUE -1.0
 # define STRAIGHT_ANGLE 180.0
 # define MAX_RGB 255
+# define HALF_PIXEL 0.5
 # define EPSILON 0.00001
 # define SPECULAR_COEF 70
 
