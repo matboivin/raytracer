@@ -3,7 +3,7 @@
 ## Working principle
 
 <p align="center">
-  <img src="800px-Ray_trace_diagram.svg.png" alt="wiki" />
+  <img src="assets/800px-Ray_trace_diagram.svg.png" alt="wiki" />
 </p>
 
 Image source: [Wiki: Ray tracing](https://en.wikipedia.org/wiki/Ray_tracing_(graphics))
