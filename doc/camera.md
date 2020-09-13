@@ -67,13 +67,6 @@ Decomposition of the rotation submatrix:
   <img src="assets/TranslationController015.jpg" alt="Submatrix decomposition" />
 </p>
 
-Moving the camera using spherical coordinates:
-
-<p align="center">
-  <img src="assets/TranslationController014.jpg" alt="TranslationController014" />
-  <img src="assets/TranslationController016.jpg" alt="TranslationController016" />
-</p>
-
 Images source: [Interactive Techniques in Three-dimensional Scenes (Part 1)](https://www.codeproject.com/Articles/35139/Interactive-Techniques-in-Three-dimensional-Scenes)
 
 ## FOV
