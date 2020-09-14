@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:03:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 12:07:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 	int			bytes_read;
 
 	result = NULL;
-	fd = open(filepath, O_RDONLY);
+	fd = open(filepath, O_RDONLY | O_NOFOLLOW);
 	if (!fd)
 		exit_error(env, DEFAULT_ERR);
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
