@@ -22,7 +22,7 @@ All programs written in C follow [42 style guideline](https://github.com/matboiv
 
 ### Prerequisites
 
-This program was developed and runs on Debian Linux.
+This program was developed on Debian Linux. It runs on Debian and Ubuntu.
 
 - GNU make and a C compiler
 - libxext-dev and libbsd-dev packages (see `make install` rule in Makefile)

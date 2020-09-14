@@ -160,6 +160,8 @@ bonus: $(NAME)
 
 .PHONY: clean
 clean:
+	@make -C lib/libft clean
+	@make -C lib/minimath clean
 	@$(RM) $(OBJ_PATH)
 	@echo "Cleaned\t\tobject files"
 

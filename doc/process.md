@@ -121,6 +121,12 @@ To read more about matrices:
 - [The Matrix and Quaternions FAQ](http://www.opengl-tutorial.org/assets/faq_quaternions/index.html)
 
 To read more about CG:  
+- [Game Programming Patterns](http://gameprogrammingpatterns.com/contents.html)
 - [Wiki: Graphics pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline)
 - [Computer Graphics: Topology](https://www.as.uky.edu/blogs/tlha222/computer-graphics-topology)
 
+A few things that can be fixed and possible improvements:
+- Use `fgetc` to avoid unstoppable reading of an infinite stream as scene file
+- Not overwriting an existing minirt.bmp
+- Sampling and multi-threading
+- Store the state of a key in a struct with `mlx_loop_hook` and handle graphic look more like MVC

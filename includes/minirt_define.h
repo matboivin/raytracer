@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/13 02:09:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 02:06:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define PIXEL_LEN 4
 # define IDENTIFIER_LEN 2
 # define MAX_PARS_FUNC 13
-# define MIN_RES 100
+# define MIN_RES 300
 # define MIN_LUM_RATIO 0.1
 # define DEFAULT_VALUE 0.0
 # define UNIT_VALUE 1.0

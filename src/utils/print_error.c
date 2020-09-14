@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:36:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 02:08:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ static t_err	g_errors[] =
 	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
 	{ SAVE_OPTION, "Invalid option: Try '--save'." },
 	{ RES_DUP, "Invalid scene: Resolution must be declared once." },
-	{ RES_LOW, "Resolution too low: minimum is 100x100. Rendering stopped." },
-	{ RES_NEG, "Invalid scene: Resolution width and height must be positive." },
+	{ RES_LOW, "Resolution too low: minimum is 300x300. Rendering stopped." },
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
 	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
