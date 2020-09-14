@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:05:08 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 23:54:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			get_sphere(t_minirt *env, char **input)
 	result = (t_sphere *)malloc(sizeof(t_sphere));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->radius = get_double(env, input) * 0.5;
 	result->vcolor = get_color(env, input);
@@ -38,7 +38,7 @@ void			get_plane(t_minirt *env, char **input)
 	result = (t_plane *)malloc(sizeof(t_plane));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
 	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
@@ -59,7 +59,7 @@ void			get_square(t_minirt *env, char **input)
 	result = (t_square *)malloc(sizeof(t_square));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
 	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
@@ -81,7 +81,7 @@ void			get_cylinder(t_minirt *env, char **input)
 	result = (t_cyl *)malloc(sizeof(t_cyl));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_OBJ_LEN;
 	result->base1 = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
 	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
@@ -107,7 +107,7 @@ void			get_triangle(t_minirt *env, char **input)
 	result = (t_tri *)malloc(sizeof(t_tri));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_OBJ_LEN;
 	result->vertex1 = get_vec3(env, input);
 	result->vertex2 = get_vec3(env, input);
 	result->vertex3 = get_vec3(env, input);

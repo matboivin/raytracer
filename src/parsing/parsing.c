@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 12:07:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 23:55:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,15 @@
 
 static t_parsers	g_parsers[] =
 {
-	{ "R ", &get_resolution },
-	{ "A ", &get_ambient },
-	{ "c ", &get_camera },
-	{ "l ", &get_light },
-	{ "R\t", &get_resolution },
-	{ "A\t", &get_ambient },
-	{ "c\t", &get_camera },
-	{ "l\t", &get_light },
-	{ "sp", &get_sphere },
-	{ "pl", &get_plane },
-	{ "sq", &get_square },
-	{ "cy", &get_cylinder },
-	{ "tr", &get_triangle }
+	{ "sp", 2, &get_sphere },
+	{ "pl", 2, &get_plane },
+	{ "sq", 2, &get_square },
+	{ "cy", 2, &get_cylinder },
+	{ "tr", 2, &get_triangle },
+	{ "R", 1, &get_resolution },
+	{ "A", 1, &get_ambient },
+	{ "c", 1, &get_camera },
+	{ "l", 1, &get_light }
 };
 
 /*
@@ -44,7 +40,7 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 	i = 0;
 	while (i < MAX_PARS_FUNC)
 	{
-		if (!ft_strncmp(g_parsers[i].u_id, *input, IDENTIFIER_LEN))
+		if (!ft_strncmp(g_parsers[i].u_id, *input, g_parsers[i].size))
 		{
 			(*g_parsers[i].func)(env, input);
 			return ;

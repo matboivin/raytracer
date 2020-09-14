@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 02:38:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 23:53:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # define MIN_FILENAME_LEN 4
 # define EXT_LEN 3
 # define PIXEL_LEN 4
-# define IDENTIFIER_LEN 2
+# define ID_LEN 1
+# define ID_OBJ_LEN 2
 # define MAX_PARS_FUNC 13
 # define MIN_RES 300
 # define MIN_LUM_RATIO 0.1

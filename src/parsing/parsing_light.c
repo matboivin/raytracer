@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:02:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 23:53:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			get_light(t_minirt *env, char **input)
 	t_light		*light_data;
 	t_lstlight	*new_light;
 
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_LEN;
 	light_data = create_light(env, input);
 	new_light = new_lstlight(light_data);
 	if (!new_light)

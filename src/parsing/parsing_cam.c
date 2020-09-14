@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:03:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 23:53:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void			get_camera(t_minirt *env, char **input)
 	t_cam		*cam_data;
 	t_lstcam	*new_cam;
 
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_LEN;
 	cam_data = create_camera(env, input);
 	new_cam = new_lstcam(cam_data);
 	if (!new_cam)

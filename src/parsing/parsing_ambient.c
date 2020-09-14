@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:11:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 23:53:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		get_ambient(t_minirt *env, char **input)
 	if (env->ambient.is_declared)
 		exit_error(env, AMB_DUP);
 	env->ambient.is_declared = true;
-	(*input) += IDENTIFIER_LEN;
+	(*input) += ID_LEN;
 	env->ambient.ratio = get_double(env, input);
 	if (!ft_f_range(env->ambient.ratio, DEFAULT_VALUE, UNIT_VALUE))
 		exit_error(env, AMB_FMT);
