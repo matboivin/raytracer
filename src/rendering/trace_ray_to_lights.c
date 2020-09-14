@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 22:44:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 02:40:05 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,18 @@ static void		compute_lighting(
 	t_vec3		light_dir;
 	double		angle;
 	double		coef;
+	double		spec_coef;
 
 	light_dir = sub_vec3(light->pos, ray->hit_p);
 	angle = dot_vec3(ray->normal, normalize_vec3(light_dir));
 	coef = DEFAULT_VALUE;
+	spec_coef = DEFAULT_VALUE;
 	if (!is_in_shadow(objs, ray, light_dir) && angle > 0.0)
 	{
 		coef = light->ratio * cos_vec3(ray->normal, normalize_vec3(light_dir));
 		add_light(output, light->vcolor, coef);
-		if (BONUS)
-		{
-			coef = get_specular(ray, light, light_dir, angle);
-			add_light(output, light->vcolor, coef);
-		}
+		spec_coef = get_specular(ray, light, light_dir, angle);
+		add_light(output, light->vcolor, spec_coef);
 	}
 }
 

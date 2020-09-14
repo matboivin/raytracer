@@ -6,16 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 02:06:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/14 02:38:14 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_DEFINE_H
 # define MINIRT_DEFINE_H
-
-# ifndef BONUS
-#  define BONUS 0
-# endif
 
 # define WIN_TITLE "miniRT"
 # define MIN_FILENAME_LEN 4

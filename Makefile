@@ -47,6 +47,7 @@ SRC			=	main.c						\
 				get_hit_point.c				\
 				get_pixel_coord.c			\
 				get_obj_color.c				\
+				get_specular.c				\
 				hit.c						\
 				hit_cylinder.c				\
 				hit_plane.c					\
@@ -116,10 +117,6 @@ SRC			+=	map_normal2.c				\
 				map_normal2_rev.c			\
 				map_normal.c				\
 
-# Bonus
-
-SRC			+=	get_specular.c				\
-
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
 
 .PHONY: all
@@ -152,11 +149,6 @@ $(OBJ_PATH)/%.o : %.c
 .PHONY: debug
 debug: CFLAGS+=-g3 -fsanitize=address -D DEBUG=1
 debug: re
-
-.PHONY: bonus
-bonus: fclean
-bonus: CFLAGS+=-D BONUS=1
-bonus: $(NAME)
 
 .PHONY: clean
 clean:
