@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:37:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 14:48:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			trace_ray(t_minirt *env, t_cam *cam, t_img *img)
 			x++;
 		}
 		y++;
-		progress = y * 100 / env->res.size_y;
+		progress = ft_percent(y, env->res.size_y);
 		ft_printf("\rRendering image... %d%%", progress);
 	}
 	ft_printf("\n");

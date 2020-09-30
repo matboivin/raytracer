@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 17:58:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 14:34:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ void	skip_digits(char **s)
 
 void	skip_double(t_minirt *env, char **s)
 {
-	skip_separator(s, '-');
+	skip_separator(s, MINUS);
 	skip_digits(s);
-	if (skip_separator(s, '.'))
+	if (skip_separator(s, DOT))
 	{
 		if (!ft_isdigit(**s))
-			exit_error(env, DOUBLE_FMT);
+			exit_error(env, FLOAT_FMT);
 		while (ft_isdigit(**s))
 			(*s)++;
-		if ((**s) == '-')
-			exit_error(env, DOUBLE_FMT);
+		if ((**s) == MINUS)
+			exit_error(env, FLOAT_FMT);
 	}
 }
 

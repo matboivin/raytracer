@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 23:55:22 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 14:31:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void			parse_scene(t_minirt *env, const char *filepath)
 	head = input;
 	while (*input)
 	{
-		if (*input == '\n')
+		if (*input == NEWLINE)
 			input++;
 		else if (ft_ischarset(*input, ids))
 			handle_scene_elem(env, &input);

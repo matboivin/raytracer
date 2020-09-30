@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 23:52:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 14:48:49 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ static void		write_bmpdata(t_minirt *env, int fd)
 				exit_error(env, DEFAULT_ERR);
 			x++;
 		}
-		progress = (env->res.size_y - y) * 100 / env->res.size_y;
+		progress = ft_percent((env->res.size_y - y), env->res.size_y);
 		ft_printf("\rSaving rendered image in BMP format... %d%%", progress);
 		y--;
 	}

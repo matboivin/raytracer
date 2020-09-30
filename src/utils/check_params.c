@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:35:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 13:53:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static void	check_filename(const char *filepath)
 	if (filename_len < MIN_FILENAME_LEN)
 		print_error(FILENAME);
 	filepath += filename_len - EXT_LEN;
-	if (ft_strncmp(filepath, ".rt", EXT_LEN))
+	if (ft_strncmp(filepath, DEFAULT_EXT, EXT_LEN))
 		print_error(FILENAME);
 }
 
-static void	put_usage(void)
+static void	print_usage(void)
 {
 	ft_dprintf(
 		STDERR_FILENO,
@@ -38,11 +38,11 @@ static void	put_usage(void)
 void		check_params(int argc, char **argv, bool *to_bmp)
 {
 	if ((argc < 2) || (argc > 3))
-		put_usage();
+		print_usage();
 	check_filename(argv[1]);
 	if (argc == 3)
 	{
-		if (ft_strcmp(argv[2], "--save"))
+		if (ft_strcmp(argv[2], SAVE_OPT))
 			print_error(SAVE_OPTION);
 		*to_bmp = true;
 	}

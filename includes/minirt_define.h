@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 23:53:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 14:44:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define MINIRT_DEFINE_H
 
 # define WIN_TITLE "miniRT"
+# define SAVE_OPT "--save"
 # define MIN_FILENAME_LEN 4
+# define DEFAULT_EXT ".rt"
 # define EXT_LEN 3
 # define PIXEL_LEN 4
 # define ID_LEN 1
@@ -30,9 +32,13 @@
 # define HALF_PIXEL 0.5
 # define EPSILON 0.00001
 # define SPECULAR_COEF 70
+# define NEWLINE '\n'
+# define MINUS '-'
+# define DOT '.'
+# define COMMA ','
 
 /*
-** MLX is in BGRA so we change the order of values to RGBA
+** MLX is in BGRA so we change the order of components to RGBA
 */
 
 # define RED_COMP 2

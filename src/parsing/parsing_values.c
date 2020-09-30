@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:05:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 14:34:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int				get_integer(t_minirt *env, char **input)
 	int			result;
 
 	skip_blank(input);
-	if ((**input) == '-' || ft_isdigit(**input))
+	if ((**input) == MINUS || ft_isdigit(**input))
 	{
 		result = ft_atoi(*input);
-		skip_separator(input, '-');
+		skip_separator(input, MINUS);
 		skip_digits(input);
 	}
 	else
@@ -35,14 +35,14 @@ double			get_double(t_minirt *env, char **input)
 
 	endptr = NULL;
 	skip_blank(input);
-	if ((**input) == '-' || ft_isdigit(**input))
+	if ((**input) == MINUS || ft_isdigit(**input))
 	{
 		result = ft_strtod(*input, &endptr);
 		free(endptr);
 		skip_double(env, input);
 	}
 	else
-		exit_error(env, DOUBLE_FMT);
+		exit_error(env, FLOAT_FMT);
 	return (result);
 }
 
@@ -68,10 +68,10 @@ t_vcolor		get_color(t_minirt *env, char **input)
 
 	skip_blank(input);
 	result.x = get_rgb_val(env, input);
-	if (!skip_separator(input, ','))
+	if (!skip_separator(input, COMMA))
 		exit_error(env, COLOR_FMT);
 	result.y = get_rgb_val(env, input);
-	if (!skip_separator(input, ','))
+	if (!skip_separator(input, COMMA))
 		exit_error(env, COLOR_FMT);
 	result.z = get_rgb_val(env, input);
 	return (result);
@@ -83,10 +83,10 @@ t_vec3			get_vec3(t_minirt *env, char **input)
 
 	skip_blank(input);
 	result.x = get_double(env, input);
-	if (!skip_separator(input, ','))
+	if (!skip_separator(input, COMMA))
 		exit_error(env, COORD_FMT);
 	result.y = get_double(env, input);
-	if (!skip_separator(input, ','))
+	if (!skip_separator(input, COMMA))
 		exit_error(env, COORD_FMT);
 	result.z = get_double(env, input);
 	return (result);
