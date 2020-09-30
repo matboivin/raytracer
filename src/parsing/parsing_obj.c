@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 23:54:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 16:17:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			get_sphere(t_minirt *env, char **input)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
-	result->radius = get_double(env, input) * 0.5;
+	result->radius = get_double(env, input) * HALF_DIV;
 	result->vcolor = get_color(env, input);
 	add_obj_to_scene(env, result, SPHERE);
 	skip_blank(input);
@@ -90,7 +90,7 @@ void			get_cylinder(t_minirt *env, char **input)
 		&(result->dir),
 		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
 	result->dir = normalize_vec3(result->dir);
-	result->radius = get_double(env, input) * 0.5;
+	result->radius = get_double(env, input) * HALF_DIV;
 	result->height = get_double(env, input);
 	result->vcolor = get_color(env, input);
 	result->base2 = add_vec3(

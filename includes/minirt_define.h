@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 15:24:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 16:21:14 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 
 # define WIN_TITLE "miniRT"
 # define SAVE_OPT "--save"
-# define MIN_FILENAME_LEN 4
 # define DEFAULT_EXT ".rt"
 # define EXT_LEN 3
+# define MIN_FILENAME_LEN 4
 # define PIXEL_LEN 4
 # define ID_LEN 1
 # define ID_OBJ_LEN 2
 # define MAX_PARS_FUNC 13
 # define MIN_RES 300
 # define MIN_LUM_RATIO 0.1
-# define DEFAULT_VALUE 0.0
-# define UNIT_VALUE 1.0
-# define REVUNIT_VALUE -1.0
-# define STRAIGHT_ANGLE 180.0
 # define MAX_RGB 255
 # define HALF_PIXEL 0.5
+# define HALF_DIV 0.5
+# define DBL_UNIT 2.0
+# define QUAD_UNIT 4.0
 # define EPSILON 0.00001
 # define SPECULAR_COEF 70
 
