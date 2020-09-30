@@ -75,7 +75,8 @@ SRC			=	main.c						\
 
 # Math utils
 
-SRC			+=	get_cylinder_normal.c		\
+SRC			+=	ft_percent.c				\
+				get_cylinder_normal.c		\
 				get_obj_normal.c			\
 				get_quad_coef.c				\
 				get_quad_roots.c			\
