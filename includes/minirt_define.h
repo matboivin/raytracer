@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 14:44:01 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/09/30 15:24:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@
 # define HALF_PIXEL 0.5
 # define EPSILON 0.00001
 # define SPECULAR_COEF 70
-# define NEWLINE '\n'
-# define MINUS '-'
-# define DOT '.'
-# define COMMA ','
 
 /*
 ** MLX is in BGRA so we change the order of components to RGBA
