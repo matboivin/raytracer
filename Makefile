@@ -1,17 +1,21 @@
-NAME = miniRT
+NAME := miniRT
 
 SHELL = /bin/sh
-CC = gcc
 RM = rm -rf
 
+.SUFFIXE:
+.SUFFIXES: .c .o .h
+
+# ******************************** CC AND FLAGS ****************************** #
+
+CC = gcc
 CFLAGS		=	-Wall -Wextra -Werror
 IFLAGS		=	$(foreach dir, $(INC_PATH), -I $(dir))
 LFLAGS		=	$(foreach dir, $(LIB_PATH), -L $(dir)) \
 				$(foreach lib, $(LIB), -l $(lib))
 LFLAGS		+=	-lm -lXext -lX11
 
-.SUFFIXE:
-.SUFFIXES: .c .o .h
+# ******************************** DIR AND PATHS ***************************** #
 
 LIB_PATH	=	lib/libft lib/minimath lib/minilibx-linux
 INC_PATH	=	$(shell find includes -type d) \
@@ -19,9 +23,16 @@ INC_PATH	=	$(shell find includes -type d) \
 SRC_PATH	=	$(shell find src -type d)
 OBJ_PATH	=	obj
 
+INC			=	$(addprefix includes/, $(INC_FILES))
+OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
+
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
 
+# *********************************** LIB ************************************ #
+
 LIB			=	ft minimath mlx_Linux
+
+# ********************************** FILES *********************************** #
 
 INC_FILES	=	minirt.h					\
 				minirt_camera.h				\
@@ -37,8 +48,6 @@ INC_FILES	=	minirt.h					\
 				minirt_ray.h				\
 				minirt_render.h				\
 				minirt_save.h				\
-
-INC			=	$(addprefix includes/, $(INC_FILES))
 
 SRC			=	main.c						\
 				check_max_display.c			\
@@ -73,7 +82,7 @@ SRC			=	main.c						\
 				trace_ray_to_lights.c		\
 				trace_ray_to_objs.c			\
 
-# Math utils
+# MATH UTILS #
 
 SRC			+=	ft_percent.c				\
 				get_cylinder_normal.c		\
@@ -83,7 +92,7 @@ SRC			+=	ft_percent.c				\
 				get_sphere_normal.c			\
 				get_triangle_normal.c		\
 
-# Display and event handling
+# DISPLAY AND EVENT HANDLING #
 
 SRC			+=	dispatch_event.c			\
 				display_render.c			\
@@ -93,14 +102,7 @@ SRC			+=	dispatch_event.c			\
 				reload_image.c				\
 				switch_cam.c				\
 
-# Utils
-
-SRC			+=	check_params.c				\
-				exit.c						\
-				print_error.c				\
-				save_bmp.c					\
-
-# Structs
+# STRUCTS #
 
 SRC			+=	ambient.c					\
 				camera.c					\
@@ -112,16 +114,25 @@ SRC			+=	ambient.c					\
 				ray.c						\
 				resolution.c				\
 
-# Debug
+# UTILS #
+
+SRC			+=	check_params.c				\
+				exit.c						\
+				print_error.c				\
+				save_bmp.c					\
+
+# DEBUG #
 
 SRC			+=	map_normal2.c				\
 				map_normal2_rev.c			\
-				map_normal.c				\
+				map_normal.c
 
-OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
+# ********************************** RULES *********************************** #
 
 .PHONY: all
 all: $(NAME)
+
+# INSTALL #
 
 .PHONY: install
 install :
@@ -139,17 +150,25 @@ $(NAME): $(OBJ_PATH) $(OBJ) $(INC)
 	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
 	@echo "\nOK\t\t$(NAME) is ready"
 
+# OBJ DIR #
+
 $(OBJ_PATH):
 	@mkdir -p $@
 	@echo "Created\t\t$@ directory"
+
+# COMPILING #
 
 $(OBJ_PATH)/%.o : %.c
 	@echo "\r\033[KCompiling\t$< \c"
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
+# DEBUG #
+
 .PHONY: debug
 debug: CFLAGS+=-g3 -fsanitize=address -D DEBUG=1
 debug: re
+
+# CLEAN #
 
 .PHONY: clean
 clean:
