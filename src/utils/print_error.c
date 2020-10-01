@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 14:02:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/01 13:04:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_err	g_errors[] =
 	{ COORD_FMT, "Invalid scene: Coordinates badly formatted." },
 	{ CYL_FMT, "Invalid scene: Cylinder badly formatted." },
 	{ FLOAT_FMT, "Invalid scene: Floating-point number badly formatted." },
-	{ FILENAME, "Invalid scene file: Use the '.rt' extension." },
+	{ FILENAME_ERR, "Invalid scene file: Use the '.rt' extension." },
 	{ ID_ERR, "Invalid scene: Unknown identifier." },
 	{ LIGHT_FMT, "Invalid scene: Light badly formatted." },
 	{ NO_AMB, "No ambient light declared. Rendering stopped." },
@@ -34,8 +34,8 @@ static t_err	g_errors[] =
 	{ NO_OBJ, "No object declared. Rendering stopped." },
 	{ NO_RES, "No resolution declared. Rendering stopped." },
 	{ NUM_FMT, "Invalid scene: Number badly formatted." },
+	{ OPT_ERR, "Invalid option: Try '--save'." },
 	{ PLANE_FMT, "Invalid scene: Plane badly formatted." },
-	{ SAVE_OPTION, "Invalid option: Try '--save'." },
 	{ RES_DUP, "Invalid scene: Resolution must be declared once." },
 	{ RES_LOW, "Resolution too low: minimum is 300x300. Rendering stopped." },
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },

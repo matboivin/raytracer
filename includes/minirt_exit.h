@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 14:02:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/01 13:03:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef enum	e_errid
 	COORD_FMT,
 	CYL_FMT,
 	FLOAT_FMT,
-	FILENAME,
+	FILENAME_ERR,
 	ID_ERR,
 	LIGHT_FMT,
 	NO_AMB,
@@ -31,8 +31,8 @@ typedef enum	e_errid
 	NO_OBJ,
 	NO_RES,
 	NUM_FMT,
+	OPT_ERR,
 	PLANE_FMT,
-	SAVE_OPTION,
 	RES_DUP,
 	RES_LOW,
 	SCENE_FMT,

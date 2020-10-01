@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 13:53:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/01 13:04:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	check_filename(const char *filepath)
 
 	filename_len = ft_strlen(filepath);
 	if (filename_len < MIN_FILENAME_LEN)
-		print_error(FILENAME);
+		print_error(FILENAME_ERR);
 	filepath += filename_len - EXT_LEN;
 	if (ft_strncmp(filepath, DEFAULT_EXT, EXT_LEN))
-		print_error(FILENAME);
+		print_error(FILENAME_ERR);
 }
 
 static void	print_usage(void)
@@ -43,7 +43,7 @@ void		check_params(int argc, char **argv, bool *to_bmp)
 	if (argc == 3)
 	{
 		if (ft_strcmp(argv[2], SAVE_OPT))
-			print_error(SAVE_OPTION);
+			print_error(OPT_ERR);
 		*to_bmp = true;
 	}
 }
