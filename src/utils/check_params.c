@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:23:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 19:32:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static void	print_usage(void)
 
 void		check_params(int argc, char **argv, bool *to_bmp)
 {
-	if ((argc < MIN_ARG) || (argc > MAX_ARG))
+	if ((argc < MIN_ARGC) || (argc > MAX_ARGC))
 		print_usage();
 	check_filename(argv[1]);
-	if (argc == MAX_ARG)
+	if (argc == MAX_ARGC)
 	{
 		if (ft_strcmp(argv[2], SAVE_OPT))
 			print_error(OPT_ERR);

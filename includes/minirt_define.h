@@ -6,15 +6,15 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:23:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 19:32:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_DEFINE_H
 # define MINIRT_DEFINE_H
 
-# define MIN_ARG 2
-# define MAX_ARG 3
+# define MIN_ARGC 2
+# define MAX_ARGC 3
 # define WIN_TITLE "miniRT"
 # define SAVE_OPT "--save"
 # define DEFAULT_EXT ".rt"
