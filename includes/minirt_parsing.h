@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 23:53:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 18:54:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef	void	(*t_pars_func)(t_minirt *env, char **input);
 typedef struct	s_parsers
 {
 	char		*u_id;
-	int			size;
+	int			id_len;
 	t_pars_func	func;
 }				t_parsers;
 
