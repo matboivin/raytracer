@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/12 00:08:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 19:16:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define SPC_KEY 32
 
 /*
-** Event types
+** Xlib Event types
 */
 
 # define KEYPRESS 2
@@ -29,19 +29,20 @@
 # define MAPNOTIFY 19
 
 /*
-** Event masks
+** Xlib Event masks
 ** 42 Norm doesn't allow the following:
 ** # define KEYPRESSMASK (1L << 0)
-** # define DESTROYNOTIFYMASK (1L << 17)
+** # define STRUCTURENOTIFYMASK (1L << 17)
 */
 
-typedef enum	e_emask
+typedef enum	e_xeventmask
 {
 	KEYPRESSMASK = 1L << 0,
 	STRUCTURENOTIFYMASK = 1L << 17
-}				t_emask;
+}				t_xeventmask;
 
 int				handle_key(int keycode, void *param);
 void			dispatch_event(t_minirt *env);
+int				run_loop(t_minirt *env);
 
 #endif

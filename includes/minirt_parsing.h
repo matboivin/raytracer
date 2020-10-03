@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 18:54:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 19:17:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define MINIRT_PARSING_H
 
 typedef	void	(*t_pars_func)(t_minirt *env, char **input);
+
+/*
+** Struct: Element identifiers associated to parsing functions
+*/
 
 typedef struct	s_parsers
 {

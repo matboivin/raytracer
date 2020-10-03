@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.c                                           :+:      :+:    :+:   */
+/*   minirt_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 01:10:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 18:59:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** Initialize miniRT controler
+** miniRT controler
+** Contains mlx pointer, window information, images and scene elements
 */
 
 void	init_minirt(t_minirt *env, char *title)
@@ -38,10 +39,4 @@ void	quit_minirt(t_minirt *env)
 	lstcam_clear(&(env->cams));
 	lstlight_clear(&(env->lights));
 	lstobj_clear(&(env->objs));
-}
-
-int		run_loop(t_minirt *env)
-{
-	mlx_loop(env->mlx_ptr);
-	return (EXIT_SUCCESS);
 }

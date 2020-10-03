@@ -100,6 +100,7 @@ SRC			+=	dispatch_event.c			\
 				open_window.c				\
 				put_image_to_window.c		\
 				reload_image.c				\
+				run_loop.c					\
 				switch_cam.c				\
 
 # STRUCTS #
@@ -109,7 +110,7 @@ SRC			+=	ambient.c					\
 				image.c						\
 				lights.c					\
 				lstimg.c					\
-				minirt.c					\
+				minirt_env.c				\
 				objects.c					\
 				ray.c						\
 				resolution.c				\

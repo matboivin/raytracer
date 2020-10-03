@@ -6,13 +6,15 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 18:49:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 19:23:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_DEFINE_H
 # define MINIRT_DEFINE_H
 
+# define MIN_ARG 2
+# define MAX_ARG 3
 # define WIN_TITLE "miniRT"
 # define SAVE_OPT "--save"
 # define DEFAULT_EXT ".rt"
@@ -40,6 +42,7 @@
 # define AMBIENT_ID "A"
 # define CAM_ID "c"
 # define LIGHT_ID "l"
+# define UPPER_LEFT_CORNER 0
 
 /*
 ** MLX is in BGRA so we change the order of components to RGBA

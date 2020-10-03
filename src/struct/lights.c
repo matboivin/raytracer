@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 18:03:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 19:11:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,32 @@ t_lstlight		*new_lstlight(t_light *light)
 	return (result);
 }
 
-void			lstlight_append(t_lstlight **lst, t_lstlight *new_light)
+void			lstlight_append(t_lstlight **lights, t_lstlight *new_light)
 {
 	t_lstlight	*cursor;
 
-	if (!lst || !new_light)
+	if (!lights || !new_light)
 		return ;
-	cursor = *lst;
-	if (*lst)
+	cursor = *lights;
+	if (*lights)
 	{
 		while (cursor->next)
 			cursor = cursor->next;
 		cursor->next = new_light;
 	}
 	else
-		*lst = new_light;
+		*lights = new_light;
 }
 
-void			lstlight_clear(t_lstlight **lst)
+void			lstlight_clear(t_lstlight **lights)
 {
 	t_lstlight	*cursor;
 	t_lstlight	*next_node;
 
-	if (!lst)
+	if (!lights)
 		return ;
-	cursor = *lst;
-	if (*lst)
+	cursor = *lights;
+	if (*lights)
 	{
 		while (cursor)
 		{
@@ -58,6 +58,6 @@ void			lstlight_clear(t_lstlight **lst)
 			free(cursor);
 			cursor = next_node;
 		}
-		*lst = NULL;
+		*lights = NULL;
 	}
 }

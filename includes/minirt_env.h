@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 00:49:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/03 19:00:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,5 @@ void				create_resolution(t_res *res);
 
 void				init_minirt(t_minirt *env, char *title);
 void				quit_minirt(t_minirt *env);
-int					run_loop(t_minirt *env);
 
 #endif

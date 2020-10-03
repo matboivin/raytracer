@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_image_to_window.c                              :+:      :+:    :+:   */
+/*   run_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:05:03 by mboivin          ###   ########.fr       */
+/*   Created: 2020/10/03 18:59:27 by mboivin           #+#    #+#             */
+/*   Updated: 2020/10/03 19:00:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-** This function displays image in window
+** This function runs a loop that listens to events
 */
 
-void	put_image_to_window(t_minirt *env)
+int		run_loop(t_minirt *env)
 {
-	mlx_put_image_to_window(
-		env->mlx_ptr,
-		env->win_ptr,
-		env->imgs->img->img_ptr,
-		UPPER_LEFT_CORNER,
-		UPPER_LEFT_CORNER);
+	mlx_loop(env->mlx_ptr);
+	return (EXIT_SUCCESS);
 }
