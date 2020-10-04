@@ -6,12 +6,16 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/01 13:03:24 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/04 13:36:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_EXIT_H
 # define MINIRT_EXIT_H
+
+/*
+** Error identifiers
+*/
 
 typedef enum	e_errid
 {
@@ -40,6 +44,10 @@ typedef enum	e_errid
 	SQUARE_FMT,
 	DEFAULT_ERR
 }				t_errid;
+
+/*
+** Error identifiers associated to error messages
+*/
 
 typedef struct	s_err
 {

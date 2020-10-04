@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:00:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/04 13:31:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,18 @@ typedef struct		s_res
 
 /*
 ** miniRT controler
+**
+** mlx_ptr: Pointer returned by the mlx_init() function
+** win_ptr: Pointer to the window
+** title: Title of the window
+** imgs: Rendered images
+** res: Resolution (width and height) of the window
+** ambient: Ambient light parameters
+** cam_count: Number of cameras in scene
+** cams: Cameras in scene
+** lights: Point lights in scene
+** objs: Objects in scene
+** img: Content of the window
 */
 
 typedef struct		s_minirt

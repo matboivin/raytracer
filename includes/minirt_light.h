@@ -6,12 +6,16 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:25:15 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 18:02:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/04 13:37:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_LIGHT_H
 # define MINIRT_LIGHT_H
+
+/*
+** Point lights
+*/
 
 typedef struct			s_light
 {

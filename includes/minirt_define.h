@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:32:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/04 13:35:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 # define EXT_LEN 3
 # define MIN_FILENAME_LEN 4
 # define PIXEL_LEN 4
-# define ID_LEN 1
-# define ID_OBJ_LEN 2
-# define MAX_PARS_FUNC 9
 # define MIN_RES 300
 # define MIN_LUM_RATIO 0.1
 # define MAX_RGB 255
@@ -33,16 +30,29 @@
 # define QUAD_UNIT 4.0
 # define EPSILON 0.00001
 # define SPECULAR_COEF 70
+
+/*
+** Position of image in window
+*/
+
+# define UPPER_LEFT_CORNER 0
+
+/*
+** Parsing
+*/
+
+# define MAX_PARS_FUNC 9
+# define ID_OBJ_LEN 2
 # define SPHERE_ID "sp"
 # define PLANE_ID "pl"
 # define SQUARE_ID "sq"
 # define CYLINDER_ID "cy"
 # define TRIANGLE_ID "tr"
+# define ID_LEN 1
 # define RES_ID "R"
 # define AMBIENT_ID "A"
 # define CAM_ID "c"
 # define LIGHT_ID "l"
-# define UPPER_LEFT_CORNER 0
 
 /*
 ** MLX is in BGRA so we change the order of components to RGBA

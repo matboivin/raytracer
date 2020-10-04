@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 17:12:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/04 13:38:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 ** origin: Origin of the ray
 ** dir: Direction of the ray
 ** t_nearest: Scaling factor that modifies the distance travelled by the ray
-**            Expected default: max double value
+**            Expected default: INFINITY
 **            Keeps track of the nearest distance between the ray origin and the
 **            intersection point while we iterate over the objects
-** hit_p: intersection point
-** normal: normal at intersection point
+** hit_p: Intersection point
+** normal: Normal at intersection point
 */
 
 typedef struct	s_ray
