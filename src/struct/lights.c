@@ -6,17 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:11:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:26:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstlight		*new_lstlight(t_light *light)
+t_lights		*create_light(t_light *light)
 {
-	t_lstlight	*result;
+	t_lights	*result;
 
-	result = (t_lstlight *)malloc(sizeof(t_lstlight));
+	result = (t_lights *)malloc(sizeof(t_lights));
 	if (!result)
 		return (NULL);
 	result->light = light;
@@ -24,15 +24,15 @@ t_lstlight		*new_lstlight(t_light *light)
 	return (result);
 }
 
-void			lstlight_append(t_lstlight **lights, t_lstlight *new_light)
+void			append_light(t_lights **lights, t_lights *new_light)
 {
-	t_lstlight	*cursor;
+	t_lights	*cursor;
 
 	if (!lights || !new_light)
 		return ;
-	cursor = *lights;
 	if (*lights)
 	{
+		cursor = *lights;
 		while (cursor->next)
 			cursor = cursor->next;
 		cursor->next = new_light;
@@ -41,16 +41,16 @@ void			lstlight_append(t_lstlight **lights, t_lstlight *new_light)
 		*lights = new_light;
 }
 
-void			lstlight_clear(t_lstlight **lights)
+void			delete_lights(t_lights **lights)
 {
-	t_lstlight	*cursor;
-	t_lstlight	*next_node;
+	t_lights	*cursor;
+	t_lights	*next_node;
 
 	if (!lights)
 		return ;
-	cursor = *lights;
 	if (*lights)
 	{
+		cursor = *lights;
 		while (cursor)
 		{
 			next_node = cursor->next;

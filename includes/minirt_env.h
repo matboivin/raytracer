@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/04 13:31:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:25:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ typedef struct		s_img
 	int				endian;
 }					t_img;
 
-typedef struct		s_lstimg
+typedef struct		s_images
 {
 	t_img			*img;
-	struct s_lstimg	*next;
-}					t_lstimg;
+	struct s_images	*next;
+}					t_images;
 
 /*
 ** Global render settings
@@ -82,12 +82,12 @@ typedef struct		s_minirt
 	void			*mlx_ptr;
 	void			*win_ptr;
 	char			*title;
-	t_lstimg		*imgs;
+	t_images		*imgs;
 	t_res			res;
 	t_amb			ambient;
 	int				cam_count;
-	t_lstcam		*cams;
-	t_lstlight		*lights;
+	t_cameras		*cams;
+	t_lights		*lights;
 	t_lstobj		*objs;
 }					t_minirt;
 
@@ -95,10 +95,10 @@ t_img				create_image(t_minirt *env);
 t_img				*malloc_image(t_minirt *env);
 void				destroy_image(void *mlx_ptr, t_img to_destroy);
 void				free_image(void *mlx_ptr, t_img *to_free);
-t_lstimg			*new_lstimg(t_img *img);
-void				lstimg_append(t_lstimg **imgs, t_lstimg *new_img);
-void				lstimg_clear(void *mlx_ptr, t_lstimg **imgs);
-void				create_circular_lstimg(t_lstimg *imgs);
+t_images			*new_image(t_img *img);
+void				append_image(t_images **imgs, t_images *new_img);
+void				delete_images(void *mlx_ptr, t_images **imgs);
+void				create_circular_lstimg(t_images *imgs);
 
 void				create_ambient(t_amb *ambient);
 void				create_resolution(t_res *res);

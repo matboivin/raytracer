@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 23:53:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:17:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function parses camera information
 */
 
-static t_cam	*create_camera(t_minirt *env, char **input)
+static t_cam	*parse_camera(t_minirt *env, char **input)
 {
 	t_cam		*result;
 
@@ -46,14 +46,14 @@ static t_cam	*create_camera(t_minirt *env, char **input)
 void			get_camera(t_minirt *env, char **input)
 {
 	t_cam		*cam_data;
-	t_lstcam	*new_cam;
+	t_cameras	*new_cam;
 
 	(*input) += ID_LEN;
-	cam_data = create_camera(env, input);
-	new_cam = new_lstcam(cam_data);
+	cam_data = parse_camera(env, input);
+	new_cam = create_cam(cam_data);
 	if (!new_cam)
 		exit_error(env, DEFAULT_ERR);
-	lstcam_append(&(env->cams), new_cam);
+	append_camera(&(env->cams), new_cam);
 	env->cam_count += 1;
 	skip_blank(input);
 }

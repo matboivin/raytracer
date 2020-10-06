@@ -6,17 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 18:03:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:26:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstcam		*new_lstcam(t_cam *cam)
+t_cameras		*create_cam(t_cam *cam)
 {
-	t_lstcam	*result;
+	t_cameras	*result;
 
-	result = (t_lstcam *)malloc(sizeof(t_lstcam));
+	result = (t_cameras *)malloc(sizeof(t_cameras));
 	if (!result)
 		return (NULL);
 	result->cam = cam;
@@ -24,15 +24,15 @@ t_lstcam		*new_lstcam(t_cam *cam)
 	return (result);
 }
 
-void			lstcam_append(t_lstcam **cams, t_lstcam *new_cam)
+void			append_camera(t_cameras **cams, t_cameras *new_cam)
 {
-	t_lstcam	*cursor;
+	t_cameras	*cursor;
 
 	if (!cams || !new_cam)
 		return ;
-	cursor = *cams;
 	if (*cams)
 	{
+		cursor = *cams;
 		while (cursor->next)
 			cursor = cursor->next;
 		cursor->next = new_cam;
@@ -41,16 +41,16 @@ void			lstcam_append(t_lstcam **cams, t_lstcam *new_cam)
 		*cams = new_cam;
 }
 
-void			lstcam_clear(t_lstcam **cams)
+void			delete_cameras(t_cameras **cams)
 {
-	t_lstcam	*cursor;
-	t_lstcam	*next_node;
+	t_cameras	*cursor;
+	t_cameras	*next_node;
 
 	if (!cams)
 		return ;
-	cursor = *cams;
 	if (*cams)
 	{
+		cursor = *cams;
 		while (cursor)
 		{
 			next_node = cursor->next;

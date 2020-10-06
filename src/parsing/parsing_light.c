@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 23:53:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:17:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function parses light information
 */
 
-static t_light	*create_light(t_minirt *env, char **input)
+static t_light	*parse_light(t_minirt *env, char **input)
 {
 	t_light		*result;
 
@@ -40,13 +40,13 @@ static t_light	*create_light(t_minirt *env, char **input)
 void			get_light(t_minirt *env, char **input)
 {
 	t_light		*light_data;
-	t_lstlight	*new_light;
+	t_lights	*new_light;
 
 	(*input) += ID_LEN;
-	light_data = create_light(env, input);
-	new_light = new_lstlight(light_data);
+	light_data = parse_light(env, input);
+	new_light = create_light(light_data);
 	if (!new_light)
 		exit_error(env, DEFAULT_ERR);
-	lstlight_append(&(env->lights), new_light);
+	append_light(&(env->lights), new_light);
 	skip_blank(input);
 }

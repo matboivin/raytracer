@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/14 02:40:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:12:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void		compute_lighting(
 
 void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 {
-	t_lstlight	*cursor;
+	t_lights	*cursor;
 	t_vcolor	to_add;
 
 	to_add = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);

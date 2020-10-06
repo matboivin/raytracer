@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 18:59:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:25:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	quit_minirt(t_minirt *env)
 {
 	if (env->win_ptr)
 		mlx_destroy_window(env->mlx_ptr, env->win_ptr);
-	lstimg_clear(env->mlx_ptr, &(env->imgs));
-	lstcam_clear(&(env->cams));
-	lstlight_clear(&(env->lights));
+	delete_images(env->mlx_ptr, &(env->imgs));
+	delete_cameras(&(env->cams));
+	delete_lights(&(env->lights));
 	lstobj_clear(&(env->objs));
 }

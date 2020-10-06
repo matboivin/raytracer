@@ -6,17 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 18:03:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 23:26:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstimg		*new_lstimg(t_img *img)
+t_images		*new_image(t_img *img)
 {
-	t_lstimg	*result;
+	t_images	*result;
 
-	result = (t_lstimg *)malloc(sizeof(t_lstimg));
+	result = (t_images *)malloc(sizeof(t_images));
 	if (!result)
 		return (NULL);
 	result->img = img;
@@ -24,15 +24,15 @@ t_lstimg		*new_lstimg(t_img *img)
 	return (result);
 }
 
-void			lstimg_append(t_lstimg **imgs, t_lstimg *new_img)
+void			append_image(t_images **imgs, t_images *new_img)
 {
-	t_lstimg	*cursor;
+	t_images	*cursor;
 
 	if (!imgs || !new_img)
 		return ;
-	cursor = *imgs;
 	if (*imgs)
 	{
+		cursor = *imgs;
 		while (cursor->next)
 			cursor = cursor->next;
 		cursor->next = new_img;
@@ -41,10 +41,10 @@ void			lstimg_append(t_lstimg **imgs, t_lstimg *new_img)
 		*imgs = new_img;
 }
 
-void			lstimg_clear(void *mlx_ptr, t_lstimg **imgs)
+void			delete_images(void *mlx_ptr, t_images **imgs)
 {
-	t_lstimg	*cursor;
-	t_lstimg	*head;
+	t_images	*cursor;
+	t_images	*head;
 
 	if (!imgs)
 		return ;
@@ -60,9 +60,9 @@ void			lstimg_clear(void *mlx_ptr, t_lstimg **imgs)
 	}
 }
 
-void			create_circular_lstimg(t_lstimg *imgs)
+void			create_circular_lstimg(t_images *imgs)
 {
-	t_lstimg	*head;
+	t_images	*head;
 
 	head = imgs;
 	while (imgs->next)
