@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:49:09 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:16:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:27:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef enum	e_xeventmask
 }				t_xeventmask;
 
 int				handle_key(int keycode, void *param);
-void			dispatch_event(t_minirt *env);
+void			dispatch_events(t_minirt *env);
 int				run_loop(t_minirt *env);
 
 #endif

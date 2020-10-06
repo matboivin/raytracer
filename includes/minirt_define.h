@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/04 13:35:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:29:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define QUAD_UNIT 4.0
 # define EPSILON 0.00001
 # define SPECULAR_COEF 70
+# define MAX_ERR 23
 
 /*
 ** Position of image in window

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 14:34:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:23:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,8 @@ void	skip_double(t_minirt *env, char **s)
 
 bool	ft_vec3_range(t_vec3 vec, double start, double end)
 {
-	if (
-		(!ft_f_range(vec.x, start, end))
-		|| (!ft_f_range(vec.y, start, end))
-		|| (!ft_f_range(vec.z, start, end)))
-		return (false);
-	return (true);
+	return (
+		(ft_f_range(vec.x, start, end))
+		&& (ft_f_range(vec.y, start, end))
+		&& (ft_f_range(vec.z, start, end)));
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/01 13:04:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:29:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ static t_err	g_errors[] =
 	{ RES_LOW, "Resolution too low: minimum is 300x300. Rendering stopped." },
 	{ SCENE_FMT, "Invalid scene: Scene badly formatted." },
 	{ SPHERE_FMT, "Invalid scene: Sphere badly formatted." },
-	{ SQUARE_FMT, "Invalid scene: Square badly formatted." },
-	{ DEFAULT_ERR, "An error occurred." }
+	{ SQUARE_FMT, "Invalid scene: Square badly formatted." }
 };
 
 /*
@@ -53,7 +52,7 @@ static char	*catch_err(t_errid raised)
 	int		i;
 
 	i = 0;
-	while (g_errors[i].u_id != DEFAULT_ERR)
+	while (i < MAX_ERR)
 	{
 		if (g_errors[i].u_id == raised)
 			return (g_errors[i].msg);

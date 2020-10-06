@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/04 13:36:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:31:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 typedef enum	e_errid
 {
+	DEFAULT_ERR = -1,
 	AMB_DUP,
 	AMB_FMT,
 	CAM_FMT,
@@ -41,8 +42,7 @@ typedef enum	e_errid
 	RES_LOW,
 	SCENE_FMT,
 	SPHERE_FMT,
-	SQUARE_FMT,
-	DEFAULT_ERR
+	SQUARE_FMT
 }				t_errid;
 
 /*

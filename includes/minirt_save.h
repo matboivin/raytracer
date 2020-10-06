@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 23:52:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:32:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define FILE_PERMISSIONS 0644
 
 /*
-** Struct: Bitmap file header
+** Bitmap file header
 **
 ** bmp_type: The characters 'BM' (2 bytes)
 ** file_size: The size of the file in bytes (4 bytes)
@@ -43,7 +43,7 @@ typedef struct	s_bmp_h
 }				t_bmp_h;
 
 /*
-** Struct: Bitmap information header
+** Bitmap information header
 **
 ** size_header: Header Size - Must be at least 40 (4 bytes)
 ** width: Image width in pixels (4 bytes)

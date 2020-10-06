@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatch_event.c                                   :+:      :+:    :+:   */
+/*   dispatch_events.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:24:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:26:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function dispatches event handlers
 */
 
-void	dispatch_event(t_minirt *env)
+void	dispatch_events(t_minirt *env)
 {
 	mlx_key_hook(
 		env->win_ptr,

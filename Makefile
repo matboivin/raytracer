@@ -94,7 +94,7 @@ SRC			+=	ft_percent.c				\
 
 # DISPLAY AND EVENT HANDLING #
 
-SRC			+=	dispatch_event.c			\
+SRC			+=	dispatch_events.c			\
 				display_render.c			\
 				handle_key.c				\
 				open_window.c				\
