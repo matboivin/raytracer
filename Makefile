@@ -25,7 +25,6 @@ LIB_PATHS	=	$(LIB_DIR) $(MLX_DIR)
 SRC_SUBDIRS	=	debug \
 				display \
 				event \
-				main.c \
 				math_utils \
 				parsing \
 				rendering \
