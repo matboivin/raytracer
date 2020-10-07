@@ -1,7 +1,7 @@
 NAME := miniRT
 
 SHELL = /bin/sh
-RM = rm -rf
+RM = /bin/rm
 
 .SUFFIXE:
 .SUFFIXES: .c .o .h
@@ -10,23 +10,40 @@ RM = rm -rf
 
 CC = gcc
 CFLAGS		=	-Wall -Wextra -Werror
-IFLAGS		=	$(foreach dir, $(INC_PATH), -I $(dir))
-LFLAGS		=	$(foreach dir, $(LIB_PATH), -L $(dir)) \
+IFLAGS		=	$(foreach path, $(INC_PATHS), -I $(path))
+LFLAGS		=	$(foreach path, $(LIB_PATHS), -L $(path)) \
 				$(foreach lib, $(LIB), -l $(lib))
 LFLAGS		+=	-lm -lXext -lX11
 
-# ******************************** DIR AND PATHS ***************************** #
+# ******************************* DIRS AND PATHS ***************************** #
 
-LIB_PATH	=	lib/libft lib/minimath lib/minilibx-linux
-INC_PATH	=	$(shell find includes -type d) \
-				lib/libft/includes lib/minimath/includes lib/minilibx-linux
-SRC_PATH	=	$(shell find src -type d)
-OBJ_PATH	=	obj
+LIB_DIR		=	lib/libft lib/minimath
+MLX_DIR		=	lib/minilibx-linux
 
-INC			=	$(addprefix includes/, $(INC_FILES))
-OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.c=%.o))
+LIB_PATHS	=	$(LIB_DIR) $(MLX_DIR)
 
-vpath %.c $(foreach dir, $(SRC_PATH), $(dir):)
+SRC_SUBDIRS	=	debug \
+				display \
+				event \
+				main.c \
+				math_utils \
+				parsing \
+				rendering \
+				struct \
+				utils
+
+INC_DIR		=	includes
+SRC_DIR		=	src
+OBJ_DIR		=	obj
+
+INC			=	$(addprefix $(INC_DIR)/, $(INC_FILES))
+OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
+
+INC_PATHS	=	$(INC_DIR) $(MLX_DIR) \
+				$(addsuffix /$(INC_DIR), $(LIB_DIR))
+
+VPATH		=	$(SRC_DIR) $(addprefix $(SRC_DIR)/, $(SRC_SUBDIRS)) \
+				$(LIB_PATHS)
 
 # *********************************** LIB ************************************ #
 
@@ -138,7 +155,7 @@ all: $(NAME)
 .PHONY: install
 install :
 	#sudo apt-get update && apt-get install libxext-dev libbsd-dev
-	@$(foreach dir, $(LIB_PATH), make -C $(dir);)
+	@$(foreach dir, $(LIB_PATHS), make -C $(dir);)
 
 .PHONY: re-install
 re-install :
@@ -147,23 +164,27 @@ re-install :
 	@make -C lib/minilibx-linux clean
 	@make install
 
-$(NAME): $(OBJ_PATH) $(OBJ) $(INC)
+$(NAME): $(OBJ_DIR) $(OBJ) $(INC)
 	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
 	@echo "\nOK\t\t$(NAME) is ready"
 
 # OBJ DIR #
 
-$(OBJ_PATH):
+$(OBJ_DIR):
 	@mkdir -p $@
 	@echo "Created\t\t$@ directory"
 
 # COMPILING #
 
-$(OBJ_PATH)/%.o : %.c
+$(OBJ_DIR)/%.o : %.c
 	@echo "\r\033[KCompiling\t$< \c"
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 # DEBUG #
+
+.PHONY: show
+show:
+	@echo "VPATH: $(VPATH)"
 
 .PHONY: debug
 debug: CFLAGS+=-g3 -fsanitize=address -D DEBUG=1
@@ -175,12 +196,12 @@ debug: re
 clean:
 	@make -C lib/libft clean
 	@make -C lib/minimath clean
-	@$(RM) $(OBJ_PATH)
+	@$(RM) -rf $(OBJ_DIR)
 	@echo "Cleaned\t\tobject files"
 
 .PHONY: fclean
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) -rf $(NAME)
 	@echo "Removed\t\t$(NAME)"
 
 .PHONY: re
