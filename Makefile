@@ -42,8 +42,7 @@ OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 INC_PATHS	=	$(INC_DIR) $(MLX_DIR) \
 				$(addsuffix /$(INC_DIR), $(LIB_DIR))
 
-VPATH		=	$(SRC_DIR) $(addprefix $(SRC_DIR)/, $(SRC_SUBDIRS)) \
-				$(LIB_PATHS)
+VPATH		=	$(SRC_DIR) $(addprefix $(SRC_DIR)/, $(SRC_SUBDIRS))
 
 # *********************************** LIB ************************************ #
 
