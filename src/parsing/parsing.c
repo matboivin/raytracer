@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:47:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 21:09:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_parsers	g_parsers[] =
 	{ TRIANGLE_ID, ID_OBJ_LEN, &get_triangle },
 	{ RES_ID, ID_LEN, &get_resolution },
 	{ AMBIENT_ID, ID_LEN, &get_ambient },
-	{ CAM_ID, ID_LEN, &get_cameraera },
+	{ CAM_ID, ID_LEN, &get_camera },
 	{ LIGHT_ID, ID_LEN, &get_light }
 };
 

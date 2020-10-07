@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 22:54:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/04 13:38:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 21:34:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_RAY_H
 
 /*
-** Ray struct
+** Ray
 **
 ** origin: Origin of the ray
 ** dir: Direction of the ray

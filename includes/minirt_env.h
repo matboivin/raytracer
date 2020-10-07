@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:56:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 21:33:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 # define MINIRT_ENV_H
 
 /*
-** Global render settings
+** Global render settings: Resolution and Ambient light
 */
 
-typedef struct		s_amb
-{
-	bool			is_declared;
-	double			ratio;
-	t_vcolor		vcolor;
-}					t_amb;
+/*
+** Resolution
+**
+** is_declared: Checks whether Resolution is declared and not duplicated
+**              (Default: false)
+** size_x: Width of the image
+** size_y: Height of the image
+*/
 
 typedef struct		s_res
 {
@@ -32,7 +34,59 @@ typedef struct		s_res
 }					t_res;
 
 /*
-** Image struct
+** Ambient light
+**
+** is_declared: Checks whether Ambient light is declared and not duplicated
+**              (Default: false)
+** ratio: Ambient lighting ratio in range [0.0,1.0]
+** vcolor: R,G,B colors in range [0.0,1.0]
+*/
+
+typedef struct		s_amb
+{
+	bool			is_declared;
+	double			ratio;
+	t_vcolor		vcolor;
+}					t_amb;
+
+/*
+** Camera
+**
+** pos: x,y,z coordinates of the light point
+** dir: 3D-normalized orientation vector in range [-1,1] for each x,y,z axis
+** fov: Horizontal field of view in degrees in range [0,180]
+** cam_to_world: Camera Space to World Space 3D matrix
+** next: Pointer to next camera
+*/
+
+typedef struct		s_camera
+{
+	t_vec3			pos;
+	t_vec3			dir;
+	double			fov;
+	t_mat3x3		cam_to_world;
+	struct s_camera	*next;
+}					t_camera;
+
+/*
+** Point light
+**
+** pos: x,y,z coordinates of the view point
+** ratio: Light brightness ratio in range [0.0,1.0]
+** vcolor: R,G,B colors in range [0.0,1.0]
+** next: Pointer to next light
+*/
+
+typedef struct		s_light
+{
+	t_vec3			pos;
+	double			ratio;
+	t_vcolor		vcolor;
+	struct s_light	*next;
+}					t_light;
+
+/*
+** Image
 **
 ** size_x: Width of the image
 ** size_y: Height of the image
@@ -58,31 +112,6 @@ typedef struct		s_image
 }					t_image;
 
 /*
-** Cameras
-*/
-
-typedef struct		s_camera
-{
-	t_vec3			pos;
-	t_vec3			dir;
-	double			fov;
-	t_mat3x3		cam_to_world;
-	struct s_camera	*next;
-}					t_camera;
-
-/*
-** Point lights
-*/
-
-typedef struct		s_light
-{
-	t_vec3			pos;
-	double			ratio;
-	t_vcolor		vcolor;
-	struct s_light	*next;
-}					t_light;
-
-/*
 ** miniRT controler
 **
 ** mlx_ptr: Pointer returned by the mlx_init() function
@@ -95,7 +124,6 @@ typedef struct		s_light
 ** cams: Cameras in scene
 ** lights: Point lights in scene
 ** objs: Objects in scene
-** img: Content of the window
 */
 
 typedef struct		s_minirt
@@ -112,8 +140,32 @@ typedef struct		s_minirt
 	t_lstobj		*objs;
 }					t_minirt;
 
-void				create_ambient(t_amb *ambient);
+/*
+** Global render settings
+*/
+
 void				create_resolution(t_res *res);
+void				create_ambient(t_amb *ambient);
+
+/*
+** Camera
+*/
+
+t_camera			*malloc_cam(t_minirt *env);
+void				append_camera(t_camera **cams, t_camera *new_cam);
+void				delete_cameras(t_camera **cams);
+
+/*
+** Point light
+*/
+
+t_light				*malloc_light(t_minirt *en);
+void				append_light(t_light **lights, t_light *new_light);
+void				delete_lights(t_light **lights);
+
+/*
+** Image
+*/
 
 t_image				create_image(t_minirt *env);
 t_image				*malloc_image(t_minirt *env);
@@ -123,13 +175,9 @@ void				append_image(t_image **imgs, t_image *new_img);
 void				delete_images(void *mlx_ptr, t_image **imgs);
 void				create_circular_lstimg(t_image *imgs);
 
-t_camera			*malloc_cam(t_minirt *env);
-void				append_camera(t_camera **cams, t_camera *new_cam);
-void				delete_cameras(t_camera **cams);
-
-t_light				*malloc_light(t_minirt *en);
-void				append_light(t_light **lights, t_light *new_light);
-void				delete_lights(t_light **lights);
+/*
+** miniRT controler
+*/
 
 void				init_minirt(t_minirt *env, char *title);
 void				quit_minirt(t_minirt *env);

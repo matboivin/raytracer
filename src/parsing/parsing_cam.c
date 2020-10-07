@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 21:03:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 21:09:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		parse_camera(t_minirt *env, char **input, t_camera *cam)
 ** This function adds camera to env
 */
 
-void			get_cameraera(t_minirt *env, char **input)
+void			get_camera(t_minirt *env, char **input)
 {
 	t_camera	*new_cam;
 

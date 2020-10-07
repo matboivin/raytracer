@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 21:03:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 21:35:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	parse_light(t_minirt *env, char **input, t_light *light)
 }
 
 /*
-** This function adds a light to scene
+** This function adds a light to env
 */
 
 void		get_light(t_minirt *env, char **input)
