@@ -3,12 +3,13 @@ NAME := miniRT
 SHELL = /bin/sh
 RM = /bin/rm
 
-.SUFFIXE:
+.SUFFIXES:
 .SUFFIXES: .c .o .h
 
 # ******************************** CC AND FLAGS ****************************** #
 
 CC = gcc
+
 CFLAGS		=	-Wall -Wextra -Werror
 IFLAGS		=	$(foreach path, $(INC_PATHS), -I $(path))
 LFLAGS		=	$(foreach path, $(LIB_PATHS), -L $(path)) \
@@ -200,7 +201,7 @@ clean:
 
 .PHONY: fclean
 fclean: clean
-	@$(RM) -rf $(NAME)
+	@$(RM) $(NAME)
 	@echo "Removed\t\t$(NAME)"
 
 .PHONY: re
