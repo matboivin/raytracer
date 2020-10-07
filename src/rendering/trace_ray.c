@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 14:48:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 20:47:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		shade(t_minirt *env, t_ray *ray)
 ** retrieves the ray color to put it in the image.
 */
 
-void			trace_ray(t_minirt *env, t_cam *cam, t_img *img)
+void			trace_ray(t_minirt *env, t_camera *cam, t_image *img)
 {
 	t_ray		ray;
 	int			x;

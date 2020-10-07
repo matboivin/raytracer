@@ -6,15 +6,15 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:35:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 21:04:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_img		create_image(t_minirt *env)
+t_image		create_image(t_minirt *env)
 {
-	t_img	result;
+	t_image	result;
 
 	result.size_x = env->res.size_x;
 	result.size_y = env->res.size_y;
@@ -27,26 +27,27 @@ t_img		create_image(t_minirt *env)
 		&(result.bpp),
 		&(result.size_line),
 		&(result.endian));
+	result.next = NULL;
 	return (result);
 }
 
-t_img		*malloc_image(t_minirt *env)
+t_image		*malloc_image(t_minirt *env)
 {
-	t_img	*result;
+	t_image	*result;
 
-	result = (t_img *)malloc(sizeof(t_img));
+	result = malloc(sizeof(t_image));
 	if (!result)
-		print_error(DEFAULT_ERR);
+		exit_error(env, DEFAULT_ERR);
 	*result = create_image(env);
 	return (result);
 }
 
-void		destroy_image(void *mlx_ptr, t_img to_destroy)
+void		destroy_image(void *mlx_ptr, t_image to_destroy)
 {
 	mlx_destroy_image(mlx_ptr, to_destroy.img_ptr);
 }
 
-void		free_image(void *mlx_ptr, t_img *to_free)
+void		free_image(void *mlx_ptr, t_image *to_free)
 {
 	destroy_image(mlx_ptr, *to_free);
 	free(to_free);

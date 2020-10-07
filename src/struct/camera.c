@@ -6,27 +6,30 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/06 23:26:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 20:56:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_cameras		*create_cam(t_cam *cam)
+t_camera		*malloc_cam(t_minirt *env)
 {
-	t_cameras	*result;
+	t_camera	*result;
 
-	result = (t_cameras *)malloc(sizeof(t_cameras));
+	result = malloc(sizeof(t_camera));
 	if (!result)
-		return (NULL);
-	result->cam = cam;
+		exit_error(env, DEFAULT_ERR);
+	result->pos = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
+	result->dir = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
+	result->fov = DEFAULT_VALUE;
+	result->cam_to_world = identity_mat3x3();
 	result->next = NULL;
 	return (result);
 }
 
-void			append_camera(t_cameras **cams, t_cameras *new_cam)
+void			append_camera(t_camera **cams, t_camera *new_cam)
 {
-	t_cameras	*cursor;
+	t_camera	*cursor;
 
 	if (!cams || !new_cam)
 		return ;
@@ -41,10 +44,10 @@ void			append_camera(t_cameras **cams, t_cameras *new_cam)
 		*cams = new_cam;
 }
 
-void			delete_cameras(t_cameras **cams)
+void			delete_cameras(t_camera **cams)
 {
-	t_cameras	*cursor;
-	t_cameras	*next_node;
+	t_camera	*cursor;
+	t_camera	*next_node;
 
 	if (!cams)
 		return ;
@@ -54,7 +57,6 @@ void			delete_cameras(t_cameras **cams)
 		while (cursor)
 		{
 			next_node = cursor->next;
-			free(cursor->cam);
 			free(cursor);
 			cursor = next_node;
 		}

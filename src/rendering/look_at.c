@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/13 01:26:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 20:47:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static t_mat3x3	create_camtoworld(t_vec3 cam_dir, t_vec3 world_up)
 ** This function places the camera and sets Camera Space to World Space matrices
 */
 
-void			look_at(t_cam *cam)
+void			look_at(t_camera *cam)
 {
 	t_vec3		world_up;
 

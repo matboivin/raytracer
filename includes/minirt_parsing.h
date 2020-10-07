@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/06 12:32:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 20:47:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			get_ambient(t_minirt *env, char **input);
 ** Camera and light
 */
 
-void			get_camera(t_minirt *env, char **input);
+void			get_cameraera(t_minirt *env, char **input);
 void			get_light(t_minirt *env, char **input);
 
 /*

@@ -6,27 +6,29 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/06 23:26:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 20:26:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lights		*create_light(t_light *light)
+t_light		*malloc_light(t_minirt *env)
 {
-	t_lights	*result;
+	t_light	*result;
 
-	result = (t_lights *)malloc(sizeof(t_lights));
+	result = malloc(sizeof(t_light));
 	if (!result)
-		return (NULL);
-	result->light = light;
+		exit_error(env, DEFAULT_ERR);
+	result->pos = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
+	result->ratio = DEFAULT_VALUE;
+	result->vcolor = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	result->next = NULL;
 	return (result);
 }
 
-void			append_light(t_lights **lights, t_lights *new_light)
+void		append_light(t_light **lights, t_light *new_light)
 {
-	t_lights	*cursor;
+	t_light	*cursor;
 
 	if (!lights || !new_light)
 		return ;
@@ -41,10 +43,10 @@ void			append_light(t_lights **lights, t_lights *new_light)
 		*lights = new_light;
 }
 
-void			delete_lights(t_lights **lights)
+void		delete_lights(t_light **lights)
 {
-	t_lights	*cursor;
-	t_lights	*next_node;
+	t_light	*cursor;
+	t_light	*next_node;
 
 	if (!lights)
 		return ;
@@ -54,7 +56,6 @@ void			delete_lights(t_lights **lights)
 		while (cursor)
 		{
 			next_node = cursor->next;
-			free(cursor->light);
 			free(cursor);
 			cursor = next_node;
 		}

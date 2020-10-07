@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/12 00:08:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 20:47:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void		render(t_minirt *env, bool to_bmp);
 ** Set ray
 */
 
-void		look_at(t_cam *cam);
+void		look_at(t_camera *cam);
 void		set_ray_origin(t_ray *ray, t_vec3 cam_pos);
-void		set_ray_dir(t_cam *cam, t_ray *ray, t_vec3 pixel_coord);
+void		set_ray_dir(t_camera *cam, t_ray *ray, t_vec3 pixel_coord);
 t_vec3		get_pixel_coord(double fov, t_res res, int x, int y);
 
 /*
 ** Intersections
 */
 
-void		trace_ray(t_minirt *env, t_cam *cam, t_img *img);
+void		trace_ray(t_minirt *env, t_camera *cam, t_image *img);
 t_lstobj	*trace_ray_to_objs(t_lstobj *objs, t_ray *ray);
 void		trace_ray_to_lights(t_minirt *env, t_ray *ray);
 bool		hit(t_lstobj *objs, t_ray *ray, double *t);
@@ -49,7 +49,7 @@ double		get_specular(
 ** Put pixel to image
 */
 
-void		put_pixel_to_image(t_img *img, t_vcolor vcolor, int x, int y);
+void		put_pixel_to_image(t_image *img, t_vcolor vcolor, int x, int y);
 t_vcolor	rescale_color(t_vcolor vcolor, double min, double max);
 
 /*

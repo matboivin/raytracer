@@ -52,13 +52,11 @@ LIB			=	ft minimath mlx_Linux
 # ********************************** FILES *********************************** #
 
 INC_FILES	=	minirt.h					\
-				minirt_camera.h				\
 				minirt_debug.h				\
 				minirt_define.h				\
 				minirt_env.h				\
 				minirt_events.h				\
 				minirt_exit.h				\
-				minirt_light.h				\
 				minirt_math_utils.h			\
 				minirt_objects.h			\
 				minirt_parsing.h			\
@@ -125,8 +123,8 @@ SRC			+=	dispatch_events.c			\
 SRC			+=	ambient.c					\
 				camera.c					\
 				image.c						\
+				image_list.c				\
 				lights.c					\
-				lstimg.c					\
 				minirt_env.c				\
 				objects.c					\
 				ray.c						\
