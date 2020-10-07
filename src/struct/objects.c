@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/08 18:04:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 23:09:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_lstobj		*new_lstobj(void *obj, t_objid type)
 {
 	t_lstobj	*result;
 
-	result = (t_lstobj *)malloc(sizeof(t_lstobj));
+	result = malloc(sizeof(t_lstobj));
 	if (!result)
 		return (NULL);
 	result->type = type;

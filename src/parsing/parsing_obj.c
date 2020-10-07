@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 16:17:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/07 23:09:12 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void			get_sphere(t_minirt *env, char **input)
 {
 	t_sphere	*result;
 
-	result = (t_sphere *)malloc(sizeof(t_sphere));
+	result = malloc(sizeof(t_sphere));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += ID_OBJ_LEN;
@@ -35,7 +35,7 @@ void			get_plane(t_minirt *env, char **input)
 {
 	t_plane		*result;
 
-	result = (t_plane *)malloc(sizeof(t_plane));
+	result = malloc(sizeof(t_plane));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += ID_OBJ_LEN;
@@ -56,7 +56,7 @@ void			get_square(t_minirt *env, char **input)
 {
 	t_square	*result;
 
-	result = (t_square *)malloc(sizeof(t_square));
+	result = malloc(sizeof(t_square));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += ID_OBJ_LEN;
@@ -78,7 +78,7 @@ void			get_cylinder(t_minirt *env, char **input)
 {
 	t_cyl		*result;
 
-	result = (t_cyl *)malloc(sizeof(t_cyl));
+	result = malloc(sizeof(t_cyl));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += ID_OBJ_LEN;
@@ -104,7 +104,7 @@ void			get_triangle(t_minirt *env, char **input)
 {
 	t_tri		*result;
 
-	result = (t_tri *)malloc(sizeof(t_tri));
+	result = malloc(sizeof(t_tri));
 	if (!result)
 		exit_error(env, DEFAULT_ERR);
 	(*input) += ID_OBJ_LEN;
