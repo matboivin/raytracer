@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/08 10:12:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/08 15:58:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,22 @@ static void	write_bmpheaders(t_minirt *env, int fd)
 	size = env->res.size_x * env->res.size_y * RGB_LEN;
 	create_bmpfileheader(&file_header, size);
 	create_bmpdibheader(env, &dib_header, size);
-	write(fd, &file_header, sizeof(t_bmp_h));
-	write(fd, &dib_header, sizeof(t_dib_h));
+	write(fd, &(file_header.bmp_type), 2);
+	write(fd, &(file_header.file_size), 4);
+	write(fd, &(file_header.reserved1), 2);
+	write(fd, &(file_header.reserved2), 2);
+	write(fd, &(file_header.offset), 4);
+	write(fd, &(dib_header.size_header), 4);
+	write(fd, &(dib_header.width), 4);
+	write(fd, &(dib_header.height), 4);
+	write(fd, &(dib_header.planes), 2);
+	write(fd, &(dib_header.bit_count), 2);
+	write(fd, &(dib_header.compr), 4);
+	write(fd, &(dib_header.img_size), 4);
+	write(fd, &(dib_header.ppm_x), 4);
+	write(fd, &(dib_header.ppm_y), 4);
+	write(fd, &(dib_header.clr_used), 4);
+	write(fd, &(dib_header.clr_important), 4);
 }
 
 /*
