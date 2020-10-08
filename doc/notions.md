@@ -67,13 +67,14 @@ BMP
 - [Lire et écrire des fichiers image BMP](http://fvirtman.free.fr/recueil/01_09_02_testbmp.c.php)
 - [Creating Bitmap Images with C on Windows](http://ricardolovelace.com/creating-bitmap-images-with-c-on-windows.html)
 - [Conversion factor](https://stackoverflow.com/questions/33167602/i-found-a-video-on-youtube-https-www-youtube-com-watchv-kjhkwczyahq-and-ther)
+- [Structure-Packing Pragmas](https://gcc.gnu.org/onlinedocs/gcc-4.4.4/gcc/Structure_002dPacking-Pragmas.html)
+- [Sets the alignment of all aggregate members to a specified byte boundary](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.cbclx01/pragma_pack.htm)
 
 Methodology
 
 - [Wiki: Software design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
 - [Software SOFT/INTERNAL Documentation Guide](https://www.includehelp.com/articles/software-soft-internal-documentation-guide.aspx)
 - [INRIA Projet CODES: GDB](https://www.rocq.inria.fr/secret/Anne.Canteaut/COURS_C/gdb.html)
-- [Using GDB for Reverse Engineering](http://users.umiacs.umd.edu/~tdumitra/courses/ENEE757/Fall15/misc/gdb_tutorial.html)
 
 ### 42 resources
 

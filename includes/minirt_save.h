@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/06 12:32:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/08 10:19:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define DEFAULT_BIPLANES 1
 # define UNUSED 0
 # define FILE_PERMISSIONS 0644
+
+# pragma pack(push, 1)
 
 /*
 ** Bitmap file header
@@ -75,5 +77,7 @@ typedef struct	s_dib_h
 }				t_dib_h;
 
 void			save_bmp(t_minirt *env, const char *filename);
+
+# pragma pack(pop)
 
 #endif
