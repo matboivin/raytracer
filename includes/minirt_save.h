@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/08 15:53:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/09 17:38:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 
 typedef struct	s_bmp_h
 {
-	t_uchar		bmp_type[2];
+	uint8_t		bmp_type[2];
 	int			file_size;
-	short		reserved1;
-	short		reserved2;
-	t_uint		offset;
+	int16_t		reserved1;
+	int16_t		reserved2;
+	uint32_t	offset;
 }				t_bmp_h;
 
 /*
@@ -61,17 +61,17 @@ typedef struct	s_bmp_h
 
 typedef struct	s_dib_h
 {
-	t_uint		size_header;
-	t_uint		width;
-	t_uint		height;
-	short int	planes;
-	short int	bit_count;
-	t_uint		compr;
-	t_uint		img_size;
-	t_uint		ppm_x;
-	t_uint		ppm_y;
-	t_uint		clr_used;
-	t_uint		clr_important;
+	uint32_t	size_header;
+	uint32_t	width;
+	uint32_t	height;
+	int16_t		planes;
+	int16_t		bit_count;
+	uint32_t	compr;
+	uint32_t	img_size;
+	uint32_t	ppm_x;
+	uint32_t	ppm_y;
+	uint32_t	clr_used;
+	uint32_t	clr_important;
 }				t_dib_h;
 
 void			save_bmp(t_minirt *env, const char *filename);

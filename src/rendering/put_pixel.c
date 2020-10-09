@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:27:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/09 17:37:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 ** We add defined values to index for each component
 */
 
-void			put_pixel_to_image(t_image *img, t_vcolor vcolor, int x, int y)
+void		put_pixel_to_image(t_image *img, t_vcolor vcolor, int x, int y)
 {
-	t_uchar		red;
-	t_uchar		green;
-	t_uchar		blue;
-	int			i;
+	uint8_t	red;
+	uint8_t	green;
+	uint8_t	blue;
+	int		i;
 
 	if (!ft_n_range(x, DEFAULT_VALUE, img->size_x)
 		|| !ft_n_range(y, DEFAULT_VALUE, img->size_y))

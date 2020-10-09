@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/06 12:29:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/09 17:37:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@
 # define BLUE_COMP 0
 # define ALPHA_COMP 3
 
-typedef t_vec3			t_vcolor;
-typedef unsigned char	t_uchar;
-typedef unsigned int	t_uint;
+typedef t_vec3	t_vcolor;
 
 #endif
