@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 21:33:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/17 19:04:40 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ typedef struct		s_minirt
 	t_image			*imgs;
 	t_res			res;
 	t_amb			ambient;
-	int				cam_count;
+	uint32_t		cam_count;
 	t_camera		*cams;
 	t_light			*lights;
 	t_lstobj		*objs;

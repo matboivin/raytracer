@@ -6,13 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 23:09:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/17 18:36:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstobj		*new_lstobj(void *obj, t_objid type)
+t_lstobj		*create_obj(void *obj, t_objid type)
 {
 	t_lstobj	*result;
 
@@ -25,7 +25,7 @@ t_lstobj		*new_lstobj(void *obj, t_objid type)
 	return (result);
 }
 
-void			lstobj_append(t_lstobj **objs, t_lstobj *new_obj)
+void			append_obj(t_lstobj **objs, t_lstobj *new_obj)
 {
 	t_lstobj	*cursor;
 
@@ -42,7 +42,7 @@ void			lstobj_append(t_lstobj **objs, t_lstobj *new_obj)
 		*objs = new_obj;
 }
 
-void			lstobj_clear(t_lstobj **objs)
+void			delete_objs(t_lstobj **objs)
 {
 	t_lstobj	*cursor;
 	t_lstobj	*next_node;

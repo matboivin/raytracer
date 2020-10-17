@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 21:33:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/17 18:44:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,8 @@ typedef struct		s_tri
 	t_vcolor		vcolor;
 }					t_tri;
 
-t_lstobj			*new_lstobj(void *obj, t_objid type);
-void				lstobj_append(t_lstobj **objs, t_lstobj *new_obj);
-void				lstobj_clear(t_lstobj **objs);
+t_lstobj			*create_obj(void *obj, t_objid type);
+void				append_obj(t_lstobj **objs, t_lstobj *new_obj);
+void				delete_objs(t_lstobj **objs);
 
 #endif

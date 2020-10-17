@@ -6,17 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:56:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/17 19:05:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void		render_n_images(t_minirt *env, int n)
+static void		render_n_images(t_minirt *env, uint32_t n)
 {
 	t_camera	*cursor;
 	t_image		*new_img;
-	int			i;
+	uint32_t	i;
 
 	i = 0;
 	cursor = env->cams;

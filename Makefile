@@ -10,11 +10,10 @@ RM = /bin/rm
 
 CC = gcc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g3
 IFLAGS		=	$(foreach path, $(INC_PATHS), -I $(path))
 LFLAGS		=	$(foreach path, $(LIB_PATHS), -L $(path)) \
 				$(foreach lib, $(LIB), -l $(lib))
-LFLAGS		+=	-lm -lXext -lX11
 
 # ******************************* DIRS AND PATHS ***************************** #
 
@@ -46,7 +45,7 @@ VPATH		=	$(SRC_DIR) $(addprefix $(SRC_DIR)/, $(SRC_SUBDIRS))
 
 # *********************************** LIB ************************************ #
 
-LIB			=	ft minimath mlx_Linux
+LIB			=	ft minimath mlx_Linux m Xext X11
 
 # ********************************** FILES *********************************** #
 
@@ -144,17 +143,14 @@ SRC			+=	map_normal2.c				\
 
 # ********************************** RULES *********************************** #
 
-.PHONY: all
 all: $(NAME)
 
 # INSTALL #
 
-.PHONY: install
 install :
 	#sudo apt-get update && apt-get install libxext-dev libbsd-dev
-	@$(foreach dir, $(LIB_PATHS), make -C $(dir);)
+	@$(foreach path, $(LIB_PATHS), make -C $(path);)
 
-.PHONY: re-install
 re-install :
 	@make -C lib/libft fclean
 	@make -C lib/minimath fclean
@@ -179,27 +175,24 @@ $(OBJ_DIR)/%.o : %.c
 
 # DEBUG #
 
-.PHONY: show
 show:
 	@echo "VPATH: $(VPATH)"
 
-.PHONY: debug
-debug: CFLAGS+=-g3 -fsanitize=address -D DEBUG=1
+debug: CFLAGS+=-fsanitize=address -D DEBUG=1
 debug: re
 
 # CLEAN #
 
-.PHONY: clean
 clean:
 	@make -C lib/libft clean
 	@make -C lib/minimath clean
 	@$(RM) -rf $(OBJ_DIR)
 	@echo "Cleaned\t\tobject files"
 
-.PHONY: fclean
 fclean: clean
 	@$(RM) $(NAME)
 	@echo "Removed\t\t$(NAME)"
 
-.PHONY: re
 re: fclean all
+
+.PHONY: all install re-install show debug clean fclean re
