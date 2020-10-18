@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/13 00:45:52 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 16:05:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ static bool		check_edge(t_vec3 to, t_vec3 from, t_vec3 hit_p, t_vec3 normal)
 
 static bool		is_inside_triangle(t_tri *tri, t_vec3 hit_p, t_vec3 normal)
 {
-	if ((check_edge(tri->vertex2, tri->vertex1, hit_p, normal))
+	return (
+		(check_edge(tri->vertex2, tri->vertex1, hit_p, normal))
 		&& (check_edge(tri->vertex3, tri->vertex2, hit_p, normal))
-		&& (check_edge(tri->vertex1, tri->vertex3, hit_p, normal)))
-		return (true);
-	return (false);
+		&& (check_edge(tri->vertex1, tri->vertex3, hit_p, normal)));
 }
 
 bool			hit_triangle(t_tri *triangle, t_ray *ray, double *t)

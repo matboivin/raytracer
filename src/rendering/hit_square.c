@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 16:16:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 16:06:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ static bool	is_inside_square(t_square *square, t_vec3 hit_p)
 
 	dist = sub_vec3(hit_p, square->center);
 	border = square->side * HALF_DIV;
-	if ((fabs(dist.x) <= border)
+	return (
+		(fabs(dist.x) <= border)
 		&& (fabs(dist.y) <= border)
-		&& (fabs(dist.z) <= border))
-		return (true);
-	return (false);
+		&& (fabs(dist.z) <= border));
 }
 
 bool		hit_square(t_square *square, t_ray *ray, double *t)

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/12 00:26:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 16:06:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ static bool		is_inside_cyl(t_cyl *cylinder, t_ray *ray, double t)
 	hit_p = get_hit_point(ray->origin, t, ray->dir);
 	bottom = sub_vec3(hit_p, cylinder->base1);
 	top = sub_vec3(hit_p, cylinder->base2);
-	if ((dot_vec3(cylinder->dir, bottom) > 0.0)
-		&& (dot_vec3(cylinder->dir, top) < 0.0))
-		return (true);
-	return (false);
+	return (
+		(dot_vec3(cylinder->dir, bottom) > 0.0)
+		&& (dot_vec3(cylinder->dir, top) < 0.0));
 }
 
 static bool		solve_cylinder(
