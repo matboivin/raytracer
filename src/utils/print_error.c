@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/06 12:29:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 14:41:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static t_err	g_errors[] =
 ** This function retrieves the appropriate error message using given error id
 */
 
-static char	*catch_err(t_errid raised)
+static char	*get_error_msg(t_errid raised)
 {
 	int		i;
 
@@ -69,7 +69,7 @@ void		print_error(t_errid raised)
 {
 	char	*msg;
 
-	msg = catch_err(raised);
+	msg = get_error_msg(raised);
 	ft_dprintf(STDERR_FILENO, "Error\n%s\n", msg);
 	exit(EXIT_FAILURE);
 }
