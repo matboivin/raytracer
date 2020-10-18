@@ -6,17 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 21:50:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:35:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstobj		*trace_ray_to_objs(t_lstobj *objs, t_ray *ray)
+t_obj		*trace_ray_to_objs(t_obj *objs, t_ray *ray)
 {
-	t_lstobj	*cursor;
-	t_lstobj	*nearest_obj;
-	double		t;
+	t_obj	*cursor;
+	t_obj	*nearest_obj;
+	double	t;
 
 	t = INFINITY;
 	nearest_obj = NULL;

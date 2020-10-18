@@ -6,22 +6,22 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:47:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:37:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void		set_secondary_ray(t_lstobj *hit_obj, t_ray *ray)
+static void	set_secondary_ray(t_obj *hit_obj, t_ray *ray)
 {
 	get_obj_color(hit_obj, ray);
 	ray->hit_p = get_hit_point(ray->origin, ray->t_nearest, ray->dir);
 	get_obj_normal(hit_obj, ray, ray->hit_p);
 }
 
-static void		shade(t_minirt *env, t_ray *ray)
+static void	shade(t_minirt *env, t_ray *ray)
 {
-	t_lstobj	*hit_obj;
+	t_obj	*hit_obj;
 
 	hit_obj = trace_ray_to_objs(env->objs, ray);
 	if (hit_obj)
@@ -37,12 +37,12 @@ static void		shade(t_minirt *env, t_ray *ray)
 ** retrieves the ray color to put it in the image.
 */
 
-void			trace_ray(t_minirt *env, t_camera *cam, t_image *img)
+void		trace_ray(t_minirt *env, t_camera *cam, t_image *img)
 {
-	t_ray		ray;
-	int			x;
-	int			y;
-	int			progress;
+	t_ray	ray;
+	int		x;
+	int		y;
+	int		progress;
 
 	look_at(cam);
 	set_ray_origin(&ray, cam->pos);

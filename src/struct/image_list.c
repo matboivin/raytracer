@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 21:04:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:49:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		delete_images(void *mlx_ptr, t_image **imgs)
 	}
 }
 
-void		create_circular_lstimg(t_image *imgs)
+void		create_circular_img_list(t_image *imgs)
 {
 	t_image	*head;
 

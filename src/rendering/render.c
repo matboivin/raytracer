@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/17 19:05:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:49:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		render_n_images(t_minirt *env, uint32_t n)
 		cursor = cursor->next;
 		i++;
 	}
-	create_circular_lstimg(env->imgs);
+	create_circular_img_list(env->imgs);
 }
 
 void			render(t_minirt *env, bool to_bmp)

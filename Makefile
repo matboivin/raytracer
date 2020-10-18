@@ -145,6 +145,10 @@ SRC			+=	map_normal2.c				\
 
 all: $(NAME)
 
+$(NAME): $(OBJ_DIR) $(OBJ) $(INC)
+	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
+	@echo "\nOK\t\t$(NAME) is ready"
+
 # INSTALL #
 
 install :
@@ -156,10 +160,6 @@ re-install :
 	@make -C lib/minimath fclean
 	@make -C lib/minilibx-linux clean
 	@make install
-
-$(NAME): $(OBJ_DIR) $(OBJ) $(INC)
-	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
-	@echo "\nOK\t\t$(NAME) is ready"
 
 # OBJ DIR #
 

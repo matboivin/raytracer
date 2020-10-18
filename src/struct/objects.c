@@ -6,28 +6,28 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/17 18:36:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:42:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_lstobj		*create_obj(void *obj, t_objid type)
+t_obj		*create_obj(void *shape_data, t_objid shape_id)
 {
-	t_lstobj	*result;
+	t_obj	*result;
 
-	result = malloc(sizeof(t_lstobj));
+	result = malloc(sizeof(t_obj));
 	if (!result)
 		return (NULL);
-	result->type = type;
-	result->obj = obj;
+	result->id = shape_id;
+	result->data = shape_data;
 	result->next = NULL;
 	return (result);
 }
 
-void			append_obj(t_lstobj **objs, t_lstobj *new_obj)
+void		append_obj(t_obj **objs, t_obj *new_obj)
 {
-	t_lstobj	*cursor;
+	t_obj	*cursor;
 
 	if (!objs || !new_obj)
 		return ;
@@ -42,10 +42,10 @@ void			append_obj(t_lstobj **objs, t_lstobj *new_obj)
 		*objs = new_obj;
 }
 
-void			delete_objs(t_lstobj **objs)
+void		delete_objs(t_obj **objs)
 {
-	t_lstobj	*cursor;
-	t_lstobj	*next_node;
+	t_obj	*cursor;
+	t_obj	*next_node;
 
 	if (!objs)
 		return ;
@@ -55,7 +55,7 @@ void			delete_objs(t_lstobj **objs)
 		while (cursor)
 		{
 			next_node = cursor->next;
-			free(cursor->obj);
+			free(cursor->data);
 			free(cursor);
 			cursor = next_node;
 		}

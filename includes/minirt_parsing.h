@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:00:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 21:09:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:47:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef	void	(*t_pars_func)(t_minirt *env, char **input);
 
 typedef struct	s_parsers
 {
-	char		*u_id;
+	char		*elem_id;
 	int			id_len;
 	t_pars_func	func;
 }				t_parsers;
@@ -46,7 +46,7 @@ void			get_light(t_minirt *env, char **input);
 ** Objects
 */
 
-void			add_obj_to_scene(t_minirt *env, void *obj, t_objid type);
+void			add_obj_to_render(t_minirt *env, void *to_add, t_objid obj_id);
 void			get_sphere(t_minirt *env, char **input);
 void			get_plane(t_minirt *env, char **input);
 void			get_square(t_minirt *env, char **input);

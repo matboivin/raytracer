@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/17 19:04:40 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:49:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ typedef struct		s_minirt
 	uint32_t		cam_count;
 	t_camera		*cams;
 	t_light			*lights;
-	t_lstobj		*objs;
+	t_obj			*objs;
 }					t_minirt;
 
 /*
@@ -173,7 +173,7 @@ void				destroy_image(void *mlx_ptr, t_image to_destroy);
 void				free_image(void *mlx_ptr, t_image *to_free);
 void				append_image(t_image **imgs, t_image *new_img);
 void				delete_images(void *mlx_ptr, t_image **imgs);
-void				create_circular_lstimg(t_image *imgs);
+void				create_circular_img_list(t_image *imgs);
 
 /*
 ** miniRT controler

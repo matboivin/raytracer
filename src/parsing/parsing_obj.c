@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 23:09:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:33:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void			get_sphere(t_minirt *env, char **input)
 	result->center = get_vec3(env, input);
 	result->radius = get_double(env, input) * HALF_DIV;
 	result->vcolor = get_color(env, input);
-	add_obj_to_scene(env, result, SPHERE);
+	add_obj_to_render(env, result, SPHERE);
 	skip_blank(input);
 }
 
@@ -48,7 +48,7 @@ void			get_plane(t_minirt *env, char **input)
 		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
 	result->dir = normalize_vec3(result->dir);
 	result->vcolor = get_color(env, input);
-	add_obj_to_scene(env, result, PLANE);
+	add_obj_to_render(env, result, PLANE);
 	skip_blank(input);
 }
 
@@ -70,7 +70,7 @@ void			get_square(t_minirt *env, char **input)
 	result->dir = normalize_vec3(result->dir);
 	result->side = get_double(env, input);
 	result->vcolor = get_color(env, input);
-	add_obj_to_scene(env, result, SQUARE);
+	add_obj_to_render(env, result, SQUARE);
 	skip_blank(input);
 }
 
@@ -96,7 +96,7 @@ void			get_cylinder(t_minirt *env, char **input)
 	result->base2 = add_vec3(
 		result->base1,
 		scale_vec3(result->height, result->dir));
-	add_obj_to_scene(env, result, CYLINDER);
+	add_obj_to_render(env, result, CYLINDER);
 	skip_blank(input);
 }
 
@@ -113,6 +113,6 @@ void			get_triangle(t_minirt *env, char **input)
 	result->vertex3 = get_vec3(env, input);
 	result->vcolor = get_color(env, input);
 	result->normal = get_triangle_normal(result);
-	add_obj_to_scene(env, result, TRIANGLE);
+	add_obj_to_render(env, result, TRIANGLE);
 	skip_blank(input);
 }

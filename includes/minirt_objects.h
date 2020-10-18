@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/17 18:44:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 13:43:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ typedef enum		e_objid
 /*
 ** Object list
 **
-** type: Object identifier
-** obj: Pointer to object data
+** id: Object identifier
+** data: Pointer to object data
 ** next: Pointer to next object
 */
 
-typedef struct		s_lstobj
+typedef struct		s_obj
 {
-	t_objid			type;
-	void			*obj;
-	struct s_lstobj	*next;
-}					t_lstobj;
+	t_objid			id;
+	void			*data;
+	struct s_obj	*next;
+}					t_obj;
 
 /*
 ** Sphere
@@ -127,8 +127,8 @@ typedef struct		s_tri
 	t_vcolor		vcolor;
 }					t_tri;
 
-t_lstobj			*create_obj(void *obj, t_objid type);
-void				append_obj(t_lstobj **objs, t_lstobj *new_obj);
-void				delete_objs(t_lstobj **objs);
+t_obj				*create_obj(void *shape_data, t_objid shape_id);
+void				append_obj(t_obj **objs, t_obj *new_obj);
+void				delete_objs(t_obj **objs);
 
 #endif
