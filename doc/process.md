@@ -129,4 +129,4 @@ A few things that can be fixed and possible improvements:
 - Use `fgetc` to avoid unstoppable reading of an infinite stream as scene file
 - Not overwriting an existing minirt.bmp
 - Sampling and multi-threading
-- Store the state of a key in a struct with `mlx_loop_hook` and handle graphic look more like MVC
+- Store the state of a key in a struct with `mlx_loop_hook` and handle graphic loop more like MVC

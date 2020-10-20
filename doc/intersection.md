@@ -138,8 +138,8 @@ Source: [Cylinder-ray intersections](https://mrl.nyu.edu/~dzorin/rend05/lecture2
 
 Check if point is between zmin and zmax (or ymin and ymax).
 
-zmin -> the center of the first base of the cylinder (bottom)
-zmax -> the center of the second base of the cylinder (stop)
+zmin -> the center of the first base of the cylinder (bottom)  
+zmax -> the center of the second base of the cylinder (stop)  
 
 ```
 dot(ray_dir, hit_point - cyl_base_center) > 0
@@ -149,8 +149,8 @@ dot(ray_dir, hit_point - cyl_top_center) < 0
 
 #### Finite cylinder with caps
 
-zmin -> center of first cap plane (bottom)
-zmax -> center of second cap plane (top)
+zmin -> center of first cap plane (bottom)  
+zmax -> center of second cap plane (top)  
 
 1. Intersect with each plane using the 2 centers.
 2. Check whether the intersections are inside caps.
