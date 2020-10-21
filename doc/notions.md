@@ -70,7 +70,12 @@ BMP
 - [Structure-Packing Pragmas](https://gcc.gnu.org/onlinedocs/gcc-4.4.4/gcc/Structure_002dPacking-Pragmas.html)
 - [Sets the alignment of all aggregate members to a specified byte boundary](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.cbclx01/pragma_pack.htm)
 
-Methodology
+Makefile  
+
+- [Variables Used by Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables)
+- [gcc(1) — Linux manual page](https://man7.org/linux/man-pages/man1/gcc.1.html)
+
+Methodology  
 
 - [Wiki: Software design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
 - [Software SOFT/INTERNAL Documentation Guide](https://www.includehelp.com/articles/software-soft-internal-documentation-guide.aspx)

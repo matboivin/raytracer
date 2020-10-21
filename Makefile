@@ -140,7 +140,7 @@ LIB_PATHS	=	$(LIB_DIR) $(MLX_DIR)
 
 VPATH		=	$(SRC_DIR) $(SRC_SUBDIRS)
 
-# ******************************** CC AND FLAGS ****************************** #
+# *************************** COMPILING AND FLAGS **************************** #
 
 CC			=	gcc
 
