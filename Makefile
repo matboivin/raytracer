@@ -6,11 +6,7 @@ RM = /bin/rm
 .SUFFIXES:
 .SUFFIXES: .c .o .h
 
-# ************************************ LIBS ********************************** #
-
-LIB			=	ft minimath mlx_Linux m Xext X11
-
-# ********************************** INCLUDES ******************************** #
+# ********************************* INCLUDES ********************************* #
 
 INC_FILES	=	minirt.h					\
 				minirt_debug.h				\
@@ -25,7 +21,7 @@ INC_FILES	=	minirt.h					\
 				minirt_render.h				\
 				minirt_save.h
 
-# *********************************** C FILES ******************************** #
+# ********************************* C FILES ********************************** #
 
 SRC_FILES	=	main.c						\
 				check_max_display.c			\
@@ -106,11 +102,15 @@ SRC_FILES	+=	map_normal2.c				\
 				map_normal2_rev.c			\
 				map_normal.c
 
-# ********************************** OBJECTS ********************************* #
+# ********************************* OBJECTS ********************************** #
 
 OBJ_FILES	=	$(SRC_FILES:%.c=%.o)
 
-# ******************************* DIRS AND PATHS ***************************** #
+# *********************************** LIBS *********************************** #
+
+LIBS		=	ft minimath mlx_Linux m Xext X11
+
+# ****************************** DIRS AND PATHS ****************************** #
 
 LIB_DIR		=	lib/libft lib/minimath
 MLX_DIR		=	lib/minilibx-linux
@@ -145,9 +145,9 @@ VPATH		=	$(SRC_DIR) $(SRC_SUBDIRS)
 CC			=	gcc
 
 CFLAGS		=	-Wall -Wextra -Werror -g3
-IFLAGS		=	$(foreach path, $(INC_PATHS), -I $(path))
-LFLAGS		=	$(foreach path, $(LIB_PATHS), -L $(path)) \
-				$(foreach lib, $(LIB), -l $(lib))
+CPPFLAGS	=	$(foreach path, $(INC_PATHS), -I $(path))
+LDFLAGS		=	$(foreach path, $(LIB_PATHS), -L $(path))
+LDLIBS		=	$(foreach lib, $(LIBS), -l $(lib))
 
 # ********************************** RULES *********************************** #
 
@@ -174,10 +174,10 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)/%.o : %.c
 	@echo "\r\033[KCompiling\t$< \c"
-	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJ_DIR) $(OBJ) $(INC)
-	@$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $@
+	@$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 	@echo "\nOK\t\t$(NAME) is ready"
 
 # DEBUG #
@@ -187,7 +187,7 @@ show:
 	@echo "INC_PATHS: $(INC_PATHS)"
 	@echo "LIB_PATHS: $(LIB_PATHS)"
 
-debug: CFLAGS+=-fsanitize=address -D DEBUG=1
+debug: CFLAGS += -DDEBUG=1 -fsanitize=address
 debug: re
 
 # CLEAN #
@@ -198,7 +198,7 @@ clean:
 	@echo "Cleaned\t\tobject files"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) -f $(NAME)
 	@echo "Removed\t\t$(NAME)"
 
 re: fclean all
