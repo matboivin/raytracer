@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/06 12:31:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/21 15:05:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef enum	e_errid
 {
-	DEFAULT_ERR = -1,
+	ERRNO_TO_STR = -1,
 	AMB_DUP,
 	AMB_FMT,
 	CAM_FMT,

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/08 15:58:01 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/21 15:05:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static void	write_bmpdata(t_minirt *env, int fd)
 			i = (x + env->res.size_x * y) * PIXEL_LEN;
 			pixel = (int *)(env->imgs->pixels + i);
 			if (write(fd, pixel, RGB_LEN) < 0)
-				exit_error(env, DEFAULT_ERR);
+				exit_error(env, ERRNO_TO_STR);
 			x++;
 		}
 		progress = ft_percent((env->res.size_y - y), env->res.size_y);
@@ -122,7 +122,7 @@ void		save_bmp(t_minirt *env, const char *filename)
 
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, FILE_PERMISSIONS);
 	if (!fd)
-		exit_error(env, DEFAULT_ERR);
+		exit_error(env, ERRNO_TO_STR);
 	write_bmpheaders(env, fd);
 	write_bmpdata(env, fd);
 	close(fd);

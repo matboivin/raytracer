@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 14:41:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/21 15:05:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,8 @@ static t_err	g_errors[] =
 
 static char	*get_error_msg(t_errid raised)
 {
-	int		i;
-
-	i = 0;
-	while (i < MAX_ERR)
-	{
-		if (g_errors[i].u_id == raised)
-			return (g_errors[i].msg);
-		i++;
-	}
+	if (raised != ERRNO_TO_STR)
+		return (g_errors[raised].msg);
 	return ((char *)strerror(errno));
 }
 

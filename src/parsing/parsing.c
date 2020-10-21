@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 13:47:58 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/21 15:05:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 	result = NULL;
 	fd = open(filepath, O_RDONLY | O_NOFOLLOW);
 	if (!fd)
-		exit_error(env, DEFAULT_ERR);
+		exit_error(env, ERRNO_TO_STR);
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[bytes_read] = '\0';
 		result = ft_strjoindelone(result, buffer);
 		if (!result)
-			exit_error(env, DEFAULT_ERR);
+			exit_error(env, ERRNO_TO_STR);
 	}
 	close(fd);
 	return (result);
@@ -106,7 +106,7 @@ void			parse_scene(t_minirt *env, const char *filepath)
 
 	input = read_scene_file(env, filepath);
 	if (!input)
-		exit_error(env, DEFAULT_ERR);
+		exit_error(env, ERRNO_TO_STR);
 	head = input;
 	while (*input)
 	{

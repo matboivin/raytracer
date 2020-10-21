@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:26:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/21 15:05:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_light		*malloc_light(t_minirt *env)
 
 	result = malloc(sizeof(t_light));
 	if (!result)
-		exit_error(env, DEFAULT_ERR);
+		exit_error(env, ERRNO_TO_STR);
 	result->pos = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	result->ratio = DEFAULT_VALUE;
 	result->vcolor = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
