@@ -6,19 +6,18 @@
 All programs written in C follow [42 style guideline](https://github.com/42Paris/norminette).
 
 > This project is an introduction to the beautiful world of Ray tracing. Once completed you will be able to render simple Computer-Generated-Images and you will never be afraid of implementing mathematical formulas again.  
+The goal of your program is to generate images using the Raytracing protocol. Those computer generated images will each represent a scene, as seen from a specific angle and position, defined by simple geometric objects, and each with its own lighting system.
 
 <p align="center">
   <img src="assets/preview.png" alt="render" width="800" />
 </p>
 
-| Program name      | miniRT                                                              |
-| :---------------- | :------------------------------------------------------------------ |
-| Turn in files     | All necessary files                                                 |
-| Makefile          | all, clean, fclean, re, bonus                                       |
-| External functs.  | - open, close, read, write, malloc, free, perror, strerror, exit<br/>- All functions of the math library<br/>- All functions of the MinilibX |
-| Arguments         | A scene in format *.rt                                              |
-| Libft authorized  | Yes                                                                 |
-| Description       | The goal of your program is to generate images using the Raytracing protocol. Those computer generated images will each represent a scene, as seen from a specific angle and position, defined by simple geometric objects, and each with its own lighting system. |
+### Disclaimer
+
+This project is a school assignment. It was done for **learning purposes** and is thus **not intended for production**.  
+Don't copy. Learn.  
+
+I gathered all the resources that were helpful in the `doc` directory. You can check it out but don't copy and paste code without understanding how it works.
 
 ### Prerequisites
 
@@ -73,6 +72,13 @@ $ ./miniRT scenes/deer.rt
 </p>
 
 `deer.rt` file generated using [mesh converter](https://github.com/matboivin/miniRT-mesh-converter).
+
+### License
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>
+
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
 
 ### Acknowledgements
 
