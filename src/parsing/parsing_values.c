@@ -6,10 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 14:34:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 01:13:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_num.h"
+#include "libft_recon.h"
+#include "libft_conv.h"
 #include "minirt.h"
 
 int				get_integer(t_minirt *env, char **input)

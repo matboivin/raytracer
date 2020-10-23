@@ -6,10 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 16:06:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 01:22:07 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "minirt.h"
 
 static bool		is_inside_cyl(t_cyl *cylinder, t_ray *ray, double t)

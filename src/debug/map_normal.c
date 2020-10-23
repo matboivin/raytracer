@@ -6,10 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 01:01:23 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:33:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 01:17:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "minirt.h"
 
 t_vcolor		map_normal(t_ray *ray)

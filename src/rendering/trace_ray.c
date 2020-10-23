@@ -6,10 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 13:37:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 01:15:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_printf.h"
 #include "minirt.h"
 
 static void	set_secondary_ray(t_obj *hit_obj, t_ray *ray)

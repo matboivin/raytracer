@@ -6,10 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/03 19:32:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 01:15:27 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_str.h"
+#include "libft_printf.h"
 #include "minirt.h"
 
 static void	check_filename(const char *filepath)

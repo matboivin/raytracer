@@ -6,10 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 23:09:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 01:22:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "minirt.h"
 
 bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)

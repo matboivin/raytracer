@@ -6,25 +6,19 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:54:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 01:26:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include <errno.h>
-# include <limits.h>
-# include <math.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <unistd.h>
-# include <fcntl.h>
+# include <stdint.h>
 
-# include "libft.h"
 # include "mlx.h"
-# include "minimath.h"
+# include "libft_define.h"
+# include "minimath_mat3x3.h"
 
 # include "minirt_define.h"
 # include "minirt_ray.h"
