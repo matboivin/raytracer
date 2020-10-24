@@ -143,10 +143,10 @@ Source: [Computer Graphics from scratch: Light](https://www.gabrielgambetta.com/
 - Hit point not in shadow is shaded with ambient and direct illumination
 - Hit point in shadow is shaded with only ambient illumination
 
-## Salt-and-pepper noise
+### Salt-and-pepper noise
 
 <p align="center">
-  <img src="assets/saltandpepper.png" alt="sphere with noise" />
+  <img src="assets/saltandpepper.png" alt="sphere with noise" width="450" />
 </p>
 
 `ε = 0`
