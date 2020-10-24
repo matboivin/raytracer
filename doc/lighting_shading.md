@@ -142,3 +142,18 @@ Source: [Computer Graphics from scratch: Light](https://www.gabrielgambetta.com/
 
 - Hit point not in shadow is shaded with ambient and direct illumination
 - Hit point in shadow is shaded with only ambient illumination
+
+## Salt-and-pepper noise
+
+<p align="center">
+  <img src="assets/saltandpepper.png" alt="sphere with noise" />
+</p>
+
+`ε = 0`
+
+- Salt-and-pepper noise
+- Random self shadowing
+
+-> Use `ε = 0.00001`
+
+Check [page 13](https://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk6_p2_sam_shadows.pdf) and [page 5](http://www.cs.cornell.edu/courses/cs4620/2012fa/lectures/35raytracing.pdf).
