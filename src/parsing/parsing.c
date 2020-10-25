@@ -6,13 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:23:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 22:41:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
-#include "libft_recon.h"
+#include "libft_ctype.h"
 #include "libft_str.h"
 #include "minirt.h"
 
