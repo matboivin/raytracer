@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:15:27 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/28 15:49:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ static void	print_usage(void)
 {
 	ft_dprintf(
 		STDERR_FILENO,
-		"Usage: ./miniRT <scene.rt> [--save]\n\n");
-	ft_dprintf(
-		STDERR_FILENO,
-		"optional arguments:\n  --save  save rendered image to bmp format\n");
+		"Usage: ./miniRT <scene.rt> [--save]\n\n\
+		\roptional arguments:\n  --save  save rendered image to bmp format\n");
 	exit(EXIT_FAILURE);
 }
 
