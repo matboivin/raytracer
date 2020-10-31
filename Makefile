@@ -144,7 +144,7 @@ VPATH		=	$(SRC_DIR) $(SRC_SUBDIRS)
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror -g3
+CFLAGS		=	-Wall -Wextra -Werror
 CPPFLAGS	=	$(foreach path, $(INC_PATHS), -I $(path))
 LDFLAGS		=	$(foreach path, $(LIB_PATHS), -L $(path))
 LDLIBS		=	$(foreach lib, $(LIBS), -l $(lib))
@@ -172,13 +172,15 @@ $(OBJ_DIR):
 
 # COMPILING #
 
-$(OBJ_DIR)/%.o : %.c
+$(OBJ_DIR)/%.o: %.c $(INC)
 	@echo "\r\033[KCompiling\t$< \c"
-	@$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
+
+# LINKING #
 
 $(NAME): $(OBJ_DIR) $(OBJ) $(INC)
-	@$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
-	@echo "\nOK\t\t$(NAME) is ready"
+	@$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
+	@echo "\nOK\t\t$@ is ready"
 
 # DEBUG #
 
@@ -187,8 +189,11 @@ show:
 	@echo "INC_PATHS: $(INC_PATHS)"
 	@echo "LIB_PATHS: $(LIB_PATHS)"
 
-debug: CFLAGS += -DDEBUG=1 -fsanitize=address
+debug: CFLAGS += -DDEBUG=1
 debug: re
+
+check_leaks: re
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./miniRT scenes/sphere1.rt
 
 # CLEAN #
 
@@ -203,4 +208,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all install re-install show debug clean fclean re
+.PHONY: all install re-install show debug check_leaks clean fclean re
