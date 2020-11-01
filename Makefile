@@ -1,4 +1,4 @@
-NAME := miniRT
+BIN_NAME := miniRT
 
 SHELL = /bin/sh
 RM = /bin/rm
@@ -149,9 +149,11 @@ CPPFLAGS	=	$(foreach path, $(INC_PATHS), -I $(path))
 LDFLAGS		=	$(foreach path, $(LIB_PATHS), -L $(path))
 LDLIBS		=	$(foreach lib, $(LIBS), -l $(lib))
 
+DEBUG_CFLAGS = -g3 -D DEBUG
+
 # ********************************** RULES *********************************** #
 
-all: $(NAME)
+all: $(BIN_NAME)
 
 # INSTALL #
 
@@ -178,7 +180,7 @@ $(OBJ_DIR)/%.o: %.c $(INC)
 
 # LINKING #
 
-$(NAME): $(OBJ_DIR) $(OBJ) $(INC)
+$(BIN_NAME): $(OBJ_DIR) $(OBJ) $(INC)
 	@$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 	@echo "\nOK\t\t$@ is ready"
 
@@ -189,8 +191,11 @@ show:
 	@echo "INC_PATHS: $(INC_PATHS)"
 	@echo "LIB_PATHS: $(LIB_PATHS)"
 
-debug: CFLAGS += -DDEBUG=1
+# Debug build for gdb debugging #
+
+debug: export CFLAGS += $(DEBUG_CFLAGS)
 debug: re
+	@echo "DEBUG\t\tDebug build done"
 
 check_leaks: re
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./miniRT scenes/sphere1.rt
@@ -203,8 +208,8 @@ clean:
 	@echo "Cleaned\t\tobject files"
 
 fclean: clean
-	@$(RM) -f $(NAME)
-	@echo "Removed\t\t$(NAME)"
+	@$(RM) -f $(BIN_NAME)
+	@echo "Removed\t\t$(BIN_NAME)"
 
 re: fclean all
 
