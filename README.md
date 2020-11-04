@@ -24,7 +24,7 @@ I gathered all the resources that were helpful in the `doc` directory. You can c
 This program was developed on Debian Linux. It runs on Debian and Ubuntu.
 
 - GNU make and a C compiler
-- libxext-dev and libbsd-dev packages (see `make install` rule in Makefile)
+- libxext-dev and libbsd-dev packages (see `install` rule in Makefile)
 
 ### Dependencies
 
