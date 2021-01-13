@@ -67,8 +67,8 @@ $ ./miniRT scenes/room.rt
 $ ./miniRT scenes/smaug.rt
 ```
 <p align="center">
-  <img src="assets/room00.png" alt="example 1" width="450" />
-  <img src="assets/smaug.png" alt="example 2" width="450" />
+  <img src="assets/room00.png" alt="example 1" width="680" />
+  <img src="assets/smaug.png" alt="example 2" width="680" />
 </p>
 
 `smaug.rt` file generated using [mesh converter](https://github.com/matboivin/miniRT-mesh-converter).
