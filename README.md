@@ -9,8 +9,10 @@ All programs written in C follow [42 style guideline](https://github.com/42Paris
 The goal of your program is to generate images using the Raytracing protocol. Those computer generated images will each represent a scene, as seen from a specific angle and position, defined by simple geometric objects, and each with its own lighting system.
 
 <p align="center">
-  <img src="assets/preview.png" alt="render" width="800" />
+  <img src="assets/dragon.png" alt="render" width="800" />
 </p>
+
+`dragon.rt` file generated using [mesh converter](https://github.com/matboivin/miniRT-mesh-converter).
 
 ### Disclaimer
 
@@ -64,14 +66,12 @@ optional arguments:
 
 ```console
 $ ./miniRT scenes/room.rt
-$ ./miniRT scenes/dragon.rt
+$ ./miniRT scenes/scene.rt
 ```
 <p align="center">
   <img src="assets/room00.png" alt="example 1" width="680" />
-  <img src="assets/dragon.png" alt="example 2" width="680" />
+  <img src="assets/preview.png" alt="example 2" width="680" />
 </p>
-
-`dragon.rt` file generated using [mesh converter](https://github.com/matboivin/miniRT-mesh-converter).
 
 ### License
 
