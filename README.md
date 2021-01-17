@@ -83,3 +83,5 @@ This work is licensed under a
 ### Acknowledgements
 
 School project done at [42 Paris](https://www.42.fr).
+
+Many thanks to [0auBSQ](https://github.com/0auBSQ) for contributing!
