@@ -6,58 +6,16 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:48:40 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/21 15:05:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/03/29 19:05:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_EXIT_H
 # define MINIRT_EXIT_H
 
-/*
-** Error identifiers
-*/
-
-typedef enum	e_errid
-{
-	ERRNO_TO_STR = -1,
-	AMB_DUP,
-	AMB_FMT,
-	CAM_FMT,
-	COLOR_FMT,
-	COORD_FMT,
-	CYL_FMT,
-	FLOAT_FMT,
-	FILENAME_ERR,
-	ID_ERR,
-	LIGHT_FMT,
-	NO_AMB,
-	NO_CAM,
-	NO_LIGHT,
-	NO_OBJ,
-	NO_RES,
-	NUM_FMT,
-	OPT_ERR,
-	PLANE_FMT,
-	RES_DUP,
-	RES_LOW,
-	SCENE_FMT,
-	SPHERE_FMT,
-	SQUARE_FMT
-}				t_errid;
-
-/*
-** Error identifiers associated to error messages
-*/
-
-typedef struct	s_err
-{
-	t_errid		u_id;
-	char		*msg;
-}				t_err;
-
-void			check_params(int argc, char **argv, bool *to_bmp);
-void			print_error(t_errid raised);
-void			exit_error(t_minirt *env, t_errid raised);
-int				exit_success(t_minirt *env);
+void	check_params(int argc, char **argv, bool *to_bmp);
+void	print_error(char *err_msg);
+void	exit_error(t_minirt *env, char *err_msg);
+int		exit_success(t_minirt *env);
 
 #endif

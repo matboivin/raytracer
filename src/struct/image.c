@@ -6,10 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/21 15:05:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/03/29 19:13:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include <string.h>
 #include "minirt.h"
 
 t_image		create_image(t_minirt *env)
@@ -37,7 +39,7 @@ t_image		*malloc_image(t_minirt *env)
 
 	result = malloc(sizeof(t_image));
 	if (!result)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	*result = create_image(env);
 	return (result);
 }

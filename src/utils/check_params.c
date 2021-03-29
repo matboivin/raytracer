@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/28 15:49:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/03/29 19:04:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	check_filename(const char *filepath)
 
 	filename_len = ft_strlen(filepath);
 	if (filename_len < MIN_FILENAME_LEN)
-		print_error(FILENAME_ERR);
+		print_error("Invalid scene file: Use the '.rt' extension.");
 	filepath += filename_len - EXT_LEN;
 	if (ft_strncmp(filepath, DEFAULT_EXT, EXT_LEN))
-		print_error(FILENAME_ERR);
+		print_error("Invalid scene file: Use the '.rt' extension.");
 }
 
 static void	print_usage(void)
@@ -43,7 +43,7 @@ void		check_params(int argc, char **argv, bool *to_bmp)
 	if (argc == MAX_ARGC)
 	{
 		if (ft_strcmp(argv[2], SAVE_OPT))
-			print_error(OPT_ERR);
+			print_error("Invalid option: Try '--save'.");
 		*to_bmp = true;
 	}
 }

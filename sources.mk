@@ -68,7 +68,6 @@ SRC_FILES	+=	ambient.c					\
 
 SRC_FILES	+=	check_params.c				\
 				exit.c						\
-				print_error.c				\
 				save_bmp.c
 
 # DEBUG #

@@ -6,10 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/21 15:05:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/03/29 19:09:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include <string.h>
 #include "minirt.h"
 
 /*
@@ -22,7 +24,7 @@ void			get_sphere(t_minirt *env, char **input)
 
 	result = malloc(sizeof(t_sphere));
 	if (!result)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->radius = get_double(env, input) * HALF_DIV;
@@ -37,12 +39,12 @@ void			get_plane(t_minirt *env, char **input)
 
 	result = malloc(sizeof(t_plane));
 	if (!result)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
 	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
-		exit_error(env, PLANE_FMT);
+		exit_error(env, "Invalid scene: Plane badly formatted.");
 	check_null_vector(
 		&(result->dir),
 		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
@@ -58,12 +60,12 @@ void			get_square(t_minirt *env, char **input)
 
 	result = malloc(sizeof(t_square));
 	if (!result)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
 	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
-		exit_error(env, SQUARE_FMT);
+		exit_error(env, "Invalid scene: Square badly formatted.");
 	check_null_vector(
 		&(result->dir),
 		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
@@ -80,12 +82,12 @@ void			get_cylinder(t_minirt *env, char **input)
 
 	result = malloc(sizeof(t_cyl));
 	if (!result)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->base1 = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
 	if (!ft_vec3_range(result->dir, REVUNIT_VALUE, UNIT_VALUE))
-		exit_error(env, CYL_FMT);
+		exit_error(env, "Invalid scene: Cylinder badly formatted.");
 	check_null_vector(
 		&(result->dir),
 		create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE));
@@ -106,7 +108,7 @@ void			get_triangle(t_minirt *env, char **input)
 
 	result = malloc(sizeof(t_tri));
 	if (!result)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->vertex1 = get_vec3(env, input);
 	result->vertex2 = get_vec3(env, input);

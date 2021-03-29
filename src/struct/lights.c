@@ -6,10 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/21 15:05:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/03/29 19:13:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include <string.h>
 #include "minirt.h"
 
 t_light		*malloc_light(t_minirt *env)
@@ -18,7 +20,7 @@ t_light		*malloc_light(t_minirt *env)
 
 	result = malloc(sizeof(t_light));
 	if (!result)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	result->pos = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	result->ratio = DEFAULT_VALUE;
 	result->vcolor = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);

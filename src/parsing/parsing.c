@@ -6,10 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 22:41:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/03/29 19:12:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include "libft_ctype.h"
@@ -51,7 +53,7 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 		}
 		i++;
 	}
-	exit_error(env, ID_ERR);
+	exit_error(env, "Invalid scene: Unknown identifier.");
 }
 
 /*
@@ -68,13 +70,13 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 	result = NULL;
 	fd = open(filepath, O_RDONLY | O_NOFOLLOW);
 	if (!fd)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[bytes_read] = '\0';
 		result = ft_strjoindelone(result, buffer);
 		if (!result)
-			exit_error(env, ERRNO_TO_STR);
+			exit_error(env, (char *)strerror(errno));
 	}
 	close(fd);
 	return (result);
@@ -87,15 +89,15 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 static void		check_scene(t_minirt *env)
 {
 	if (!env->res.is_declared)
-		exit_error(env, NO_RES);
+		exit_error(env, "No resolution declared. Rendering stopped.");
 	if (!env->ambient.is_declared)
-		exit_error(env, NO_AMB);
+		exit_error(env, "No ambient light declared. Rendering stopped.");
 	if (!env->cams)
-		exit_error(env, NO_CAM);
+		exit_error(env, "No camera declared. Rendering stopped.");
 	if (!env->lights)
-		exit_error(env, NO_LIGHT);
+		exit_error(env, "No light declared. Rendering stopped.");
 	if (!env->objs)
-		exit_error(env, NO_OBJ);
+		exit_error(env, "No object declared. Rendering stopped.");
 }
 
 /*
@@ -110,7 +112,7 @@ void			parse_scene(t_minirt *env, const char *filepath)
 
 	input = read_scene_file(env, filepath);
 	if (!input)
-		exit_error(env, ERRNO_TO_STR);
+		exit_error(env, (char *)strerror(errno));
 	head = input;
 	while (*input)
 	{
@@ -119,7 +121,7 @@ void			parse_scene(t_minirt *env, const char *filepath)
 		else if (ft_ischarset(*input, ids))
 			handle_scene_elem(env, &input);
 		else
-			exit_error(env, SCENE_FMT);
+			exit_error(env, "Invalid scene: Scene badly formatted.");
 	}
 	ft_strdel(&head);
 	check_scene(env);
