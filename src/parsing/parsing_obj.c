@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:09:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/04/15 18:55:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void			get_sphere(t_minirt *env, char **input)
 {
-	t_sphere	*result;
+	t_sphere	*result = NULL;
 
 	result = malloc(sizeof(t_sphere));
 	if (!result)
@@ -35,7 +35,7 @@ void			get_sphere(t_minirt *env, char **input)
 
 void			get_plane(t_minirt *env, char **input)
 {
-	t_plane		*result;
+	t_plane		*result = NULL;
 
 	result = malloc(sizeof(t_plane));
 	if (!result)
@@ -56,7 +56,7 @@ void			get_plane(t_minirt *env, char **input)
 
 void			get_square(t_minirt *env, char **input)
 {
-	t_square	*result;
+	t_square	*result = NULL;
 
 	result = malloc(sizeof(t_square));
 	if (!result)
@@ -78,7 +78,7 @@ void			get_square(t_minirt *env, char **input)
 
 void			get_cylinder(t_minirt *env, char **input)
 {
-	t_cyl		*result;
+	t_cyl		*result = NULL;
 
 	result = malloc(sizeof(t_cyl));
 	if (!result)
@@ -104,7 +104,7 @@ void			get_cylinder(t_minirt *env, char **input)
 
 void			get_triangle(t_minirt *env, char **input)
 {
-	t_tri		*result;
+	t_tri		*result = NULL;
 
 	result = malloc(sizeof(t_tri));
 	if (!result)

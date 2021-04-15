@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 13:42:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/04/15 18:55:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_obj		*create_obj(void *shape_data, t_objid shape_id)
 {
-	t_obj	*result;
+	t_obj	*result = NULL;
 
 	result = malloc(sizeof(t_obj));
 	if (!result)

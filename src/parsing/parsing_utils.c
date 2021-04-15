@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:10:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/04/15 18:54:05 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	skip_digits(char **s)
 
 void	skip_double(t_minirt *env, char **s)
 {
-	skip_separator(s, MINUS);
+	skip_separator(s, '-');
 	skip_digits(s);
 	if (skip_separator(s, DOT))
 	{
@@ -62,7 +62,7 @@ void	skip_double(t_minirt *env, char **s)
 			exit_error(env, "Invalid scene: Floating-point number badly formatted.");
 		while (ft_isdigit(**s))
 			(*s)++;
-		if ((**s) == MINUS)
+		if ((**s) == '-')
 			exit_error(env, "Invalid scene: Floating-point number badly formatted.");
 	}
 }

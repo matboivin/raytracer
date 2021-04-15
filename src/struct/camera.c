@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:12:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/04/15 18:55:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_camera		*malloc_cam(t_minirt *env)
 {
-	t_camera	*result;
+	t_camera	*result = NULL;
 
 	result = malloc(sizeof(t_camera));
 	if (!result)

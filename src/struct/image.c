@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:13:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/04/15 18:55:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_image		create_image(t_minirt *env)
 
 t_image		*malloc_image(t_minirt *env)
 {
-	t_image	*result;
+	t_image	*result = NULL;
 
 	result = malloc(sizeof(t_image));
 	if (!result)

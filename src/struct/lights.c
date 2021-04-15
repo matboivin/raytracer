@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:13:21 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/04/15 18:55:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_light		*malloc_light(t_minirt *env)
 {
-	t_light	*result;
+	t_light	*result = NULL;
 
 	result = malloc(sizeof(t_light));
 	if (!result)
