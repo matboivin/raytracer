@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/04/15 18:53:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:16:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,12 @@ int				get_integer(t_minirt *env, char **input)
 double			get_double(t_minirt *env, char **input)
 {
 	double		result;
-	char		*endptr;
+	char		*endptr = NULL;
 
-	endptr = NULL;
 	skip_blank(input);
 	if ((**input) == '-' || ft_isdigit(**input))
 	{
 		result = ft_strtod(*input, &endptr);
-		free(endptr);
 		skip_double(env, input);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/27 00:47:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:15:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int				handle_key(int keycode, void *param)
 {
-	t_minirt	*env;
+	t_minirt	*env = NULL;
 
 	env = (t_minirt *)param;
 	if (keycode == ESC_KEY)

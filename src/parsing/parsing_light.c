@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:07:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:16:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	parse_light(t_minirt *env, char **input, t_light *light)
 
 void		get_light(t_minirt *env, char **input)
 {
-	t_light	*new_light;
+	t_light	*new_light = NULL;
 
 	(*input) += ID_LEN;
 	new_light = malloc_light(env);

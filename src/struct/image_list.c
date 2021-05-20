@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:51:48 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 13:49:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:06:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		append_image(t_image **imgs, t_image *new_img)
 {
-	t_image	*cursor;
+	t_image	*cursor = NULL;
 
 	if (!imgs || !new_img)
 		return ;
@@ -31,8 +31,8 @@ void		append_image(t_image **imgs, t_image *new_img)
 
 void		delete_images(void *mlx_ptr, t_image **imgs)
 {
-	t_image	*cursor;
-	t_image	*head;
+	t_image	*cursor = NULL;
+	t_image	*head = NULL;
 
 	if (!imgs)
 		return ;
@@ -52,7 +52,7 @@ void		delete_images(void *mlx_ptr, t_image **imgs)
 
 void		create_circular_img_list(t_image *imgs)
 {
-	t_image	*head;
+	t_image	*head = NULL;
 
 	head = imgs;
 	while (imgs->next)

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/07 20:47:07 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:22:41 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 ** [Rz, Uz, Fz]
 */
 
-static void		check_collinear_vectors(
-	t_vec3 cam_dir, t_vec3 *right, t_vec3 world_up)
+static void		check_collinear_vectors(t_vec3 cam_dir, t_vec3 *right,
+													 t_vec3 world_up)
 {
 	if (cam_dir.y == UNIT_VALUE)
 		*right = create_vec3(UNIT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
@@ -36,9 +36,7 @@ static void		check_collinear_vectors(
 static t_mat3x3	create_worldtocam(t_vec3 cam_dir, t_vec3 world_up)
 {
 	t_mat3x3	result;
-	t_vec3		forward;
-	t_vec3		up;
-	t_vec3		right;
+	t_vec3		forward, up, right;
 
 	forward = cam_dir;
 	check_collinear_vectors(cam_dir, &right, world_up);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:14:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:22:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@
 
 void		put_pixel_to_image(t_image *img, t_vcolor vcolor, int x, int y)
 {
-	uint8_t	red;
-	uint8_t	green;
-	uint8_t	blue;
+	uint8_t	red, green, blue;
 	int		i;
 
 	if (!ft_n_range(x, DEFAULT_VALUE, img->size_x)

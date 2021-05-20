@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2021/04/15 18:55:36 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:06:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_light		*malloc_light(t_minirt *env)
 
 void		append_light(t_light **lights, t_light *new_light)
 {
-	t_light	*cursor;
+	t_light	*cursor = NULL;
 
 	if (!lights || !new_light)
 		return ;
@@ -47,8 +47,8 @@ void		append_light(t_light **lights, t_light *new_light)
 
 void		delete_lights(t_light **lights)
 {
-	t_light	*cursor;
-	t_light	*next_node;
+	t_light	*cursor = NULL;
+	t_light	*next_node = NULL;
 
 	if (!lights)
 		return ;

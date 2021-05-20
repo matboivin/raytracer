@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2021/04/15 18:55:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:07:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_obj		*create_obj(void *shape_data, t_objid shape_id)
 
 void		append_obj(t_obj **objs, t_obj *new_obj)
 {
-	t_obj	*cursor;
+	t_obj	*cursor = NULL;
 
 	if (!objs || !new_obj)
 		return ;
@@ -44,8 +44,8 @@ void		append_obj(t_obj **objs, t_obj *new_obj)
 
 void		delete_objs(t_obj **objs)
 {
-	t_obj	*cursor;
-	t_obj	*next_node;
+	t_obj	*cursor = NULL;
+	t_obj	*next_node = NULL;
 
 	if (!objs)
 		return ;

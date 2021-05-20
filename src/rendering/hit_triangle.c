@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 16:05:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:21:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 static bool		check_edge(t_vec3 to, t_vec3 from, t_vec3 hit_p, t_vec3 normal)
 {
-	t_vec3		edge;
-	t_vec3		vec_p;
+	t_vec3		edge, vec_p;
 
 	edge = sub_vec3(to, from);
 	vec_p = sub_vec3(hit_p, from);

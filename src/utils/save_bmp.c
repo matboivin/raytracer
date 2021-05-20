@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:13:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:15:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,8 @@ static void	write_bmpheaders(t_minirt *env, int fd)
 
 static void	write_bmpdata(t_minirt *env, int fd)
 {
-	int		x;
-	int		y;
-	int		*pixel;
+	int		x, y;
+	int		*pixel = NULL;
 	int		i;
 	int		progress;
 
@@ -124,7 +123,7 @@ static void	write_bmpdata(t_minirt *env, int fd)
 
 void		save_bmp(t_minirt *env, const char *filename)
 {
-	int		fd;
+	int		fd = 0;
 
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, FILE_PERMISSIONS);
 	if (!fd)

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:15:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:23:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 static void		render_n_images(t_minirt *env, uint32_t n)
 {
-	t_camera	*cursor;
-	t_image		*new_img;
-	uint32_t	i;
+	t_camera	*cursor = NULL;
+	t_image		*new_img = NULL;
+	uint32_t	i = 0;
 
-	i = 0;
 	cursor = env->cams;
 	while (i < n)
 	{

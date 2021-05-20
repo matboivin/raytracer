@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2021/04/15 18:55:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:06:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_camera		*malloc_cam(t_minirt *env)
 
 void			append_camera(t_camera **cams, t_camera *new_cam)
 {
-	t_camera	*cursor;
+	t_camera	*cursor = NULL;
 
 	if (!cams || !new_cam)
 		return ;
@@ -48,8 +48,8 @@ void			append_camera(t_camera **cams, t_camera *new_cam)
 
 void			delete_cameras(t_camera **cams)
 {
-	t_camera	*cursor;
-	t_camera	*next_node;
+	t_camera	*cursor = NULL;
+	t_camera	*next_node = NULL;
 
 	if (!cams)
 		return ;

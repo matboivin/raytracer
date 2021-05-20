@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 13:37:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:24:15 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		add_light(t_vcolor *output, t_vcolor light_color, double ratio)
 
 static bool		is_in_shadow(t_obj *objs, t_ray *ray, t_vec3 light_dir)
 {
-	t_obj		*cursor;
+	t_obj		*cursor = NULL;
 	t_ray		shadow_ray;
 	double		t;
 
@@ -38,13 +38,12 @@ static bool		is_in_shadow(t_obj *objs, t_ray *ray, t_vec3 light_dir)
 	return (false);
 }
 
-static void		compute_lighting(
-	t_obj *objs, t_light *light, t_ray *ray, t_vcolor *ray_color)
+static void		compute_lighting(t_obj *objs, t_light *light, t_ray *ray,
+													 t_vcolor *ray_color)
 {
 	t_vec3		light_dir;
 	double		angle;
-	double		coef;
-	double		spec_coef;
+	double		coef, spec_coef;
 
 	light_dir = sub_vec3(light->pos, ray->hit_p);
 	angle = dot_vec3(ray->normal, normalize_vec3(light_dir));
@@ -61,7 +60,7 @@ static void		compute_lighting(
 
 void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
 {
-	t_light		*cursor;
+	t_light		*cursor = NULL;
 	t_vcolor	ray_color;
 
 	ray_color = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);

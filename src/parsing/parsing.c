@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:12:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:17:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ static t_parsers	g_parsers[] =
 
 static void		handle_scene_elem(t_minirt *env, char **input)
 {
-	int			i;
+	int			i = 0;
 
-	i = 0;
 	while (i < MAX_PARS_FUNC)
 	{
 		if (!ft_strncmp(g_parsers[i].elem_id, *input, g_parsers[i].id_len))
@@ -62,12 +61,10 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 
 static char		*read_scene_file(t_minirt *env, const char *filepath)
 {
-	char		*result;
+	char		*result = NULL;
 	char		buffer[BUFFER_SIZE + 1];
-	int			fd;
-	int			bytes_read;
+	int			fd, bytes_read;
 
-	result = NULL;
 	fd = open(filepath, O_RDONLY | O_NOFOLLOW);
 	if (!fd)
 		exit_error(env, (char *)strerror(errno));
@@ -107,8 +104,8 @@ static void		check_scene(t_minirt *env)
 void			parse_scene(t_minirt *env, const char *filepath)
 {
 	const char	*ids = "RAclspt";
-	char		*input;
-	char		*head;
+	char		*input = NULL;
+	char		*head = NULL;
 
 	input = read_scene_file(env, filepath);
 	if (!input)

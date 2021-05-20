@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/11 22:12:51 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:15:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 
 t_vec3		get_cylinder_normal(t_cyl *cylinder, t_vec3 hit_p)
 {
-	t_vec3	oc;
-	t_vec3	result;
+	t_vec3	oc, result;
 	double	dot_prod;
 
 	oc = sub_vec3(hit_p, cylinder->base1);

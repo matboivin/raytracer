@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2020/08/26 23:11:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:16:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 
 void		check_max_display(t_minirt *env)
 {
-	int		max_x;
-	int		max_y;
+	int		max_x, max_y;
 
 	mlx_get_screen_size(env->mlx_ptr, &max_x, &max_y);
 	if (env->res.size_x > max_x)

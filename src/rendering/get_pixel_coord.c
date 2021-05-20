@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:20:10 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:18:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 t_vec3		get_pixel_coord(double fov, t_res res, int x, int y)
 {
 	t_vec3	result;
-	double	scale;
-	double	pixel_x;
-	double	pixel_y;
-	double	aspect_ratio;
+	double	pixel_x, pixel_y;
+	double	scale, aspect_ratio;
 
 	aspect_ratio = (double)res.size_x / (double)res.size_y;
 	scale = tan(degrees_to_radians(fov * HALF_DIV));

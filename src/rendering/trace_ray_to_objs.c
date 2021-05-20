@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:22:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:26:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 t_obj		*trace_ray_to_objs(t_obj *objs, t_ray *ray)
 {
 	t_obj	*cursor;
-	t_obj	*nearest_obj;
-	double	t;
+	t_obj	*nearest_obj = NULL;
+	double	t = INFINITY;
 
-	t = INFINITY;
-	nearest_obj = NULL;
 	cursor = objs;
 	while (cursor)
 	{
