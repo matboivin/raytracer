@@ -6,16 +6,16 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:15:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/06/07 17:33:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include "libft_mem.h"
-#include "libft_printf.h"
 #include "minirt.h"
 
 /*
@@ -111,10 +111,10 @@ static void	write_bmpdata(t_minirt *env, int fd)
 			x++;
 		}
 		progress = ft_percent((env->res.size_y - y), env->res.size_y);
-		ft_printf("\rSaving rendered image in BMP format... %d%%", progress);
+		printf("\rSaving rendered image in BMP format... %d%%", progress);
 		y--;
 	}
-	ft_printf("\nImage saved as 'minirt.bmp' in working dir.\n");
+	printf("\nImage saved as 'minirt.bmp' in working dir.\n");
 }
 
 /*

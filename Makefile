@@ -16,7 +16,7 @@ LIBS		=	ft minimath mlx_Linux m Xext X11
 LIB_DIR		=	lib/libft lib/minimath
 MLX_DIR		=	lib/minilibx-linux
 
-INC_DIR		=	includes
+INC_DIR		=	include
 SRC_DIR		=	src
 OBJ_DIR		=	obj
 

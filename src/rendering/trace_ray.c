@@ -6,12 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:15:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/06/07 17:32:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "libft_printf.h"
+#include <stdio.h>
 #include "minirt.h"
 
 static void	set_secondary_ray(t_obj *hit_obj, t_ray *ray)
@@ -153,7 +153,7 @@ void		trace_ray(t_minirt *env, t_camera *cam, t_image *img)
 		}
 		y++;
 		progress = ft_percent(y, env->res.size_y);
-		ft_printf("\rRendering image... %d%%", progress);
+		printf("\rRendering image... %d%%", progress);
 	}
-	ft_printf("\n");
+	printf("\n");
 }

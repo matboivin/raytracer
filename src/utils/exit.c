@@ -6,11 +6,12 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:47:58 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:05:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/06/07 17:34:20 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include <stdio.h>
+#include <unistd.h>
 #include "minirt.h"
 
 /*
@@ -19,7 +20,7 @@
 
 void	print_error(char *err_msg)
 {
-	ft_dprintf(STDERR_FILENO, "Error\n%s\n", err_msg);
+	dprintf(STDERR_FILENO, "Error\n%s\n", err_msg);
 	exit(EXIT_FAILURE);
 }
 
@@ -30,7 +31,7 @@ void	print_error(char *err_msg)
 int		exit_success(t_minirt *env)
 {
 	quit_minirt(env);
-	ft_printf("EXIT\n");
+	printf("EXIT\n");
 	exit(EXIT_SUCCESS);
 	return (0);
 }

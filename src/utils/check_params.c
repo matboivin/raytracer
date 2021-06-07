@@ -6,12 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:17:52 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:04:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/06/07 17:34:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <unistd.h>
 #include "libft_str.h"
-#include "libft_printf.h"
 #include "minirt.h"
 
 static void	check_filename(const char *filepath)
@@ -28,7 +29,7 @@ static void	check_filename(const char *filepath)
 
 static void	print_usage(void)
 {
-	ft_dprintf(
+	dprintf(
 		STDERR_FILENO,
 		"Usage: ./miniRT <scene.rt> [--save]\n\n\
 		\roptional arguments:\n  --save  save rendered image to bmp format\n");
