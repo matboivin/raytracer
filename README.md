@@ -3,7 +3,7 @@
 `miniRT` is an individual school project at [42 Paris](https://www.42.fr) campus.
 
 42 is a private, non-profit and tuition-free Computer Science school based on peer-to-peer learning and hands-on projects.  
-All programs written in C follow [42 style guideline](https://github.com/42Paris/norminette).
+All programs written in C follow 42 style guideline.
 
 > This project is an introduction to the beautiful world of Ray tracing. Once completed you will be able to render simple Computer-Generated-Images and you will never be afraid of implementing mathematical formulas again.  
 The goal of your program is to generate images using the Raytracing protocol. Those computer generated images will each represent a scene, as seen from a specific angle and position, defined by simple geometric objects, and each with its own lighting system.
@@ -75,10 +75,7 @@ $ ./miniRT scenes/scene.rt
 
 ### License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>
-
-This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
+See `LICENSE` for more information.
 
 ### Acknowledgements
 
