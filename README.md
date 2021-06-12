@@ -21,11 +21,12 @@ Don't copy. Learn.
 
 I gathered all the resources that were helpful in the `doc` directory. You can check it out but don't copy and paste code without understanding how it works.
 
-### Prerequisites
+## Requirements
 
 This program was developed on Debian Linux. It runs on Debian and Ubuntu.
 
-- GNU make and a C compiler
+- make
+- gcc
 - libxext-dev and libbsd-dev packages (see `install` rule in Makefile)
 
 ### Dependencies
@@ -34,19 +35,19 @@ This program was developed on Debian Linux. It runs on Debian and Ubuntu.
 - [libft](https://github.com/matboivin/libft)
 - [minimath](https://github.com/matboivin/minimath)
 
-### Installing
+## Installation
 
-Clone the repository and its dependencies:
+1. Clone the repository and its dependencies:
 ```console
 $ git clone --recursive https://github.com/matboivin/miniRT
 ```
 
-Change it to your working directory and run:
+2. Change it to your working directory and run:
 ```console
 $ make install && make
 ```
 
-### Usage
+## Usage
 
 This program takes as a first argument a [scene description file](doc/scene_file.md) ending with the `.rt` extension. Example files are provided in the [scenes](scenes) directory.
 
@@ -56,8 +57,6 @@ $ ./miniRT <scene.rt> [--save]
 optional arguments:
   --save  save the rendered image in bmp format
 ```
-
-### Common tasks
 
 * Press `ESC` key to exit the program.
 * Press space bar to switch view point in case of several cameras.
@@ -73,12 +72,12 @@ $ ./miniRT scenes/scene.rt
   <img src="assets/preview.png" alt="example 2" width="680" />
 </p>
 
-### License
-
-See `LICENSE` for more information.
-
-### Acknowledgements
+## Acknowledgements
 
 School project done at [42 Paris](https://www.42.fr).
 
 Many thanks to [0auBSQ](https://github.com/0auBSQ) for contributing!
+
+## License
+
+See `LICENSE` for more information.
