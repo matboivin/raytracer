@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:16:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/06/22 20:31:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int				get_integer(t_minirt *env, char **input)
 {
-	int			result;
+	int			result = 0;
 
 	skip_blank(input);
 	if ((**input) == '-' || ft_isdigit(**input))
@@ -33,7 +33,7 @@ int				get_integer(t_minirt *env, char **input)
 
 double			get_double(t_minirt *env, char **input)
 {
-	double		result;
+	double		result = 0.0;
 	char		*endptr = NULL;
 
 	skip_blank(input);
@@ -49,7 +49,7 @@ double			get_double(t_minirt *env, char **input)
 
 static int		get_rgb_val(t_minirt *env, char **input)
 {
-	int			result;
+	int			result = 0;
 
 	if (!ft_isdigit(**input))
 		exit_error(env, "Invalid scene: Color badly formatted.");
