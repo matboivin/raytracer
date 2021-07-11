@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 16:08:20 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:01:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function computes coefficients for solving quadratic equation
 */
 
-t_vec3		get_quad_coef(t_vec3 dir, t_vec3 oc, double radius)
+t_vec3	get_quad_coef(t_vec3 dir, t_vec3 oc, double radius)
 {
 	t_vec3	result;
 

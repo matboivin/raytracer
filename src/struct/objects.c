@@ -6,13 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:57:27 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:07:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:32:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_obj		*create_obj(void *shape_data, t_objid shape_id)
+t_obj	*create_obj(void *shape_data, t_obj_id shape_id)
 {
 	t_obj	*result = NULL;
 
@@ -25,7 +25,7 @@ t_obj		*create_obj(void *shape_data, t_objid shape_id)
 	return (result);
 }
 
-void		append_obj(t_obj **objs, t_obj *new_obj)
+void	append_obj(t_obj **objs, t_obj *new_obj)
 {
 	t_obj	*cursor = NULL;
 
@@ -42,7 +42,7 @@ void		append_obj(t_obj **objs, t_obj *new_obj)
 		*objs = new_obj;
 }
 
-void		delete_objs(t_obj **objs)
+void	delete_objs(t_obj **objs)
 {
 	t_obj	*cursor = NULL;
 	t_obj	*next_node = NULL;

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2021/06/07 17:33:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:28:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** This function fills the file header structure
 */
 
-static void	create_bmpfileheader(t_bmp_h *header, int size)
+static void	create_bmp_fileheader(t_bmp_h *header, int size)
 {
 	ft_bzero(header, sizeof(t_bmp_h));
 	header->bmp_type[0] = 'B';
@@ -37,9 +37,9 @@ static void	create_bmpfileheader(t_bmp_h *header, int size)
 ** This function fills the DIB header structure
 */
 
-static void	create_bmpdibheader(t_minirt *env, t_dib_h *header, int size)
+static void	create_bmp_dibheader(t_minirt *env, t_dib_h *header, int size)
 {
-	int		ppm;
+	int	ppm;
 
 	ppm = DEFAULT_DPI * PPM_CONV_FACTOR;
 	ft_bzero(header, sizeof(t_dib_h));
@@ -60,15 +60,15 @@ static void	create_bmpdibheader(t_minirt *env, t_dib_h *header, int size)
 ** This function writes headers to the file
 */
 
-static void	write_bmpheaders(t_minirt *env, int fd)
+static void	write_bmp_headers(t_minirt *env, int fd)
 {
 	t_bmp_h	file_header;
 	t_dib_h	dib_header;
 	int		size;
 
 	size = env->res.size_x * env->res.size_y * RGB_LEN;
-	create_bmpfileheader(&file_header, size);
-	create_bmpdibheader(env, &dib_header, size);
+	create_bmp_fileheader(&file_header, size);
+	create_bmp_dibheader(env, &dib_header, size);
 	write(fd, &(file_header.bmp_type), 2);
 	write(fd, &(file_header.file_size), 4);
 	write(fd, &(file_header.reserved1), 2);
@@ -91,12 +91,12 @@ static void	write_bmpheaders(t_minirt *env, int fd)
 ** This function writes pixels to the file
 */
 
-static void	write_bmpdata(t_minirt *env, int fd)
+static void	write_bmp_data(t_minirt *env, int fd)
 {
-	int		x, y;
-	int		*pixel = NULL;
-	int		i;
-	int		progress;
+	int	x, y;
+	int	*pixel = NULL;
+	int	i;
+	int	progress;
 
 	y = env->res.size_y - 1;
 	while (y > -1)
@@ -107,7 +107,7 @@ static void	write_bmpdata(t_minirt *env, int fd)
 			i = (x + env->res.size_x * y) * PIXEL_LEN;
 			pixel = (int *)(env->imgs->pixels + i);
 			if (write(fd, pixel, RGB_LEN) < 0)
-				exit_error(env, (char *)strerror(errno));
+				exit_error(env, strerror(errno));
 			x++;
 		}
 		progress = ft_percent((env->res.size_y - y), env->res.size_y);
@@ -121,15 +121,15 @@ static void	write_bmpdata(t_minirt *env, int fd)
 ** This function carries out file saving to BMP format
 */
 
-void		save_bmp(t_minirt *env, const char *filename)
+void	save_bmp(t_minirt *env, const char *pathname)
 {
-	int		fd = 0;
+	int	fd = -1;
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, FILE_PERMISSIONS);
-	if (!fd)
-		exit_error(env, (char *)strerror(errno));
-	write_bmpheaders(env, fd);
-	write_bmpdata(env, fd);
+	fd = open(pathname, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd == -1)
+		exit_error(env, strerror(errno));
+	write_bmp_headers(env, fd);
+	write_bmp_data(env, fd);
 	close(fd);
 	exit_success(env);
 }

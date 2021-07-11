@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 15:57:56 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:15:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:25:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function handles keyboard events
 */
 
-int				handle_key(int keycode, void *param)
+int	handle_key(int keycode, void *param)
 {
 	t_minirt	*env = NULL;
 

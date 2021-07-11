@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 00:58:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 13:43:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:29:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 ** Object identifiers
 */
 
-typedef enum		e_objid
+typedef enum	e_obj_id
 {
 	SPHERE,
 	PLANE,
 	SQUARE,
 	CYLINDER,
 	TRIANGLE
-}					t_objid;
+}				t_obj_id;
 
 /*
 ** Object list
@@ -36,7 +36,7 @@ typedef enum		e_objid
 
 typedef struct		s_obj
 {
-	t_objid			id;
+	t_obj_id		id;
 	void			*data;
 	struct s_obj	*next;
 }					t_obj;
@@ -49,12 +49,12 @@ typedef struct		s_obj
 ** vcolor: R,G,B colors in range [0.0,1.0]
 */
 
-typedef struct		s_sphere
+typedef struct	s_sphere
 {
-	t_vec3			center;
-	double			radius;
-	t_vcolor		vcolor;
-}					t_sphere;
+	t_vec3		center;
+	double		radius;
+	t_vcolor	vcolor;
+}				t_sphere;
 
 /*
 ** Plane
@@ -64,12 +64,12 @@ typedef struct		s_sphere
 ** vcolor: R,G,B colors in range [0.0,1.0]
 */
 
-typedef struct		s_plane
+typedef struct	s_plane
 {
-	t_vec3			center;
-	t_vec3			dir;
-	t_vcolor		vcolor;
-}					t_plane;
+	t_vec3		center;
+	t_vec3		dir;
+	t_vcolor	vcolor;
+}				t_plane;
 
 /*
 ** Square
@@ -80,13 +80,13 @@ typedef struct		s_plane
 ** vcolor: R,G,B colors in range [0.0,1.0]
 */
 
-typedef struct		s_square
+typedef struct	s_square
 {
-	t_vec3			center;
-	t_vec3			dir;
-	double			side;
-	t_vcolor		vcolor;
-}					t_square;
+	t_vec3		center;
+	t_vec3		dir;
+	double		side;
+	t_vcolor	vcolor;
+}				t_square;
 
 /*
 ** Cylinder
@@ -99,15 +99,15 @@ typedef struct		s_square
 ** vcolor: R,G,B colors in range [0.0,1.0]
 */
 
-typedef struct		s_cyl
+typedef struct	s_cyl
 {
-	t_vec3			base1;
-	t_vec3			base2;
-	t_vec3			dir;
-	double			radius;
-	double			height;
-	t_vcolor		vcolor;
-}					t_cyl;
+	t_vec3		base1;
+	t_vec3		base2;
+	t_vec3		dir;
+	double		radius;
+	double		height;
+	t_vcolor	vcolor;
+}				t_cyl;
 
 /*
 ** Cylinder
@@ -118,17 +118,17 @@ typedef struct		s_cyl
 ** vcolor: R,G,B colors in range [0.0,1.0]
 */
 
-typedef struct		s_tri
+typedef struct	s_tri
 {
-	t_vec3			vertex1;
-	t_vec3			vertex2;
-	t_vec3			vertex3;
-	t_vec3			normal;
-	t_vcolor		vcolor;
-}					t_tri;
+	t_vec3		vertex1;
+	t_vec3		vertex2;
+	t_vec3		vertex3;
+	t_vec3		normal;
+	t_vcolor	vcolor;
+}				t_tri;
 
-t_obj				*create_obj(void *shape_data, t_objid shape_id);
-void				append_obj(t_obj **objs, t_obj *new_obj);
-void				delete_objs(t_obj **objs);
+t_obj	*create_obj(void *shape_data, t_obj_id shape_id);
+void	append_obj(t_obj **objs, t_obj *new_obj);
+void	delete_objs(t_obj **objs);
 
 #endif

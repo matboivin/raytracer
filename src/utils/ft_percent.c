@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_sphere_normal.c                                :+:      :+:    :+:   */
+/*   ft_percent.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/22 21:56:30 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/13 00:42:48 by mboivin          ###   ########.fr       */
+/*   Created: 2020/09/30 14:44:43 by mboivin           #+#    #+#             */
+/*   Updated: 2021/07/11 16:01:39 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-/*
-** This function computes sphere normal at a point
-*/
-
-t_vec3		get_sphere_normal(t_sphere *sphere, t_vec3 hit_p)
+int	ft_percent(int x, int y)
 {
-	return (normalize_vec3(sub_vec3(hit_p, sphere->center)));
+	return ((x * 100) / y);
 }

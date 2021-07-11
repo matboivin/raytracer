@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:38:29 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:22:41 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 15:59:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@
 ** [Rz, Uz, Fz]
 */
 
-static void		check_collinear_vectors(t_vec3 cam_dir, t_vec3 *right,
-													 t_vec3 world_up)
+static void	check_collinear_vecs(t_vec3 cam_dir, t_vec3 *right, t_vec3 world_up)
 {
 	if (cam_dir.y == UNIT_VALUE)
 		*right = create_vec3(UNIT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
@@ -39,7 +38,7 @@ static t_mat3x3	create_worldtocam(t_vec3 cam_dir, t_vec3 world_up)
 	t_vec3		forward, up, right;
 
 	forward = cam_dir;
-	check_collinear_vectors(cam_dir, &right, world_up);
+	check_collinear_vecs(cam_dir, &right, world_up);
 	up = cross(forward, right);
 	result.c1 = create_vec3(right.x, right.y, right.z);
 	result.c2 = create_vec3(up.x, up.y, up.z);
@@ -65,9 +64,9 @@ static t_mat3x3	create_camtoworld(t_vec3 cam_dir, t_vec3 world_up)
 ** This function places the camera and sets Camera Space to World Space matrices
 */
 
-void			look_at(t_camera *cam)
+void	look_at(t_camera *cam)
 {
-	t_vec3		world_up;
+	t_vec3	world_up;
 
 	world_up = create_vec3(DEFAULT_VALUE, UNIT_VALUE, DEFAULT_VALUE);
 	cam->cam_to_world = create_camtoworld(cam->dir, world_up);

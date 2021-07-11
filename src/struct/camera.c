@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 16:29:07 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:06:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:27:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include <string.h>
 #include "minirt.h"
 
-t_camera		*malloc_cam(t_minirt *env)
+t_camera	*malloc_cam(t_minirt *env)
 {
 	t_camera	*result = NULL;
 
 	result = malloc(sizeof(t_camera));
 	if (!result)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	result->pos = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	result->dir = create_vec3(DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE);
 	result->fov = DEFAULT_VALUE;
@@ -29,7 +29,7 @@ t_camera		*malloc_cam(t_minirt *env)
 	return (result);
 }
 
-void			append_camera(t_camera **cams, t_camera *new_cam)
+void	append_camera(t_camera **cams, t_camera *new_cam)
 {
 	t_camera	*cursor = NULL;
 
@@ -46,7 +46,7 @@ void			append_camera(t_camera **cams, t_camera *new_cam)
 		*cams = new_cam;
 }
 
-void			delete_cameras(t_camera **cams)
+void	delete_cameras(t_camera **cams)
 {
 	t_camera	*cursor = NULL;
 	t_camera	*next_node = NULL;

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:22:28 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:00:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	is_inside_square(t_square *square, t_vec3 hit_p)
 		&& (fabs(dist.z) <= border));
 }
 
-bool		hit_square(t_square *square, t_ray *ray, double *t)
+bool	hit_square(t_square *square, t_ray *ray, double *t)
 {
 	t_vec3	hit_p;
 

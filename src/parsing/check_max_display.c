@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:16:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:01:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** This function handles render size if bigger than screen size
 */
 
-void		check_max_display(t_minirt *env)
+void	check_max_display(t_minirt *env)
 {
-	int		max_x, max_y;
+	int	max_x, max_y = 0;
 
 	mlx_get_screen_size(env->mlx_ptr, &max_x, &max_y);
 	if (env->res.size_x > max_x)

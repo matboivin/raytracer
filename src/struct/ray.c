@@ -6,13 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:48:03 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/09 00:20:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:27:47 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_ray		create_ray(t_vec3 p_origin, t_vec3 p_dir, double p_tnear)
+t_ray	create_ray(t_vec3 p_origin, t_vec3 p_dir, double p_tnear)
 {
 	t_ray	result;
 

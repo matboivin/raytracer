@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:21:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:00:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This function returns true if a ray intersects any object
 */
 
-bool		hit(t_obj *objs, t_ray *ray, double *t)
+bool	hit(t_obj *objs, t_ray *ray, double *t)
 {
 	bool	has_hit = false;
 

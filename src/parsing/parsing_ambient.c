@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:07:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:25:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** This function parses Ambient light
 */
 
-void		get_ambient(t_minirt *env, char **input)
+void	get_ambient(t_minirt *env, char **input)
 {
 	if (env->ambient.is_declared)
 		exit_error(env, "Invalid scene: Ambient light must be declared once.");

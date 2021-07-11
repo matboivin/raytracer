@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:43:30 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:22:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 15:59:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 ** We add defined values to index for each component
 */
 
-void		put_pixel_to_image(t_image *img, t_vcolor vcolor, int x, int y)
+void	put_pixel_to_image(t_image *img, t_vcolor vcolor, int x, int y)
 {
 	uint8_t	red, green, blue;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/06/22 20:31:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:26:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "libft_conv.h"
 #include "minirt.h"
 
-int				get_integer(t_minirt *env, char **input)
+int	get_integer(t_minirt *env, char **input)
 {
-	int			result = 0;
+	int	result = 0;
 
 	skip_blank(input);
 	if ((**input) == '-' || ft_isdigit(**input))
@@ -31,10 +31,10 @@ int				get_integer(t_minirt *env, char **input)
 	return (result);
 }
 
-double			get_double(t_minirt *env, char **input)
+double	get_double(t_minirt *env, char **input)
 {
-	double		result = 0.0;
-	char		*endptr = NULL;
+	double	result = 0.0;
+	char	*endptr = NULL;
 
 	skip_blank(input);
 	if ((**input) == '-' || ft_isdigit(**input))
@@ -47,9 +47,9 @@ double			get_double(t_minirt *env, char **input)
 	return (result);
 }
 
-static int		get_rgb_val(t_minirt *env, char **input)
+static int	get_rgb_val(t_minirt *env, char **input)
 {
-	int			result = 0;
+	int		result = 0;
 
 	if (!ft_isdigit(**input))
 		exit_error(env, "Invalid scene: Color badly formatted.");
@@ -63,7 +63,7 @@ static int		get_rgb_val(t_minirt *env, char **input)
 	return (result);
 }
 
-t_vcolor		get_color(t_minirt *env, char **input)
+t_vcolor	get_color(t_minirt *env, char **input)
 {
 	t_vcolor	result;
 
@@ -78,9 +78,9 @@ t_vcolor		get_color(t_minirt *env, char **input)
 	return (result);
 }
 
-t_vec3			get_vec3(t_minirt *env, char **input)
+t_vec3	get_vec3(t_minirt *env, char **input)
 {
-	t_vec3		result;
+	t_vec3	result;
 
 	skip_blank(input);
 	result.x = get_double(env, input);

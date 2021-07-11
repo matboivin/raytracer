@@ -21,9 +21,7 @@ SRC_DIR		=	src
 OBJ_DIR		=	obj
 
 SUB_DIRS	=	debug \
-				display \
 				event \
-				math_utils \
 				parsing \
 				rendering \
 				struct \

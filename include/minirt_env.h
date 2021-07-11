@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:21:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:23:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,42 +144,42 @@ typedef struct		s_minirt
 ** Global render settings
 */
 
-void				create_resolution(t_res *res);
-void				create_ambient(t_amb *ambient);
+void		create_resolution(t_res *res);
+void		create_ambient(t_amb *ambient);
 
 /*
 ** Camera
 */
 
-t_camera			*malloc_cam(t_minirt *env);
-void				append_camera(t_camera **cams, t_camera *new_cam);
-void				delete_cameras(t_camera **cams);
+t_camera	*malloc_cam(t_minirt *env);
+void		append_camera(t_camera **cams, t_camera *new_cam);
+void		delete_cameras(t_camera **cams);
 
 /*
 ** Point light
 */
 
-t_light				*malloc_light(t_minirt *en);
-void				append_light(t_light **lights, t_light *new_light);
-void				delete_lights(t_light **lights);
+t_light		*malloc_light(t_minirt *en);
+void		append_light(t_light **lights, t_light *new_light);
+void		delete_lights(t_light **lights);
 
 /*
 ** Image
 */
 
-t_image				create_image(t_minirt *env);
-t_image				*malloc_image(t_minirt *env);
-void				destroy_image(void *mlx_ptr, t_image to_destroy);
-void				free_image(void *mlx_ptr, t_image *to_free);
-void				append_image(t_image **imgs, t_image *new_img);
-void				delete_images(void *mlx_ptr, t_image **imgs);
-void				create_circular_img_list(t_image *imgs);
+t_image		create_image(t_minirt *env);
+t_image		*malloc_image(t_minirt *env);
+void		destroy_image(void *mlx_ptr, t_image to_destroy);
+void		free_image(void *mlx_ptr, t_image *to_free);
+void		append_image(t_image **imgs, t_image *new_img);
+void		delete_images(void *mlx_ptr, t_image **imgs);
+void		create_circular_img_list(t_image *imgs);
 
 /*
 ** miniRT controler
 */
 
-void				init_minirt(t_minirt *env, char *title);
-void				quit_minirt(t_minirt *env);
+void		init_minirt(t_minirt *env, char *title);
+void		quit_minirt(t_minirt *env);
 
 #endif

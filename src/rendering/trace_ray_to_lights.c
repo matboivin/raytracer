@@ -6,22 +6,22 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:24:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 15:58:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void		add_light(t_vcolor *output, t_vcolor light_color, double ratio)
+static void	add_light(t_vcolor *output, t_vcolor light_color, double ratio)
 {
 	*output = add_vec3(*output, scale_vec3(ratio, light_color));
 }
 
-static bool		is_in_shadow(t_obj *objs, t_ray *ray, t_vec3 light_dir)
+static bool	is_in_shadow(t_obj *objs, t_ray *ray, t_vec3 light_dir)
 {
-	t_obj		*cursor = NULL;
-	t_ray		shadow_ray;
-	double		t;
+	t_obj	*cursor = NULL;
+	t_ray	shadow_ray;
+	double	t;
 
 	t = norm_vec3(light_dir);
 	shadow_ray = create_ray(ray->hit_p, normalize_vec3(light_dir), t);
@@ -38,12 +38,12 @@ static bool		is_in_shadow(t_obj *objs, t_ray *ray, t_vec3 light_dir)
 	return (false);
 }
 
-static void		compute_lighting(t_obj *objs, t_light *light, t_ray *ray,
+static void	compute_lighting(t_obj *objs, t_light *light, t_ray *ray,
 													 t_vcolor *ray_color)
 {
-	t_vec3		light_dir;
-	double		angle;
-	double		coef, spec_coef;
+	t_vec3	light_dir;
+	double	angle;
+	double	coef, spec_coef;
 
 	light_dir = sub_vec3(light->pos, ray->hit_p);
 	angle = dot_vec3(ray->normal, normalize_vec3(light_dir));
@@ -58,7 +58,7 @@ static void		compute_lighting(t_obj *objs, t_light *light, t_ray *ray,
 	}
 }
 
-void			trace_ray_to_lights(t_minirt *env, t_ray *ray)
+void	trace_ray_to_lights(t_minirt *env, t_ray *ray)
 {
 	t_light		*cursor = NULL;
 	t_vcolor	ray_color;

@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:21:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:00:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "minirt.h"
 
-bool		hit_sphere(t_sphere *sphere, t_ray *ray, double *t)
+bool	hit_sphere(t_sphere *sphere, t_ray *ray, double *t)
 {
 	t_vec3	quad_coef;
 	t_vec3	oc;

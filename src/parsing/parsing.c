@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:17:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:26:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static t_parsers	g_parsers[] =
 ** This function calls the appropriate function to parse a line
 */
 
-static void		handle_scene_elem(t_minirt *env, char **input)
+static void	handle_scene_elem(t_minirt *env, char **input)
 {
-	int			i = 0;
+	int	i = 0;
 
 	while (i < MAX_PARS_FUNC)
 	{
@@ -59,21 +59,21 @@ static void		handle_scene_elem(t_minirt *env, char **input)
 ** This function gets the entire scene description
 */
 
-static char		*read_scene_file(t_minirt *env, const char *filepath)
+static char	*read_scene_file(t_minirt *env, const char *filepath)
 {
-	char		*result = NULL;
-	char		buffer[BUFFER_SIZE + 1];
-	int			fd, bytes_read;
+	char	*result = NULL;
+	char	buffer[BUFFER_SIZE + 1];
+	int		fd, bytes_read;
 
 	fd = open(filepath, O_RDONLY | O_NOFOLLOW);
 	if (!fd)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[bytes_read] = '\0';
 		result = ft_strjoindelone(result, buffer);
 		if (!result)
-			exit_error(env, (char *)strerror(errno));
+			exit_error(env, strerror(errno));
 	}
 	close(fd);
 	return (result);
@@ -83,7 +83,7 @@ static char		*read_scene_file(t_minirt *env, const char *filepath)
 ** This function checks whether the scene description is valid
 */
 
-static void		check_scene(t_minirt *env)
+static void	check_scene(t_minirt *env)
 {
 	if (!env->res.is_declared)
 		exit_error(env, "No resolution declared. Rendering stopped.");
@@ -101,15 +101,15 @@ static void		check_scene(t_minirt *env)
 ** This function iterates over the input to call functions
 */
 
-void			parse_scene(t_minirt *env, const char *filepath)
+void	parse_scene(t_minirt *env, const char *filename)
 {
 	const char	*ids = "RAclspt";
 	char		*input = NULL;
 	char		*head = NULL;
 
-	input = read_scene_file(env, filepath);
+	input = read_scene_file(env, filename);
 	if (!input)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	head = input;
 	while (*input)
 	{

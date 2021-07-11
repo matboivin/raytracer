@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:26:32 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 15:58:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "minirt.h"
 
-t_obj		*trace_ray_to_objs(t_obj *objs, t_ray *ray)
+t_obj	*trace_ray_to_objs(t_obj *objs, t_ray *ray)
 {
 	t_obj	*cursor;
 	t_obj	*nearest_obj = NULL;

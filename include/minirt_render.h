@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:25 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 13:50:38 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:31:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_RENDER_H
 # define MINIRT_RENDER_H
 
-void		render(t_minirt *env, bool to_bmp);
+void		render(t_minirt *env, bool save_to_bmp);
 
 /*
 ** Set ray
@@ -42,8 +42,16 @@ t_vec3		get_quad_coef(t_vec3 dir, t_vec3 oc, double radius);
 bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef);
 t_vec3		get_hit_point(t_vec3 origin, double t, t_vec3 dir);
 void		get_obj_color(t_obj *hit_obj, t_ray *ray);
-double		get_specular(
-	t_ray *ray, t_light *light, t_vec3 light_dir, double angle);
+double		get_specular(t_ray *ray, t_light *light, t_vec3 light_dir, double angle);
+
+/*
+** Get normal
+*/
+
+void		get_obj_normal(t_obj *hit_obj, t_ray *ray, t_vec3 hit_p);
+t_vec3		get_sphere_normal(t_sphere *sphere, t_vec3 hit_p);
+t_vec3		get_triangle_normal(t_tri *tri);
+t_vec3		get_cylinder_normal(t_cyl *cylinder, t_vec3 hit_p);
 
 /*
 ** Put pixel to image

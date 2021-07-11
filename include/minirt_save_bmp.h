@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_save.h                                      :+:      :+:    :+:   */
+/*   minirt_save_bmp.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:47:22 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/09 17:38:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:20:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_SAVE_H
-# define MINIRT_SAVE_H
+#ifndef MINIRT_SAVE_BMP_H
+# define MINIRT_SAVE_BMP_H
 
 # define BMP_FILENAME "minirt.bmp"
 # define RGB_LEN 3
@@ -21,7 +21,6 @@
 # define HEADER_BYTES 54
 # define DEFAULT_BIPLANES 1
 # define UNUSED 0
-# define FILE_PERMISSIONS 0644
 
 /*
 ** Bitmap file header
@@ -74,6 +73,6 @@ typedef struct	s_dib_h
 	uint32_t	clr_important;
 }				t_dib_h;
 
-void			save_bmp(t_minirt *env, const char *filename);
+void	save_bmp(t_minirt *env, const char *pathname);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:12:14 by mboivin           #+#    #+#             */
-/*   Updated: 2021/04/15 18:55:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:26:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 ** These functions parse objects
 */
 
-void			get_sphere(t_minirt *env, char **input)
+void	get_sphere(t_minirt *env, char **input)
 {
 	t_sphere	*result = NULL;
 
 	result = malloc(sizeof(t_sphere));
 	if (!result)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->radius = get_double(env, input) * HALF_DIV;
@@ -33,13 +33,13 @@ void			get_sphere(t_minirt *env, char **input)
 	skip_blank(input);
 }
 
-void			get_plane(t_minirt *env, char **input)
+void	get_plane(t_minirt *env, char **input)
 {
-	t_plane		*result = NULL;
+	t_plane	*result = NULL;
 
 	result = malloc(sizeof(t_plane));
 	if (!result)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
@@ -54,13 +54,13 @@ void			get_plane(t_minirt *env, char **input)
 	skip_blank(input);
 }
 
-void			get_square(t_minirt *env, char **input)
+void	get_square(t_minirt *env, char **input)
 {
 	t_square	*result = NULL;
 
 	result = malloc(sizeof(t_square));
 	if (!result)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->center = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
@@ -76,13 +76,13 @@ void			get_square(t_minirt *env, char **input)
 	skip_blank(input);
 }
 
-void			get_cylinder(t_minirt *env, char **input)
+void	get_cylinder(t_minirt *env, char **input)
 {
-	t_cyl		*result = NULL;
+	t_cyl	*result = NULL;
 
 	result = malloc(sizeof(t_cyl));
 	if (!result)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->base1 = get_vec3(env, input);
 	result->dir = get_vec3(env, input);
@@ -102,13 +102,13 @@ void			get_cylinder(t_minirt *env, char **input)
 	skip_blank(input);
 }
 
-void			get_triangle(t_minirt *env, char **input)
+void	get_triangle(t_minirt *env, char **input)
 {
-	t_tri		*result = NULL;
+	t_tri	*result = NULL;
 
 	result = malloc(sizeof(t_tri));
 	if (!result)
-		exit_error(env, (char *)strerror(errno));
+		exit_error(env, strerror(errno));
 	(*input) += ID_OBJ_LEN;
 	result->vertex1 = get_vec3(env, input);
 	result->vertex2 = get_vec3(env, input);

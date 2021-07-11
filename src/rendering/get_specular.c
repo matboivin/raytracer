@@ -6,15 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:21:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:00:56 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "minirt.h"
 
-double		get_specular(t_ray *ray, t_light *light, t_vec3 light_dir,
-														 double angle)
+double	get_specular(t_ray *ray, t_light *light, t_vec3 light_dir, double angle)
 {
 	t_vec3	rev_dir, reflect;
 	double	coef = DEFAULT_VALUE;

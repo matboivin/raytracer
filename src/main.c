@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:16:21 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/07 23:12:47 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:31:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@
 ** Run a loop to listen to events
 */
 
-int				main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_minirt	env;
-	bool		to_bmp;
+	bool		save_to_bmp;
 
-	to_bmp = false;
-	check_params(argc, argv, &to_bmp);
+	save_to_bmp = false;
+	check_params(argc, argv, &save_to_bmp);
 	init_minirt(&env, WIN_TITLE);
 	parse_scene(&env, argv[1]);
-	render(&env, to_bmp);
+	render(&env, save_to_bmp);
 	display_render(&env);
 	return (run_loop(&env));
 }

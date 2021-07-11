@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:22:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:00:33 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "minirt.h"
 
-bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
+bool	hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 {
 	double	denom;
 	t_vec3	p;
@@ -28,7 +28,7 @@ bool		hit_obj_plane(t_vec3 pos, t_vec3 dir, t_ray *ray, double *t)
 	return (false);
 }
 
-bool		hit_plane(t_plane *plane, t_ray *ray, double *t)
+bool	hit_plane(t_plane *plane, t_ray *ray, double *t)
 {
 	return (hit_obj_plane(plane->center, plane->dir, ray, t));
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:01:06 by mboivin           #+#    #+#             */
-/*   Updated: 2021/03/29 19:07:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:25:44 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** This function parses camera information
 */
 
-static void		parse_camera(t_minirt *env, char **input, t_camera *cam)
+static void	parse_camera(t_minirt *env, char **input, t_camera *cam)
 {
 	cam->pos = get_vec3(env, input);
 	cam->dir = get_vec3(env, input);
@@ -38,9 +38,9 @@ static void		parse_camera(t_minirt *env, char **input, t_camera *cam)
 ** This function adds camera to env
 */
 
-void			get_camera(t_minirt *env, char **input)
+void	get_camera(t_minirt *env, char **input)
 {
-	t_camera	*new_cam;
+	t_camera	*new_cam = NULL;
 
 	(*input) += ID_LEN;
 	new_cam = malloc_cam(env);

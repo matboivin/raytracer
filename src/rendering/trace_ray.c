@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/06/07 17:32:58 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 15:59:14 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	set_secondary_ray(t_obj *hit_obj, t_ray *ray)
 
 static void	shade(t_minirt *env, t_ray *ray)
 {
-	t_obj	*hit_obj;
+	t_obj	*hit_obj = NULL;
 
 	hit_obj = trace_ray_to_objs(env->objs, ray);
 	if (hit_obj)
@@ -128,7 +128,7 @@ t_vec3		shade_ray(t_minirt *env, t_ray ray, int layer, int refr_layer, int side)
 ** retrieves the ray color to put it in the image.
 */
 
-void		trace_ray(t_minirt *env, t_camera *cam, t_image *img)
+void	trace_ray(t_minirt *env, t_camera *cam, t_image *img)
 {
 	t_ray	ray;
 	int		x;

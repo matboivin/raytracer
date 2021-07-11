@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/05/20 15:18:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:01:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** This function converts pixel to World coordinates
 */
 
-t_vec3		get_pixel_coord(double fov, t_res res, int x, int y)
+t_vec3	get_pixel_coord(double fov, t_res res, int x, int y)
 {
 	t_vec3	result;
 	double	pixel_x, pixel_y;

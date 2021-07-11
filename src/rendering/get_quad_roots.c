@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:58:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 01:16:44 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:01:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** This function finds the roots using the quadratic formula
 */
 
-bool		get_quad_roots(double *root1, double *root2, t_vec3 quad_coef)
+bool	get_quad_roots(double *root1, double *root2, t_vec3 quad_coef)
 {
 	double	discr;
 

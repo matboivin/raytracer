@@ -6,14 +6,14 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:32:12 by mboivin           #+#    #+#             */
-/*   Updated: 2021/06/07 17:32:46 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/07/11 16:31:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "minirt.h"
 
-static void		render_n_images(t_minirt *env, uint32_t n)
+static void	render_n_images(t_minirt *env, uint32_t n)
 {
 	t_camera	*cursor = NULL;
 	t_image		*new_img = NULL;
@@ -31,9 +31,9 @@ static void		render_n_images(t_minirt *env, uint32_t n)
 	create_circular_img_list(env->imgs);
 }
 
-void			render(t_minirt *env, bool to_bmp)
+void	render(t_minirt *env, bool save_to_bmp)
 {
-	if (to_bmp)
+	if (save_to_bmp)
 	{
 		render_n_images(env, 1);
 		save_bmp(env, BMP_FILENAME);
